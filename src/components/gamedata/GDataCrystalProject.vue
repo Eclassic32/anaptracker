@@ -1,56 +1,61 @@
 <template>
     <div>
-        <img title="Job - Warrior" src="/img/crystal_project/classes/warrior.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Warrior')  }" />
-        <img src="/img/crystal_project/classes/monk.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Monk')  }" />
-        <img src="/img/crystal_project/classes/rogue.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Rogue')  }" />
-        <img src="/img/crystal_project/classes/warlock.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Warlock')  }" />
-        <img src="/img/crystal_project/classes/cleric.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Cleric')  }" />
-        <img src="/img/crystal_project/classes/wizard.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Wizard')  }" />
-        <img src="/img/crystal_project/classes/fencer.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Fencer')  }" />
-        <img src="/img/crystal_project/classes/shaman.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Shaman')  }" />
-        <img src="/img/crystal_project/classes/scholar.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Scholar')  }" />
-        <img src="/img/crystal_project/classes/aegis.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Aegis')  }" />
-        <img src="/img/crystal_project/classes/hunter.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Hunter')  }" />
-        <img src="/img/crystal_project/classes/chemist.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Chemist')  }" />
-        <img src="/img/crystal_project/classes/reaper.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Reaper')  }" />
-        <img src="/img/crystal_project/classes/ninja.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Ninja')  }" />
-        <img src="/img/crystal_project/classes/nomad.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Nomad')  }" />
-        <img src="/img/crystal_project/classes/dervish.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Dervish')  }" />
-        <img src="/img/crystal_project/classes/beatsmith.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Beatsmith')  }" />
-        <img src="/img/crystal_project/classes/samurai.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Samurai')  }" />
-        <img src="/img/crystal_project/classes/assassin.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Assassin')  }" />
-        <img src="/img/crystal_project/classes/valkyrie.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Valkyrie')  }" />
-        <img src="/img/crystal_project/classes/summoner.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Summoner')  }" />
-        <img src="/img/crystal_project/classes/weaver.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Weaver')  }" />
-        <img src="/img/crystal_project/classes/beastmaster.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Beastmaster')  }" />
-        <img src="/img/crystal_project/classes/mimic.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Mimic')  }" />
+        <div class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 my-1 bg-opacity-25">
+            <img title="Job - Warrior" src="/img/crystal_project/classes/warrior.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Warrior')  }" />
+            <img src="/img/crystal_project/classes/monk.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Monk')  }" />
+            <img src="/img/crystal_project/classes/rogue.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Rogue')  }" />
+            <img src="/img/crystal_project/classes/warlock.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Warlock')  }" />
+            <img src="/img/crystal_project/classes/cleric.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Cleric')  }" />
+            <img src="/img/crystal_project/classes/wizard.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Wizard')  }" />
+            <img src="/img/crystal_project/classes/fencer.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Fencer')  }" />
+            <img src="/img/crystal_project/classes/shaman.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Shaman')  }" />
+            <img src="/img/crystal_project/classes/scholar.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Scholar')  }" />
+            <img src="/img/crystal_project/classes/aegis.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Aegis')  }" />
+            <img src="/img/crystal_project/classes/hunter.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Hunter')  }" />
+            <img src="/img/crystal_project/classes/chemist.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Chemist')  }" />
+            <img src="/img/crystal_project/classes/reaper.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Reaper')  }" />
+            <img src="/img/crystal_project/classes/ninja.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Ninja')  }" />
+            <img src="/img/crystal_project/classes/nomad.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Nomad')  }" />
+            <img src="/img/crystal_project/classes/dervish.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Dervish')  }" />
+            <img src="/img/crystal_project/classes/beatsmith.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Beatsmith')  }" />
+            <img src="/img/crystal_project/classes/samurai.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Samurai')  }" />
+            <img src="/img/crystal_project/classes/assassin.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Assassin')  }" />
+            <img src="/img/crystal_project/classes/valkyrie.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Valkyrie')  }" />
+            <img src="/img/crystal_project/classes/summoner.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Summoner')  }" />
+            <img src="/img/crystal_project/classes/weaver.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Weaver')  }" />
+            <img src="/img/crystal_project/classes/beastmaster.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Beastmaster')  }" />
+            <img src="/img/crystal_project/classes/mimic.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Mimic')  }" />
+        </div>
 
-        |
+        <div class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 my-1 bg-opacity-25">
 
-        <img v-if="getNumberItemsFromName('Item - Progressive Mount Instrusment') > 6" src="/img/crystal_project/keys/quintar ocarina.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-        <img v-else-if="getNumberItemsFromName('Item - Progressive Mount Instrusment') > 1" src="/img/crystal_project/keys/quintar flute.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-        <img v-else-if="getNumberItemsFromName('Item - Progressive Mount Instrusment') > 0" src="/img/crystal_project/keys/proof of merit.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-        <img v-else-if="getNumberItemsFromName('Item - Progressive Quintar Flute') > 2" src="/img/crystal_project/keys/quintar ocarina.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-        <img v-else-if="getNumberItemsFromName('Item - Progressive Quintar Flute') > 1" src="/img/crystal_project/keys/quintar flute.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-        <img v-else src="/img/crystal_project/keys/proof of merit.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Item - Progressive Quintar Flute')  }" />
+            <img v-if="getNumberItemsFromName('Item - Progressive Mount Instrusment') > 6" src="/img/crystal_project/keys/quintar ocarina.png" class="inline-block mr-1 w-[16px] h-[16px]" />
+            <img v-else-if="getNumberItemsFromName('Item - Progressive Mount Instrusment') > 1" src="/img/crystal_project/keys/quintar flute.png" class="inline-block mr-1 w-[16px] h-[16px]" />
+            <img v-else-if="getNumberItemsFromName('Item - Progressive Mount Instrusment') > 0" src="/img/crystal_project/keys/proof of merit.png" class="inline-block mr-1 w-[16px] h-[16px]" />
+            <img v-else-if="getNumberItemsFromName('Item - Progressive Quintar Flute') > 2" src="/img/crystal_project/keys/quintar ocarina.png" class="inline-block mr-1 w-[16px] h-[16px]" />
+            <img v-else-if="getNumberItemsFromName('Item - Progressive Quintar Flute') > 1" src="/img/crystal_project/keys/quintar flute.png" class="inline-block mr-1 w-[16px] h-[16px]" />
+            <img v-else src="/img/crystal_project/keys/proof of merit.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Item - Progressive Quintar Flute')  }" />
 
-        <img v-if="getNumberItemsFromName('Item - Progressive Mount Instrusment') > 2" src="/img/crystal_project/keys/ibek bell.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-        <img v-else src="/img/crystal_project/keys/ibek bell.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Item - Ibek Bell')  }" />
+            <img v-if="getNumberItemsFromName('Item - Progressive Mount Instrusment') > 2" src="/img/crystal_project/keys/ibek bell.png" class="inline-block mr-1 w-[16px] h-[16px]" />
+            <img v-else src="/img/crystal_project/keys/ibek bell.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Item - Ibek Bell')  }" />
 
-        <img v-if="getNumberItemsFromName('Item - Progressive Mount Instrusment') > 3" src="/img/crystal_project/keys/owl drum.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-        <img v-else src="/img/crystal_project/keys/owl drum.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Item - Owl Drum')  }" />
+            <img v-if="getNumberItemsFromName('Item - Progressive Mount Instrusment') > 3" src="/img/crystal_project/keys/owl drum.png" class="inline-block mr-1 w-[16px] h-[16px]" />
+            <img v-else src="/img/crystal_project/keys/owl drum.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Item - Owl Drum')  }" />
 
-        <img v-if="getNumberItemsFromName('Item - Progressive Mount Instrusment') > 5" src="/img/crystal_project/keys/salmon cello.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-        <img v-else-if="getNumberItemsFromName('Item - Progressive Mount Instrusment') > 4" src="/img/crystal_project/keys/salmon violin.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-        <img v-else-if="getNumberItemsFromName('Item - Progressive Salmon Violin') > 1" src="/img/crystal_project/keys/salmon cello.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-        <img v-else src="/img/crystal_project/keys/salmon violin.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Item - Progressive Salmon Violin')  }" />
+            <img v-if="getNumberItemsFromName('Item - Progressive Mount Instrusment') > 5" src="/img/crystal_project/keys/salmon cello.png" class="inline-block mr-1 w-[16px] h-[16px]" />
+            <img v-else-if="getNumberItemsFromName('Item - Progressive Mount Instrusment') > 4" src="/img/crystal_project/keys/salmon violin.png" class="inline-block mr-1 w-[16px] h-[16px]" />
+            <img v-else-if="getNumberItemsFromName('Item - Progressive Salmon Violin') > 1" src="/img/crystal_project/keys/salmon cello.png" class="inline-block mr-1 w-[16px] h-[16px]" />
+            <img v-else src="/img/crystal_project/keys/salmon violin.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Item - Progressive Salmon Violin')  }" />
 
 
-        |
-        <img src="/img/crystal_project/keys/skeleton key.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Item - Skeleton Key')  }" />
+        </div>
 
-        <span class="mr-2 text-xs"><img src="/img/crystal_project/keys/map.png" class="inline-block w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromCategory('Pass')  }" />x{{ getNumberItemsFromCategory('Pass') }} </span>
+        <div class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 my-1 bg-opacity-25">
+            <img src="/img/crystal_project/keys/skeleton key.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Item - Skeleton Key')  }" />
 
+            <span class="mr-2 text-xs"><img src="/img/crystal_project/keys/map.png" class="inline-block w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromCategory('Pass')  }" />x{{ getNumberItemsFromCategory('Pass') }} </span>
+
+        </div>
     </div>
 </template>
     
