@@ -104,7 +104,7 @@ export default {
           return this.ROOM_DATA.players.length;
       },
       autoRefresh: function () {
-          var TRACKER_URL = this.ARCHIPELAGOGG_TRACKER_URL + this.ROOM_DATA.tracker;
+          var TRACKER_URL = this.ANAP_DATA.archipelagogg.tracker_url + this.ROOM_DATA.tracker;
 
           if (this.SLOT_DATA) {
               console.log(this.SLOT_DATA);
