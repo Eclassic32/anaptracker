@@ -1,0 +1,70 @@
+<template>
+    <div class="">
+        <div class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 my-1 bg-opacity-25">
+            <img src="/img/pokemon_emerald/items/stone_badge.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Stone Badge')  }" />
+            <img src="/img/pokemon_emerald/items/knuckle_badge.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Knuckle Badge')  }" />
+            <img src="/img/pokemon_emerald/items/dynamo_badge.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Dynamo Badge')  }" />
+            <img src="/img/pokemon_emerald/items/heat_badge.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Heat Badge')  }" />
+            <img src="/img/pokemon_emerald/items/balance_badge.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Balance Badge')  }" />
+            <img src="/img/pokemon_emerald/items/feather_badge.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Feather Badge')  }" />
+            <img src="/img/pokemon_emerald/items/mind_badge.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Mind Badge')  }" />
+            <img src="/img/pokemon_emerald/items/rain_badge.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Rain Badge')  }" />
+        </div>
+
+        <div class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 my-1 bg-opacity-25">
+            <img src="/img/pokemon_crystal/items/hm01.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('HM01 Cut')  }" />
+            <img src="/img/pokemon_crystal/items/hm02.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('HM02 Fly')  }" />
+            <img src="/img/pokemon_crystal/items/hm03.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('HM03 Surf')  }" />
+            <img src="/img/pokemon_crystal/items/hm04.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('HM04 Strength')  }" />
+            <img src="/img/pokemon_crystal/items/hm05.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('HM05 Flash')  }" />
+            <img src="/img/pokemon_crystal/items/hm06.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('HM06 Rock Smash')  }" />
+            <img src="/img/pokemon_crystal/items/hm07.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('HM07 Waterfall')  }" />
+            <img src="/img/pokemon_crystal/items/tm08.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('HM08 Dive')  }" />
+        </div>
+        <div class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 my-1 bg-opacity-25">
+            <img src="/img/pokemon_emerald/items/itemfinder.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Item Finder')  }" />
+            <img src="/img/pokemon_emerald/items/acro_bike.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Acro Bike')  }" />
+            <img src="/img/pokemon_emerald/items/mach_bike.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Mach Bike')  }" />
+        </div>
+    </div>
+</template>
+    
+<script>
+
+export default {
+  name: "gDataPokemonEmerald",
+        props: {
+            data: Object,
+            gamedata: Object,
+            index: Number,
+            checks_done: Number,
+            total_checks: Number,
+            player_name: String,
+            player_game: String
+  },
+  data: function () {
+    return {
+    };
+  },
+
+        methods: {
+            getNumberItemsFromName: function (name) {
+                var res = 0;
+                if (this.data && this.data.player_items_received && this.gamedata && this.gamedata.location_name_to_id) {
+
+                    var id = this.gamedata.item_name_to_id[name];
+                    //console.log(this.gamedata.item_name_to_id);
+                    //console.log(this.data.player_items_received);
+                    for (var x = 0; x < this.data.player_items_received[this.index].items.length; x++) {
+                        //console.log(this.data.player_items_received[this.index].items[x])
+                        if (this.data.player_items_received[this.index].items[x][0] == id)
+                            res++;
+                    }
+                }
+                return res;
+            }
+        },
+  components: {
+  },
+};
+</script>
