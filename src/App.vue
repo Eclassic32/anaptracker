@@ -7,15 +7,16 @@
                 <Navbar v-bind:data="TRACKER_DATA" v-bind:gamedata="DATA_PACKAGE" v-bind:static_data="STATIC_TRACKER_DATA" v-bind:room="ROOM_DATA"></Navbar>
             </div>
             <div>
-                <PlayerList v-bind:data="TRACKER_DATA" v-bind:gamedata="DATA_PACKAGE" v-bind:static_data="STATIC_TRACKER_DATA" v-bind:room="ROOM_DATA"></PlayerList>
+                <PlayerList v-if="validRoom()" v-bind:data="TRACKER_DATA" v-bind:gamedata="DATA_PACKAGE" v-bind:static_data="STATIC_TRACKER_DATA" v-bind:room="ROOM_DATA"></PlayerList>
+                <Home v-else></Home>
             </div>
-            {{ games_completed() }} / {{ total_games() }}
         </div>
     </div>
 </template>
 <script>
     import PlayerList from "./components/PlayerList.vue";
     import Navbar from './components/Navbar.vue';
+    import Home from './components/Home.vue';
 import H_CONFIG from "./hconfig.js";
     import axios from 'axios';
     import ANAP_DATA from "./anapdata.js";
@@ -87,22 +88,16 @@ export default {
     toggleRemoveOnCompleted: function () {
       this.removeOnCompleted = !this.removeOnCompleted;
       },
-    
+      validRoom: function () {
+
+          if (this.ROOM_ID && this.ROOM_DATA.players.length > 0)
+              return true;
+          return false;
+      },
     toggleMe: function () {
           //this.seeder.next_objective();
       }
       ,
-      games_completed: function () {
-          var res = 0;
-          for (var x = 0; x < this.TRACKER_DATA.player_status.length; x++) {
-              if (this.TRACKER_DATA.player_status[x].status >= 30)
-                  res++;
-          }
-          return res;
-      },
-      total_games: function () {
-          return this.ROOM_DATA.players.length;
-      },
       autoRefresh: function () {
           var TRACKER_URL = this.ANAP_DATA.archipelagogg.tracker_url + this.ROOM_DATA.tracker;
 
@@ -151,6 +146,8 @@ export default {
           }
       },
       startAutoRefresh() {
+          if (!this.validRoom())
+              return;
 
           var SLOT_URL = this.ANAP_DATA.archipelagogg.slot_url + this.ROOM_DATA.tracker;
           var STATIC_TRACKER_URL = this.ANAP_DATA.archipelagogg.static_tracker_url + this.ROOM_DATA.tracker;
@@ -187,6 +184,11 @@ export default {
               .then(response => (this.startAutoRefresh()));
           //window.history.replaceState(null, document.title, H_CONFIG.URL_WEBSITE + "/chap/" + this.HAMANIUM_DATA.active.active_chapter + "/" + this.HAMANIUM_DATA.active.active_page);
       },
+      loadRoom: function (roomid) {
+          this.ROOM_ID = roomid;
+          window.history.replaceState(null, document.title, H_CONFIG.URL_WEBSITE + '/' + roomid);
+          this.refresh();
+      },
       getRouteInfos: function () {
           var urltosec = H_CONFIG.URL_WEBSITE;
           console.log(this.$route);
@@ -205,6 +207,7 @@ export default {
   components: {
     PlayerList,
     Navbar,
+    Home
   },
         mounted: function () {
             var url = location.href;
