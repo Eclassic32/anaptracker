@@ -20,5 +20,5 @@
 @tailwind utilities;
 
 @theme {
-    --text-tiny: 0.7rem;
+    --text-tiny: 0.7em;
 }
