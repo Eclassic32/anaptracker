@@ -1,9 +1,9 @@
 <template>
-    <div v-if="displayable()" :style="{ 'background-color' : get_color() }" :class=" { 'py-2' : $parent.$parent.OPTIONS.row_size,  'text-sm py-2' : !$parent.$parent.OPTIONS.row_size  }" class="relative inline-block w-full tracker-history text-lg leading-5 font-semibold font-xl h-full px-2 border-t-2 border-t-gray-900"
+    <div v-if="displayable()" :class=" { 'bg-emerald-200' : get_status() == 30, 'py-2' : $parent.$parent.OPTIONS.row_size,  'text-sm py-2' : !$parent.$parent.OPTIONS.row_size  }" class="relative inline-block w-full tracker-history text-lg leading-5 font-semibold font-xl h-full px-2 border-t-2 border-t-gray-900"
           >
-        <div class="absolute left-0 top-0 bottom-0 z-1" :style="{ 'width' : str_percent_completion(), 'background-color' : '#44BB44' }"></div>
+        <div class="absolute left-0 top-0 bottom-0 z-1 bg-green-500" :style="{ 'width' : str_percent_completion() }"></div>
         <div class="z-2 flex flex-column justify-between">
-            <div class="w-1/4 z-3 text-dark dark:text-white"><span class="mr-2"><b>{{ player_name }}</b></span><br v-if="$parent.$parent.OPTIONS.row_size" /><span class="font-normal text-tiny">({{ player_game }})</span></div>
+            <div class="w-1/4 z-3 text-dark dark:text-white" :class="{ 'opacity-50' : get_status() == 0 }"><span class="mr-2"><b>{{ player_name }}</b></span><br v-if="$parent.$parent.OPTIONS.row_size" /><span class="font-normal text-tiny">({{ player_game }})</span></div>
             <div class="w-1/2 z-3 text-sm">
                 <div class="clear-both text-center">
                     <component :is="get_game_data_class()"
@@ -65,9 +65,24 @@ export default {
                 }
                 return null;
             },
+            get_status: function () {
+                // On reprend le statut du joueur ?
+                //
+                // 0 - Online
+                // 1 - Playing
+                // 5 - Offline
+                // 30 - Game Completed
+                var element = this.$parent.$parent.TRACKER_DATA;
+                if (element.player_status[this.index]) {
+                    if (element.player_status[this.index].status >= 30)
+                        return 30;
+                    return element.player_status[this.index].status;
+                }
+                return 0;
+            },
             get_color: function () {
                 var element = this.$parent.$parent.TRACKER_DATA;
-                if (element.player_status[this.index] && element.player_status[this.index].status >= 30) {
+                if (this.get_status() >= 30) {
                     return '#A0FFA0';
                 }
                 return '#818181';
