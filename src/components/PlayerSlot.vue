@@ -80,13 +80,6 @@ export default {
                 }
                 return 0;
             },
-            get_color: function () {
-                var element = this.$parent.$parent.TRACKER_DATA;
-                if (this.get_status() >= 30) {
-                    return '#A0FFA0';
-                }
-                return '#818181';
-            },
             get_current_checks: function () {
                 var element = this.$parent.$parent.TRACKER_DATA;
                 if (element.player_checks_done[this.index]) {

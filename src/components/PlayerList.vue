@@ -12,20 +12,21 @@
                         v-bind:data="data">
             </PlayerSlot>
         </div>
-        <div :style="{ 'background-color' : get_color() }" :class=" { 'py-2' : $parent.OPTIONS.row_size,  'text-sm py-2' : !$parent.OPTIONS.row_size  }" class="relative inline-block w-full tracker-history text-xl leading-5 font-semibold font-xl h-full px-2 border-t-2 border-t-gray-900">
-            <div class="absolute left-0 top-0 bottom-0 z-1" :style="{ 'width' : str_percent_completion(), 'background-color' : '#44BB44' }"></div>
+        <div :class=" { 'bg-emerald-200' : get_state() > 1, 'py-2' : $parent.OPTIONS.row_size,  'text-sm py-2' : !$parent.OPTIONS.row_size  }" class="relative inline-block w-full tracker-history text-xl leading-5 font-semibold font-xl h-full px-2 border-t-2 border-t-gray-900">
+            <div class="absolute left-0 top-0 bottom-0 z-1 bg-green-500" :style="{ 'width' : str_percent_completion() }"></div>
             <div class="z-2 flex flex-column justify-between">
                 <div class="w-1/4 z-3 text-dark dark:text-white text-lg">
 
-                <span v-if="get_state() > 1" class="mr-2"><b>DONE ! Congratulations !</b></span>
-                <span v-else class="mr-2"><b>Games completed : {{ games_completed() }} / {{ total_games() }}</b></span></div>
+                    <span v-if="get_state() > 1" class="mr-2"><b>DONE ! Congratulations !</b></span>
+                    <span v-else class="mr-2"><b>Games completed : {{ games_completed() }} / {{ total_games() }}</b></span>
+                </div>
                 <div class="w-1/2 z-3 text-sm">
                 </div>
 
                 <div class="w-1/4 z-3 text-right text-xl"><span v-if="!$parent.OPTIONS.row_size" class="font-normal text-tiny mr-2">({{ percent_completion() }}%)</span><b>{{ get_current_checks() }}</b> / {{ get_total_checks() }}<br /><span v-if="$parent.OPTIONS.row_size" class="font-normal text-tiny">({{ percent_completion() }}%)</span></div>
             </div>
         </div>
-        
+
     </div>
 </template>
 
@@ -74,12 +75,6 @@
             resetTracker: function () {
                 this.$parent.resetTracker();
             },
-            get_color: function () {
-                if (this.get_current_checks() == this.get_total_checks()) {
-                    return '#A0FFA0';
-                }
-                return '#818181';
-            },
             get_state: function () {
                 if (this.get_current_checks() == this.get_total_checks()) {
                     return 2;
@@ -112,7 +107,7 @@
             },
             str_percent_completion: function () {
                 var total_checks = this.get_total_checks();
-                if (total_checks > 0 && this.get_color() != '#A0FFA0')
+                if (total_checks > 0 && this.get_state() < 2)
                     return Math.floor(this.get_current_checks() * 100 / total_checks).toString() + '%';
                 return 0;
             }
