@@ -1,9 +1,9 @@
 <template>
-    <div v-if="displayable()" :style="{ 'background-color' : get_color() }" class="relative inline-block w-full tracker-history text-lg leading-5 font-semibold font-xl h-full p-2 border-t-2 border-t-gray-900"
+    <div v-if="displayable()" :style="{ 'background-color' : get_color() }" :class=" { 'py-2' : $parent.$parent.OPTIONS.row_size,  'text-sm py-2' : !$parent.$parent.OPTIONS.row_size  }" class="relative inline-block w-full tracker-history text-lg leading-5 font-semibold font-xl h-full px-2 border-t-2 border-t-gray-900"
           >
         <div class="absolute left-0 top-0 bottom-0 z-1" :style="{ 'width' : str_percent_completion(), 'background-color' : '#44BB44' }"></div>
         <div class="z-2 flex flex-column justify-between">
-            <div class="w-1/4 z-3 text-dark dark:text-white">{{ player_name }} <span class="font-normal text-xs">({{ player_game }})</span></div>
+            <div class="w-1/4 z-3 text-dark dark:text-white"><span class="mr-2"><b>{{ player_name }}</b></span><br v-if="$parent.$parent.OPTIONS.row_size" /><span class="font-normal text-tiny">({{ player_game }})</span></div>
             <div class="w-1/2 z-3 text-sm">
                 <div class="clear-both text-center">
                     <component :is="get_game_data_class()"
@@ -13,7 +13,7 @@
                 </div>
             </div>
             
-            <div class="w-1/4 z-3 text-right">{{ get_current_checks() }} / {{ get_total_checks() }}</div>
+            <div class="w-1/4 z-3 text-right"><span v-if="!$parent.$parent.OPTIONS.row_size" class="font-normal text-tiny mr-2">({{ percent_completion() }}%)</span><b>{{ get_current_checks() }}</b> / {{ get_total_checks() }}<br /><span v-if="$parent.$parent.OPTIONS.row_size" class="font-normal text-tiny">({{ percent_completion() }}%)</span></div>
         </div>
     </div>
 </template>
@@ -89,7 +89,7 @@ export default {
             percent_completion: function () {
                 var total_checks = this.get_total_checks();
                 if (total_checks > 0)
-                    return this.get_current_checks() * 100 / total_checks;
+                    return Math.round(this.get_current_checks() * 10000 / total_checks) / 100;
                 return 0;
             },
             str_percent_completion: function () {
