@@ -17,7 +17,7 @@
     import PlayerList from "./components/PlayerList.vue";
     import Navbar from './components/Navbar.vue';
     import Home from './components/Home.vue';
-import H_CONFIG from "./hconfig.js";
+    import H_CONFIG from "./hconfig.js";
     import axios from 'axios';
     import ANAP_DATA from "./anapdata.js";
     import LIST_OF_GAMES from "./listofgames.js";
@@ -163,27 +163,11 @@ export default {
       refresh: function () {
           var ROOM_URL = this.ANAP_DATA.archipelagogg.room_url + this.ROOM_ID;
 
-          /*
-          this.DATAPACKAGE = 
-
-              fetch(STATIC_URL)
-                  .then(function (response) {
-                      return response.json();
-                  })
-                  .then(function (myJson) {
-
-                      this.DATAPACKAGE = myJson
-                      console.log(this.DATAPACKAGE)
-                  });
-
-          */
-
           axios
               .get(ROOM_URL)
               .then(response => (this.ROOM_DATA = response.data))
               .then(response => (this.startAutoRefresh()));
-          //window.history.replaceState(null, document.title, H_CONFIG.URL_WEBSITE + "/chap/" + this.HAMANIUM_DATA.active.active_chapter + "/" + this.HAMANIUM_DATA.active.active_page);
-      },
+     },
       loadRoom: function (roomid) {
           this.ROOM_ID = roomid;
           window.history.replaceState(null, document.title, H_CONFIG.URL_WEBSITE + '/' + roomid);
