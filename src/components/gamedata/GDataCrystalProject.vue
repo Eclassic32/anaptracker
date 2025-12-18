@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 my-1 bg-opacity-25">
+        <div :class="{ 'my-1' : $parent.$parent.$parent.OPTIONS.row_size}" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <img title="Job - Warrior" src="/img/crystal_project/classes/warrior.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Warrior')  }" />
             <img src="/img/crystal_project/classes/monk.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Monk')  }" />
             <img src="/img/crystal_project/classes/rogue.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Rogue')  }" />
@@ -27,7 +27,7 @@
             <img src="/img/crystal_project/classes/mimic.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Mimic')  }" />
         </div>
 
-        <div class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 my-1 bg-opacity-25">
+        <div :class="{ 'my-1' : $parent.$parent.$parent.OPTIONS.row_size}" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
 
             <img v-if="getNumberItemsFromName('Item - Progressive Mount Instrusment') > 6" src="/img/crystal_project/keys/quintar ocarina.png" class="inline-block mr-1 w-[16px] h-[16px]" />
             <img v-else-if="getNumberItemsFromName('Item - Progressive Mount Instrusment') > 1" src="/img/crystal_project/keys/quintar flute.png" class="inline-block mr-1 w-[16px] h-[16px]" />
@@ -50,10 +50,10 @@
 
         </div>
 
-        <div class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 my-1 bg-opacity-25">
+        <div :class="{ 'my-1' : $parent.$parent.$parent.OPTIONS.row_size}" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <img src="/img/crystal_project/keys/skeleton key.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Item - Skeleton Key')  }" />
 
-            <span class="mr-2 text-xs"><img src="/img/crystal_project/keys/map.png" class="inline-block w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromCategory('Pass')  }" />x{{ getNumberItemsFromCategory('Pass') }} </span>
+            <span class="mr-2 text-xs" :class="{ 'opacity-25': !getNumberItemsFromCategory('Pass')  }" ><img src="/img/crystal_project/keys/map.png" class="inline-block w-[16px] h-[16px]" />x{{ getNumberItemsFromCategory('Pass') }} </span>
 
         </div>
     </div>

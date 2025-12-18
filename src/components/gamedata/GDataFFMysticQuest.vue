@@ -1,6 +1,14 @@
 <template>
     <div>
-        <div class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 my-1 bg-opacity-25">
+        <div :class="{ 'my-1' : $parent.$parent.$parent.OPTIONS.row_size}" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+            <img src="/img/ffmq/coins/coin_sand.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Sand Coin')  }" />
+            <img src="/img/ffmq/coins/coin_river.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('River Coin')  }" />
+            <img src="/img/ffmq/coins/coin_sun.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Sun Coin')  }" />
+            <span v-if="getNumberItemsFromName('Sky Fragment')" class="text-xs mr-1"><img src="/img/ffmq/coins/coin_sky_shard.png" class="inline-block w-[16px] h-[16px]" />x{{getNumberItemsFromName('Sky Fragment')}}</span>
+            <img v-else src="/img/ffmq/coins/coin_sky.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Sky Coin')  }" />
+        </div>
+
+        <div :class="{ 'my-1' : $parent.$parent.$parent.OPTIONS.row_size}" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <img v-if="getNumberItemsFromName('Progressive Sword') > 2" src="/img/ffmq/weapons/sword3.png" class="inline-block mr-1 w-[16px] h-[16px]" />
             <img v-else-if="getNumberItemsFromName('Progressive Sword') > 1" src="/img/ffmq/weapons/sword2.png" class="inline-block mr-1 w-[16px] h-[16px]" />
             <img v-else-if="getNumberItemsFromName('Progressive Sword') > 0" src="/img/ffmq/weapons/sword1.png" class="inline-block mr-1 w-[16px] h-[16px]" />
@@ -77,7 +85,7 @@
 
         </div>
 
-        <div class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 my-1 bg-opacity-25">
+        <div :class="{ 'my-1' : $parent.$parent.$parent.OPTIONS.row_size}" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <img src="/img/ffmq/inventory/treewither.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Tree Wither')  }" />
             <img src="/img/ffmq/inventory/elixir.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Elixir')  }" />
             <img src="/img/ffmq/inventory/wakewater.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Wakewater')  }" />
@@ -88,14 +96,6 @@
             <img src="/img/ffmq/crests/crest_libra.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Libra Crest')  }" />
             <img src="/img/ffmq/crests/crest_gemini.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Gemini Crest')  }" />
             <img src="/img/ffmq/crests/crest_mobius.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Mobius Crest')  }" />
-        </div>
-
-        <div class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 my-1 bg-opacity-25">
-            <img src="/img/ffmq/coins/coin_sand.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Sand Coin')  }" />
-            <img src="/img/ffmq/coins/coin_river.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('River Coin')  }" />
-            <img src="/img/ffmq/coins/coin_sun.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Sun Coin')  }" />
-            <span v-if="getNumberItemsFromName('Sky Fragment')" class="text-xs mr-1"><img src="/img/ffmq/coins/coin_sky_shard.png" class="inline-block w-[16px] h-[16px]" />x{{getNumberItemsFromName('Sky Fragment')}}</span>
-            <img v-else src="/img/ffmq/coins/coin_sky.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Sky Coin')  }" />
         </div>
     </div>
 </template>

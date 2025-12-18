@@ -1,6 +1,6 @@
 <template>
     <div class="">
-        <div class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 my-1 bg-opacity-25">
+        <div :class="{ 'my-1' : $parent.$parent.$parent.OPTIONS.row_size}" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <img src="/img/pokemon_frlg/badges/boulder_badge.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Boulder Badge')  }" />
             <img src="/img/pokemon_frlg/badges/cascade_badge.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Cascade Badge')  }" />
             <img src="/img/pokemon_frlg/badges/thunder_badge.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Thunder Badge')  }" />
@@ -11,7 +11,7 @@
             <img src="/img/pokemon_frlg/badges/earth_badge.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Earth Badge')  }" />
         </div>
 
-        <div class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 my-1 bg-opacity-25">
+        <div :class="{ 'my-1' : $parent.$parent.$parent.OPTIONS.row_size}" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <img src="/img/pokemon_frlg/hms/hm1.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('HM01 Cut')  }" />
             <img src="/img/pokemon_frlg/hms/hm2.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('HM02 Fly')  }" />
             <img src="/img/pokemon_frlg/hms/hm3.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('HM03 Surf')  }" />
@@ -21,7 +21,7 @@
             <img src="/img/pokemon_frlg/hms/hm7.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('HM07 Waterfall')  }" />
         </div>
 
-        <div class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 my-1 bg-opacity-25">
+        <div :class="{ 'my-1' : $parent.$parent.$parent.OPTIONS.row_size}" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <img src="/img/pokemon_frlg/other/bike.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Bike')  }" />
             <img src="/img/pokemon_frlg/other/card_key.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Card Key')  }" />
             <img src="/img/pokemon_crystal/items/tea.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Tea')  }" />

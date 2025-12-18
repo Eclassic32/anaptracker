@@ -1,7 +1,7 @@
 <template>
     <div>
 
-        <div class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 my-1 bg-opacity-25">
+        <div :class="{ 'my-1' : $parent.$parent.$parent.OPTIONS.row_size}" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <img src="/img/pokemon_crystal/items/zephyrbadge.png" class="inline-block mr-1" :class="{ 'opacity-25': !getNumberItemsFromName('Zephyr Badge')  }" />
             <img src="/img/pokemon_crystal/items/hivebadge.png" class="inline-block mr-1" :class="{ 'opacity-25': !getNumberItemsFromName('Hive Badge')  }" />
             <img src="/img/pokemon_crystal/items/plainbadge.png" class="inline-block mr-1" :class="{ 'opacity-25': !getNumberItemsFromName('Plain Badge')  }" />
@@ -20,7 +20,7 @@
             <img src="/img/pokemon_crystal/items/earthbadge.png" class="inline-block mr-1" :class="{ 'opacity-25': !getNumberItemsFromName('Earth Badge')  }" />
         </div>
 
-        <div class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 my-1 bg-opacity-25">
+        <div :class="{ 'my-1' : $parent.$parent.$parent.OPTIONS.row_size}" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <img src="/img/pokemon_crystal/items/hm01.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('HM01 Cut')  }" />
             <img src="/img/pokemon_crystal/items/hm02.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('HM02 Fly')  }" />
             <img src="/img/pokemon_crystal/items/hm03.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('HM03 Surf')  }" />
@@ -30,8 +30,8 @@
             <img src="/img/pokemon_crystal/items/hm07.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('HM07 Waterfall')  }" />
             <img src="/img/pokemon_crystal/items/tm08.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('TM08')  }" />
         </div>
-        <div class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 my-1 bg-opacity-25">
-            <img src="/img/pokemon_crystal/items/itemfinder.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Item Finder')  }" />
+        <div :class="{ 'my-1' : $parent.$parent.$parent.OPTIONS.row_size}" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+            <img src="/img/pokemon_crystal/items/itemfinder.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Itemfinder')  }" />
             <img src="/img/pokemon_crystal/items/pokegear.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Pokegear')  }" />
             <img src="/img/pokemon_crystal/items/radiocard.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Radio Card')  }" />
             <img src="/img/pokemon_crystal/items/expncard.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('EXPN Card')  }" />

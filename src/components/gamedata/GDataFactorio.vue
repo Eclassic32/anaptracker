@@ -1,7 +1,7 @@
 <template>
     <div>
 
-        <div class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 my-1 bg-opacity-25">
+        <div :class="{ 'my-1' : $parent.$parent.$parent.OPTIONS.row_size}" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <img src="/img/factorio/32px-Automation_science_pack.png" class="inline-block mr-1 w-[16px] h-[16px]" />
             <img src="/img/factorio/32px-Logistic_science_pack.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': getNumberItemsFromName('progressive-science-pack') < 2  }" />
             <img src="/img/factorio/32px-Military_science_pack.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': getNumberItemsFromName('progressive-science-pack') < 3  }" />
@@ -12,7 +12,7 @@
             <img src="/img/factorio/32px-Rocket_silo.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('rocket-silo')  }" />
         </div>
 
-        <div class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 my-1 bg-opacity-25">
+        <div :class="{ 'my-1' : $parent.$parent.$parent.OPTIONS.row_size}" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
 
             <img v-if="getNumberItemsFromName('progressive-automation') > 2" src="/img/factorio/32px-Assembling_machine_3.png" class="inline-block mr-1 w-[16px] h-[16px]" />
             <img v-else-if="getNumberItemsFromName('progressive-automation') > 1" src="/img/factorio/32px-Assembling_machine_2.png" class="inline-block mr-1 w-[16px] h-[16px]" />
@@ -37,7 +37,7 @@
 
         </div>
 
-        <div class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 my-1 bg-opacity-25">
+        <div :class="{ 'my-1' : $parent.$parent.$parent.OPTIONS.row_size}" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <img src="/img/factorio/32px-Pumpjack.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('oil-gathering')  }" />
             <img src="/img/factorio/32px-Plastic_bar.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('plastics')  }" />
             <img src="/img/factorio/32px-Advanced_circuit.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('advanced-circuit')  }" />
