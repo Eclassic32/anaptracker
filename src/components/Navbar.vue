@@ -60,11 +60,11 @@
             getSize: function () {
                 switch (this.$parent.OPTIONS.row_size) {
                     case 0:
-                        return 'M';
+                        return 'S';
                     case 1:
                         return 'L';
                     default:
-                        return 'M';
+                        return 'S';
                 }
             }
 
