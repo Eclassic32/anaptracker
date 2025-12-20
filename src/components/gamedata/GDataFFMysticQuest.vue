@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div :class="{ 'my-1' : $parent.$parent.$parent.OPTIONS.row_size}" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+        <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <img src="/img/ffmq/coins/coin_sand.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Sand Coin')  }" />
             <img src="/img/ffmq/coins/coin_river.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('River Coin')  }" />
             <img src="/img/ffmq/coins/coin_sun.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Sun Coin')  }" />
@@ -8,94 +8,94 @@
             <img v-else src="/img/ffmq/coins/coin_sky.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Sky Coin')  }" />
         </div>
 
-        <div :class="{ 'my-1' : $parent.$parent.$parent.OPTIONS.row_size}" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
-            <img v-if="getNumberItemsFromName('Progressive Sword') > 2" src="/img/ffmq/weapons/sword3.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Progressive Sword') > 1" src="/img/ffmq/weapons/sword2.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Progressive Sword') > 0" src="/img/ffmq/weapons/sword1.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Excalibur')" src="/img/ffmq/weapons/sword3.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Knight Sword')" src="/img/ffmq/weapons/sword2.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else src="/img/ffmq/weapons/sword1.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Steel Sword')  }" />
+        <div :class="getImageClass()"  class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+            <img v-if="getNumberItemsFromName('Progressive Sword') > 2" src="/img/ffmq/weapons/sword3.png" />
+            <img v-else-if="getNumberItemsFromName('Progressive Sword') > 1" src="/img/ffmq/weapons/sword2.png" />
+            <img v-else-if="getNumberItemsFromName('Progressive Sword') > 0" src="/img/ffmq/weapons/sword1.png" />
+            <img v-else-if="getNumberItemsFromName('Excalibur')" src="/img/ffmq/weapons/sword3.png" />
+            <img v-else-if="getNumberItemsFromName('Knight Sword')" src="/img/ffmq/weapons/sword2.png" />
+            <img v-else src="/img/ffmq/weapons/sword1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Steel Sword')  }" />
 
-            <img v-if="getNumberItemsFromName('Progressive Axe') > 2" src="/img/ffmq/weapons/axe3.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Progressive Axe') > 1" src="/img/ffmq/weapons/axe2.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Progressive Axe') > 0" src="/img/ffmq/weapons/axe1.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Gaia Axe')" src="/img/ffmq/weapons/axe3.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Steel Axe')" src="/img/ffmq/weapons/axe2.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else src="/img/ffmq/weapons/axe1.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Axe')  }" />
+            <img v-if="getNumberItemsFromName('Progressive Axe') > 2" src="/img/ffmq/weapons/axe3.png" />
+            <img v-else-if="getNumberItemsFromName('Progressive Axe') > 1" src="/img/ffmq/weapons/axe2.png" />
+            <img v-else-if="getNumberItemsFromName('Progressive Axe') > 0" src="/img/ffmq/weapons/axe1.png" />
+            <img v-else-if="getNumberItemsFromName('Gaia Axe')" src="/img/ffmq/weapons/axe3.png" />
+            <img v-else-if="getNumberItemsFromName('Steel Axe')" src="/img/ffmq/weapons/axe2.png" />
+            <img v-else src="/img/ffmq/weapons/axe1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Axe')  }" />
 
-            <img v-if="getNumberItemsFromName('Progressive Bomb') > 2" src="/img/ffmq/weapons/bomb3.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Progressive Bomb') > 1" src="/img/ffmq/weapons/bomb2.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Progressive Bomb') > 0" src="/img/ffmq/weapons/bomb1.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Mega Grenade')" src="/img/ffmq/weapons/bomb3.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Jumbo Bomb')" src="/img/ffmq/weapons/bomb2.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else src="/img/ffmq/weapons/bomb1.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Bomb')  }" />
+            <img v-if="getNumberItemsFromName('Progressive Bomb') > 2" src="/img/ffmq/weapons/bomb3.png" />
+            <img v-else-if="getNumberItemsFromName('Progressive Bomb') > 1" src="/img/ffmq/weapons/bomb2.png" />
+            <img v-else-if="getNumberItemsFromName('Progressive Bomb') > 0" src="/img/ffmq/weapons/bomb1.png" />
+            <img v-else-if="getNumberItemsFromName('Mega Grenade')" src="/img/ffmq/weapons/bomb3.png" />
+            <img v-else-if="getNumberItemsFromName('Jumbo Bomb')" src="/img/ffmq/weapons/bomb2.png"  />
+            <img v-else src="/img/ffmq/weapons/bomb1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Bomb')  }" />
 
-            <img v-if="getNumberItemsFromName('Progressive Claw') > 2" src="/img/ffmq/weapons/claw3.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Progressive Claw') > 1" src="/img/ffmq/weapons/claw2.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Progressive Claw') > 0" src="/img/ffmq/weapons/claw1.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Dragon Claw')" src="/img/ffmq/weapons/claw3.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Charm Claw')" src="/img/ffmq/weapons/claw2.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else src="/img/ffmq/weapons/claw1.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Cat Claw')  }" />
-            <span class="mr-1"></span>
+            <img v-if="getNumberItemsFromName('Progressive Claw') > 2" src="/img/ffmq/weapons/claw3.png" />
+            <img v-else-if="getNumberItemsFromName('Progressive Claw') > 1" src="/img/ffmq/weapons/claw2.png" />
+            <img v-else-if="getNumberItemsFromName('Progressive Claw') > 0" src="/img/ffmq/weapons/claw1.png" />
+            <img v-else-if="getNumberItemsFromName('Dragon Claw')" src="/img/ffmq/weapons/claw3.png" />
+            <img v-else-if="getNumberItemsFromName('Charm Claw')" src="/img/ffmq/weapons/claw2.png" />
+            <img v-else src="/img/ffmq/weapons/claw1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Cat Claw')  }" />
+            <span class="mr-1" ></span>
 
 
-            <img v-if="getNumberItemsFromName('Progressive Helm') > 2" src="/img/ffmq/armor/helmet3.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Progressive Helm') > 1" src="/img/ffmq/armor/helmet2.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Progressive Helm') > 0" src="/img/ffmq/armor/helmet1.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Apollo Helm')" src="/img/ffmq/armor/helmet3.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Moon Helm')" src="/img/ffmq/armor/helmet2.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else src="/img/ffmq/armor/helmet1.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Steel Helm')  }" />
+            <img v-if="getNumberItemsFromName('Progressive Helm') > 2" src="/img/ffmq/armor/helmet3.png" />
+            <img v-else-if="getNumberItemsFromName('Progressive Helm') > 1" src="/img/ffmq/armor/helmet2.png" />
+            <img v-else-if="getNumberItemsFromName('Progressive Helm') > 0" src="/img/ffmq/armor/helmet1.png" />
+            <img v-else-if="getNumberItemsFromName('Apollo Helm')" src="/img/ffmq/armor/helmet3.png"  />
+            <img v-else-if="getNumberItemsFromName('Moon Helm')" src="/img/ffmq/armor/helmet2.png" />
+            <img v-else src="/img/ffmq/armor/helmet1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Steel Helm')  }" />
 
-            <img v-if="getNumberItemsFromName('Progressive Armor') > 2" src="/img/ffmq/armor/armor3.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Progressive Armor') > 1" src="/img/ffmq/armor/armor2.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Progressive Armor') > 0" src="/img/ffmq/armor/armor1.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Gaia\'s Armor')" src="/img/ffmq/armor/armor3.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Noble Armor')" src="/img/ffmq/armor/armor2.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else src="/img/ffmq/armor/armor1.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Steel Armor')  }" />
+            <img v-if="getNumberItemsFromName('Progressive Armor') > 2" src="/img/ffmq/armor/armor3.png" />
+            <img v-else-if="getNumberItemsFromName('Progressive Armor') > 1" src="/img/ffmq/armor/armor2.png" />
+            <img v-else-if="getNumberItemsFromName('Progressive Armor') > 0" src="/img/ffmq/armor/armor1.png" />
+            <img v-else-if="getNumberItemsFromName('Gaia\'s Armor')" src="/img/ffmq/armor/armor3.png" />
+            <img v-else-if="getNumberItemsFromName('Noble Armor')" src="/img/ffmq/armor/armor2.png" />
+            <img v-else src="/img/ffmq/armor/armor1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Steel Armor')  }" />
 
-            <img v-if="getNumberItemsFromName('Progressive Shield') > 2" src="/img/ffmq/armor/shield3.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Progressive Shield') > 1" src="/img/ffmq/armor/shield2.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Progressive Shield') > 0" src="/img/ffmq/armor/shield1.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Aegis Shield')" src="/img/ffmq/armor/shield3.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Venus Shield')" src="/img/ffmq/armor/shield2.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else src="/img/ffmq/armor/shield1.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Steel Shield')  }" />
+            <img v-if="getNumberItemsFromName('Progressive Shield') > 2" src="/img/ffmq/armor/shield3.png" />
+            <img v-else-if="getNumberItemsFromName('Progressive Shield') > 1" src="/img/ffmq/armor/shield2.png" />
+            <img v-else-if="getNumberItemsFromName('Progressive Shield') > 0" src="/img/ffmq/armor/shield1.png" />
+            <img v-else-if="getNumberItemsFromName('Aegis Shield')" src="/img/ffmq/armor/shield3.png" />
+            <img v-else-if="getNumberItemsFromName('Venus Shield')" src="/img/ffmq/armor/shield2.png" />
+            <img v-else src="/img/ffmq/armor/shield1.png"  :class="{ 'opacity-25': !getNumberItemsFromName('Steel Shield')  }" />
 
-            <img v-if="getNumberItemsFromName('Progressive Accessory') > 2" src="/img/ffmq/armor/cupidlocket.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Progressive Accessory') > 1" src="/img/ffmq/armor/magicring.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Progressive Accessory') > 0" src="/img/ffmq/armor/charm.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Cupid Locket')" src="/img/ffmq/armor/cupidlocket.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Magic Ring')" src="/img/ffmq/armor/magicring.png" class="inline-block mr-1 w-[16px] h-[16px]" />
+            <img v-if="getNumberItemsFromName('Progressive Accessory') > 2" src="/img/ffmq/armor/cupidlocket.png" />
+            <img v-else-if="getNumberItemsFromName('Progressive Accessory') > 1" src="/img/ffmq/armor/magicring.png" />
+            <img v-else-if="getNumberItemsFromName('Progressive Accessory') > 0" src="/img/ffmq/armor/charm.png" />
+            <img v-else-if="getNumberItemsFromName('Cupid Locket')" src="/img/ffmq/armor/cupidlocket.png" />
+            <img v-else-if="getNumberItemsFromName('Magic Ring')" src="/img/ffmq/armor/magicring.png" />
             <img v-else src="/img/ffmq/armor/charm.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Charm')  }" />
             <span class="mr-1"></span>
 
-            <img src="/img/ffmq/magic/exit.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Exit Book')  }" />
-            <img v-if="getNumberItemsFromName('Life Book')" src="/img/ffmq/magic/life.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Cure Book')" src="/img/ffmq/magic/cure.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else src="/img/ffmq/magic/heal.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Heal Book')  }" />
+            <img src="/img/ffmq/magic/exit.png" :class="{ 'opacity-25': !getNumberItemsFromName('Exit Book')  }" />
+            <img v-if="getNumberItemsFromName('Life Book')" src="/img/ffmq/magic/life.png" />
+            <img v-else-if="getNumberItemsFromName('Cure Book')" src="/img/ffmq/magic/cure.png" />
+            <img v-else src="/img/ffmq/magic/heal.png" :class="{ 'opacity-25': !getNumberItemsFromName('Heal Book')  }" />
 
-            <img v-if="getNumberItemsFromName('Aero Book')" src="/img/ffmq/magic/aero.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Blizzard Book')" src="/img/ffmq/magic/blizzard.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Fire Book')" src="/img/ffmq/magic/fire.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else src="/img/ffmq/magic/quake.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Quake Book')  }" />
+            <img v-if="getNumberItemsFromName('Aero Book')" src="/img/ffmq/magic/aero.png" />
+            <img v-else-if="getNumberItemsFromName('Blizzard Book')" src="/img/ffmq/magic/blizzard.png" />
+            <img v-else-if="getNumberItemsFromName('Fire Book')" src="/img/ffmq/magic/fire.png" />
+            <img v-else src="/img/ffmq/magic/quake.png" :class="{ 'opacity-25': !getNumberItemsFromName('Quake Book')  }" />
 
-            <img v-if="getNumberItemsFromName('Flare Seal')" src="/img/ffmq/magic/flare.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Meteor Seal')" src="/img/ffmq/magic/meteor.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('White Seal')" src="/img/ffmq/magic/white.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else src="/img/ffmq/magic/thunder.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Thunder Seal')  }" />
+            <img v-if="getNumberItemsFromName('Flare Seal')" src="/img/ffmq/magic/flare.png" />
+            <img v-else-if="getNumberItemsFromName('Meteor Seal')" src="/img/ffmq/magic/meteor.png" />
+            <img v-else-if="getNumberItemsFromName('White Seal')" src="/img/ffmq/magic/white.png" />
+            <img v-else src="/img/ffmq/magic/thunder.png" :class="{ 'opacity-25': !getNumberItemsFromName('Thunder Seal')  }" />
 
         </div>
 
-        <div :class="{ 'my-1' : $parent.$parent.$parent.OPTIONS.row_size}" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
-            <img src="/img/ffmq/inventory/treewither.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Tree Wither')  }" />
-            <img src="/img/ffmq/inventory/elixir.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Elixir')  }" />
-            <img src="/img/ffmq/inventory/wakewater.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Wakewater')  }" />
-            <img src="/img/ffmq/inventory/venuskey.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Venus Key')  }" />
-            <img src="/img/ffmq/inventory/multikey.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Multi Key')  }" />
-            <img src="/img/ffmq/inventory/thunderrock.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Thunder Rock')  }" />
-            <img src="/img/ffmq/inventory/captaincap.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Captain\'s Cap')  }" />
-            <img src="/img/ffmq/crests/crest_libra.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Libra Crest')  }" />
-            <img src="/img/ffmq/crests/crest_gemini.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Gemini Crest')  }" />
-            <img src="/img/ffmq/crests/crest_mobius.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Mobius Crest')  }" />
+        <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+            <img src="/img/ffmq/inventory/treewither.png" :class="{ 'opacity-25': !getNumberItemsFromName('Tree Wither')  }" />
+            <img src="/img/ffmq/inventory/elixir.png" :class="{ 'opacity-25': !getNumberItemsFromName('Elixir')  }" />
+            <img src="/img/ffmq/inventory/wakewater.png" :class="{ 'opacity-25': !getNumberItemsFromName('Wakewater')  }" />
+            <img src="/img/ffmq/inventory/venuskey.png":class="{ 'opacity-25': !getNumberItemsFromName('Venus Key')  }" />
+            <img src="/img/ffmq/inventory/multikey.png" :class="{ 'opacity-25': !getNumberItemsFromName('Multi Key')  }" />
+            <img src="/img/ffmq/inventory/thunderrock.png" :class="{ 'opacity-25': !getNumberItemsFromName('Thunder Rock')  }" />
+            <img src="/img/ffmq/inventory/captaincap.png" :class="{ 'opacity-25': !getNumberItemsFromName('Captain\'s Cap')  }" />
+            <img src="/img/ffmq/crests/crest_libra.png" :class="{ 'opacity-25': !getNumberItemsFromName('Libra Crest')  }" />
+            <img src="/img/ffmq/crests/crest_gemini.png" :class="{ 'opacity-25': !getNumberItemsFromName('Gemini Crest')  }" />
+            <img src="/img/ffmq/crests/crest_mobius.png" :class="{ 'opacity-25': !getNumberItemsFromName('Mobius Crest')  }" />
         </div>
     </div>
 </template>
@@ -119,6 +119,12 @@ export default {
   },
 
         methods: {
+            getImageClass: function () {
+                if (this.$parent.$parent.$parent.OPTIONS.row_size) {
+                    return 'iconbar-L my-1';
+                }
+                return 'iconbar-S';
+            },
             getNumberItemsFromName: function (name) {
                 var res = 0;
                 if (this.gamedata && this.gamedata.location_name_to_id && this.data && this.data.player_items_received) {
