@@ -43,20 +43,20 @@
             <img v-else-if="getNumberItemsFromName('Progressive Helm') > 1" src="/img/ffmq/armor/helmet2.png" class="inline-block mr-1 w-[16px] h-[16px]" />
             <img v-else-if="getNumberItemsFromName('Progressive Helm') > 0" src="/img/ffmq/armor/helmet1.png" class="inline-block mr-1 w-[16px] h-[16px]" />
             <img v-else-if="getNumberItemsFromName('Apollo Helm')" src="/img/ffmq/armor/helmet3.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Venus Helm')" src="/img/ffmq/armor/helmet2.png" class="inline-block mr-1 w-[16px] h-[16px]" />
+            <img v-else-if="getNumberItemsFromName('Moon Helm')" src="/img/ffmq/armor/helmet2.png" class="inline-block mr-1 w-[16px] h-[16px]" />
             <img v-else src="/img/ffmq/armor/helmet1.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Steel Helm')  }" />
 
             <img v-if="getNumberItemsFromName('Progressive Armor') > 2" src="/img/ffmq/armor/armor3.png" class="inline-block mr-1 w-[16px] h-[16px]" />
             <img v-else-if="getNumberItemsFromName('Progressive Armor') > 1" src="/img/ffmq/armor/armor2.png" class="inline-block mr-1 w-[16px] h-[16px]" />
             <img v-else-if="getNumberItemsFromName('Progressive Armor') > 0" src="/img/ffmq/armor/armor1.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Gaia Armor')" src="/img/ffmq/armor/armor3.png" class="inline-block mr-1 w-[16px] h-[16px]" />
+            <img v-else-if="getNumberItemsFromName('Gaia\'s Armor')" src="/img/ffmq/armor/armor3.png" class="inline-block mr-1 w-[16px] h-[16px]" />
             <img v-else-if="getNumberItemsFromName('Noble Armor')" src="/img/ffmq/armor/armor2.png" class="inline-block mr-1 w-[16px] h-[16px]" />
             <img v-else src="/img/ffmq/armor/armor1.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Steel Armor')  }" />
 
             <img v-if="getNumberItemsFromName('Progressive Shield') > 2" src="/img/ffmq/armor/shield3.png" class="inline-block mr-1 w-[16px] h-[16px]" />
             <img v-else-if="getNumberItemsFromName('Progressive Shield') > 1" src="/img/ffmq/armor/shield2.png" class="inline-block mr-1 w-[16px] h-[16px]" />
             <img v-else-if="getNumberItemsFromName('Progressive Shield') > 0" src="/img/ffmq/armor/shield1.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Dragon Shield')" src="/img/ffmq/armor/shield3.png" class="inline-block mr-1 w-[16px] h-[16px]" />
+            <img v-else-if="getNumberItemsFromName('Aegis Shield')" src="/img/ffmq/armor/shield3.png" class="inline-block mr-1 w-[16px] h-[16px]" />
             <img v-else-if="getNumberItemsFromName('Venus Shield')" src="/img/ffmq/armor/shield2.png" class="inline-block mr-1 w-[16px] h-[16px]" />
             <img v-else src="/img/ffmq/armor/shield1.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Steel Shield')  }" />
 

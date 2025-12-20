@@ -3,12 +3,12 @@
 
         <div :class="{ 'my-1' : $parent.$parent.$parent.OPTIONS.row_size}" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <img src="/img/factorio/32px-Automation_science_pack.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img src="/img/factorio/32px-Logistic_science_pack.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': getNumberItemsFromName('progressive-science-pack') < 2  }" />
-            <img src="/img/factorio/32px-Military_science_pack.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': getNumberItemsFromName('progressive-science-pack') < 3  }" />
-            <img src="/img/factorio/32px-Chemical_science_pack.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': getNumberItemsFromName('progressive-science-pack') < 4  }" />
-            <img src="/img/factorio/32px-Production_science_pack.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': getNumberItemsFromName('progressive-science-pack') < 5  }" />
-            <img src="/img/factorio/32px-Utility_science_pack.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': getNumberItemsFromName('progressive-science-pack') < 6  }" />
-            <img src="/img/factorio/32px-Space_science_pack.png" class="inline-block mr-3 w-[16px] h-[16px]" :class="{ 'opacity-25': getNumberItemsFromName('progressive-science-pack') < 7  }" />
+            <img src="/img/factorio/32px-Logistic_science_pack.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('progressive-science-pack')  }" />
+            <img src="/img/factorio/32px-Military_science_pack.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': getNumberItemsFromName('progressive-science-pack') < 2  }" />
+            <img src="/img/factorio/32px-Chemical_science_pack.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': getNumberItemsFromName('progressive-science-pack') < 3  }" />
+            <img src="/img/factorio/32px-Production_science_pack.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': getNumberItemsFromName('progressive-science-pack') < 4  }" />
+            <img src="/img/factorio/32px-Utility_science_pack.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': getNumberItemsFromName('progressive-science-pack') < 5  }" />
+            <img src="/img/factorio/32px-Space_science_pack.png" class="inline-block mr-3 w-[16px] h-[16px]" :class="{ 'opacity-25': getNumberItemsFromName('progressive-science-pack') < 6  }" />
             <img src="/img/factorio/32px-Rocket_silo.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('rocket-silo')  }" />
         </div>
 
@@ -39,6 +39,9 @@
 
         <div :class="{ 'my-1' : $parent.$parent.$parent.OPTIONS.row_size}" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <img src="/img/factorio/32px-Pumpjack.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('oil-gathering')  }" />
+            <img v-if="getNumberItemsFromName('progressive-processing') > 2" src="/img/factorio/32px-Sulfur.png" class="inline-block mr-1 w-[16px] h-[16px]" />
+            <img v-else-if="getNumberItemsFromName('progressive-processing') > 1" src="/img/factorio/32px-Basic_oil_processing.png" class="inline-block mr-1 w-[16px] h-[16px]" />
+            <img v-else src="/img/factorio/32px-Steel_plate.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('progressive-processing')  }" />
             <img src="/img/factorio/32px-Plastic_bar.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('plastics')  }" />
             <img src="/img/factorio/32px-Advanced_circuit.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('advanced-circuit')  }" />
             <img src="/img/factorio/32px-Processing_unit.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('processing-unit')  }" />

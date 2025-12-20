@@ -14,7 +14,7 @@
             <img src="/img/pokemon_crystal/items/cascadebadge.png" class="inline-block mr-1" :class="{ 'opacity-25': !getNumberItemsFromName('Cascade Badge')  }" />
             <img src="/img/pokemon_crystal/items/thunderbadge.png" class="inline-block mr-1" :class="{ 'opacity-25': !getNumberItemsFromName('Thunder Badge')  }" />
             <img src="/img/pokemon_crystal/items/rainbowbadge.png" class="inline-block mr-1" :class="{ 'opacity-25': !getNumberItemsFromName('Rainbow Badge')  }" />
-            <img src="/img/pokemon_crystal/items/fogbadge.png" class="inline-block mr-1" :class="{ 'opacity-25': !getNumberItemsFromName('Fog Badge')  }" />
+            <img src="/img/pokemon_crystal/items/soulbadge.png" class="inline-block mr-1" :class="{ 'opacity-25': !getNumberItemsFromName('Soul Badge')  }" />
             <img src="/img/pokemon_crystal/items/marshbadge.png" class="inline-block mr-1" :class="{ 'opacity-25': !getNumberItemsFromName('Marsh Badge')  }" />
             <img src="/img/pokemon_crystal/items/volcanobadge.png" class="inline-block mr-1" :class="{ 'opacity-25': !getNumberItemsFromName('Volcano Badge')  }" />
             <img src="/img/pokemon_crystal/items/earthbadge.png" class="inline-block mr-1" :class="{ 'opacity-25': !getNumberItemsFromName('Earth Badge')  }" />
@@ -40,6 +40,7 @@
             <img src="/img/pokemon_crystal/items/ssticket.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('S.S. Ticket')  }" />
             <img src="/img/pokemon_crystal/items/pass.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Pass')  }" />
             <img src="/img/pokemon_crystal/items/basementkey.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Basement Key')  }" />
+            <img src="/img/pokemon_crystal/items/cardkey.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Card Key')  }" />
             <img src="/img/pokemon_crystal/items/rainbowwing.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Rainbow Wing')  }" />
             <img src="/img/pokemon_crystal/items/machinepart.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Machine Part')  }" />
             <img src="/img/pokemon_crystal/items/tea.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Tea')  }" />

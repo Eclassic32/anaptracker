@@ -32,7 +32,7 @@
             <img src="/img/super_metroid/items/springball.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Spring Ball')  }" />
             <img src="/img/super_metroid/items/screw.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Screw Attack')  }" />
             <img src="/img/super_metroid/items/hijump.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Hi-Jump Boots')  }" />
-            <img src="/img/super_metroid/items/speed.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Speed Boster')  }" />
+            <img src="/img/super_metroid/items/speed.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Speed Booster')  }" />
             <img src="/img/super_metroid/items/space.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Space Jump')  }" />
         </div>
     </div>

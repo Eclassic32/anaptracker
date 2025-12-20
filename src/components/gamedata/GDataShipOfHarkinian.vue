@@ -28,7 +28,10 @@
             <img v-else src="/img/oot/46_1.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Ocarina')  }" />
             <img v-if="getNumberItemsFromName('Progressive Bomb Bag') > 2" src="/img/oot/5_3.png" class="inline-block mr-1 w-[16px] h-[16px]" />
             <img v-else-if="getNumberItemsFromName('Progressive Bomb Bag') > 1" src="/img/oot/5_2.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else src="/img/oot/5_1.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Bomb Bag')  }" />
+            <img v-else-if="getNumberItemsFromName('Progressive Bomb Bag')" src="/img/oot/5_1.png" class="inline-block mr-1 w-[16px] h-[16px]" />
+            <img v-else-if="getNumberItemsFromName('Progressive Bombchu')" src="/img/oot/49_1.png" class="inline-block mr-1 w-[16px] h-[16px]" />
+            <img v-else src="/img/oot/5_1.png" class="inline-block mr-1 w-[16px] h-[16px] opacity-25" />
+            <img src="/img/oot/2_1.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Boomerang')  }" />
             <img v-if="getNumberItemsFromName('Progressive Bow') > 2" src="/img/oot/6_3.png" class="inline-block mr-1 w-[16px] h-[16px]" />
             <img v-else-if="getNumberItemsFromName('Progressive Bow') > 1" src="/img/oot/6_2.png" class="inline-block mr-1 w-[16px] h-[16px]" />
             <img v-else src="/img/oot/6_1.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Bow')  }" />
@@ -45,8 +48,8 @@
             <img src="/img/oot/34_1.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Zelda\'s Lullaby')  }" />
             <img src="/img/oot/35_1.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Epona\'s Song')  }" />
             <img src="/img/oot/36_1.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Saria\'s Song')  }" />
-            <img src="/img/oot/37_1.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Sun\'s Song')  }" />
-            <img src="/img/oot/38_1.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Song of Time')  }" />
+            <img src="/img/oot/37_1.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Song of Time')  }" />
+            <img src="/img/oot/38_1.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Sun\'s Song')  }" />
             <img src="/img/oot/39_1.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Song of Storms')  }" />
             <img src="/img/oot/40_1.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Minuet of Forest')  }" />
             <img src="/img/oot/41_1.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Bolero of Fire')  }" />
