@@ -24,7 +24,9 @@ a,
 max-h-screen {
     max-height: 100vh;
 }
-
+.iconbar-S span, .iconbar-M span, .iconbar-L span {
+    font-weight: bold;
+}
 
 .iconbar-S img {
     width: 16px;

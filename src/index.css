@@ -4,10 +4,6 @@
 @source inline("bg-gray-800");
 @source inline("flex");
 @source inline("flex-col");
-@source inline("h-screen");
-@source inline("w-screen");
-@source inline("max-h-screen");
-@source inline("max-w-screen");
 @source inline("place-self-center");
 @source inline("fixed");
 @source inline("top-0");

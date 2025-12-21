@@ -17,13 +17,13 @@
             <div class="z-2 flex flex-column justify-between">
                 <div class="w-1/4 z-3 text-dark dark:text-white text-lg">
 
-                    <span v-if="get_state() > 1" class="mr-2"><b>DONE ! Congratulations !</b></span>
-                    <span v-else class="mr-2"><b>Games completed : {{ games_completed() }} / {{ total_games() }}</b></span>
+                    <span v-if="get_state() > 1" class="mr-2">DONE ! Congratulations !</span>
+                    <span v-else class="mr-2">Games completed : {{ games_completed() }} / {{ total_games() }}</span>
                 </div>
                 <div class="w-1/2 z-3 text-sm">
                 </div>
 
-                <div class="w-1/4 z-3 text-right text-xl"><span v-if="!$parent.OPTIONS.row_size" class="font-normal text-tiny mr-2">({{ percent_completion() }}%)</span><b>{{ get_current_checks() }}</b> / {{ get_total_checks() }}<br /><span v-if="$parent.OPTIONS.row_size" class="font-normal text-tiny">({{ percent_completion() }}%)</span></div>
+                <div class="w-1/4 z-3 text-right text-xl"><span v-if="!$parent.OPTIONS.row_size" class="font-normal text-tiny mr-2">({{ percent_completion() }}%)</span>{{ get_current_checks() }} / {{ get_total_checks() }}<br /><span v-if="$parent.OPTIONS.row_size" class="font-normal text-tiny">({{ percent_completion() }}%)</span></div>
             </div>
         </div>
 
