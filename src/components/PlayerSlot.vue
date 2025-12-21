@@ -109,7 +109,7 @@ export default {
             },
             get_time_diff: function () {
                 var element = this.$parent.$parent.TRACKER_DATA;
-                if (element.activity_timers[this.index]) {
+                if (element.activity_timers[this.index] && element.activity_timers[this.index].time) {
                     var date_now = Date.now();
                     var date_act = new Date(element.activity_timers[this.index].time).getTime();
                     return Math.floor((date_now - date_act) / 1000);
