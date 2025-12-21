@@ -46,7 +46,7 @@ export default {
 
         methods: {
             displayable: function () {
-                if ((this.$parent.$parent.OPTIONS.show_done && this.get_time_diff() > (600)) || this.$parent.$parent.TRACKER_DATA.player_status[this.index] && this.$parent.$parent.TRACKER_DATA.player_status[this.index].status < 30) {
+                if ((this.$parent.$parent.OPTIONS.show_done || this.get_time_diff() < (600)) || this.$parent.$parent.TRACKER_DATA.player_status[this.index] && this.$parent.$parent.TRACKER_DATA.player_status[this.index].status < 30) {
                     return true;
                 }
                 return false;
