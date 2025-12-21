@@ -28,7 +28,8 @@
 
     var OPTIONS = {
         row_size: 0,
-        show_done: 1
+        show_done: 1,
+        show_timer: 1
     };
     var STATIC_TRACKER_DATA = {
         datapackage: [],
