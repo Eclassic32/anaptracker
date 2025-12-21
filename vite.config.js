@@ -15,7 +15,7 @@ export default defineConfig({
         allowedHosts: true,
         cors: true,
         headers: {
-            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Origin': 'archipelago.gg',
         }
     },
   resolve: {
@@ -24,6 +24,7 @@ export default defineConfig({
     },
   },
     build: {
+        base: '/anaptracker',
         rollupOptions: {
             output: {
                 assetFileNames: (assetInfo) => {
@@ -31,11 +32,11 @@ export default defineConfig({
                     if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
                         extType = 'img';
                     }
-                    return `hamanium/assets/${extType}/[name]-[hash][extname]`;
+                    return `anaptracker/assets/${extType}/[name]-[hash][extname]`;
                 },
-                chunkFileNames: 'hamanium/assets/js/[name]-[hash].js',
-                entryFileNames: 'hamanium/assets/js/[name]-[hash].js',
-            },
+                chunkFileNames: 'anaptracker/assets/js/[name]-[hash].js',
+                entryFileNames: 'anaptracker/assets/js/[name]-[hash].js',
+            }
         },
     }
 })

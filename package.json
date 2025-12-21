@@ -1,9 +1,9 @@
 {
-  "name": "hamanium_scanviewer",
+  "name": "anaptracker",
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "homepage": "http://tomagueri.fr/hamanium",
+  "homepage": "http://tomagueri.fr/anaptracker/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
