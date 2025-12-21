@@ -30,7 +30,7 @@
             <img v-else-if="getNumberItemsFromName('Progressive Bomb Bag') > 1" src="/img/oot/5_2.png" />
             <img v-else-if="getNumberItemsFromName('Progressive Bomb Bag')" src="/img/oot/5_1.png" />
             <img v-else-if="getNumberItemsFromName('Progressive Bombchu')" src="/img/oot/49_1.png" />
-            <img v-else src="/img/oot/5_1.png" />
+            <img v-else src="/img/oot/5_1.png" class="opacity-25" />
             <img src="/img/oot/2_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Boomerang')  }" />
             <img v-if="getNumberItemsFromName('Progressive Bow') > 2" src="/img/oot/6_3.png" />
             <img v-else-if="getNumberItemsFromName('Progressive Bow') > 1" src="/img/oot/6_2.png" />

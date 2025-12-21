@@ -33,9 +33,9 @@
         </div>
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <img src="/img/pokemon_crystal/items/itemfinder.png" :class="{ 'opacity-25': !getNumberItemsFromName('Itemfinder')  }" />
-            <img src="/img/pokemon_crystal/items/pokegear.png" :class="{ 'opacity-25': !getNumberItemsFromName('Pokegear')  }" />
-            <img src="/img/pokemon_crystal/items/radiocard.png" :class="{ 'opacity-25': !getNumberItemsFromName('Radio Card')  }" />
-            <img src="/img/pokemon_crystal/items/expncard.png" :class="{ 'opacity-25': !getNumberItemsFromName('EXPN Card')  }" />
+            <img v-if="!getNumberItemsFromName('EXPN Card') && !getNumberItemsFromName('Radio Card')" src="/img/pokemon_crystal/items/pokegear.png" :class="{ 'opacity-25': !getNumberItemsFromName('Pokegear')  }" />
+            <img v-else-if="!getNumberItemsFromName('EXPN Card')" src="/img/pokemon_crystal/items/radiocard.png" />
+            <img v-else src="/img/pokemon_crystal/items/expncard.png" />
             <img src="/img/pokemon_crystal/items/bicycle.png" :class="{ 'opacity-25': !getNumberItemsFromName('Bicycle')  }" />
             <img src="/img/pokemon_crystal/items/squirtbottle.png" :class="{ 'opacity-25': !getNumberItemsFromName('Squirtbottle')  }" />
             <img src="/img/pokemon_crystal/items/ssticket.png" :class="{ 'opacity-25': !getNumberItemsFromName('S.S. Ticket')  }" />

@@ -3,12 +3,11 @@
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <img src="/img/factorio/32px-Automation_science_pack.png"  />
-            <img src="/img/factorio/32px-Logistic_science_pack.png" :class="{ 'opacity-25': !getNumberItemsFromName('progressive-science-pack')  }" />
-            <img src="/img/factorio/32px-Military_science_pack.png" :class="{ 'opacity-25': getNumberItemsFromName('progressive-science-pack') < 2  }" />
-            <img src="/img/factorio/32px-Chemical_science_pack.png" :class="{ 'opacity-25': getNumberItemsFromName('progressive-science-pack') < 3  }" />
-            <img src="/img/factorio/32px-Production_science_pack.png" :class="{ 'opacity-25': getNumberItemsFromName('progressive-science-pack') < 4  }" />
-            <img src="/img/factorio/32px-Utility_science_pack.png" :class="{ 'opacity-25': getNumberItemsFromName('progressive-science-pack') < 5  }" />
-            <img src="/img/factorio/32px-Space_science_pack.png" :class="{ 'opacity-25': getNumberItemsFromName('progressive-science-pack') < 6  }" />
+            <img src="/img/factorio/32px-Logistic_science_pack.png" :class="{ 'opacity-25': !getNumberItemsFromName('progressive-science-pack') && !getNumberItemsFromName('logistic-science-pack') }" />
+            <img src="/img/factorio/32px-Military_science_pack.png" :class="{ 'opacity-25': getNumberItemsFromName('progressive-science-pack') < 2 && !getNumberItemsFromName('military-science-pack')  }" />
+            <img src="/img/factorio/32px-Chemical_science_pack.png" :class="{ 'opacity-25': getNumberItemsFromName('progressive-science-pack') < 3 && !getNumberItemsFromName('chemical-science-pack')  }" />
+            <img src="/img/factorio/32px-Production_science_pack.png" :class="{ 'opacity-25': getNumberItemsFromName('progressive-science-pack') < 4 && !getNumberItemsFromName('production-science-pack')  }" />
+            <img src="/img/factorio/32px-Utility_science_pack.png" :class="{ 'opacity-25': getNumberItemsFromName('progressive-science-pack') < 5 && !getNumberItemsFromName('utility-science-pack')  }" />
             <img src="/img/factorio/32px-Rocket_silo.png" :class="{ 'opacity-25': !getNumberItemsFromName('rocket-silo')  }" />
         </div>
 

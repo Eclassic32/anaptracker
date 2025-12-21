@@ -2,7 +2,7 @@
     <div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
-            <span class="mr-2 text-xs" :class="{ 'opacity-25': !getNumberItemsFromName('Power Star')  }"><img src="/img/sm64/star.png" class="inline-block w-[16px] h-[16px]" />x{{ getNumberItemsFromName('Power Star') }} </span>
+            <span class="mr-2 text-xs" :class="{ 'opacity-25': !getNumberItemsFromName('Power Star')  }"><img src="/img/sm64/star.png" />x{{ getNumberItemsFromName('Power Star') }} </span>
 
             <img src="/img/sm64/keys/key_basement.png" :class="{ 'opacity-25': !getNumberItemsFromName('Basement Key') && !getNumberItemsFromName('Progressive Key')  }" />
             <img src="/img/sm64/keys/key_upstairs.png" :class="{ 'opacity-25': !getNumberItemsFromName('Upstarirs Key') && getNumberItemsFromName('Progressive Key') < 2  }" />
@@ -62,7 +62,7 @@ export default {
             },
             getNumberItemsFromName: function (name) {
                 var res = 0;
-                if (this.gamedata && this.gamedata.location_name_to_id) {
+                if (this.data && this.data.player_items_received && this.gamedata && this.gamedata.location_name_to_id) {
 
                     var id = this.gamedata.item_name_to_id[name];
                     //console.log(this.gamedata.item_name_to_id);

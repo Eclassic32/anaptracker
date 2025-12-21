@@ -1,5 +1,8 @@
 <template>
-    <b>&lt;3 x{{ get_strawberries() }}</b>
+    <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+        <span class="mr-2 text-xs" :class="{ 'opacity-25': !getNumberItemsFromName('Strawberry')  }"><img src="/img/celeste/items/berry.png" />x{{ getNumberItemsFromName('Strawberry') }} </span>
+
+    </div>
 </template>
     
 <script>
@@ -21,6 +24,12 @@ export default {
   },
 
         methods: {
+            getImageClass: function () {
+                if (this.$parent.$parent.$parent.OPTIONS.row_size) {
+                    return 'iconbar-L my-1';
+                }
+                return 'iconbar-S';
+            },
             getNumberItemsFromName: function (name) {
                 var res = 0;
                 if (this.gamedata && this.gamedata.location_name_to_id && this.data && this.data.player_items_received) {
@@ -36,9 +45,6 @@ export default {
                     }
                 }
                 return res;
-            },
-            get_strawberries: function () {
-                return this.getNumberItemsFromName("Strawberry");
             }
         },
   components: {
