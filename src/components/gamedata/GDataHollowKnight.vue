@@ -1,10 +1,35 @@
 <template>
-    <span v-if="getNumberItemsFromName('Dream_Nail')">Nail </span>
-    <span v-if="getNumberItemsFromName('Shade_Cloak')">Cloak </span>
-    <span v-if="getNumberItemsFromName('Mantis_Claw')">Claw </span>
-    <span v-if="getNumberItemsFromName('Crystal_Dash')">Dash </span>
-    <span v-if="getNumberItemsFromName('Monarch_Wings')">Wings </span>
     <span v-if="getNumberItemsFromName('Dreamer')">D x{{ getNumberItemsFromName('Dreamer') }}</span>
+
+    <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+        <img src="/img/hollow_knight/Monomon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Monomon')  }" />
+        <img src="/img/hollow_knight/Lurien.png" :class="{ 'opacity-25': !getNumberItemsFromName('Lurien')  }" />
+        <img src="/img/hollow_knight/Herrah.png" :class="{ 'opacity-25': !getNumberItemsFromName('Herrah')  }" />
+        <span class="mr-2"></span>
+        <img src="/img/hollow_knight/VoidHeart.png" :class="{ 'opacity-25': !getNumberItemsFromName('Void_Heart')  }" />
+        <img src="/img/hollow_knight/DreamGate.png" :class="{ 'opacity-25': !getNumberItemsFromName('Dream_Gate')  }" />
+        <img src="/img/hollow_knight/TramPass.png" :class="{ 'opacity-25': !getNumberItemsFromName('Tram_Pass')  }" />
+    </div>
+    <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+        <img v-if="!getNumberItemsFromName('Dream_Wielder')" src="/img/hollow_knight/DreamNail1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Dream_Nail')  }" />
+        <img v-else src="/img/hollow_knight/DreamNail2.png" />
+        <img v-if="!getNumberItemsFromName('Shade_Cloak')" src="/img/hollow_knight/MothwingCloak.png" :class="{ 'opacity-25': !getNumberItemsFromName('Mothwing_Cloak')  }" />
+        <img v-else src="/img/hollow_knight/ShadeCloak.png" />
+        <img src="/img/hollow_knight/MantisClaw.png" :class="{ 'opacity-25': !getNumberItemsFromName('Mantis_Claw')  }" />
+        <img src="/img/hollow_knight/CrystalHeart.png" :class="{ 'opacity-25': !getNumberItemsFromName('Crystal_Heart')  }" />
+        <img src="/img/hollow_knight/IsmaTear.png" :class="{ 'opacity-25': !getNumberItemsFromName('Isma\'s_Tear')  }" />
+        <img src="/img/hollow_knight/MonarchWings.png" :class="{ 'opacity-25': !getNumberItemsFromName('Monarch_Wings')  }" />
+        <span class="mr-2"></span>
+        <img v-if="!getNumberItemsFromName('Shade_Soul')" src="/img/hollow_knight/VengefulSpirit.png" :class="{ 'opacity-25': !getNumberItemsFromName('VengefulSpirit')  }" />
+        <img v-else src="/img/hollow_knight/ShadeSoul.png" />
+        <img v-if="!getNumberItemsFromName('Abyss_Shriek')" src="/img/hollow_knight/HowlingWraiths.png" :class="{ 'opacity-25': !getNumberItemsFromName('Howling_Wreaiths')  }" />
+        <img v-else src="/img/hollow_knight/AbyssShriek.png" />
+        <img v-if="!getNumberItemsFromName('Descending_Dark')" src="/img/hollow_knight/DesolateDive.png" :class="{ 'opacity-25': !getNumberItemsFromName('Desolate_Dive')  }" />
+        <img v-else src="/img/hollow_knight/DescendingDark.png" />
+    </div>
+    <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+        <img src="/img/hollow_knight/TramPass.png" :class="{ 'opacity-25': !getNumberItemsFromName('Tram_Pass')  }" />
+    </div>
 </template>
     
 <script>
@@ -26,6 +51,12 @@ export default {
   },
 
         methods: {
+            getImageClass: function () {
+                if (this.$parent.$parent.$parent.OPTIONS.row_size) {
+                    return 'iconbar-L my-1';
+                }
+                return 'iconbar-S';
+            },
             getNumberItemsFromName: function (name) {
                 var res = 0;
                 if (this.data && this.data.player_items_received && this.gamedata && this.gamedata.location_name_to_id) {
