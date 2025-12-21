@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nav class="flex flex-row items-center justify-left flex-nowrap bg-gray-900 p-3">
+        <nav class="flex flex-row flex-nowrap bg-gray-900 p-3">
             <div class="mr-6">
                 <a>
                     <span class="font-semibold text-l tracking-tight" v-on:click="toggleNavbar()">ANAP Tracker</span>
@@ -10,14 +10,17 @@
 
                 </div>
             </div>
-            <div a v-on:click="changeSize()" class="text-green-600 relative mr-6 cursor-pointer hover:text-white">
+            <div v-if="$parent.validRoom()" v-on:click="changeSize()" class="text-green-600 relative mr-6 cursor-pointer hover:text-white">
                 <span>Size {{ getSize() }}</span>
             </div>
-            <div a v-on:click="changeShowDone()" class="text-green-600 relative mr-6 cursor-pointer hover:text-white">
+            <div v-if="$parent.validRoom()" v-on:click="changeShowDone()" class="text-green-600 relative mr-6 cursor-pointer hover:text-white">
                 <span>{{ getShowDone() }} Done</span>
             </div>
-            <div a v-on:click="changeShowTimer()" class="text-green-600 relative mr-6 cursor-pointer hover:text-white">
+            <div v-if="$parent.validRoom()" v-on:click="changeShowTimer()" class="text-green-600 relative mr-6 cursor-pointer hover:text-white">
                 <span>{{ getShowTimer() }} Timers</span>
+            </div>
+            <div class="text-green-600 relative mr-6 justify-self-end">
+                <span>v0.1.0</span>
             </div>
         </nav>
     </div>

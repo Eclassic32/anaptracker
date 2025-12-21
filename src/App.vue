@@ -90,12 +90,17 @@ export default {
       this.removeOnCompleted = !this.removeOnCompleted;
       },
       validRoom: function () {
-
           if (this.ROOM_ID && this.ROOM_DATA.players.length > 0)
               return true;
           return false;
       },
-    toggleMe: function () {
+      trackerIsReady() {
+          if (this.ROOM_DATA.players && this.ROOM_DATA.players.length > 0 && 
+              this.STATIC_TRACKER_DATA.datapackage && this.STATIC_TRACKER_DATA.datapackage.length > 0)
+              return true;
+          return false;
+      },
+      toggleMe: function () {
           //this.seeder.next_objective();
       }
       ,
@@ -183,7 +188,7 @@ export default {
           var fake_route = location.href.slice(urltosec.length + 1); // La route à couper.
           console.log(fake_route);
           var fake_args = fake_route.split('/');
-          if (fake_args.length > 0) {
+          if (fake_args.length > 0 && fake_args[0].length > 0) {
               this.ROOM_ID = fake_args[0];
               this.refresh();
           }
