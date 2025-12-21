@@ -107,12 +107,14 @@ export default {
       autoRefresh: function () {
           var TRACKER_URL = this.ANAP_DATA.archipelagogg.tracker_url + this.ROOM_DATA.tracker;
 
+          /*
           if (this.SLOT_DATA) {
               console.log(this.SLOT_DATA);
           }
           if (this.TRACKER_DATA) {
               console.log(this.TRACKER_DATA);
           }
+          */
 
           axios
               .get(TRACKER_URL)
