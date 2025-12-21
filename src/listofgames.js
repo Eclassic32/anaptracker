@@ -1,4 +1,5 @@
 
+import GDataAHatInTime from './components/gamedata/GDataAHatInTime.vue';
 import GDataCeleste from './components/gamedata/GDataCeleste.vue';
 import GDataFactorio from './components/gamedata/GDataFactorio.vue';
 import GDataHollowKnight from './components/gamedata/GDataHollowKnight.vue';
@@ -12,6 +13,10 @@ import GDataSuperMetroid from './components/gamedata/GDataSuperMetroid.vue';
 import GDataCrystalProject from './components/gamedata/GDataCrystalProject.vue';
 
 var LIST_OF_GAMES = [
+    {
+        'name': 'A Hat in Time',
+        'class': GDataAHatInTime
+    },
     {
         'name': 'Celeste (Open World)',
         'class': GDataCeleste
