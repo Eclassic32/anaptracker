@@ -7,6 +7,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+    base: '/anaptracker',
   plugins: [
     vue(),
         tailwindcss(),
@@ -24,7 +25,6 @@ export default defineConfig({
     },
   },
     build: {
-        base: '/anaptracker',
         rollupOptions: {
             output: {
                 assetFileNames: (assetInfo) => {
