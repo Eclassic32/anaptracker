@@ -20,7 +20,7 @@
             <img v-else-if="getNumberItemsFromName('Progressive Axe') > 1" src="/img/ffmq/weapons/axe2.png" />
             <img v-else-if="getNumberItemsFromName('Progressive Axe') > 0" src="/img/ffmq/weapons/axe1.png" />
             <img v-else-if="getNumberItemsFromName('Giant\'s Axe')" src="/img/ffmq/weapons/axe3.png" />
-            <img v-else-if="getNumberItemsFromName('Steel Axe')" src="/img/ffmq/weapons/axe2.png" />
+            <img v-else-if="getNumberItemsFromName('Battle Axe')" src="/img/ffmq/weapons/axe2.png" />
             <img v-else src="/img/ffmq/weapons/axe1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Axe')  }" />
 
             <img v-if="getNumberItemsFromName('Progressive Bomb') > 2" src="/img/ffmq/weapons/bomb3.png" />
@@ -86,13 +86,13 @@
         </div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
-            <img src="/img/ffmq/inventory/treewither.png" :class="{ 'opacity-25': !getNumberItemsFromName('Tree Wither')  }" />
-            <img src="/img/ffmq/inventory/elixir.png" :class="{ 'opacity-25': !getNumberItemsFromName('Elixir')  }" />
+            <img v-if="!getNumberItemsFromName('Elixir')" src="/img/ffmq/inventory/treewither.png" :class="{ 'opacity-25': !getNumberItemsFromName('Tree Wither')  }" />
+            <img v-else src="/img/ffmq/inventory/elixir.png" />
             <img src="/img/ffmq/inventory/wakewater.png" :class="{ 'opacity-25': !getNumberItemsFromName('Wakewater')  }" />
             <img src="/img/ffmq/inventory/venuskey.png":class="{ 'opacity-25': !getNumberItemsFromName('Venus Key')  }" />
             <img src="/img/ffmq/inventory/multikey.png" :class="{ 'opacity-25': !getNumberItemsFromName('Multi Key')  }" />
-            <img src="/img/ffmq/inventory/thunderrock.png" :class="{ 'opacity-25': !getNumberItemsFromName('Thunder Rock')  }" />
-            <img src="/img/ffmq/inventory/captaincap.png" :class="{ 'opacity-25': !getNumberItemsFromName('Captain\'s Cap')  }" />
+            <img v-if="!getNumberItemsFromName('Captain\'s Cap')" src="/img/ffmq/inventory/thunderrock.png" :class="{ 'opacity-25': !getNumberItemsFromName('Thunder Rock')  }" />
+            <img v-else src="/img/ffmq/inventory/captaincap.png" />
             <img src="/img/ffmq/crests/crest_libra.png" :class="{ 'opacity-25': !getNumberItemsFromName('Libra Crest')  }" />
             <img src="/img/ffmq/crests/crest_gemini.png" :class="{ 'opacity-25': !getNumberItemsFromName('Gemini Crest')  }" />
             <img src="/img/ffmq/crests/crest_mobius.png" :class="{ 'opacity-25': !getNumberItemsFromName('Mobius Crest')  }" />

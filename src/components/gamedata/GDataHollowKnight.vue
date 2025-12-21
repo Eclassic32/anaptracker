@@ -10,10 +10,11 @@
         <img src="/img/hollow_knight/DreamGate.png" :class="{ 'opacity-25': !getNumberItemsFromName('Dream_Gate')  }" />
     </div>
     <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
-        <img v-if="!getNumberItemsFromName('Dream_Wielder')" src="/img/hollow_knight/DreamNail1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Dream_Nail')  }" />
+        <img v-if="!getNumberItemsFromName('Awoken_Deam_Nail')" src="/img/hollow_knight/DreamNail1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Dream_Nail')  }" />
         <img v-else src="/img/hollow_knight/DreamNail2.png" />
         <img v-if="!getNumberItemsFromName('Shade_Cloak')" src="/img/hollow_knight/MothwingCloak.png" :class="{ 'opacity-25': !getNumberItemsFromName('Mothwing_Cloak')  }" />
         <img v-else src="/img/hollow_knight/ShadeCloak.png" />
+        <!-- Left_Wing_Mowthing_Cloak and Left_Wing_Mowthing_Cloak -->
         <img src="/img/hollow_knight/MantisClaw.png" :class="{ 'opacity-25': !getNumberItemsFromName('Mantis_Claw')  }" />
         <img src="/img/hollow_knight/CrystalHeart.png" :class="{ 'opacity-25': !getNumberItemsFromName('Crystal_Heart')  }" />
         <img src="/img/hollow_knight/IsmaTear.png" :class="{ 'opacity-25': !getNumberItemsFromName('Isma\'s_Tear')  }" />
