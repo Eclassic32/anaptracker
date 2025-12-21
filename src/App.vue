@@ -114,7 +114,7 @@ export default {
 
           setTimeout(function (scope) {
               scope.autoRefresh();
-          }, 15000, this);
+          }, 10000, this);
       },
       getStaticData: function(sdata) {
           this.STATIC_TRACKER_DATA = sdata;
@@ -180,11 +180,12 @@ export default {
           var iPage = 1;
           //console.log(location.href.slice(urltosec.length + 1));
           var fake_route = location.href.slice(urltosec.length + 1); // La route à couper.
+          console.log(fake_route);
           var fake_args = fake_route.split('/');
           if (fake_args.length > 0) {
-              this.ROOM_ID = fake_args[0]
+              this.ROOM_ID = fake_args[0];
+              this.refresh();
           }
-          this.refresh();
       /* Méthodes quand l'appli est mounted*/
       }
   },
