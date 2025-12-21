@@ -1,11 +1,11 @@
 <template>
     <div>
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
-            <img src="/img/ffmq/coins/coin_sand.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Sand Coin')  }" />
-            <img src="/img/ffmq/coins/coin_river.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('River Coin')  }" />
-            <img src="/img/ffmq/coins/coin_sun.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Sun Coin')  }" />
-            <span v-if="getNumberItemsFromName('Sky Fragment')" class="text-xs mr-1"><img src="/img/ffmq/coins/coin_sky_shard.png" class="inline-block w-[16px] h-[16px]" />x{{getNumberItemsFromName('Sky Fragment')}}</span>
-            <img v-else src="/img/ffmq/coins/coin_sky.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Sky Coin')  }" />
+            <img src="/img/ffmq/coins/coin_sand.png" :class="{ 'opacity-25': !getNumberItemsFromName('Sand Coin')  }" />
+            <img src="/img/ffmq/coins/coin_river.png" :class="{ 'opacity-25': !getNumberItemsFromName('River Coin')  }" />
+            <img src="/img/ffmq/coins/coin_sun.png"  :class="{ 'opacity-25': !getNumberItemsFromName('Sun Coin')  }" />
+            <span v-if="getNumberItemsFromName('Sky Fragment')" class="text-xs mr-1"><img src="/img/ffmq/coins/coin_sky_shard.png" />x{{getNumberItemsFromName('Sky Fragment')}}</span>
+            <img v-else src="/img/ffmq/coins/coin_sky.png" :class="{ 'opacity-25': !getNumberItemsFromName('Sky Coin')  }" />
         </div>
 
         <div :class="getImageClass()"  class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
@@ -19,7 +19,7 @@
             <img v-if="getNumberItemsFromName('Progressive Axe') > 2" src="/img/ffmq/weapons/axe3.png" />
             <img v-else-if="getNumberItemsFromName('Progressive Axe') > 1" src="/img/ffmq/weapons/axe2.png" />
             <img v-else-if="getNumberItemsFromName('Progressive Axe') > 0" src="/img/ffmq/weapons/axe1.png" />
-            <img v-else-if="getNumberItemsFromName('Gaia Axe')" src="/img/ffmq/weapons/axe3.png" />
+            <img v-else-if="getNumberItemsFromName('Giant\'s Axe')" src="/img/ffmq/weapons/axe3.png" />
             <img v-else-if="getNumberItemsFromName('Steel Axe')" src="/img/ffmq/weapons/axe2.png" />
             <img v-else src="/img/ffmq/weapons/axe1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Axe')  }" />
 
@@ -36,7 +36,7 @@
             <img v-else-if="getNumberItemsFromName('Dragon Claw')" src="/img/ffmq/weapons/claw3.png" />
             <img v-else-if="getNumberItemsFromName('Charm Claw')" src="/img/ffmq/weapons/claw2.png" />
             <img v-else src="/img/ffmq/weapons/claw1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Cat Claw')  }" />
-            <span class="mr-1" ></span>
+            <span class="mr-2" ></span>
 
 
             <img v-if="getNumberItemsFromName('Progressive Helm') > 2" src="/img/ffmq/armor/helmet3.png" />
@@ -65,8 +65,8 @@
             <img v-else-if="getNumberItemsFromName('Progressive Accessory') > 0" src="/img/ffmq/armor/charm.png" />
             <img v-else-if="getNumberItemsFromName('Cupid Locket')" src="/img/ffmq/armor/cupidlocket.png" />
             <img v-else-if="getNumberItemsFromName('Magic Ring')" src="/img/ffmq/armor/magicring.png" />
-            <img v-else src="/img/ffmq/armor/charm.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Charm')  }" />
-            <span class="mr-1"></span>
+            <img v-else src="/img/ffmq/armor/charm.png" :class="{ 'opacity-25': !getNumberItemsFromName('Charm')  }" />
+            <span class="mr-2"></span>
 
             <img src="/img/ffmq/magic/exit.png" :class="{ 'opacity-25': !getNumberItemsFromName('Exit Book')  }" />
             <img v-if="getNumberItemsFromName('Life Book')" src="/img/ffmq/magic/life.png" />

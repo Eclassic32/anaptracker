@@ -1,39 +1,39 @@
 <template>
     <div>
 
-        <div :class="{ 'my-1' : $parent.$parent.$parent.OPTIONS.row_size}" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
-            <span v-if="getNumberItemsFromName('Energy Tank')" class="text-xs mr-1"><img src="/img/super_metroid/items/etank.png" class="inline-block w-[16px] h-[16px]" />x{{getNumberItemsFromName('Energy Tank')}}</span>
-            <span v-else class="text-xs mr-1 opacity-25"><img src="/img/super_metroid/items/etank.png" class="inline-block w-[16px] h-[16px]" />x0</span>
-            <span v-if="getNumberItemsFromName('Reserve Tank')" class="text-xs mr-1"><img src="/img/super_metroid/items/reservetank.png" class="inline-block w-[16px] h-[16px]" />x{{getNumberItemsFromName('Reserve Tank')}}</span>
-            <span v-else class="text-xs mr-1 opacity-25"><img src="/img/super_metroid/items/reservetank.png" class="inline-block w-[16px] h-[16px]" />x0</span>
-            <span v-if="getNumberItemsFromName('Missile')" class="text-xs mr-1"><img src="/img/super_metroid/items/missile.png" class="inline-block w-[16px] h-[16px]" />x{{getNumberItemsFromName('Missile')}}</span>
-            <span v-else class="text-xs mr-1 opacity-25"><img src="/img/super_metroid/items/missile.png" class="inline-block w-[16px] h-[16px]" />x0</span>
-            <span v-if="getNumberItemsFromName('Super Missile')" class="text-xs mr-1"><img src="/img/super_metroid/items/super.png" class="inline-block w-[16px] h-[16px]" />x{{getNumberItemsFromName('Super Missile')}}</span>
-            <span v-else class="text-xs mr-1 opacity-25"><img src="/img/super_metroid/items/super.png" class="inline-block w-[16px] h-[16px]" />x0</span>
-            <span v-if="getNumberItemsFromName('Power Bomb')" class="text-xs mr-1"><img src="/img/super_metroid/items/powerbomb.png" class="inline-block w-[16px] h-[16px]" />x{{getNumberItemsFromName('Power Bomb')}}</span>
-            <span v-else class="text-xs mr-1 opacity-25"><img src="/img/super_metroid/items/powerbomb.png" class="inline-block w-[16px] h-[16px]" />x0</span>
-            <img src="/img/super_metroid/items/grapple.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Grappling Beam')  }" />
-            <img src="/img/super_metroid/items/xray.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('X-Ray Scope')  }" />
+        <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+            <span v-if="getNumberItemsFromName('Energy Tank')" class="text-xs mr-1"><img src="/img/super_metroid/items/etank.png" />x{{getNumberItemsFromName('Energy Tank')}}</span>
+            <span v-else class="text-xs mr-1 opacity-25"><img src="/img/super_metroid/items/etank.png" />x0</span>
+            <span v-if="getNumberItemsFromName('Reserve Tank')" class="text-xs mr-1"><img src="/img/super_metroid/items/reservetank.png" />x{{getNumberItemsFromName('Reserve Tank')}}</span>
+            <span v-else class="text-xs mr-1 opacity-25"><img src="/img/super_metroid/items/reservetank.png" />x0</span>
+            <span v-if="getNumberItemsFromName('Missile')" class="text-xs mr-1"><img src="/img/super_metroid/items/missile.png" />x{{getNumberItemsFromName('Missile')}}</span>
+            <span v-else class="text-xs mr-1 opacity-25"><img src="/img/super_metroid/items/missile.png" />x0</span>
+            <span v-if="getNumberItemsFromName('Super Missile')" class="text-xs mr-1"><img src="/img/super_metroid/items/super.png" />x{{getNumberItemsFromName('Super Missile')}}</span>
+            <span v-else class="text-xs mr-1 opacity-25"><img src="/img/super_metroid/items/super.png" />x0</span>
+            <span v-if="getNumberItemsFromName('Power Bomb')" class="text-xs mr-1"><img src="/img/super_metroid/items/powerbomb.png" />x{{getNumberItemsFromName('Power Bomb')}}</span>
+            <span v-else class="text-xs mr-1 opacity-25"><img src="/img/super_metroid/items/powerbomb.png" />x0</span>
+            <img src="/img/super_metroid/items/grapple.png" :class="{ 'opacity-25': !getNumberItemsFromName('Grappling Beam')  }" />
+            <img src="/img/super_metroid/items/xray.png" :class="{ 'opacity-25': !getNumberItemsFromName('X-Ray Scope')  }" />
         </div>
 
-        <div :class="{ 'my-1' : $parent.$parent.$parent.OPTIONS.row_size}" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
-            <img src="/img/super_metroid/items/charge.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Charge Beam')  }" />
-            <img src="/img/super_metroid/items/ice.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Ice Beam')  }" />
-            <img src="/img/super_metroid/items/wave.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Wave Beam')  }" />
-            <img src="/img/super_metroid/items/spazer.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Spazer')  }" />
-            <img src="/img/super_metroid/items/plasma.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Plasma Beam')  }" />
+        <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+            <img src="/img/super_metroid/items/charge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Charge Beam')  }" />
+            <img src="/img/super_metroid/items/ice.png" :class="{ 'opacity-25': !getNumberItemsFromName('Ice Beam')  }" />
+            <img src="/img/super_metroid/items/wave.png"  :class="{ 'opacity-25': !getNumberItemsFromName('Wave Beam')  }" />
+            <img src="/img/super_metroid/items/spazer.png" :class="{ 'opacity-25': !getNumberItemsFromName('Spazer')  }" />
+            <img src="/img/super_metroid/items/plasma.png" :class="{ 'opacity-25': !getNumberItemsFromName('Plasma Beam')  }" />
         </div>
 
-        <div :class="{ 'my-1' : $parent.$parent.$parent.OPTIONS.row_size}" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
-            <img src="/img/super_metroid/items/varia.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Varia Suit')  }" />
-            <img src="/img/super_metroid/items/gravity.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Gravity Suit')  }" />
-            <img src="/img/super_metroid/items/morph.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Morph Ball')  }" />
-            <img src="/img/super_metroid/items/bomb.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Bomb')  }" />
-            <img src="/img/super_metroid/items/springball.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Spring Ball')  }" />
-            <img src="/img/super_metroid/items/screw.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Screw Attack')  }" />
-            <img src="/img/super_metroid/items/hijump.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Hi-Jump Boots')  }" />
-            <img src="/img/super_metroid/items/speed.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Speed Booster')  }" />
-            <img src="/img/super_metroid/items/space.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('Space Jump')  }" />
+        <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+            <img src="/img/super_metroid/items/varia.png" :class="{ 'opacity-25': !getNumberItemsFromName('Varia Suit')  }" />
+            <img src="/img/super_metroid/items/gravity.png" :class="{ 'opacity-25': !getNumberItemsFromName('Gravity Suit')  }" />
+            <img src="/img/super_metroid/items/morph.png" :class="{ 'opacity-25': !getNumberItemsFromName('Morph Ball')  }" />
+            <img src="/img/super_metroid/items/bomb.png" :class="{ 'opacity-25': !getNumberItemsFromName('Bomb')  }" />
+            <img src="/img/super_metroid/items/springball.png" :class="{ 'opacity-25': !getNumberItemsFromName('Spring Ball')  }" />
+            <img src="/img/super_metroid/items/screw.png" :class="{ 'opacity-25': !getNumberItemsFromName('Screw Attack')  }" />
+            <img src="/img/super_metroid/items/hijump.png" :class="{ 'opacity-25': !getNumberItemsFromName('Hi-Jump Boots')  }" />
+            <img src="/img/super_metroid/items/speed.png" :class="{ 'opacity-25': !getNumberItemsFromName('Speed Booster')  }" />
+            <img src="/img/super_metroid/items/space.png" :class="{ 'opacity-25': !getNumberItemsFromName('Space Jump')  }" />
         </div>
     </div>
 </template>
@@ -57,6 +57,12 @@ export default {
   },
 
         methods: {
+            getImageClass: function () {
+                if (this.$parent.$parent.$parent.OPTIONS.row_size) {
+                    return 'iconbar-L my-1';
+                }
+                return 'iconbar-S';
+            },
             getNumberItemsFromName: function (name) {
                 var res = 0;
                 if (this.gamedata && this.gamedata.location_name_to_id && this.data && this.data.player_items_received) {
