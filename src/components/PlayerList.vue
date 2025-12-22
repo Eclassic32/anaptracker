@@ -1,15 +1,13 @@
 <template>
     <div class="flex flex-col bg-gray-500 max-w-50vh">
         <div class=" divide-solid divide-gray-900">
-            <PlayerSlot v-for="(element, index) in room.players"
+            <PlayerSlot v-for="(element, index) in sorted_players()"
                         :key="'owel-' + index"
                         v-bind:index="index"
-                        v-bind:player_name="room.players[index][0]"
-                        v-bind:player_game="room.players[index][1]"
-                        v-bind:checks_done="0"
-                        v-bind:total_checks="0"
+                        v-bind:player_name="element.name"
+                        v-bind:player_game="element.game"
                         v-bind:gamedata="gamedata"
-                        v-bind:data="data">
+                        v-bind:data="element">
             </PlayerSlot>
         </div>
         <div :class=" { 'bg-emerald-200' : get_state() > 1, 'py-2' : $parent.OPTIONS.row_size,  'text-sm py-2' : !$parent.OPTIONS.row_size  }" class="relative inline-block w-full tracker-history text-xl leading-5 font-semibold font-xl h-full px-2 border-t-2 border-t-gray-900">
@@ -38,6 +36,7 @@
         name: 'playerList',
         props: {
             data: Object,
+            globaldata: Object,
             gamedata: Object,
             room: Object,
             static_data: Object
@@ -55,6 +54,18 @@
         },
 
         methods: {
+            sorted_players: function () {
+                if (this.$parent.OPTIONS.sort_by == 1) {
+                    return this.globaldata.players.sort((a, b) => a.tracker_data.player_checks_done.length - b.tracker_data.player_checks_done.length);
+                }
+                if (this.$parent.OPTIONS.sort_by == 2) {
+                    return this.globaldata.players.sort((a, b) => (a.tracker_data.player_checks_done.length / a.total_locations) - (b.tracker_data.player_checks_done.length / b.total_locations));
+                }
+                if (this.$parent.OPTIONS.sort_by == 3) {
+                    return this.globaldata.players.sort((a, b) => a.total_locations - b.total_locations);
+                }
+                return this.globaldata.players.sort((a, b) => a.id - b.id);
+            },
             games_completed: function () {
                 var res = 0;
                 for (var x = 0; x < this.data.player_status.length; x++) {

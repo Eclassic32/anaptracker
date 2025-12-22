@@ -19,6 +19,9 @@
             <div v-if="$parent.validRoom()" v-on:click="changeShowTimer()" class="text-green-600 relative mr-6 cursor-pointer hover:text-white">
                 <span>{{ getShowTimer() }} Timers</span>
             </div>
+            <div v-if="$parent.validRoom()" v-on:click="changeSortBy()" class="text-green-600 relative mr-6 cursor-pointer hover:text-white">
+                <span>Sort : {{ getSortType() }}</span>
+            </div>
             <div class="text-green-600 relative mr-6 justify-self-end">
                 <span>v0.1.0</span>
             </div>
@@ -65,6 +68,20 @@
                         return 'Show';
                 }
             },
+            getSortType: function () {
+                switch (this.$parent.OPTIONS.sort_by) {
+                    case 0:
+                        return 'Name';
+                    case 1:
+                        return 'Checks';
+                    case 2:
+                        return '%';
+                    case 3:
+                        return 'Total';
+                    default:
+                        return 'Name';
+                }
+            },
             changeShowDone: function () {
                 this.$parent.OPTIONS.show_done = this.$parent.OPTIONS.show_done + 1;
                 if (this.$parent.OPTIONS.show_done > 1)
@@ -79,6 +96,11 @@
                 this.$parent.OPTIONS.row_size = this.$parent.OPTIONS.row_size + 1;
                 if (this.$parent.OPTIONS.row_size > 1)
                     this.$parent.OPTIONS.row_size = 0;
+            },
+            changeSortBy: function () {
+                this.$parent.OPTIONS.sort_by = this.$parent.OPTIONS.sort_by + 1;
+                if (this.$parent.OPTIONS.sort_by > 3)
+                    this.$parent.OPTIONS.sort_by = 0;
             },
             getSize: function () {
                 switch (this.$parent.OPTIONS.row_size) {
