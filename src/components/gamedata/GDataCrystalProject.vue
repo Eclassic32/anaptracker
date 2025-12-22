@@ -86,15 +86,11 @@ export default {
             },
             getNumberItemsFromName: function (name) {
                 var res = 0;
-                if (this.gamedata && this.gamedata.location_name_to_id && this.data && this.data.player_items_received) {
+                if (this.gamedata && this.gamedata.location_name_to_id) {
 
                     var id = this.gamedata.item_name_to_id[name];
-                    //console.log(this.gamedata.item_name_to_id);
-                    //console.log(id);
-                    //console.log(this.data.player_items_received);
-                    for (var x = 0; x < this.data.player_items_received[this.index].items.length; x++) {
-                        //console.log(this.data.player_items_received[this.index].items[x])
-                        if (this.data.player_items_received[this.index].items[x][0] == id)
+                    for (var x = 0; x < this.data.tracker_data.player_items_received.length; x++) {
+                        if (this.data.tracker_data.player_items_received[x][0] == id)
                             res++;
                     }
                 }
@@ -102,7 +98,7 @@ export default {
             },
             getNumberItemsFromCategory: function (name) {
                 var res = 0;
-                if (this.gamedata && this.gamedata.item_name_groups && this.data && this.data.player_items_received) {
+                if (this.gamedata && this.gamedata.item_name_groups) {
 
                     var group = this.gamedata.item_name_groups[name];
                     var list_of_ids = [];
@@ -112,9 +108,9 @@ export default {
                     //console.log(this.gamedata.item_name_to_id);
                     //console.log(id);
                     //console.log(this.data.player_items_received);
-                    for (var x = 0; x < this.data.player_items_received[this.index].items.length; x++) {
+                    for (var x = 0; x < this.data.tracker_data.player_items_received.length; x++) {
                         //console.log(this.data.player_items_received[this.index].items[x])
-                        if (list_of_ids.includes(this.data.player_items_received[this.index].items[x][0]))
+                        if (list_of_ids.includes(this.data.tracker_data.player_items_received[x][0]))
                             res++;
                     }
                 }

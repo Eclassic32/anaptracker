@@ -79,11 +79,11 @@ export default {
             },
             getNumberItemsFromName: function (name) {
                 var res = 0;
-                if (this.gamedata && this.gamedata.location_name_to_id && this.data && this.data.player_items_received) {
+                if (this.gamedata && this.gamedata.location_name_to_id) {
 
                     var id = this.gamedata.item_name_to_id[name];
-                    for (var x = 0; x < this.data.player_items_received[this.index].items.length; x++) {
-                        if (this.data.player_items_received[this.index].items[x][0] == id)
+                    for (var x = 0; x < this.data.tracker_data.player_items_received.length; x++) {
+                        if (this.data.tracker_data.player_items_received[x][0] == id)
                             res++;
                     }
                 }

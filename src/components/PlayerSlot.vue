@@ -74,13 +74,9 @@ export default {
                 // 1 - Playing
                 // 5 - Offline
                 // 30 - Game Completed
-                var element = this.$parent.$parent.TRACKER_DATA;
-                if (element.player_status[this.index]) {
-                    if (element.player_status[this.index].status >= 30)
-                        return 30;
-                    return element.player_status[this.index].status;
-                }
-                return 0;
+                if (this.data.tracker_data.status >= 30)
+                    return 30;
+                return this.data.tracker_data.status;
             },
             get_current_checks: function () {
                 return this.data.tracker_data.player_checks_done.length;
