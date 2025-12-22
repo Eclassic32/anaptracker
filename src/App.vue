@@ -7,7 +7,7 @@
                 <Navbar v-bind:data="TRACKER_DATA" v-bind:gamedata="DATA_PACKAGE" v-bind:static_data="STATIC_TRACKER_DATA" v-bind:room="ROOM_DATA"></Navbar>
             </div>
             <div>
-                <PlayerList v-if="validRoom()" v-bind:data="TRACKER_DATA" v-bind:globaldata="GLOBAL_TRACKER_DATA" v-bind:gamedata="DATA_PACKAGE" v-bind:static_data="STATIC_TRACKER_DATA" v-bind:room="ROOM_DATA"></PlayerList>
+                <PlayerList v-if="validRoom()" v-bind:globaldata="GLOBAL_TRACKER_DATA" v-bind:gamedata="DATA_PACKAGE"></PlayerList>
                 <Home v-else></Home>
             </div>
         </div>
@@ -51,10 +51,11 @@
             player_items_received: [],
             player_checks_done: [],
             activity_timer: '',
+            status: '',
         };
         static_data = {};
         slot_data = {};
-        status = {};
+        status = 0;
         name = '';
         alias = '';
         game = '';
@@ -95,7 +96,6 @@ export default {
           STATIC_TRACKER_DATA,
           GLOBAL_TRACKER_DATA,
           SLOT_DATA,
-          TRACKER_DATA,
           ROOM_DATA,
           DATA_PACKAGE,
           TRACKER_ID,
@@ -137,14 +137,15 @@ export default {
       }
       ,
       refreshTrackerData: function (tdata) {
-          this.TRACKER_DATA = tdata;
+          this.GLOBAL_TRACKER_DATA.total_checks_done = tdata.total_checks_done[0].checks_done;
           for (var y = 0; y < tdata.player_checks_done.length; y++) {
               for (var x = 0; x < this.GLOBAL_TRACKER_DATA.players.length; x++) {
                   //console.log(this.GLOBAL_TRACKER_DATA.players[x]);
                   if (this.GLOBAL_TRACKER_DATA.players[x].id == tdata.player_checks_done[y].player) {
                       this.GLOBAL_TRACKER_DATA.players[x].tracker_data.player_items_received = tdata.player_items_received[y].items;
                       this.GLOBAL_TRACKER_DATA.players[x].tracker_data.player_checks_done = tdata.player_checks_done[y].locations;
-                      this.GLOBAL_TRACKER_DATA.players[x].tracker_data.activity_timer = tdata.activity_timers[y].time;
+                      this.GLOBAL_TRACKER_DATA.players[x].tracker_data.activity_timer = tdata.activity_timers[y].time
+                      this.GLOBAL_TRACKER_DATA.players[x].tracker_data.status = tdata.player_status[y].status;
                       break;
                   }
               }

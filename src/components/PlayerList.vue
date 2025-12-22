@@ -35,11 +35,8 @@
     export default {
         name: 'playerList',
         props: {
-            data: Object,
             globaldata: Object,
-            gamedata: Object,
-            room: Object,
-            static_data: Object
+            gamedata: Object
         },
         data: function () {
             return {
@@ -68,14 +65,14 @@
             },
             games_completed: function () {
                 var res = 0;
-                for (var x = 0; x < this.data.player_status.length; x++) {
-                    if (this.data.player_status[x].status >= 30)
+                for (var x = 0; x < this.globaldata.players.length; x++) {
+                    if (this.globaldata.players[x].tracker_data.status >= 30)
                         res++;
                 }
                 return res;
             },
             total_games: function () {
-                return this.room.players.length;
+                return this.globaldata.players.length;
             },
             toggleNavbar: function () {
                 this.showMenu = !this.showMenu;
@@ -93,22 +90,14 @@
                 return 0;
             },
             get_current_checks: function () {
-                var element = this.$parent.TRACKER_DATA;
-                if (element.total_checks_done.length > 0) {
-                    return element.total_checks_done[0].checks_done;
-                }
-                return 0;
+                return this.globaldata.total_checks_done;
             },
             get_total_checks: function () {
-                var element = this.$parent.STATIC_TRACKER_DATA;
-                if (element.player_locations_total) {
-                    var res = 0;
-                    for (var x = 0; x < element.player_locations_total.length; x++) {
-                        res += element.player_locations_total[x].total_locations;
-                    }
-                    return res;
+                var res = 0;
+                for (var x = 0; x < this.globaldata.players.length; x++) {
+                    res += this.globaldata.players[x].total_locations;
                 }
-                return 0;
+                return res;
             },
             percent_completion: function () {
                 var total_checks = this.get_total_checks();
