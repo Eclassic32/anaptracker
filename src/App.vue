@@ -7,7 +7,7 @@
                 <Navbar v-bind:data="TRACKER_DATA" v-bind:gamedata="DATA_PACKAGE" v-bind:static_data="STATIC_TRACKER_DATA" v-bind:room="ROOM_DATA"></Navbar>
             </div>
             <div>
-                <PlayerList v-if="validRoom()" v-bind:data="TRACKER_DATA" v-bind:gamedata="DATA_PACKAGE" v-bind:static_data="STATIC_TRACKER_DATA" v-bind:room="ROOM_DATA"></PlayerList>
+                <PlayerList v-if="validRoom()" v-bind:data="TRACKER_DATA" v-bind:globaldata="GLOBAL_TRACKER_DATA" v-bind:gamedata="DATA_PACKAGE" v-bind:static_data="STATIC_TRACKER_DATA" v-bind:room="ROOM_DATA"></PlayerList>
                 <Home v-else></Home>
             </div>
         </div>
@@ -26,10 +26,18 @@
     var ROOM_ID = '';
 
 
+    var GLOBAL_TRACKER_DATA = {
+        players: [],
+        datapackage: [],
+        groups: [],
+        total_checks_done: 0
+
+    };
     var OPTIONS = {
         row_size: 0,
         show_done: 1,
-        show_timer: 1
+        show_timer: 1,
+        sort_by: 0
     };
     var STATIC_TRACKER_DATA = {
         datapackage: [],
@@ -37,6 +45,29 @@
         player_locations_total: []
 
     };
+    class PlayerStruct {
+
+        tracker_data = {
+            player_items_received: [],
+            player_checks_done: [],
+            activity_timer: '',
+        };
+        static_data = {};
+        slot_data = {};
+        status = {};
+        name = '';
+        alias = '';
+        game = '';
+        id = 0;
+        total_locations = 0;
+        group = 0;
+
+        constructor(new_id, new_name, new_game) {
+            this.id = new_id;
+            this.name = new_name;
+            this.game = new_game;
+        }
+    }
 var TRACKER_DATA = {
         activity_timers: [],
         aliases: [],
@@ -62,6 +93,7 @@ export default {
       return {
           ANAP_DATA,
           STATIC_TRACKER_DATA,
+          GLOBAL_TRACKER_DATA,
           SLOT_DATA,
           TRACKER_DATA,
           ROOM_DATA,
@@ -104,32 +136,57 @@ export default {
           //this.seeder.next_objective();
       }
       ,
+      refreshTrackerData: function (tdata) {
+          this.TRACKER_DATA = tdata;
+          for (var y = 0; y < tdata.player_checks_done.length; y++) {
+              for (var x = 0; x < this.GLOBAL_TRACKER_DATA.players.length; x++) {
+                  //console.log(this.GLOBAL_TRACKER_DATA.players[x]);
+                  if (this.GLOBAL_TRACKER_DATA.players[x].id == tdata.player_checks_done[y].player) {
+                      this.GLOBAL_TRACKER_DATA.players[x].tracker_data.player_items_received = tdata.player_items_received[y].items;
+                      this.GLOBAL_TRACKER_DATA.players[x].tracker_data.player_checks_done = tdata.player_checks_done[y].locations;
+                      this.GLOBAL_TRACKER_DATA.players[x].tracker_data.activity_timer = tdata.activity_timers[y].time;
+                      break;
+                  }
+              }
+          }
+      },
       autoRefresh: function () {
           var TRACKER_URL = this.ANAP_DATA.archipelagogg.tracker_url + this.ROOM_DATA.tracker;
 
-          /*
-          if (this.SLOT_DATA) {
-              console.log(this.SLOT_DATA);
-          }
-          if (this.TRACKER_DATA) {
-              console.log(this.TRACKER_DATA);
-          }
-          */
-
           axios
               .get(TRACKER_URL)
-              .then(response => (this.TRACKER_DATA = response.data));
+              .then(response => (this.refreshTrackerData(response.data)));
 
           setTimeout(function (scope) {
               scope.autoRefresh();
           }, 10000, this);
       },
-      getStaticData: function(sdata) {
+      getStaticData: function (sdata) {
           this.STATIC_TRACKER_DATA = sdata;
           for (var key in sdata.datapackage) {
               this.DATA_PACKAGE[key] = "";
           }
+          this.GLOBAL_TRACKER_DATA.groups = sdata.groups;
+          for (var y = 0; y < sdata.player_locations_total.length; y++) {
+              for (var x = 0; x < this.GLOBAL_TRACKER_DATA.players.length; x++) {
+                  if (this.GLOBAL_TRACKER_DATA.players[x].id == sdata.player_locations_total[y].player) {
+                      this.GLOBAL_TRACKER_DATA.players[x].total_locations = sdata.player_locations_total[y].total_locations;
+                      break;
+                  }
+              }
+          }
           this.getChainStaticData();
+      },
+      getSlotData: function (sdata) {
+          this.SLOT_DATA = sdata;
+          for (var y = 0; y < sdata.length; y++) {
+              for (var x = 0; x < this.GLOBAL_TRACKER_DATA.players.length; x++) {
+                  if (this.GLOBAL_TRACKER_DATA.players[x].id == sdata[y].player) {
+                      this.GLOBAL_TRACKER_DATA.players[x].slot_data = sdata[y].slot_data;
+                      break;
+                  }
+              }
+          }
       },
       getChainStaticData: function () {
           for (var key in this.DATA_PACKAGE) {
@@ -153,9 +210,19 @@ export default {
               }
           }
       },
-      startAutoRefresh() {
+      beginTrackingData(room_data) {
+          this.ROOM_DATA = room_data;
+          GLOBAL_TRACKER_DATA.players = [];
+
           if (!this.validRoom())
               return;
+
+          var index_player = 0;
+          // Pushing room data in a proprer structure. This will allow us to sort the data later
+          for (var x = 0; x < room_data.players.length; x++) {
+              index_player += 1;
+              GLOBAL_TRACKER_DATA.players.push(new PlayerStruct(index_player, room_data.players[x][0], room_data.players[x][1]));
+          }
 
           var SLOT_URL = this.ANAP_DATA.archipelagogg.slot_url + this.ROOM_DATA.tracker;
           var STATIC_TRACKER_URL = this.ANAP_DATA.archipelagogg.static_tracker_url + this.ROOM_DATA.tracker;
@@ -165,7 +232,7 @@ export default {
 
           axios
               .get(SLOT_URL)
-              .then(response => (this.SLOT_DATA = response.data));
+              .then(response => (this.getSlotData(response.data)));
           this.autoRefresh();
       },
       refresh: function () {
@@ -173,8 +240,7 @@ export default {
 
           axios
               .get(ROOM_URL)
-              .then(response => (this.ROOM_DATA = response.data))
-              .then(response => (this.startAutoRefresh()));
+              .then(response => (this.beginTrackingData(response.data)));
      },
       loadRoom: function (roomid) {
           this.ROOM_ID = roomid;
