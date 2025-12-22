@@ -14,7 +14,8 @@
             </div>
             
             <div class="w-1/4 z-3 text-right">
-                <span v-if="$parent.$parent.OPTIONS.show_timer" class="font-normal text-tiny mr-3">{{ get_last_activity() }}</span><span v-if="!$parent.$parent.OPTIONS.row_size" class="font-normal text-tiny mr-2">({{ percent_completion() }}%)</span><span class="font-bold">{{ get_current_checks() }}</span> / {{ get_total_checks() }}<br /><span v-if="$parent.$parent.OPTIONS.row_size" class="font-normal text-tiny">({{ percent_completion() }}%)</span></div>
+                <span v-if="$parent.$parent.OPTIONS.show_timer" class="font-bold
+                      text-tiny mr-3">{{ get_last_activity() }}</span><span v-if="!$parent.$parent.OPTIONS.row_size" class="font-normal text-tiny mr-2">({{ percent_completion() }}%)</span><span class="font-bold">{{ get_current_checks() }}</span> / {{ get_total_checks() }}<br /><span v-if="$parent.$parent.OPTIONS.row_size" class="font-normal text-tiny">({{ percent_completion() }}%)</span></div>
         </div>
     </div>
 </template>
@@ -82,18 +83,10 @@ export default {
                 return 0;
             },
             get_current_checks: function () {
-                var element = this.$parent.$parent.TRACKER_DATA;
-                if (element.player_checks_done[this.index]) {
-                    return element.player_checks_done[this.index].locations.length;
-                }
-                return 0;
+                return this.data.tracker_data.player_checks_done.length;
             },
             get_total_checks: function () {
-                var element = this.$parent.$parent.STATIC_TRACKER_DATA;
-                if (element.player_locations_total[this.index]) {
-                    return element.player_locations_total[this.index].total_locations;
-                }
-                return 0;
+                return this.data.total_locations;
             },
             percent_completion: function () {
                 var total_checks = this.get_total_checks();
@@ -108,10 +101,9 @@ export default {
                 return 0;
             },
             get_time_diff: function () {
-                var element = this.$parent.$parent.TRACKER_DATA;
-                if (element.activity_timers[this.index] && element.activity_timers[this.index].time) {
+                if (this.data.tracker_data.activity_timer) {
                     var date_now = Date.now();
-                    var date_act = new Date(element.activity_timers[this.index].time).getTime();
+                    var date_act = new Date(this.data.tracker_data.activity_timer).getTime();
                     return Math.floor((date_now - date_act) / 1000);
 
                 }
@@ -127,7 +119,7 @@ export default {
                     return (Math.floor(time / (360)) / 10).toString() + 'H';
                 }
                 else if (time > 900) {
-                        return (Math.floor(time / (6)) / 10).toString() + 'm';
+                        return (Math.floor(time / (60))).toString() + 'm';
                 }
 
                 return '';
