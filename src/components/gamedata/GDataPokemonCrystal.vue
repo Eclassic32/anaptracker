@@ -40,7 +40,7 @@
             <img src="/img/pokemon_crystal/items/squirtbottle.png" :class="{ 'opacity-25': !getNumberItemsFromName('Squirtbottle')  }" />
             <img src="/img/pokemon_crystal/items/ssticket.png" :class="{ 'opacity-25': !getNumberItemsFromName('S.S. Ticket')  }" />
             <img src="/img/pokemon_crystal/items/pass.png" :class="{ 'opacity-25': !getNumberItemsFromName('Pass')  }" />
-            <img src="/img/pokemon_crystal/items/basementkey.png"" :class="{ 'opacity-25': !getNumberItemsFromName('Basement Key')  }" />
+            <img src="/img/pokemon_crystal/items/basementkey.png" :class="{ 'opacity-25': !getNumberItemsFromName('Basement Key')  }" />
             <img src="/img/pokemon_crystal/items/cardkey.png" :class="{ 'opacity-25': !getNumberItemsFromName('Card Key')  }" />
             <img src="/img/pokemon_crystal/items/rainbowwing.png"  :class="{ 'opacity-25': !getNumberItemsFromName('Rainbow Wing')  }" />
             <img src="/img/pokemon_crystal/items/machinepart.png" :class="{ 'opacity-25': !getNumberItemsFromName('Machine Part')  }" />

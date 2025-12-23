@@ -1,30 +1,30 @@
 <template>
     <div>
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
-            <img title="Job - Warrior" src="/img/crystal_project/classes/warrior.png" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Warrior')  }" />
-            <img src="/img/crystal_project/classes/monk.png" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Monk')  }" />
-            <img src="/img/crystal_project/classes/rogue.png" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Rogue')  }" />
-            <img src="/img/crystal_project/classes/warlock.png" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Warlock')  }" />
-            <img src="/img/crystal_project/classes/cleric.png" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Cleric')  }" />
-            <img src="/img/crystal_project/classes/wizard.png" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Wizard')  }" />
-            <img src="/img/crystal_project/classes/fencer.png" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Fencer')  }" />
-            <img src="/img/crystal_project/classes/shaman.png" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Shaman')  }" />
-            <img src="/img/crystal_project/classes/scholar.png" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Scholar')  }" />
-            <img src="/img/crystal_project/classes/aegis.png" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Aegis')  }" />
-            <img src="/img/crystal_project/classes/hunter.png" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Hunter')  }" />
-            <img src="/img/crystal_project/classes/chemist.png" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Chemist')  }" />
-            <img src="/img/crystal_project/classes/reaper.png" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Reaper')  }" />
-            <img src="/img/crystal_project/classes/ninja.png" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Ninja')  }" />
-            <img src="/img/crystal_project/classes/nomad.png" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Nomad')  }" />
-            <img src="/img/crystal_project/classes/dervish.png" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Dervish')  }" />
-            <img src="/img/crystal_project/classes/beatsmith.png" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Beatsmith')  }" />
-            <img src="/img/crystal_project/classes/samurai.png" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Samurai')  }" />
-            <img src="/img/crystal_project/classes/assassin.png" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Assassin')  }" />
-            <img src="/img/crystal_project/classes/valkyrie.png" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Valkyrie')  }" />
-            <img src="/img/crystal_project/classes/summoner.png" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Summoner')  }" />
-            <img src="/img/crystal_project/classes/weaver.png" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Weaver')  }" />
-            <img src="/img/crystal_project/classes/beastmaster.png" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Beastmaster')  }" />
-            <img src="/img/crystal_project/classes/mimic.png" :class="{ 'opacity-25': !getNumberItemsFromName('Job - Mimic')  }" />
+            <img title="Job - Warrior" src="/img/crystal_project/classes/warrior.png" :class="{ 'opacity-25': !hasJob('Job - Warrior')  }" />
+            <img src="/img/crystal_project/classes/monk.png" :class="{ 'opacity-25': !hasJob('Job - Monk')  }" />
+            <img src="/img/crystal_project/classes/rogue.png" :class="{ 'opacity-25': !hasJob('Job - Rogue')  }" />
+            <img src="/img/crystal_project/classes/warlock.png" :class="{ 'opacity-25': !hasJob('Job - Warlock')  }" />
+            <img src="/img/crystal_project/classes/cleric.png" :class="{ 'opacity-25': !hasJob('Job - Cleric')  }" />
+            <img src="/img/crystal_project/classes/wizard.png" :class="{ 'opacity-25': !hasJob('Job - Wizard')  }" />
+            <img src="/img/crystal_project/classes/fencer.png" :class="{ 'opacity-25': !hasJob('Job - Fencer')  }" />
+            <img src="/img/crystal_project/classes/shaman.png" :class="{ 'opacity-25': !hasJob('Job - Shaman')  }" />
+            <img src="/img/crystal_project/classes/scholar.png" :class="{ 'opacity-25': !hasJob('Job - Scholar')  }" />
+            <img src="/img/crystal_project/classes/aegis.png" :class="{ 'opacity-25': !hasJob('Job - Aegis')  }" />
+            <img src="/img/crystal_project/classes/hunter.png" :class="{ 'opacity-25': !hasJob('Job - Hunter')  }" />
+            <img src="/img/crystal_project/classes/chemist.png" :class="{ 'opacity-25': !hasJob('Job - Chemist')  }" />
+            <img src="/img/crystal_project/classes/reaper.png" :class="{ 'opacity-25': !hasJob('Job - Reaper')  }" />
+            <img src="/img/crystal_project/classes/ninja.png" :class="{ 'opacity-25': !hasJob('Job - Ninja')  }" />
+            <img src="/img/crystal_project/classes/nomad.png" :class="{ 'opacity-25': !hasJob('Job - Nomad')  }" />
+            <img src="/img/crystal_project/classes/dervish.png" :class="{ 'opacity-25': !hasJob('Job - Dervish')  }" />
+            <img src="/img/crystal_project/classes/beatsmith.png" :class="{ 'opacity-25': !hasJob('Job - Beatsmith')  }" />
+            <img src="/img/crystal_project/classes/samurai.png" :class="{ 'opacity-25': !hasJob('Job - Samurai')  }" />
+            <img src="/img/crystal_project/classes/assassin.png" :class="{ 'opacity-25': !hasJob('Job - Assassin')  }" />
+            <img src="/img/crystal_project/classes/valkyrie.png" :class="{ 'opacity-25': !hasJob('Job - Valkyrie')  }" />
+            <img src="/img/crystal_project/classes/summoner.png" :class="{ 'opacity-25': !hasJob('Job - Summoner')  }" />
+            <img src="/img/crystal_project/classes/weaver.png" :class="{ 'opacity-25': !hasJob('Job - Weaver')  }" />
+            <img src="/img/crystal_project/classes/beastmaster.png" :class="{ 'opacity-25': !hasJob('Job - Beastmaster')  }" />
+            <img src="/img/crystal_project/classes/mimic.png" :class="{ 'opacity-25': !hasJob('Job - Mimic')  }" />
         </div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
@@ -115,7 +115,13 @@ export default {
                     }
                 }
                 return res;
-            }
+            },
+            hasJob: function (name) {
+                if (this.data.slot_data.startingJobsForUT && this.data.slot_data.startingJobsForUT.includes(name)) {
+                    return 1;
+                }
+                return this.getNumberItemsFromName(name);
+            },
         },
   components: {
   },
