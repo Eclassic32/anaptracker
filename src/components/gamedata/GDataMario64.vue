@@ -4,7 +4,8 @@
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Goal</div>
 
-            <span class="mr-2 text-xs" :class="{ 'opacity-25': !getNumberItemsFromName('Power Star')  }"><img src="/img/sm64/star.png" />x{{ getNumberItemsFromName('Power Star') }} </span>
+            <span v-if="getGoalStars()" class="mr-2 text-xs"><span :class="{ 'opacity-25': !getNumberItemsFromName('Power Star')  }"><img src="/img/sm64/star.png" />x{{ getNumberItemsFromName('Power Star') }} </span> / {{ getGoalStars() }}</span>
+            <span v-else class="mr-2 text-xs" :class="{ 'opacity-25': !getNumberItemsFromName('Power Star')  }"><img src="/img/sm64/star.png" />x{{ getNumberItemsFromName('Power Star') }} </span>
 
             <img src="/img/sm64/keys/key_basement.png" :class="{ 'opacity-25': !getNumberItemsFromName('Basement Key') && !getNumberItemsFromName('Progressive Key')  }" />
             <img src="/img/sm64/keys/key_upstairs.png" :class="{ 'opacity-25': !getNumberItemsFromName('Upstarirs Key') && getNumberItemsFromName('Progressive Key') < 2  }" />
@@ -18,7 +19,7 @@
     -->
         </div>
 
-        <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+        <div v-if="moveShuffled()" :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Moves</div>
 
             <img src="/img/sm64/blocks/block_red.png" :class="{ 'opacity-25': !getNumberItemsFromName('Wing Cap')  }" />
@@ -41,6 +42,14 @@
     
 <script>
 
+/**
+* Super Mario 64
+* 
+* Goal is mainly determined by the Power Stars required to get through the infinite stairs.
+* You also need at least the Upper Key (depending on Key settings).
+* 
+* By default, we always consider that move shuffle is on.
+*/ 
 export default {
   name: "gDataMario64",
         props: {
@@ -63,6 +72,18 @@ export default {
                     return 'iconbar-L my-1';
                 }
                 return 'iconbar-S';
+            },
+            getGoalStars: function () {
+                if (this.data.slot_data.StarsToFinish) {
+                    return this.data.slot_data.StarsToFinish;
+                }
+                return 0;
+            },
+            moveShuffled: function () {
+                if (this.data.slot_data.MoveRandoVec) {
+                    return this.data.slot_data.MoveRandoVec;
+                }
+                return 1;
             },
             getNumberItemsFromName: function (name) {
                 var res = 0;
