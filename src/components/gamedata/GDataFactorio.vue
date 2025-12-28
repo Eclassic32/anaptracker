@@ -16,50 +16,67 @@
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Factory Buildings</div>
 
-            <img v-if="getNumberItemsFromName('progressive-automation') > 2" src="/img/factorio/32px-Assembling_machine_3.png" />
-            <img v-else-if="getNumberItemsFromName('progressive-automation') > 1" src="/img/factorio/32px-Assembling_machine_2.png" />
-            <img v-else src="/img/factorio/32px-Assembling_machine_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('progressive-automation')  }" />
+            <img v-if="getNumberItemsFromName('progressive-automation') > 2 || getNumberItemsFromName('automation-3') && getNumberItemsFromName('automation-2') && getNumberItemsFromName('automation')" src="/img/factorio/32px-Assembling_machine_3.png" />
+            <img v-else-if="getNumberItemsFromName('progressive-automation') > 1 || getNumberItemsFromName('automation-2') && getNumberItemsFromName('automation')" src="/img/factorio/32px-Assembling_machine_2.png" />
+            <img v-else src="/img/factorio/32px-Assembling_machine_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('progressive-automation') && !getNumberItemsFromName('automation')  }" />
 
 
-            <img v-if="getNumberItemsFromName('progressive-logistics') > 2" src="/img/factorio/32px-Express_transport_belt.png" />
-            <img v-else-if="getNumberItemsFromName('progressive-logistics') > 1" src="/img/factorio/32px-Fast_transport_belt.png" />
-            <img v-else src="/img/factorio/32px-Transport_belt.png" :class="{ 'opacity-25': !getNumberItemsFromName('progressive-logistics')  }" />
+            <img v-if="getNumberItemsFromName('progressive-logistics') > 2 || getNumberItemsFromName('logistics-3') && getNumberItemsFromName('logistics-2') && getNumberItemsFromName('logistics')" src="/img/factorio/32px-Express_transport_belt.png" />
+            <img v-else-if="getNumberItemsFromName('progressive-logistics') > 1 || getNumberItemsFromName('logistics-2') && getNumberItemsFromName('logistics')" src="/img/factorio/32px-Fast_transport_belt.png" />
+            <img v-else src="/img/factorio/32px-Transport_belt.png" :class="{ 'opacity-25': !getNumberItemsFromName('progressive-logistics') && !getNumberItemsFromName('logistics')  }" />
 
 
-            <img v-if="getNumberItemsFromName('progressive-inserter') > 1" src="/img/factorio/32px-Bulk_inserter.png" />
-            <img v-else-if="getNumberItemsFromName('progressive-inserter')" src="/img/factorio/32px-Fast_inserter.png" />
+            <img v-if="getNumberItemsFromName('progressive-inserter') > 1 || getNumberItemsFromName('bulk-inserters')" src="/img/factorio/32px-Bulk_inserter.png" />
+            <img v-else-if="getNumberItemsFromName('progressive-inserter') || getNumberItemsFromName('fast-inserters')" src="/img/factorio/32px-Fast_inserter.png" />
             <img v-else src="/img/factorio/32px-Inserter.png" />
 
-            <img v-if="getNumberItemsFromName('progressive-electric-energy-distribution') > 1" src="/img/factorio/32px-Substation.png" />
-            <img v-else-if="getNumberItemsFromName('progressive-electric-energy-distributionn')" src="/img/factorio/32px-Medium_electric_pole.png" />
+            <img v-if="getNumberItemsFromName('progressive-advanced-material-processing') > 1 || getNumberItemsFromName('electric-furnace')" src="/img/factorio/32px-Electric_furnace.png" />
+            <img v-else-if="getNumberItemsFromName('progressive-advanced-material-processing') || getNumberItemsFromName('steel-furnace')" src="/img/factorio/32px-Steel_furnace.png" />
+            <img v-else src="/img/factorio/32px-Stone_furnace.png" class="inline-block mr-1 w-[16px] h-[16px]" />
+
+            <img src="/img/factorio/32px-Pumpjack.png" :class="{ 'opacity-25': !getNumberItemsFromName('oil-gathering')  }" />
+
+            <img v-if="getNumberItemsFromName('progressive-electric-energy-distribution') > 1 || getNumberItemsFromName('electric-energy-distribution-2')" src="/img/factorio/32px-Substation.png" />
+            <img v-else-if="getNumberItemsFromName('progressive-electric-energy-distribution') || getNumberItemsFromName('electric-energy-distribution-1')" src="/img/factorio/32px-Medium_electric_pole.png" />
             <img v-else src="/img/factorio/32px-Small_electric_pole.png" class="inline-block mr-1 w-[16px] h-[16px]" />
 
-            <img v-if="getNumberItemsFromName('progressive-turret') > 1" src="/img/factorio/32px-Laser_turret.png" />
-            <img v-else src="/img/factorio/32px-Gun_turret.png" :class="{ 'opacity-25': !getNumberItemsFromName('progressive-turret')  }" />
+            <img v-if="getNumberItemsFromName('progressive-turret') > 1 || getNumberItemsFromName('laser-turret')" src="/img/factorio/32px-Laser_turret.png" />
+            <img v-else src="/img/factorio/32px-Gun_turret.png" :class="{ 'opacity-25': !getNumberItemsFromName('gun-turret')  }" />
 
         </div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Key Materials</div>
 
-            <img src="/img/factorio/32px-Pumpjack.png" :class="{ 'opacity-25': !getNumberItemsFromName('oil-gathering')  }" />
-            <img v-if="getNumberItemsFromName('progressive-processing') > 2" src="/img/factorio/32px-Sulfur.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('progressive-processing') > 1" src="/img/factorio/32px-Basic_oil_processing.png" />
-            <img v-else src="/img/factorio/32px-Steel_plate.png" :class="{ 'opacity-25': !getNumberItemsFromName('progressive-processing')  }" />
+            <img src="/img/factorio/32px-Steel_plate.png" :class="{ 'opacity-25': !getNumberItemsFromName('progressive-processing') && getNumberItemsFromName('steel-processing') }" />
+            <img v-if="getNumberItemsFromName('progressive-processing') > 2 || getNumberItemsFromName('advanced-oil-processing')" src="/img/factorio/32px-Advanced_oil_processing.png" class="inline-block mr-1 w-[16px] h-[16px]" />
+            <img v-else src="/img/factorio/32px-Basic_oil_processing.png" :class="{ 'opacity-25': !getNumberItemsFromName('progressive-processing') < 3 && getNumberItemsFromName('basuc-oil-processing') }" />
+            <img src="/img/factorio/32px-Sulfur.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('progressive-processing') < 3 && getNumberItemsFromName('sulful-processing') }" />
             <img src="/img/factorio/32px-Plastic_bar.png" :class="{ 'opacity-25': !getNumberItemsFromName('plastics')  }" />
+            <img v-if="getNumberItemsFromName('progressive-military') > 1 || getNumberItemsFromName('military-2')" src="/img/factorio/32px-Piercing_rounds_magazine.png" />
+            <img v-else src="/img/factorio/32px-Firearm_magazine.png" :class="{ 'opacity-25': !getNumberItemsFromName('progressive-military') < 2 && !getNumberItemsFromName('military-2') }" />
             <img src="/img/factorio/32px-Advanced_circuit.png" :class="{ 'opacity-25': !getNumberItemsFromName('advanced-circuit')  }" />
             <img src="/img/factorio/32px-Processing_unit.png" :class="{ 'opacity-25': !getNumberItemsFromName('processing-unit')  }" />
-            <img v-if="getNumberItemsFromName('progressive-engine') > 1" src="/img/factorio/32px-Electric_engine_unit.png" />
-            <img v-else src="/img/factorio/32px-Engine_unit.png" :class="{ 'opacity-25': !getNumberItemsFromName('progressive-engine')  }" />
+            <img v-if="getNumberItemsFromName('progressive-engine') > 1 || getNumberItemsFromName('engine') && getNumberItemsFromName('electric-engine')" src="/img/factorio/32px-Electric_engine_unit.png" />
+            <img v-else src="/img/factorio/32px-Engine_unit.png" :class="{ 'opacity-25': !getNumberItemsFromName('progressive-engine') && !getNumberItemsFromName('engine') }" />
+            <img src="/img/factorio/32px-Low_density_structure.png" :class="{ 'opacity-25': !getNumberItemsFromName('low-density-structure')  }" />
             <img src="/img/factorio/32px-Construction_robot.png" :class="{ 'opacity-25': !getNumberItemsFromName('construction-robotics')  }" />
             <img src="/img/factorio/32px-Logistic_robot.png" :class="{ 'opacity-25': !getNumberItemsFromName('logistic-robotics')  }" />
         </div>
     </div>
 </template>
-    
+
 <script>
 
-export default {
+    /**
+    * Factorio
+    *
+    * Goal of the game is Rocket Silo.
+    *
+    * This game is tricky to track, because science recipes can change.
+    * Best I can do is to track the common upgrades.
+    */
+    export default {
         name: "gDataFactorio",
         props: {
             data: Object,
@@ -69,11 +86,11 @@ export default {
             total_checks: Number,
             player_name: String,
             player_game: String
-  },
-  data: function () {
-    return {
-    };
-  },
+        },
+        data: function () {
+            return {
+            };
+        },
 
         methods: {
             getImageClass: function () {
@@ -95,7 +112,7 @@ export default {
                 return res;
             }
         },
-  components: {
-  },
-};
+        components: {
+        },
+    };
 </script>
