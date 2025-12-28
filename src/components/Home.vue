@@ -8,29 +8,26 @@
         </form>
         <div class="mt-10">
             <span class="font-bold">What the app can do :</span>
-                <ul class="list-disc">
-                    <li>
-                        Track global check completion and individual checks completion. (like the usual tracker)
-                    </li>
-                    <li>
-                        Display key items for supported games.
-                    </li>
-                    <li>
-                        Size settings, and display options.
-                    </li>
-                </ul>
+            <ul class="list-disc">
+                <li>
+                    Track global check completion and individual checks completion. (like the usual tracker)
+                </li>
+                <li>
+                    Display key items for supported games.
+                </li>
+                <li>
+                    Size settings, and display options.
+                </li>
+                <li>
+                    List sorting (by completion, activity, ...)
+                </li>
+            </ul>
         </div>
         <div class="mt-6">
             <span class="font-bold">What will it do later :</span>
             <ul class="list-disc">
                 <li>
-                    List sorting (by completion, activity, ...)
-                </li>
-                <li>
                     Display goal settings for supported games.
-                </li>
-                <li>
-                    Display grouped remaining locations for supported games
                 </li>
             </ul>
         </div>

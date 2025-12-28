@@ -22,8 +22,8 @@
             <div v-if="$parent.validRoom()" v-on:click="changeSortBy()" class="text-green-600 relative mr-6 cursor-pointer hover:text-white">
                 <span>Sort : {{ getSortType() }}</span>
             </div>
-            <div class="text-green-600 relative mr-6 justify-self-end">
-                <span>v0.1.0</span>
+            <div class="text-green-600 relative mr-6 justify-self-end font-roboto">
+                <span>v0.2.0</span>
             </div>
         </nav>
     </div>
