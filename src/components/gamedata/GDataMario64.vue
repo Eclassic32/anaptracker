@@ -4,8 +4,8 @@
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Goal</div>
 
-            <span v-if="getGoalStars()" class="mr-2 text-xs"><span :class="{ 'opacity-25': !getNumberItemsFromName('Power Star')  }"><img src="/img/sm64/star.png" />x{{ getNumberItemsFromName('Power Star') }} </span> / {{ getGoalStars() }}</span>
-            <span v-else class="mr-2 text-xs" :class="{ 'opacity-25': !getNumberItemsFromName('Power Star')  }"><img src="/img/sm64/star.png" />x{{ getNumberItemsFromName('Power Star') }} </span>
+            <span v-if="getGoalStars()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Power Star')  }"><img src="/img/sm64/star.png" />x{{ getNumberItemsFromName('Power Star') }} </span> / {{ getGoalStars() }}</span>
+            <span v-else class="mr-2 text-xs font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Power Star')  }"><img src="/img/sm64/star.png" />x{{ getNumberItemsFromName('Power Star') }} </span>
 
             <img src="/img/sm64/keys/key_basement.png" :class="{ 'opacity-25': !getNumberItemsFromName('Basement Key') && !getNumberItemsFromName('Progressive Key')  }" />
             <img src="/img/sm64/keys/key_upstairs.png" :class="{ 'opacity-25': !getNumberItemsFromName('Upstarirs Key') && getNumberItemsFromName('Progressive Key') < 2  }" />
