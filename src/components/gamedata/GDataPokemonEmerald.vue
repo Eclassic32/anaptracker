@@ -1,6 +1,8 @@
 <template>
     <div class="">
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Badges</div>
+
             <img src="/img/pokemon_emerald/items/stone_badge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Stone Badge')  }" />
             <img src="/img/pokemon_emerald/items/knuckle_badge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Knuckle Badge')  }" />
             <img src="/img/pokemon_emerald/items/dynamo_badge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Dynamo Badge')  }" />
@@ -12,6 +14,8 @@
         </div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">HMs</div>
+
             <img src="/img/pokemon_crystal/items/hm01.png" :class="{ 'opacity-25': !getNumberItemsFromName('HM01 Cut')  }" />
             <img src="/img/pokemon_crystal/items/hm02.png" :class="{ 'opacity-25': !getNumberItemsFromName('HM02 Fly')  }" />
             <img src="/img/pokemon_crystal/items/hm03.png" :class="{ 'opacity-25': !getNumberItemsFromName('HM03 Surf')  }" />
@@ -22,6 +26,8 @@
             <img src="/img/pokemon_crystal/items/tm08.png" :class="{ 'opacity-25': !getNumberItemsFromName('HM08 Dive')  }" />
         </div>
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Key Items</div>
+
             <img src="/img/pokemon_emerald/items/itemfinder.png" :class="{ 'opacity-25': !getNumberItemsFromName('Itemfinder')  }" />
             <img src="/img/pokemon_emerald/items/acro_bike.png" :class="{ 'opacity-25': !getNumberItemsFromName('Acro Bike')  }" />
             <img src="/img/pokemon_emerald/items/mach_bike.png" :class="{ 'opacity-25': !getNumberItemsFromName('Mach Bike')  }" />

@@ -1,6 +1,8 @@
 <template>
     <div>
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Rewards</div>
+
             <img src="/img/oot/stone_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Kokiri\'s Emerald')  }" />
             <img src="/img/oot/stone_2.png" :class="{ 'opacity-25': !getNumberItemsFromName('Goron\'s Ruby')  }" />
             <img src="/img/oot/stone_3.png" :class="{ 'opacity-25': !getNumberItemsFromName('Zora\'s Sapphire')  }" />
@@ -10,9 +12,12 @@
             <img src="/img/oot/medal_4.png" :class="{ 'opacity-25': !getNumberItemsFromName('Shadow Medallion')  }" />
             <img src="/img/oot/medal_5.png" :class="{ 'opacity-25': !getNumberItemsFromName('Spirit Medallion')  }" />
             <img src="/img/oot/medal_6.png" :class="{ 'opacity-25': !getNumberItemsFromName('Light Medallion')  }" />
+            <img v-if="gregCounts()" src="/img/oot/rupee.png" :class="{ 'opacity-25': !getNumberItemsFromName('Greg the Green Rupee')  }" />
         </div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Inventory</div>
+
             <img src="/img/oot/22_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Kokiri Sword')  }" />
             <img src="/img/oot/23_2.png" :class="{ 'opacity-25': !getNumberItemsFromName('Master Sword')  }" />
             <img v-if="getNumberItemsFromName('Mirror Shield')" src="/img/oot/27_1.png" />
@@ -36,7 +41,6 @@
             <img v-else-if="getNumberItemsFromName('Progressive Bow') > 1" src="/img/oot/6_2.png" />
             <img v-else src="/img/oot/6_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Bow')  }" />
             <img src="/img/oot/9_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Fire Arrow')  }" />
-            <img src="/img/oot/10_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Ice Arrow')  }" />
             <img src="/img/oot/11_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Light Arrow')  }" />
             <img v-if="getNumberItemsFromName('Progressive Hookshot') > 1" src="/img/oot/7_2.png" />
             <img v-else src="/img/oot/7_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Hookshot')  }" />
@@ -45,6 +49,8 @@
         </div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Songs</div>
+
             <img src="/img/oot/34_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Zelda\'s Lullaby')  }" />
             <img src="/img/oot/35_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Epona\'s Song')  }" />
             <img src="/img/oot/36_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Saria\'s Song')  }" />
@@ -85,6 +91,13 @@ export default {
                     return 'iconbar-L my-1';
                 }
                 return 'iconbar-S';
+            },
+            gregCounts: function () {
+                if (this.data.slot_data &&
+                    (this.data.slot_data.rainbow_bridge == 7 || this.data.slot_data.ganons_castle_boss_key == 7)) {
+                    return true;
+                }
+                return false;
             },
             getNumberItemsFromName: function (name) {
                 var res = 0;

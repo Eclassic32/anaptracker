@@ -1,14 +1,18 @@
 <template>
     <div>
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Medals</div>
+
             <img src="/img/ffmq/coins/coin_sand.png" :class="{ 'opacity-25': !getNumberItemsFromName('Sand Coin')  }" />
             <img src="/img/ffmq/coins/coin_river.png" :class="{ 'opacity-25': !getNumberItemsFromName('River Coin')  }" />
-            <img src="/img/ffmq/coins/coin_sun.png"  :class="{ 'opacity-25': !getNumberItemsFromName('Sun Coin')  }" />
+            <img src="/img/ffmq/coins/coin_sun.png" :class="{ 'opacity-25': !getNumberItemsFromName('Sun Coin')  }" />
             <span v-if="getNumberItemsFromName('Sky Fragment')" class="text-xs mr-1"><img src="/img/ffmq/coins/coin_sky_shard.png" />x{{getNumberItemsFromName('Sky Fragment')}}</span>
             <img v-else src="/img/ffmq/coins/coin_sky.png" :class="{ 'opacity-25': !getNumberItemsFromName('Sky Coin')  }" />
         </div>
 
-        <div :class="getImageClass()"  class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+        <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Equipment</div>
+
             <img v-if="getNumberItemsFromName('Progressive Sword') > 2" src="/img/ffmq/weapons/sword3.png" />
             <img v-else-if="getNumberItemsFromName('Progressive Sword') > 1" src="/img/ffmq/weapons/sword2.png" />
             <img v-else-if="getNumberItemsFromName('Progressive Sword') > 0" src="/img/ffmq/weapons/sword1.png" />
@@ -27,7 +31,7 @@
             <img v-else-if="getNumberItemsFromName('Progressive Bomb') > 1" src="/img/ffmq/weapons/bomb2.png" />
             <img v-else-if="getNumberItemsFromName('Progressive Bomb') > 0" src="/img/ffmq/weapons/bomb1.png" />
             <img v-else-if="getNumberItemsFromName('Mega Grenade')" src="/img/ffmq/weapons/bomb3.png" />
-            <img v-else-if="getNumberItemsFromName('Jumbo Bomb')" src="/img/ffmq/weapons/bomb2.png"  />
+            <img v-else-if="getNumberItemsFromName('Jumbo Bomb')" src="/img/ffmq/weapons/bomb2.png" />
             <img v-else src="/img/ffmq/weapons/bomb1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Bomb')  }" />
 
             <img v-if="getNumberItemsFromName('Progressive Claw') > 2" src="/img/ffmq/weapons/claw3.png" />
@@ -36,13 +40,13 @@
             <img v-else-if="getNumberItemsFromName('Dragon Claw')" src="/img/ffmq/weapons/claw3.png" />
             <img v-else-if="getNumberItemsFromName('Charm Claw')" src="/img/ffmq/weapons/claw2.png" />
             <img v-else src="/img/ffmq/weapons/claw1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Cat Claw')  }" />
-            <span class="mr-2" ></span>
+            <span class="mr-2"></span>
 
 
             <img v-if="getNumberItemsFromName('Progressive Helm') > 2" src="/img/ffmq/armor/helmet3.png" />
             <img v-else-if="getNumberItemsFromName('Progressive Helm') > 1" src="/img/ffmq/armor/helmet2.png" />
             <img v-else-if="getNumberItemsFromName('Progressive Helm') > 0" src="/img/ffmq/armor/helmet1.png" />
-            <img v-else-if="getNumberItemsFromName('Apollo Helm')" src="/img/ffmq/armor/helmet3.png"  />
+            <img v-else-if="getNumberItemsFromName('Apollo Helm')" src="/img/ffmq/armor/helmet3.png" />
             <img v-else-if="getNumberItemsFromName('Moon Helm')" src="/img/ffmq/armor/helmet2.png" />
             <img v-else src="/img/ffmq/armor/helmet1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Steel Helm')  }" />
 
@@ -58,7 +62,7 @@
             <img v-else-if="getNumberItemsFromName('Progressive Shield') > 0" src="/img/ffmq/armor/shield1.png" />
             <img v-else-if="getNumberItemsFromName('Aegis Shield')" src="/img/ffmq/armor/shield3.png" />
             <img v-else-if="getNumberItemsFromName('Venus Shield')" src="/img/ffmq/armor/shield2.png" />
-            <img v-else src="/img/ffmq/armor/shield1.png"  :class="{ 'opacity-25': !getNumberItemsFromName('Steel Shield')  }" />
+            <img v-else src="/img/ffmq/armor/shield1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Steel Shield')  }" />
 
             <img v-if="getNumberItemsFromName('Progressive Accessory') > 2" src="/img/ffmq/armor/cupidlocket.png" />
             <img v-else-if="getNumberItemsFromName('Progressive Accessory') > 1" src="/img/ffmq/armor/magicring.png" />
@@ -86,18 +90,83 @@
         </div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
-            <img v-if="!getNumberItemsFromName('Elixir')" src="/img/ffmq/inventory/treewither.png" :class="{ 'opacity-25': !getNumberItemsFromName('Tree Wither')  }" />
+            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Key Items</div>
+
+            <img v-if="!getNumberItemsFromName('Tree Wither')" src="/img/ffmq/inventory/treewither.png" class="opacity-25" />
+            <img v-else-if="!getNumberItemsFromName('Elixir')" src="/img/ffmq/inventory/treewither.png" />
             <img v-else src="/img/ffmq/inventory/elixir.png" />
             <img src="/img/ffmq/inventory/wakewater.png" :class="{ 'opacity-25': !getNumberItemsFromName('Wakewater')  }" />
-            <img src="/img/ffmq/inventory/venuskey.png":class="{ 'opacity-25': !getNumberItemsFromName('Venus Key')  }" />
+            <img src="/img/ffmq/inventory/venuskey.png" :class="{ 'opacity-25': !getNumberItemsFromName('Venus Key')  }" />
             <img src="/img/ffmq/inventory/multikey.png" :class="{ 'opacity-25': !getNumberItemsFromName('Multi Key')  }" />
-            <img v-if="!getNumberItemsFromName('Captain\'s Cap')" src="/img/ffmq/inventory/thunderrock.png" :class="{ 'opacity-25': !getNumberItemsFromName('Thunder Rock')  }" />
+            <img v-if="!getNumberItemsFromName('Thunder Rock')" src="/img/ffmq/inventory/thunderrock.png" class="opacity-25" />
+            <img v-else-if="!getNumberItemsFromName('Captain\'s Cap')" src="/img/ffmq/inventory/thunderrock.png" />
             <img v-else src="/img/ffmq/inventory/captaincap.png" />
             <img src="/img/ffmq/crests/crest_libra.png" :class="{ 'opacity-25': !getNumberItemsFromName('Libra Crest')  }" />
             <img src="/img/ffmq/crests/crest_gemini.png" :class="{ 'opacity-25': !getNumberItemsFromName('Gemini Crest')  }" />
             <img src="/img/ffmq/crests/crest_mobius.png" :class="{ 'opacity-25': !getNumberItemsFromName('Mobius Crest')  }" />
         </div>
     </div>
+    <!--
+        <div v-if="data.extended" class="font-normal text-xs mt-1">
+            <div v-if="getRemainingsFromZone('Focus Tower -')" class="inline-block bg-red-200/40 rounded-xs p-[2px] px-[4px] pb-[4px] mx-2 bg-opacity-25">
+                Focus Tower : <b>{{ getRemainingsFromZone('Focus Tower -') }}</b>
+            </div>
+            <div v-if="getRemainingsFromZone('Foresta -')" class="inline-block bg-red-200/40 rounded-xs p-[2px] px-[4px] pb-[4px] mx-2 bg-opacity-25">
+                Foresta : <b>{{ getRemainingsFromZone('Foresta -') }}</b>
+            </div>
+            <div v-if="getRemainingsFromZone('Aquaria -')" class="inline-block bg-red-200/40 rounded-xs p-[2px] px-[4px] pb-[4px] mx-2 bg-opacity-25">
+                Aquaria : <b>{{ getRemainingsFromZone('Aquaria -') }}</b>
+            </div>
+            <div v-if="getRemainingsFromZone('Fireburg -')" class="inline-block bg-red-200/40 rounded-xs p-[2px] px-[4px] pb-[4px] mx-2 bg-opacity-25">
+                Fireburg : <b>{{ getRemainingsFromZone('Fireburg -') }}</b>
+            </div>
+            <div v-if="getRemainingsFromZone('Windia -')" class="inline-block bg-red-200/40 rounded-xs p-[2px] px-[4px] pb-[4px] mx-2 bg-opacity-25">
+                Windia : <b>{{ getRemainingsFromZone('Windia -') }}</b>
+            </div>
+            <div v-if="getRemainingsFromZone('Level Forest')" class="inline-block bg-red-200/40 rounded-xs p-[2px] px-[4px] pb-[4px] mx-2 bg-opacity-25">
+                Level Forest : <b>{{ getRemainingsFromZone('Level Forest') }}</b>
+            </div>
+            <div v-if="getRemainingsFromZone('Bone Dungeon')" class="inline-block bg-red-200/40 rounded-xs p-[2px] px-[4px] pb-[4px] mx-2 bg-opacity-25">
+                Bone Dungeon : <b>{{ getRemainingsFromZone('Bone Dungeon') }}</b>
+            </div>
+            <div v-if="getRemainingsFromZone('Wintry Cave')" class="inline-block bg-red-200/40 rounded-xs p-[2px] px-[4px] pb-[4px] mx-2 bg-opacity-25">
+                Wintry Cave : <b>{{ getRemainingsFromZone('Wintry Cave') }}</b>
+            </div>
+            <div v-if="getRemainingsFromZone('Falls Basin')" class="inline-block bg-red-200/40 rounded-xs p-[2px] px-[4px] pb-[4px] mx-2 bg-opacity-25">
+                Falls Basin : <b>{{ getRemainingsFromZone('Falls Basin') }}</b>
+            </div>
+            <div v-if="(getRemainingsFromZone('Ice Pyramid') - 1) > 0" class="inline-block bg-red-200/40 rounded-xs p-[2px] px-[4px] pb-[4px] mx-2 bg-opacity-25">
+                Ice Pyramid : <b>{{ getRemainingsFromZone('Ice Pyramid') - 1 }}</b>
+            </div>
+            <div v-if="getRemainingsFromZone('Mine -')" class="inline-block bg-red-200/40 rounded-xs p-[2px] px-[4px] pb-[4px] mx-2 bg-opacity-25">
+                Mine : <b>{{ getRemainingsFromZone('Mine -') }}</b>
+            </div>
+            <div v-if="getRemainingsFromZone('Volcano -')" class="inline-block bg-red-200/40 rounded-xs p-[2px] px-[4px] pb-[4px] mx-2 bg-opacity-25">
+                Volcano : <b>{{ getRemainingsFromZone('Volcano -') }}</b>
+            </div>
+            <div v-if="getRemainingsFromZone('Lava Dome')" class="inline-block bg-red-200/40 rounded-xs p-[2px] px-[4px] pb-[4px] mx-2 bg-opacity-25">
+                Lava Dome : <b>{{ getRemainingsFromZone('Lava Dome') }}</b>
+            </div>
+            <div v-if="getRemainingsFromZone('Alive Forest')" class="inline-block bg-red-200/40 rounded-xs p-[2px] px-[4px] pb-[4px] mx-2 bg-opacity-25">
+                Alive Forest : <b>{{ getRemainingsFromZone('Alive Forest') }}</b>
+            </div>
+            <div v-if="getRemainingsFromZone('Giant Tree')" class="inline-block bg-red-200/40 rounded-xs p-[2px] px-[4px] pb-[4px] mx-2 bg-opacity-25">
+                Giant Tree : <b>{{ getRemainingsFromZone('Giant Tree') }}</b>
+            </div>
+            <div v-if="getRemainingsFromZone('Mount Gale')" class="inline-block bg-red-200/40 rounded-xs p-[2px] px-[4px] pb-[4px] mx-2 bg-opacity-25">
+                Mount Gale : <b>{{ getRemainingsFromZone('Mount Gale') }}</b>
+            </div>
+            <div v-if="getRemainingsFromZone('Pazuzu\'s Tower')" class="inline-block bg-red-200/40 rounded-xs p-[2px] px-[4px] pb-[4px] mx-2 bg-opacity-25">
+                Pazuzu's Tower :<b>{{ getRemainingsFromZone('Pazuzu\'s Tower') }}</b>
+            </div>
+            <div v-if="getRemainingsFromZone('Mac\'s Ship')" class="inline-block bg-red-200/40 rounded-xs p-[2px] px-[4px] pb-[4px] mx-2 bg-opacity-25">
+                Mac's Ship : <b>{{ getRemainingsFromZone('Mac\'s Ship') }}</b>
+            </div>
+            <div v-if="getRemainingsFromZone('Doom Castle')" class="inline-block bg-red-200/40 rounded-xs p-[2px] px-[4px] pb-[4px] mx-2 bg-opacity-25">
+                Doom Castle : <b>{{ getRemainingsFromZone('Doom Castle') }}</b>
+            </div>
+    </div>
+    -->
 </template>
     
 <script>
@@ -136,7 +205,50 @@ export default {
                     }
                 }
                 return res;
-            }
+            },
+            /*
+            getRemainingsFromZone: function (name) {
+                var res = 0;
+                if (this.gamedata && this.gamedata.location_name_to_id) {
+                    for (var key in this.gamedata.location_name_to_id) {
+                        if (key.startsWith(name)) {
+                            res++;
+                            var id = this.gamedata.location_name_to_id[key];
+                            for (var x = 0; x < this.data.tracker_data.player_checks_done.length; x++) {
+                                if (this.data.tracker_data.player_checks_done[x] == id)
+                                    res--;
+                            }
+                        }
+                    }
+                }
+                return res;
+            },
+            getLocationsFromZone: function (name) {
+                var res = 0;
+                if (this.gamedata && this.gamedata.location_name_to_id) {
+                    for (var key in this.gamedata.location_name_to_id) {
+                        if (key.startsWith(name)) {
+                            var id = this.gamedata.location_name_to_id[key];
+                            for (var x = 0; x < this.data.tracker_data.player_checks_done.length; x++) {
+                                if (this.data.tracker_data.player_checks_done[x] == id)
+                                    res++;
+                            }
+                        }
+                    }
+                }
+                return res;
+            },
+            getTotalFromZone: function (name) {
+                var res = 0;
+                if (this.gamedata && this.gamedata.location_name_to_id) {
+                    for (var key in this.gamedata.location_name_to_id) {
+                        if (key.startsWith(name))
+                            res++;
+                    }
+                }
+                return res;
+            },
+            */
         },
   components: {
   },

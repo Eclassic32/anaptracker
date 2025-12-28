@@ -2,21 +2,25 @@
     <div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Goal</div>
+
             <span class="mr-2 text-xs" :class="{ 'opacity-25': !getNumberItemsFromName('Power Star')  }"><img src="/img/sm64/star.png" />x{{ getNumberItemsFromName('Power Star') }} </span>
 
             <img src="/img/sm64/keys/key_basement.png" :class="{ 'opacity-25': !getNumberItemsFromName('Basement Key') && !getNumberItemsFromName('Progressive Key')  }" />
             <img src="/img/sm64/keys/key_upstairs.png" :class="{ 'opacity-25': !getNumberItemsFromName('Upstarirs Key') && getNumberItemsFromName('Progressive Key') < 2  }" />
             <!--
-            <img v-if="getNumberItemsFromName('Progressive Key') > 1" src="/img/sm64/keys/key_both.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Progressive Key') > 0" src="/img/sm64/keys/key_basement.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Upstairs Key') && getNumberItemsFromName('Basement Key')" src="/img/sm64/keys/key_both.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Upstairs Key')" src="/img/sm64/keys/key_upstairs.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else-if="getNumberItemsFromName('Basement Key')" src="/img/sm64/keys/key_basement.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else src="/img/sm64/keys/key.png" class="inline-block mr-1 w-[16px] h-[16px] opacity-25" />
-            -->
+    <img v-if="getNumberItemsFromName('Progressive Key') > 1" src="/img/sm64/keys/key_both.png" class="inline-block mr-1 w-[16px] h-[16px]" />
+    <img v-else-if="getNumberItemsFromName('Progressive Key') > 0" src="/img/sm64/keys/key_basement.png" class="inline-block mr-1 w-[16px] h-[16px]" />
+    <img v-else-if="getNumberItemsFromName('Upstairs Key') && getNumberItemsFromName('Basement Key')" src="/img/sm64/keys/key_both.png" class="inline-block mr-1 w-[16px] h-[16px]" />
+    <img v-else-if="getNumberItemsFromName('Upstairs Key')" src="/img/sm64/keys/key_upstairs.png" class="inline-block mr-1 w-[16px] h-[16px]" />
+    <img v-else-if="getNumberItemsFromName('Basement Key')" src="/img/sm64/keys/key_basement.png" class="inline-block mr-1 w-[16px] h-[16px]" />
+    <img v-else src="/img/sm64/keys/key.png" class="inline-block mr-1 w-[16px] h-[16px] opacity-25" />
+    -->
         </div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Moves</div>
+
             <img src="/img/sm64/blocks/block_red.png" :class="{ 'opacity-25': !getNumberItemsFromName('Wing Cap')  }" />
             <img src="/img/sm64/blocks/block_blue.png" :class="{ 'opacity-25': !getNumberItemsFromName('Vanish Cap')  }" />
             <img src="/img/sm64/blocks/block_green.png" :class="{ 'opacity-25': !getNumberItemsFromName('Metal Cap')  }" />

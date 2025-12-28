@@ -2,7 +2,9 @@
     <div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
-            <img src="/img/factorio/32px-Automation_science_pack.png"  />
+            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Science Packs</div>
+
+            <img src="/img/factorio/32px-Automation_science_pack.png" />
             <img src="/img/factorio/32px-Logistic_science_pack.png" :class="{ 'opacity-25': !getNumberItemsFromName('progressive-science-pack') && !getNumberItemsFromName('logistic-science-pack') }" />
             <img src="/img/factorio/32px-Military_science_pack.png" :class="{ 'opacity-25': getNumberItemsFromName('progressive-science-pack') < 2 && !getNumberItemsFromName('military-science-pack')  }" />
             <img src="/img/factorio/32px-Chemical_science_pack.png" :class="{ 'opacity-25': getNumberItemsFromName('progressive-science-pack') < 3 && !getNumberItemsFromName('chemical-science-pack')  }" />
@@ -12,6 +14,7 @@
         </div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Factory Buildings</div>
 
             <img v-if="getNumberItemsFromName('progressive-automation') > 2" src="/img/factorio/32px-Assembling_machine_3.png" />
             <img v-else-if="getNumberItemsFromName('progressive-automation') > 1" src="/img/factorio/32px-Assembling_machine_2.png" />
@@ -37,6 +40,8 @@
         </div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Key Materials</div>
+
             <img src="/img/factorio/32px-Pumpjack.png" :class="{ 'opacity-25': !getNumberItemsFromName('oil-gathering')  }" />
             <img v-if="getNumberItemsFromName('progressive-processing') > 2" src="/img/factorio/32px-Sulfur.png" class="inline-block mr-1 w-[16px] h-[16px]" />
             <img v-else-if="getNumberItemsFromName('progressive-processing') > 1" src="/img/factorio/32px-Basic_oil_processing.png" />

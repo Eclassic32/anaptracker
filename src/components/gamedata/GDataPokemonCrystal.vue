@@ -2,6 +2,8 @@
     <div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Badges</div>
+
             <img src="/img/pokemon_crystal/items/zephyrbadge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Zephyr Badge')  }" />
             <img src="/img/pokemon_crystal/items/hivebadge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Hive Badge')  }" />
             <img src="/img/pokemon_crystal/items/plainbadge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Plain Badge')  }" />
@@ -22,6 +24,8 @@
         </div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">HMs</div>
+
             <img src="/img/pokemon_crystal/items/hm01.png" :class="{ 'opacity-25': !getNumberItemsFromName('HM01 Cut')  }" />
             <img src="/img/pokemon_crystal/items/hm02.png" :class="{ 'opacity-25': !getNumberItemsFromName('HM02 Fly')  }" />
             <img src="/img/pokemon_crystal/items/hm03.png" :class="{ 'opacity-25': !getNumberItemsFromName('HM03 Surf')  }" />
@@ -32,6 +36,8 @@
             <img src="/img/pokemon_crystal/items/tm08.png" :class="{ 'opacity-25': !getNumberItemsFromName('TM08')  }" />
         </div>
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Key Items</div>
+
             <img src="/img/pokemon_crystal/items/itemfinder.png" :class="{ 'opacity-25': !getNumberItemsFromName('Itemfinder')  }" />
             <img v-if="!getNumberItemsFromName('EXPN Card') && !getNumberItemsFromName('Radio Card')" src="/img/pokemon_crystal/items/pokegear.png" :class="{ 'opacity-25': !getNumberItemsFromName('Pokegear')  }" />
             <img v-else-if="!getNumberItemsFromName('EXPN Card')" src="/img/pokemon_crystal/items/radiocard.png" />
@@ -42,7 +48,7 @@
             <img src="/img/pokemon_crystal/items/pass.png" :class="{ 'opacity-25': !getNumberItemsFromName('Pass')  }" />
             <img src="/img/pokemon_crystal/items/basementkey.png" :class="{ 'opacity-25': !getNumberItemsFromName('Basement Key')  }" />
             <img src="/img/pokemon_crystal/items/cardkey.png" :class="{ 'opacity-25': !getNumberItemsFromName('Card Key')  }" />
-            <img src="/img/pokemon_crystal/items/rainbowwing.png"  :class="{ 'opacity-25': !getNumberItemsFromName('Rainbow Wing')  }" />
+            <img src="/img/pokemon_crystal/items/rainbowwing.png" :class="{ 'opacity-25': !getNumberItemsFromName('Rainbow Wing')  }" />
             <img src="/img/pokemon_crystal/items/machinepart.png" :class="{ 'opacity-25': !getNumberItemsFromName('Machine Part')  }" />
             <img src="/img/pokemon_crystal/items/tea.png" :class="{ 'opacity-25': !getNumberItemsFromName('Tea')  }" />
         </div>

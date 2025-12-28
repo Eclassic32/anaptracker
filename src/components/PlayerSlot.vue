@@ -2,7 +2,7 @@
     <div v-if="displayable()" :class=" { 'bg-emerald-200' : get_status() == 30, 'py-2' : $parent.$parent.OPTIONS.row_size,  'text-sm py-1' : !$parent.$parent.OPTIONS.row_size  }" class="relative inline-block w-full tracker-history text-lg leading-5 font-semibold font-xl h-full px-2 border-t-2 border-t-gray-900"
           >
         <div class="absolute left-0 top-0 bottom-0 z-1 bg-green-500" :style="{ 'width' : str_percent_completion() }"></div>
-        <div class="z-2 flex flex-column justify-between">
+        <div @click="toggleExpand()" class="z-2 flex flex-column justify-between">
             <div class="w-1/4 z-3 text-dark" :class="{ 'opacity-50' : get_status() == 0 }"><span class="mr-2 font-bold">{{ player_name }}</span><br v-if="$parent.$parent.OPTIONS.row_size" /><span class="font-normal text-tiny">({{ player_game }})</span></div>
             <div class="w-1/2 z-3 text-sm">
                 <div class="clear-both text-center">
@@ -47,7 +47,7 @@ export default {
 
         methods: {
             displayable: function () {
-                if ((this.$parent.$parent.OPTIONS.show_done || this.get_time_diff() < (600)) || this.$parent.$parent.TRACKER_DATA.player_status[this.index] && this.$parent.$parent.TRACKER_DATA.player_status[this.index].status < 30) {
+                if ((this.$parent.$parent.OPTIONS.show_done || this.get_time_diff() < (600)) || this.data.tracker_data.status < 30) {
                     return true;
                 }
                 return false;
@@ -77,6 +77,9 @@ export default {
                 if (this.data.tracker_data.status >= 30)
                     return 30;
                 return this.data.tracker_data.status;
+            },
+            get_size: function () {
+                return this.$parent.$parent.OPTIONS.row_size;
             },
             get_current_checks: function () {
                 return this.data.tracker_data.player_checks_done.length;
@@ -119,7 +122,15 @@ export default {
                 }
 
                 return '';
-            }
+            },
+            toggleExpand: function () {
+                if (this.data.extended) {
+                    this.data.extended = 0;
+                }
+                else {
+                    this.data.extended = 1;
+                }
+            },
         },
         components: {
             GData

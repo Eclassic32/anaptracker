@@ -1,6 +1,8 @@
 <template>
     <div>
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Jobs</div>
+
             <img title="Job - Warrior" src="/img/crystal_project/classes/warrior.png" :class="{ 'opacity-25': !hasJob('Job - Warrior')  }" />
             <img src="/img/crystal_project/classes/monk.png" :class="{ 'opacity-25': !hasJob('Job - Monk')  }" />
             <img src="/img/crystal_project/classes/rogue.png" :class="{ 'opacity-25': !hasJob('Job - Rogue')  }" />
@@ -28,6 +30,7 @@
         </div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Mounts</div>
 
             <img v-if="getNumberItemsFromName('Item - Progressive Mount Instrusment') > 6" src="/img/crystal_project/keys/quintar ocarina.png" />
             <img v-else-if="getNumberItemsFromName('Item - Progressive Mount Instrusment') > 1" src="/img/crystal_project/keys/quintar flute.png" />
@@ -51,9 +54,11 @@
         </div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Key Items</div>
+
             <img src="/img/crystal_project/keys/skeleton key.png" :class="{ 'opacity-25': !getNumberItemsFromName('Item - Skeleton Key')  }" />
 
-            <span class="mr-2 text-xs" :class="{ 'opacity-25': !getNumberItemsFromCategory('Pass')  }" ><img src="/img/crystal_project/keys/map.png" />x{{ getNumberItemsFromCategory('Pass') }} </span>
+            <span class="mr-2 text-xs" :class="{ 'opacity-25': !getNumberItemsFromCategory('Pass')  }"><img src="/img/crystal_project/keys/map.png" />x{{ getNumberItemsFromCategory('Pass') }} </span>
 
         </div>
     </div>

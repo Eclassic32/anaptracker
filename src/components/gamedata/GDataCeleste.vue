@@ -1,5 +1,7 @@
 <template>
     <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+        <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Goal</div>
+
         <span class="mr-2 text-xs" :class="{ 'opacity-25': !getNumberItemsFromName('Strawberry')  }"><img src="/img/celeste/items/berry.png" />x{{ getNumberItemsFromName('Strawberry') }} </span>
 
     </div>
