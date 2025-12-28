@@ -23,7 +23,7 @@
                 <span>Sort : {{ getSortType() }}</span>
             </div>
             <div class="text-green-600 relative mr-6 justify-self-end font-roboto">
-                <span>v0.2.0</span>
+                <span>v0.3.0</span>
             </div>
         </nav>
     </div>
