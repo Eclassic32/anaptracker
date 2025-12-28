@@ -11,11 +11,19 @@ import GDataShipOfHarkinian from './components/gamedata/GDataShipOfHarkinian.vue
 import GDataFFMysticQuest from './components/gamedata/GDataFFMysticQuest.vue';
 import GDataSuperMetroid from './components/gamedata/GDataSuperMetroid.vue';
 import GDataCrystalProject from './components/gamedata/GDataCrystalProject.vue';
+import GDataMajorasMask from './components/gamedata/GDataMajorasMask.vue';
+import GDataALinkToThePast from './components/gamedata/GDataALinkToThePast.vue';
+import GDataPokemonRedBlue from './components/gamedata/GDataPokemonRedBlue.vue';
+
 
 var LIST_OF_GAMES = [
     {
         'name': 'A Hat in Time',
         'class': GDataAHatInTime
+    },
+    {
+        'name': 'A Link to the Past',
+        'class': GDataALinkToThePast
     },
     {
         'name': 'Celeste (Open World)',
@@ -38,13 +46,17 @@ var LIST_OF_GAMES = [
         'class': GDataHollowKnight
     },
     {
+        'name': 'Majora\'s Mask Recompiled',
+        'class': GDataMajorasMask
+    },
+    {
         'name': 'Super Mario 64',
         'class': GDataMario64
     },
     {
         'name': 'Pokemon Crystal',
         'class': GDataPokemonCrystal
-    },
+    }, 
     {
         'name': 'Pokemon Emerald',
         'class': GDataPokemonEmerald
@@ -52,6 +64,10 @@ var LIST_OF_GAMES = [
     {
         'name': 'Pokemon FireRed and LeafGreen',
         'class': GDataPokemonFRLG
+    },
+    {
+        'name': 'Pokemon Red and Blue',
+        'class': GDataPokemonRedBlue
     },
     {
         'name': 'Ship of Harkinian',
