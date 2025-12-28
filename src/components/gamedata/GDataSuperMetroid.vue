@@ -46,6 +46,12 @@
     
 <script>
 
+    /**
+    * Super Metroid
+    *
+    * Objectives are present in the game. (stuff like full clear an area, or kill X minibosses)
+    * But it's safe to assume that we mostly need Varia / Gravity and a way to kill Mother Brain (charge or 50+ supers)
+    */
 export default {
         name: "gDataSuperMetroid",
         props: {
