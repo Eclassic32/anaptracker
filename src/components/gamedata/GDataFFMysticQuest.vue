@@ -50,12 +50,11 @@
             <img v-else-if="getNumberItemsFromName('Moon Helm')" src="/img/ffmq/armor/helmet2.png" />
             <img v-else src="/img/ffmq/armor/helmet1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Steel Helm')  }" />
 
-            <img v-if="getNumberItemsFromName('Progressive Armor') > 2" src="/img/ffmq/armor/armor3.png" />
-            <img v-else-if="getNumberItemsFromName('Progressive Armor') > 1" src="/img/ffmq/armor/armor2.png" />
-            <img v-else-if="getNumberItemsFromName('Progressive Armor') > 0" src="/img/ffmq/armor/armor1.png" />
+            <img v-if="getNumberItemsFromName('Progressive Armor') > 1" src="/img/ffmq/armor/armor3.png" />
+            <img v-else-if="getNumberItemsFromName('Progressive Armor') > 0" src="/img/ffmq/armor/armor2.png" />
             <img v-else-if="getNumberItemsFromName('Gaia\'s Armor')" src="/img/ffmq/armor/armor3.png" />
             <img v-else-if="getNumberItemsFromName('Noble Armor')" src="/img/ffmq/armor/armor2.png" />
-            <img v-else src="/img/ffmq/armor/armor1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Steel Armor')  }" />
+            <img v-else src="/img/ffmq/armor/armor1.png" />
 
             <img v-if="getNumberItemsFromName('Progressive Shield') > 2" src="/img/ffmq/armor/shield3.png" />
             <img v-else-if="getNumberItemsFromName('Progressive Shield') > 1" src="/img/ffmq/armor/shield2.png" />
@@ -170,7 +169,14 @@
 </template>
     
 <script>
-
+/**
+ *  Final Fantasy Mystic Quest
+ * 
+ * Unfortunately, i'm very restricted on what I can do.
+ * The game doesn't have Slot Data so I cannot add any goal information.
+ * Also, the game always starts with a Steel Armor and one weapon (a Steel Sword per default)
+ * 
+ */ 
 export default {
         name: "gDataFFMysticQuest",
         props: {
