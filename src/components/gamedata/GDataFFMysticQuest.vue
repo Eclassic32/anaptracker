@@ -6,7 +6,7 @@
             <img src="/img/ffmq/coins/coin_sand.png" :class="{ 'opacity-25': !getNumberItemsFromName('Sand Coin')  }" />
             <img src="/img/ffmq/coins/coin_river.png" :class="{ 'opacity-25': !getNumberItemsFromName('River Coin')  }" />
             <img src="/img/ffmq/coins/coin_sun.png" :class="{ 'opacity-25': !getNumberItemsFromName('Sun Coin')  }" />
-            <span v-if="getNumberItemsFromName('Sky Fragment')" class="text-xs mr-1"><img src="/img/ffmq/coins/coin_sky_shard.png" />x{{getNumberItemsFromName('Sky Fragment')}}</span>
+            <span v-if="getNumberItemsFromName('Sky Fragment')" class="text-xs mr-1 font-bold"><img src="/img/ffmq/coins/coin_sky_shard.png" />x{{getNumberItemsFromName('Sky Fragment')}}</span>
             <img v-else src="/img/ffmq/coins/coin_sky.png" :class="{ 'opacity-25': !getNumberItemsFromName('Sky Coin')  }" />
         </div>
 

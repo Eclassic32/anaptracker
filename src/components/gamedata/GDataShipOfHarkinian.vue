@@ -29,7 +29,7 @@
             <img v-else src="/img/oot/21_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Strength Upgrade')  }" />
             <img v-if="getNumberItemsFromName('Progressive Magic Meter') > 2" src="/img/oot/18_2.png" />
             <img v-else src="/img/oot/18_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Magic Meter')  }" />
-            <img v-if="getNumberItemsFromName('Strength Ocarina') > 1" src="/img/oot/46_2.png" />
+            <img v-if="getNumberItemsFromName('Progressive Ocarina') > 1" src="/img/oot/46_2.png" />
             <img v-else src="/img/oot/46_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Ocarina')  }" />
             <img v-if="getNumberItemsFromName('Progressive Bomb Bag') > 2" src="/img/oot/5_3.png" />
             <img v-else-if="getNumberItemsFromName('Progressive Bomb Bag') > 1" src="/img/oot/5_2.png" />
