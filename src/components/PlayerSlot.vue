@@ -5,7 +5,7 @@
         <div @click="toggleExpand()" class="z-2 flex flex-column justify-between">
             <div class="w-1/4 z-3 text-dark" :class="{ 'opacity-50' : get_status() == 0 }"><span class="mr-2 font-bold">{{ player_name }}</span><br v-if="$parent.$parent.OPTIONS.row_size" /><span class="font-normal text-tiny">({{ player_game }})</span></div>
             <div class="w-1/2 z-3 text-sm">
-                <div class="clear-both text-center">
+                <div class="clear-both text-center font-normal">
                     <component :is="get_game_data_class()"
                                v-bind:data="data"
                                v-bind:index="index"
