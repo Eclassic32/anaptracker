@@ -22,6 +22,16 @@
     
 <script>
 
+    /**
+    * Hollow Knight
+    *
+    * Goal is to beat a set final stage
+    * It can be :
+    *   - Finale
+    *   - Rush Hour
+    *   - Seal The Deal
+    *
+    */
 export default {
   name: "gDataAHatInTime",
         props: {

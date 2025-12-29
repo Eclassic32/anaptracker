@@ -37,6 +37,18 @@
     
 <script>
 
+    /**
+    * Celeste (Open World)
+    *
+    * Goal is to complete the goal area
+    * It can be :
+    *   - The Summit (A, B or C)
+    *   - Core (A, B or C)
+    *   - Empty Space
+    *   - Farewell (Vanilla or Golden)
+    * Strawberries are usually required to beat that area.
+    * 
+    */
 export default {
   name: "gDataCeleste",
         props: {
