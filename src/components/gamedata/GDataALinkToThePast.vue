@@ -25,9 +25,6 @@
             <img v-if="getNumberItemsFromName('Progressive Glove') > 2" src="/img/alttp/items/Titan_Mits.png" />
             <img v-else src="/img/alttp/items/Power_Glove.png" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Glove')  }" />
 
-            <img v-if="getNumberItemsFromName('Progressive Magic Meter') > 2" src="/img/mm/equipment/magic2.png" />
-            <img v-else src="/img/mm/equipment/magic1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Magic Meter')  }" />
-
             <img src="/img/alttp/items/Pegasus_Boots.png" :class="{ 'opacity-25': !getNumberItemsFromName('Pegasus Boots')  }" />
             <img src="/img/alttp/items/Flippers.png" :class="{ 'opacity-25': !getNumberItemsFromName('Flippers')  }" />
             <img src="/img/alttp/items/Moon_Pearl.png" :class="{ 'opacity-25': !getNumberItemsFromName('Moon Pearl')  }" />
@@ -41,8 +38,8 @@
             <img v-if="getNumberItemsFromName('Progressive Bow') > 1" src="/img/alttp/items/bowandsilverarrow.png" />
             <img v-else src="/img/alttp/items/Bow+Arrows.png" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Bow')  }" />
 
-            <img v-if="getNumberItemsFromName('Progressive Boomerang') > 1" src="/img/alttp/items/boomerang_red.png" />
-            <img v-else src="/img/alttp/items/boomerang_blue.png" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Boomerang')  }" />
+            <img v-if="getNumberItemsFromName('Progressive Boomerang') > 1 || getNumberItemsFromName('Red Boomerang')" src="/img/alttp/items/boomerang_red.png" />
+            <img v-else src="/img/alttp/items/boomerang_blue.png" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Boomerang') && !getNumberItemsFromName('Blue Boomerang') }" />
 
             <img src="/img/alttp/items/Lamp.png" :class="{ 'opacity-25': !getNumberItemsFromName('Lamp')  }" />
             <img src="/img/alttp/items/Shovel.png" :class="{ 'opacity-25': !getNumberItemsFromName('Shovel')  }" />
@@ -57,9 +54,9 @@
             <img v-if="getNumberItemsFromName('Cape')" src="/img/alttp/items/Cape.png" />
             <img v-else src="/img/alttp/items/Cane_of_Byrna.png" :class="{ 'opacity-25': !getNumberItemsFromName('Cane of Byrna')  }" />
 
-            <img src="/img/alttp/items/Quake.png" :class="{ 'opacity-25': !getNumberItemsFromName('Quake Medaillon')  }" />
-            <img src="/img/alttp/items/Bombos.png" :class="{ 'opacity-25': !getNumberItemsFromName('Bombos Medaillon')  }" />
-            <img src="/img/alttp/items/Ether.png" :class="{ 'opacity-25': !getNumberItemsFromName('Ether Medaillon')  }" />
+            <img src="/img/alttp/items/Quake.png" :class="{ 'opacity-25': !getNumberItemsFromName('Quake')  }" />
+            <img src="/img/alttp/items/Bombos.png" :class="{ 'opacity-25': !getNumberItemsFromName('Bombos')  }" />
+            <img src="/img/alttp/items/Ether.png" :class="{ 'opacity-25': !getNumberItemsFromName('Ether')  }" />
         </div>
 
     </div>
