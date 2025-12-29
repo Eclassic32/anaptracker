@@ -12,12 +12,12 @@
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Inventory</div>
 
-            <img v-if="getNumberItemsFromName('Progressive Sword') > 2" src="/img/mm/equipment/sword3.png" />
-            <img v-else-if="getNumberItemsFromName('Progressive Sword') > 1" src="/img/mm/equipment/sword2.png" />
-            <img v-else src="/img/mm/equipment/sword1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Sword')  }" />
+            <img v-if="getSwordLevel() > 2" src="/img/mm/equipment/sword3.png" />
+            <img v-else-if="getSwordLevel() > 1" src="/img/mm/equipment/sword2.png" />
+            <img v-else src="/img/mm/equipment/sword1.png" :class="{ 'opacity-25': !getSwordLevel()  }" />
 
-            <img v-if="getNumberItemsFromName('Progressive Shield') > 1" src="/img/mm/equipment/shield2.png" />
-            <img v-else src="/img/mm/equipment/shield1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Shield')  }" />
+            <img v-if="getShieldLevel() > 1" src="/img/mm/equipment/shield2.png" />
+            <img v-else src="/img/mm/equipment/shield1.png" :class="{ 'opacity-25': !getShieldLevel()  }" />
 
             <img v-if="getNumberItemsFromName('Progressive Magic Meter') > 2" src="/img/mm/equipment/magic2.png" />
             <img v-else src="/img/mm/equipment/magic1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Magic Meter')  }" />
@@ -66,6 +66,12 @@
     
 <script>
 
+
+    /**
+    * Majora's Mask Recompiled
+    * 
+    * Goal is to get bosses remains.
+    */ 
 export default {
         name: "gDataMajorasMask",
         props: {
@@ -88,6 +94,20 @@ export default {
                     return 'iconbar-L my-1';
                 }
                 return 'iconbar-S';
+            },
+            getSwordLevel: function () {
+                var res = 1;
+                if (this.data.slot_data.swordless) {
+                    res -= 1;
+                }
+                return res + this.getNumberItemsFromName('Progressive Sword');
+            },
+            getShieldLevel: function () {
+                var res = 1;
+                if (this.data.slot_data.shieldless) {
+                    res -= 1;
+                }
+                return res + this.getNumberItemsFromName('Progressive Shield');
             },
             getNumberItemsFromName: function (name) {
                 var res = 0;
