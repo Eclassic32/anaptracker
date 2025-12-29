@@ -12,15 +12,15 @@
             <img src="/img/pokemon_crystal/items/mineralbadge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Mineral Badge')  }" />
             <img src="/img/pokemon_crystal/items/glacierbadge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Glacier Badge')  }" />
             <img src="/img/pokemon_crystal/items/risingbadge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Rising Badge')  }" />
-            <span class="mr-2"></span>
-            <img src="/img/pokemon_crystal/items/boulderbadge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Boulder Badge')  }" />
-            <img src="/img/pokemon_crystal/items/cascadebadge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Cascade Badge')  }" />
-            <img src="/img/pokemon_crystal/items/thunderbadge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Thunder Badge')  }" />
-            <img src="/img/pokemon_crystal/items/rainbowbadge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Rainbow Badge')  }" />
-            <img src="/img/pokemon_crystal/items/soulbadge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Soul Badge')  }" />
-            <img src="/img/pokemon_crystal/items/marshbadge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Marsh Badge')  }" />
-            <img src="/img/pokemon_crystal/items/volcanobadge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Volcano Badge')  }" />
-            <img src="/img/pokemon_crystal/items/earthbadge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Earth Badge')  }" />
+            <span v-if="kantoIsOn()" class="mr-2"></span>
+            <img v-if="kantoIsOn()" src="/img/pokemon_crystal/items/boulderbadge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Boulder Badge')  }" />
+            <img v-if="kantoIsOn()" src="/img/pokemon_crystal/items/cascadebadge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Cascade Badge')  }" />
+            <img v-if="kantoIsOn()" src="/img/pokemon_crystal/items/thunderbadge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Thunder Badge')  }" />
+            <img v-if="kantoIsOn()" src="/img/pokemon_crystal/items/rainbowbadge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Rainbow Badge')  }" />
+            <img v-if="kantoIsOn()" src="/img/pokemon_crystal/items/soulbadge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Soul Badge')  }" />
+            <img v-if="kantoIsOn()" src="/img/pokemon_crystal/items/marshbadge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Marsh Badge')  }" />
+            <img v-if="kantoIsOn()" src="/img/pokemon_crystal/items/volcanobadge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Volcano Badge')  }" />
+            <img v-if="kantoIsOn()" src="/img/pokemon_crystal/items/earthbadge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Earth Badge')  }" />
         </div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
@@ -60,8 +60,8 @@
     /**
     * Pokemon Crystal
     *
-    * Objectives are present in the game. (stuff like full clear an area, or kill X minibosses)
-    * But it's safe to assume that we mostly need Varia / Gravity and a way to kill Mother Brain (charge or 50+ supers)
+    * Goal is to either beat Red or be League Champion.
+    * It either needs badges or gyms. But we can assume badges are required because they can also lock areas (Pokemon League, Mt Silver, Team Rocket invasion, ...)
     */
 export default {
   name: "gDataPokemonCrystal",
@@ -80,6 +80,11 @@ export default {
   },
 
         methods: {
+            kantoIsOn: function () {
+                if (this.data.slot_data.hasOwnProperty('johto_only') && this.data.slot_data.johto_only == 1)
+                    return false;
+                return true;
+            },
             getImageClass: function () {
                 if (this.$parent.$parent.$parent.OPTIONS.row_size) {
                     return 'iconbar-L my-1';
