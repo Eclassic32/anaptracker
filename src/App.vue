@@ -37,6 +37,8 @@
         row_size: 0,
         show_done: 1,
         show_timer: 1,
+        show_checks_left: 0,
+        show_slot_number: 0,
         sort_by: 0
     };
     var STATIC_TRACKER_DATA = {
@@ -62,6 +64,7 @@
         id = 0;
         total_locations = 0;
         group = 0;
+        extended = 0;
 
         constructor(new_id, new_name, new_game) {
             this.id = new_id;
@@ -203,7 +206,7 @@ export default {
                               .then(response => (this.DATA_PACKAGE[key] = response.data))
                               .then(response => (setTimeout(function (scope) {
                                   scope.getChainStaticData();
-                              }, 500, this)));
+                              }, 250, this)));
                           // Putting a delay because Archipelago server can't handle too many requests.
                           return;
                       }
@@ -271,8 +274,6 @@ export default {
   },
         mounted: function () {
             var url = location.href;
-            //console.log(url);
-            //console.log(location.hostname);
             this.getRouteInfos();
   },
     };

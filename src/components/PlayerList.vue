@@ -61,6 +61,12 @@
                 if (this.$parent.OPTIONS.sort_by == 3) {
                     return this.globaldata.players.sort((a, b) => a.total_locations - b.total_locations);
                 }
+                if (this.$parent.OPTIONS.sort_by == 4) {
+                    return this.globaldata.players.sort((a, b) => (b.total_locations - b.tracker_data.player_checks_done.length) - (a.total_locations - a.tracker_data.player_checks_done.length));
+                }
+                if (this.$parent.OPTIONS.sort_by == 5) {
+                    return this.globaldata.players.sort((a, b) => (b.tracker_data.player_checks_done.length / b.total_locations) - (a.tracker_data.player_checks_done.length / a.total_locations));
+                }
                 return this.globaldata.players.sort((a, b) => a.id - b.id);
             },
             games_completed: function () {
