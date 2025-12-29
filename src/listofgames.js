@@ -14,6 +14,8 @@ import GDataCrystalProject from './components/gamedata/GDataCrystalProject.vue';
 import GDataMajorasMask from './components/gamedata/GDataMajorasMask.vue';
 import GDataALinkToThePast from './components/gamedata/GDataALinkToThePast.vue';
 import GDataPokemonRedBlue from './components/gamedata/GDataPokemonRedBlue.vue';
+import GDataTheMinishCap from './components/gamedata/GDataTheMinishCap.vue';
+import GDataSuperMarioWorld from './components/gamedata/GDataSuperMarioWorld.vue';
 
 
 var LIST_OF_GAMES = [
@@ -50,9 +52,13 @@ var LIST_OF_GAMES = [
         'class': GDataMajorasMask
     },
     {
+        'name': 'Super Mario World',
+        'class': GDataSuperMarioWorld
+    }, 
+    {
         'name': 'Super Mario 64',
         'class': GDataMario64
-    },
+    }, 
     {
         'name': 'Pokemon Crystal',
         'class': GDataPokemonCrystal
@@ -72,6 +78,10 @@ var LIST_OF_GAMES = [
     {
         'name': 'Ship of Harkinian',
         'class': GDataShipOfHarkinian
+    },
+    {
+        'name': 'The Minish Cap',
+        'class': GDataTheMinishCap
     },
     {
         'name': 'Super Metroid',
