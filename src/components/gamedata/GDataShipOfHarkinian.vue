@@ -2,17 +2,20 @@
     <div>
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Rewards</div>
+            <span v-if="triforceHunt()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Gold Skulltula Token')  }"><img src="/img/oot/triforce.png" />x{{ getNumberItemsFromName('Triforce Piece') }} </span> / {{ triforceHunt() }}</span>
 
-            <img src="/img/oot/stone_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Kokiri\'s Emerald')  }" />
-            <img src="/img/oot/stone_2.png" :class="{ 'opacity-25': !getNumberItemsFromName('Goron\'s Ruby')  }" />
-            <img src="/img/oot/stone_3.png" :class="{ 'opacity-25': !getNumberItemsFromName('Zora\'s Sapphire')  }" />
-            <img src="/img/oot/medal_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Forest Medallion')  }" />
-            <img src="/img/oot/medal_2.png" :class="{ 'opacity-25': !getNumberItemsFromName('Fire Medallion')  }" />
-            <img src="/img/oot/medal_3.png" :class="{ 'opacity-25': !getNumberItemsFromName('Water Medallion')  }" />
-            <img src="/img/oot/medal_4.png" :class="{ 'opacity-25': !getNumberItemsFromName('Shadow Medallion')  }" />
-            <img src="/img/oot/medal_5.png" :class="{ 'opacity-25': !getNumberItemsFromName('Spirit Medallion')  }" />
-            <img src="/img/oot/medal_6.png" :class="{ 'opacity-25': !getNumberItemsFromName('Light Medallion')  }" />
+            <span v-if="skullsTokensCounts()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Gold Skulltula Token')  }"><img src="/img/oot/skull.png" />x{{ getNumberItemsFromName('Gold Skulltula Token') }} </span> / {{ skullsTokensCounts() }}</span>
+            <img v-if="stonesCounts()" src="/img/oot/stone_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Kokiri\'s Emerald')  }" />
+            <img v-if="stonesCounts()" src="/img/oot/stone_2.png" :class="{ 'opacity-25': !getNumberItemsFromName('Goron\'s Ruby')  }" />
+            <img v-if="stonesCounts()" src="/img/oot/stone_3.png" :class="{ 'opacity-25': !getNumberItemsFromName('Zora\'s Sapphire')  }" />
+            <img v-if="medalsCounts()" src="/img/oot/medal_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Forest Medallion')  }" />
+            <img v-if="medalsCounts()" src="/img/oot/medal_2.png" :class="{ 'opacity-25': !getNumberItemsFromName('Fire Medallion')  }" />
+            <img v-if="medalsCounts()" src="/img/oot/medal_3.png" :class="{ 'opacity-25': !getNumberItemsFromName('Water Medallion')  }" />
+            <img v-if="LACSCounts()" src="/img/oot/medal_4.png" :class="{ 'opacity-25': !getNumberItemsFromName('Shadow Medallion')  }" />
+            <img v-if="LACSCounts()" src="/img/oot/medal_5.png" :class="{ 'opacity-25': !getNumberItemsFromName('Spirit Medallion')  }" />
+            <img v-if="medalsCounts()" src="/img/oot/medal_6.png" :class="{ 'opacity-25': !getNumberItemsFromName('Light Medallion')  }" />
             <img v-if="gregCounts()" src="/img/oot/rupee.png" :class="{ 'opacity-25': !getNumberItemsFromName('Greg the Green Rupee')  }" />
+            <img v-if="ganonBkSanity()" src="/img/oot/114_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Ganon\'s Castme Boss Key')  }" />
         </div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
@@ -69,6 +72,35 @@
     
 <script>
 
+
+    /**
+    * Ship of Harkinian
+    *
+    * By Default, Objectives are Dungeons rewards. But it can change depnding on the Bridge/Ganon Boss Key setting 
+    * 
+    * Bridge setting :
+    *   0 - vanilla
+    *   1 - always_open
+    *   2 - stones
+    *   3 - medallions
+    *   4 - dungeon_rewards
+    *   5 - dungeons
+    *   6 - tokens
+    *   7 - greg
+    *   
+    *   
+    * Ganon Boss Key setting :
+    *   0 - vanilla
+    *   1 - anywhere
+    *   2 - lacs_vanilla
+    *   3 - lacs_stones
+    *   4 - lacs_medallions
+    *   5 - lacs_dungeon_rewards
+    *   6 - lacs_dungeons
+    *   7 - lacs_skull_tokens
+    *   
+    *   If Triforce Hunt is on, Ganon Boss Key will always be behind the Triforce Pieces goal.
+    */
 export default {
         name: "gDataShipOfHarkinian",
         props: {
@@ -92,12 +124,62 @@ export default {
                 }
                 return 'iconbar-S';
             },
+            triforceHunt: function () {
+                if (this.data.slot_data.hasOwnProperty('triforce_hunt') && this.data.slot_data.triforce_hunt == 1) {
+                    return Math.ceil(this.data.slot_data.triforce_hunt_pieces_total * this.data.slot_data.triforce_hunt_pieces_required_percentage / 100);
+                }
+                return 0;
+            },
+            stonesCounts: function () {
+                if (this.data.slot_data.hasOwnProperty('rainbow_bridge')) {
+                    if (this.data.slot_data.rainbow_bridge == 2 || this.data.slot_data.rainbow_bridge == 4 ||
+                        this.triforceHunt() && (this.data.slot_data.ganons_castle_boss_key == 3 || this.data.slot_data.ganons_castle_boss_key == 5))
+                        return true;
+                    return false;
+                }
+                return true;
+            },
+            medalsCounts: function () {
+                if (this.data.slot_data.hasOwnProperty('rainbow_bridge')) {
+                    if (this.data.slot_data.rainbow_bridge == 3 || this.data.slot_data.rainbow_bridge == 4 ||
+                        this.triforceHunt() && (this.data.slot_data.ganons_castle_boss_key == 4 || this.data.slot_data.ganons_castle_boss_key == 5))
+                        return true;
+                    return false;
+                }
+                return true;
+            },
+            LACSCounts: function () {
+                if (this.data.slot_data.hasOwnProperty('rainbow_bridge')) {
+
+                    if (this.data.slot_data.rainbow_bridge == 0 || this.data.slot_data.rainbow_bridge == 3 || this.data.slot_data.rainbow_bridge == 4 ||
+                        this.triforceHunt() && (this.data.slot_data.ganons_castle_boss_key == 1 || this.data.slot_data.ganons_castle_boss_key == 4 || this.data.slot_data.ganons_castle_boss_key == 5))
+                        return true;
+                    return false;
+                }
+                return true;
+            },
             gregCounts: function () {
-                if (this.data.slot_data &&
-                    (this.data.slot_data.rainbow_bridge == 7 || this.data.slot_data.ganons_castle_boss_key == 7)) {
+                if (this.data.slot_data.hasOwnProperty('rainbow_bridge') &&
+                    (this.data.slot_data.rainbow_bridge == 7 || this.data.slot_data.rainbow_bridge_greg_modifier) || 
+                    this.triforceHunt() && this.data.slot_data.ganons_castle_boss_key == 7) {
                     return true;
                 }
                 return false;
+            },
+            ganonBkSanity: function () {
+                if (this.data.slot_data.hasOwnProperty('ganons_castle_boss_key') &&
+                    (this.data.slot_data.ganons_castle_boss_key == 1)) {
+                    return true;
+                }
+                return false;
+            },
+            skullsTokensCounts: function () {
+                if (this.data.slot_data.hasOwnProperty('rainbow_bridge') &&
+                    (this.data.slot_data.rainbow_bridge == 6 ||
+                    this.triforceHunt() && this.data.slot_data.ganons_castle_boss_key == 6)) {
+                    return this.data.slot_data.rainbow_bridge_skull_tokens_required;
+                }
+                return 0;
             },
             getNumberItemsFromName: function (name) {
                 var res = 0;
