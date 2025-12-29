@@ -31,10 +31,16 @@
         </div>
     </div>
 </template>
-    
 <script>
+    /**
+    * Pokemon Red and Blue
+    *
+    * Goal is to beat Elite 4.
+    * You needs badges, like any other Pokemon game.
+    *
+    */
 
-export default {
+    export default {
         name: "gDataPokemonRedBlue",
         props: {
             data: Object,
@@ -44,11 +50,11 @@ export default {
             total_checks: Number,
             player_name: String,
             player_game: String
-  },
-  data: function () {
-    return {
-    };
-  },
+        },
+        data: function () {
+            return {
+            };
+        },
 
         methods: {
             getImageClass: function () {
@@ -70,7 +76,7 @@ export default {
                 return res;
             }
         },
-  components: {
-  },
-};
+        components: {
+        },
+    };
 </script>

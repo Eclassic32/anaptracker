@@ -64,6 +64,11 @@
     
 <script>
 
+    /**
+    * A Link to the Past
+    *
+    * Goal is to either beat specific dungeons or get Triforce Pieces.
+    */
 export default {
         name: "gDataALinkToThePast",
         props: {

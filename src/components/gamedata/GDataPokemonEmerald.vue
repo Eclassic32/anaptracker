@@ -31,12 +31,29 @@
             <img src="/img/pokemon_emerald/items/itemfinder.png" :class="{ 'opacity-25': !getNumberItemsFromName('Itemfinder')  }" />
             <img src="/img/pokemon_emerald/items/acro_bike.png" :class="{ 'opacity-25': !getNumberItemsFromName('Acro Bike')  }" />
             <img src="/img/pokemon_emerald/items/mach_bike.png" :class="{ 'opacity-25': !getNumberItemsFromName('Mach Bike')  }" />
+            <img src="/img/pokemon_emerald/items/devon_goods.png" :class="{ 'opacity-25': !getNumberItemsFromName('Devon Goods')  }" />
+            <img src="/img/pokemon_emerald/items/devon_scope.png" :class="{ 'opacity-25': !getNumberItemsFromName('Devon Scope')  }" />
+            <img src="/img/pokemon_emerald/items/magma_emblem.png" :class="{ 'opacity-25': !getNumberItemsFromName('Magma Emblem')  }" />
+            <img src="/img/pokemon_emerald/items/meteorite.png" :class="{ 'opacity-25': !getNumberItemsFromName('Meteorite')  }" />
+
+        </div>
+        <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Ticket</div>
+
+            <img src="/img/pokemon_emerald/items/mystic_ticket.png" :class="{ 'opacity-25': !getNumberItemsFromName('Mstic Ticket')  }" />
         </div>
     </div>
 </template>
     
 <script>
 
+    /**
+    * Pokemon Emerald
+    *
+    * Goal is to beat Elite 4 or Steven.
+    * You needs badges, like any other Pokemon game.
+    * 
+    */
 export default {
   name: "gDataPokemonEmerald",
         props: {

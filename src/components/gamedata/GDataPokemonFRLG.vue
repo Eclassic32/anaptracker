@@ -37,6 +37,13 @@
     
 <script>
 
+    /**
+    * Pokemon FireRed and LeafGreen
+    *
+    * Goal is to beat Elite 4 (either Round 1 or 2).
+    * You needs badges, like any other Pokemon game.
+    * 
+    */
 export default {
   name: "gDataPokemonFRLG",
         props: {

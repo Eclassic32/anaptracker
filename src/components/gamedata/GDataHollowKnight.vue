@@ -38,6 +38,16 @@
     
 <script>
 
+    /**
+    * Hollow Knight
+    *
+    * Goal is to beat a set Final Boss
+    * It can be :
+    *   - Hollow Knight : get 3 Dreamers
+    *   - Radiance :
+    *   - Siblings : 
+    *
+    */
 export default {
   name: "gDataHollowKnight",
         props: {
