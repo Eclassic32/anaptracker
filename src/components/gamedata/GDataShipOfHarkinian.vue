@@ -132,8 +132,8 @@ export default {
             },
             stonesCounts: function () {
                 if (this.data.slot_data.hasOwnProperty('rainbow_bridge')) {
-                    if (this.data.slot_data.rainbow_bridge == 2 || this.data.slot_data.rainbow_bridge == 4 ||
-                        !this.triforceHunt() && (this.data.slot_data.ganons_castle_boss_key == 3 || this.data.slot_data.ganons_castle_boss_key == 5))
+                    if ([2, 4, 5].includes(this.data.slot_data.rainbow_bridge) ||
+                        !this.triforceHunt() && [3, 5, 6].includes(this.data.slot_data.ganons_castle_boss_key))
                         return true;
                     return false;
                 }
@@ -141,8 +141,8 @@ export default {
             },
             medalsCounts: function () {
                 if (this.data.slot_data.hasOwnProperty('rainbow_bridge')) {
-                    if (this.data.slot_data.rainbow_bridge == 3 || this.data.slot_data.rainbow_bridge == 4 ||
-                        !this.triforceHunt() && (this.data.slot_data.ganons_castle_boss_key == 4 || this.data.slot_data.ganons_castle_boss_key == 5))
+                    if ([3, 4, 5].includes(this.data.slot_data.rainbow_bridge) ||
+                        !this.triforceHunt() && [4, 5, 6].includes(this.data.slot_data.ganons_castle_boss_key))
                         return true;
                     return false;
                 }
@@ -151,8 +151,8 @@ export default {
             LACSCounts: function () {
                 if (this.data.slot_data.hasOwnProperty('rainbow_bridge')) {
 
-                    if (this.data.slot_data.rainbow_bridge == 0 || this.data.slot_data.rainbow_bridge == 3 || this.data.slot_data.rainbow_bridge == 4 ||
-                        !this.triforceHunt() && (this.data.slot_data.ganons_castle_boss_key == 1 || this.data.slot_data.ganons_castle_boss_key == 4 || this.data.slot_data.ganons_castle_boss_key == 5))
+                    if ([0, 3, 4, 5].includes(this.data.slot_data.rainbow_bridge) ||
+                        !this.triforceHunt() && [2, 4, 5, 6].includes(this.data.slot_data.ganons_castle_boss_key))
                         return true;
                     return false;
                 }
@@ -160,8 +160,8 @@ export default {
             },
             gregCounts: function () {
                 if (this.data.slot_data.hasOwnProperty('rainbow_bridge') &&
-                    (this.data.slot_data.rainbow_bridge == 7 || this.data.slot_data.rainbow_bridge_greg_modifier) || 
-                    !this.triforceHunt() && this.data.slot_data.ganons_castle_boss_key == 7) {
+                    (this.data.slot_data.rainbow_bridge == 7 || this.data.slot_data.rainbow_bridge_greg_modifier) ||
+                    !this.triforceHunt() && [3, 4, 5, 7].includes(this.data.slot_data.ganons_castle_boss_key) && this.data.slot_data.ganons_castle_boss_key_greg_modifier) {
                     return true;
                 }
                 return false;
@@ -176,7 +176,7 @@ export default {
             skullsTokensCounts: function () {
                 if (this.data.slot_data.hasOwnProperty('rainbow_bridge') &&
                     (this.data.slot_data.rainbow_bridge == 6 ||
-                    !this.triforceHunt() && this.data.slot_data.ganons_castle_boss_key == 6)) {
+                    !this.triforceHunt() && this.data.slot_data.ganons_castle_boss_key == 7)) {
                     return this.data.slot_data.rainbow_bridge_skull_tokens_required;
                 }
                 return 0;
