@@ -133,7 +133,7 @@ export default {
             stonesCounts: function () {
                 if (this.data.slot_data.hasOwnProperty('rainbow_bridge')) {
                     if (this.data.slot_data.rainbow_bridge == 2 || this.data.slot_data.rainbow_bridge == 4 ||
-                        this.triforceHunt() && (this.data.slot_data.ganons_castle_boss_key == 3 || this.data.slot_data.ganons_castle_boss_key == 5))
+                        !this.triforceHunt() && (this.data.slot_data.ganons_castle_boss_key == 3 || this.data.slot_data.ganons_castle_boss_key == 5))
                         return true;
                     return false;
                 }
