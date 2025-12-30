@@ -1,8 +1,8 @@
 <template>
     <div>
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
-            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Rewards</div>
-            <span v-if="triforceHunt()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Gold Skulltula Token')  }"><img src="/img/oot/triforce.png" />x{{ getNumberItemsFromName('Triforce Piece') }} </span> / {{ triforceHunt() }}</span>
+            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Goal</div>
+            <span v-if="triforceHunt()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Triforce Piece')  }"><img src="/img/oot/triforce.png" />x{{ getNumberItemsFromName('Triforce Piece') }} </span> / {{ triforceHunt() }}</span>
 
             <span v-if="skullsTokensCounts()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Gold Skulltula Token')  }"><img src="/img/oot/skull.png" />x{{ getNumberItemsFromName('Gold Skulltula Token') }} </span> / {{ skullsTokensCounts() }}</span>
             <img v-if="stonesCounts()" src="/img/oot/stone_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Kokiri\'s Emerald')  }" />
@@ -126,7 +126,7 @@ export default {
             },
             triforceHunt: function () {
                 if (this.data.slot_data.hasOwnProperty('triforce_hunt') && this.data.slot_data.triforce_hunt == 1) {
-                    return Math.ceil(this.data.slot_data.triforce_hunt_pieces_total * this.data.slot_data.triforce_hunt_pieces_required_percentage / 100);
+                    return this.data.slot_data.triforce_hunt_pieces_required;
                 }
                 return 0;
             },
@@ -142,7 +142,7 @@ export default {
             medalsCounts: function () {
                 if (this.data.slot_data.hasOwnProperty('rainbow_bridge')) {
                     if (this.data.slot_data.rainbow_bridge == 3 || this.data.slot_data.rainbow_bridge == 4 ||
-                        this.triforceHunt() && (this.data.slot_data.ganons_castle_boss_key == 4 || this.data.slot_data.ganons_castle_boss_key == 5))
+                        !this.triforceHunt() && (this.data.slot_data.ganons_castle_boss_key == 4 || this.data.slot_data.ganons_castle_boss_key == 5))
                         return true;
                     return false;
                 }
@@ -152,7 +152,7 @@ export default {
                 if (this.data.slot_data.hasOwnProperty('rainbow_bridge')) {
 
                     if (this.data.slot_data.rainbow_bridge == 0 || this.data.slot_data.rainbow_bridge == 3 || this.data.slot_data.rainbow_bridge == 4 ||
-                        this.triforceHunt() && (this.data.slot_data.ganons_castle_boss_key == 1 || this.data.slot_data.ganons_castle_boss_key == 4 || this.data.slot_data.ganons_castle_boss_key == 5))
+                        !this.triforceHunt() && (this.data.slot_data.ganons_castle_boss_key == 1 || this.data.slot_data.ganons_castle_boss_key == 4 || this.data.slot_data.ganons_castle_boss_key == 5))
                         return true;
                     return false;
                 }
@@ -161,7 +161,7 @@ export default {
             gregCounts: function () {
                 if (this.data.slot_data.hasOwnProperty('rainbow_bridge') &&
                     (this.data.slot_data.rainbow_bridge == 7 || this.data.slot_data.rainbow_bridge_greg_modifier) || 
-                    this.triforceHunt() && this.data.slot_data.ganons_castle_boss_key == 7) {
+                    !this.triforceHunt() && this.data.slot_data.ganons_castle_boss_key == 7) {
                     return true;
                 }
                 return false;
@@ -176,7 +176,7 @@ export default {
             skullsTokensCounts: function () {
                 if (this.data.slot_data.hasOwnProperty('rainbow_bridge') &&
                     (this.data.slot_data.rainbow_bridge == 6 ||
-                    this.triforceHunt() && this.data.slot_data.ganons_castle_boss_key == 6)) {
+                    !this.triforceHunt() && this.data.slot_data.ganons_castle_boss_key == 6)) {
                     return this.data.slot_data.rainbow_bridge_skull_tokens_required;
                 }
                 return 0;
