@@ -39,7 +39,8 @@
                     </div>
                 </div>
             </div>
-            <div class="text-green-600 relative mr-6 justify-self-end font-roboto p-3">
+            <div class="text-green-600 relative justify-self-end font-roboto p-3 grow-5 text-right">
+                <span v-if="$parent.brokenSlotData()" class="text-red-400 font-bold mr-2">/!\ Broken Slot Data /!\</span>
                 <span>v0.4.1</span>
             </div>
         </nav>

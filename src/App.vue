@@ -30,7 +30,8 @@
         players: [],
         datapackage: [],
         groups: [],
-        total_checks_done: 0
+        total_checks_done: 0,
+        broken_slot_data: false
 
     };
     var OPTIONS = {
@@ -115,12 +116,6 @@ export default {
   },
 
   methods: {
-    /* onKeyPress(e) {
-                if (e.which === 8) {
-                    this.undo();
-                }
-            },
-            */
     toggleRemoveOnCompleted: function () {
       this.removeOnCompleted = !this.removeOnCompleted;
       },
@@ -129,25 +124,25 @@ export default {
               return true;
           return false;
       },
-      trackerIsReady() {
+      trackerIsReady: function() {
           if (this.ROOM_DATA.players && this.ROOM_DATA.players.length > 0 && 
               this.STATIC_TRACKER_DATA.datapackage && this.STATIC_TRACKER_DATA.datapackage.length > 0)
               return true;
           return false;
       },
-      toggleMe: function () {
-          //this.seeder.next_objective();
-      }
-      ,
+      brokenSlotData: function () {
+          return this.GLOBAL_TRACKER_DATA.broken_slot_data;
+      },
       refreshTrackerData: function (tdata) {
           this.GLOBAL_TRACKER_DATA.total_checks_done = tdata.total_checks_done[0].checks_done;
           for (var y = 0; y < tdata.player_checks_done.length; y++) {
               for (var x = 0; x < this.GLOBAL_TRACKER_DATA.players.length; x++) {
-                  //console.log(this.GLOBAL_TRACKER_DATA.players[x]);
                   if (this.GLOBAL_TRACKER_DATA.players[x].id == tdata.player_checks_done[y].player) {
                       this.GLOBAL_TRACKER_DATA.players[x].tracker_data.player_items_received = tdata.player_items_received[y].items;
                       this.GLOBAL_TRACKER_DATA.players[x].tracker_data.player_checks_done = tdata.player_checks_done[y].locations;
-                      this.GLOBAL_TRACKER_DATA.players[x].tracker_data.activity_timer = tdata.activity_timers[y].time
+                      if (tdata.activity_timers[y].time) {
+                          this.GLOBAL_TRACKER_DATA.players[x].tracker_data.activity_timer = tdata.activity_timers[y].time;
+                      }
                       this.GLOBAL_TRACKER_DATA.players[x].tracker_data.status = tdata.player_status[y].status;
                       break;
                   }
@@ -183,10 +178,12 @@ export default {
       },
       getSlotData: function (sdata) {
           this.SLOT_DATA = sdata;
+          this.GLOBAL_TRACKER_DATA.broken_slot_data = false;
           for (var y = 0; y < sdata.length; y++) {
               for (var x = 0; x < this.GLOBAL_TRACKER_DATA.players.length; x++) {
                   if (this.GLOBAL_TRACKER_DATA.players[x].id == sdata[y].player) {
                       this.GLOBAL_TRACKER_DATA.players[x].slot_data = sdata[y].slot_data;
+                      this.GLOBAL_TRACKER_DATA.broken_slot_data = false;
                       break;
                   }
               }
