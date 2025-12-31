@@ -1,13 +1,16 @@
 <template>
     <div class="text-center text-white">
         <h1 class="text-xl my-4">Welcome to A Normal AP Tracker !</h1>
-        <span>Please enter the ID or the URL of the Archipelago Room.</span>
-        <form @submit.prevent="loadRoom()">
-            <input v-model="roomid" type="text" class="border-1 border-gray-500 rounded-xs p-2 mr-2" />
-            <input type="submit" class="bg-blue-800 p-2 br-1 rounded-xs" value="Track !" />
-        </form>
-        <div class="mt-10">
-            <span class="font-bold">What the app can do :</span>
+        <div class="mt-4 mb-10 p-6 align-top">
+
+            <span class="text-lg">Please enter the ID or the URL of the Archipelago Room.</span>
+            <form @submit.prevent="loadRoom()">
+                <input v-model="roomid" type="text" class="border-1 border-gray-500 rounded-xs p-2 mr-2 text-lg" />
+                <input type="submit" class="bg-blue-800 p-2 br-1 rounded-xs text-lg" value="Track !" />
+            </form>
+        </div>
+        <div class="inline-block w-100 p-6 align-top">
+            <span class="font-bold text-lg">What the app can do :</span>
             <ul class="list-disc">
                 <li>
                     Track global check completion and individual checks completion. (like the usual tracker)
@@ -23,16 +26,8 @@
                 </li>
             </ul>
         </div>
-        <div class="mt-6">
-            <span class="font-bold">What will it do later :</span>
-            <ul class="list-disc">
-                <li>
-                    Display goal settings for supported games.
-                </li>
-            </ul>
-        </div>
-        <div class="mt-6">
-            <span class="font-bold">Supported games for advanced tracking :</span>
+        <div class="inline-block w-100 p-6 align-top">
+            <span class="font-bold text-lg">Supported games for tracking :</span>
             <ul class="list-disc">
                 <li v-for="element in LIST_OF_GAMES">
                     {{ element.name }}
