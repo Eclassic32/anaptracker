@@ -2,9 +2,7 @@
     <div>
         <nav class="flex flex-row flex-nowrap bg-gray-900">
             <div class="mr-4 p-3">
-                <a>
-                    <span class="font-semibold text-l tracking-tight">ANAP Tracker</span>
-                </a>
+                    <span class="text-green-600 font-semibold text-l tracking-tight">ANAP Tracker</span>
 
                 <div v-bind:class="{'hidden': !showMenu, 'flex': showMenu}" class="w-20 w-auto bg-gray-600 text-base z-50 float-left list-none text-left rounded shadow-lg mt-1 absolute mt-4" style="min-width:12rem">
 
@@ -33,6 +31,7 @@
 
                     <div class="flex flex-col bg-gray-600 w-full rounded-sm">
                         <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.sort_by == 0 }" v-on:click="changeSortBy(0)">Name</div>
+                        <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.sort_by == 7 }" v-on:click="changeSortBy(7)">Game</div>
                         <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.sort_by == 3 }" v-on:click="changeSortBy(3)">Total checks</div>
                         <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.sort_by == 1 }" v-on:click="changeSortBy(1)">Checks done</div>
                         <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.sort_by == 2 }" v-on:click="changeSortBy(2)">% done</div>
@@ -41,7 +40,7 @@
                 </div>
             </div>
             <div class="text-green-600 relative mr-6 justify-self-end font-roboto p-3">
-                <span>v0.3.1</span>
+                <span>v0.4.1</span>
             </div>
         </nav>
     </div>
@@ -118,6 +117,10 @@
                         return 'Remaining';
                     case 5:
                         return '% left';
+                    case 6:
+                        return 'Activity';
+                    case 7:
+                        return 'Game';
                     default:
                         return 'Name';
                 }
@@ -149,7 +152,7 @@
             },
             changeSortBy: function (num) {
                 this.$parent.OPTIONS.sort_by = num;
-                if (this.$parent.OPTIONS.sort_by > 5 || this.$parent.OPTIONS.sort_by < 0)
+                if (this.$parent.OPTIONS.sort_by > 7 || this.$parent.OPTIONS.sort_by < 0)
                     this.$parent.OPTIONS.sort_by = 0;
 
                 // We do a first sort by ID here in order to have the closest sorting results used by archipelago.gg
