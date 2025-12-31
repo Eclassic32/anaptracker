@@ -178,7 +178,7 @@ export default {
       },
       getSlotData: function (sdata) {
           this.SLOT_DATA = sdata;
-          this.GLOBAL_TRACKER_DATA.broken_slot_data = false;
+          this.GLOBAL_TRACKER_DATA.broken_slot_data = true;
           for (var y = 0; y < sdata.length; y++) {
               for (var x = 0; x < this.GLOBAL_TRACKER_DATA.players.length; x++) {
                   if (this.GLOBAL_TRACKER_DATA.players[x].id == sdata[y].player) {
