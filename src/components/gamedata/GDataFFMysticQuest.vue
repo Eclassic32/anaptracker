@@ -1,7 +1,7 @@
 <template>
     <div>
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
-            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Medals</div>
+            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Coins</div>
 
             <img src="/img/ffmq/coins/coin_sand.png" :class="{ 'opacity-25': !getNumberItemsFromName('Sand Coin')  }" />
             <img src="/img/ffmq/coins/coin_river.png" :class="{ 'opacity-25': !getNumberItemsFromName('River Coin')  }" />
