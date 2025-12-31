@@ -1,7 +1,9 @@
 <template>
     <div>
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
-            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Jobs</div>
+            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Goal</div>
+
+            <span v-if="clamshellHunt()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Item - Clamshell')  }"><img src="/img/crystal_project/keys/clamshell.png" />x{{ getNumberItemsFromName('Item - Clamshell') }} </span> / {{ clamshellHunt() }}</span>
 
             <img title="Job - Warrior" src="/img/crystal_project/classes/warrior.png" :class="{ 'opacity-25': !hasJob('Job - Warrior')  }" />
             <img src="/img/crystal_project/classes/monk.png" :class="{ 'opacity-25': !hasJob('Job - Monk')  }" />
@@ -30,7 +32,9 @@
         </div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
-            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Mounts</div>
+            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Level & Mounts</div>
+
+            <span v-if="logicalLevel()" class="mr-2 text-xs"><img src="/img/crystal_project/system/image_part_005.png" />lvl <b>{{ logicalLevel() }}</b> </span>
 
             <img v-if="getNumberItemsFromName('Item - Progressive Mount Instrusment') > 6" src="/img/crystal_project/keys/quintar ocarina.png" />
             <img v-else-if="getNumberItemsFromName('Item - Progressive Mount Instrusment') > 1" src="/img/crystal_project/keys/quintar flute.png" />
@@ -56,9 +60,10 @@
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Key Items</div>
 
+
             <img src="/img/crystal_project/keys/skeleton key.png" :class="{ 'opacity-25': !getNumberItemsFromName('Item - Skeleton Key')  }" />
 
-            <span class="mr-2 text-xs" :class="{ 'opacity-25': !getNumberItemsFromCategory('Pass')  }"><img src="/img/crystal_project/keys/map.png" />x{{ getNumberItemsFromCategory('Pass') }} </span>
+            <span v-if="regionsanity()" class="mr-2 text-xs"><img src="/img/crystal_project/keys/map.png" />x{{ (getNumberItemsFromCategory('Pass') + 1) }} </span>
 
         </div>
     </div>
@@ -66,6 +71,13 @@
     
 <script>
 
+    /**
+    * Crystal Project
+    *
+    * Goal is to either beat Astley (true form or not) or get Clamshells (like a Triforce Hunt)
+    *
+    * Astley's World needs to collect Jobs.
+    */
 export default {
         name: "gDataCrystalProject",
         props: {
@@ -126,6 +138,27 @@ export default {
                     return 1;
                 }
                 return this.getNumberItemsFromName(name);
+            },
+            logicalLevel: function (name) {
+                if (this.data.slot_data.progressiveLevelSize) {
+                    var level = (1 + this.getNumberItemsFromName('Item - Progressive Level')) * this.data.slot_data.progressiveLevelSize;
+                    if (level > this.data.slot_data.maxLevel)
+                        level = this.data.slot_data.maxLevel;
+                    return level;
+                }
+                return 0;
+            },
+            clamshellHunt: function () {
+                if (this.data.slot_data.hasOwnProperty('goal') && this.data.slot_data.goal == 2) {
+                    return this.data.slot_data.clamshellGoalQuantity;
+                }
+                return 0;
+            },
+            regionsanity: function () {
+                if (this.data.slot_data.hasOwnProperty('regionsanity') && this.data.slot_data.regionsanity == 0) {
+                    return false;
+                }
+                return 1;
             },
         },
   components: {
