@@ -33,7 +33,7 @@
             <img v-else src="/img/hollow_knight/ShadeCloak2.png" />
         </span>
         <span v-else>
-            <img v-if="!getNumberItemsFromName('Shade_Cloak')" src="/img/hollow_knight/MothwingCloak.png" :class="{ 'opacity-25': !getNumberItemsFromName('Mothwing_Cloak')  }" />
+            <img v-if="!getNumberItemsFromName('Shade_Cloak')" src="/img/hollow_knight/MothwingCloak.png" :class="{ 'opacity-25': !getNumberItemsFromName('Mothwing_Cloak') && !getNumberItemsFromName('Left_Mothwing_Cloak') && !getNumberItemsFromName('Right_Mothwing_Cloak')  }" />
             <img v-else src="/img/hollow_knight/ShadeCloak.png" />
         </span>
 
@@ -42,13 +42,13 @@
             <img src="/img/hollow_knight/MantisClaw.png" :class="{ 'opacity-25': !getNumberItemsFromName('Right_Mantis_Claw')  }" />
 
         </span>
-        <img v-else src="/img/hollow_knight/MantisClaw.png" :class="{ 'opacity-25': !getNumberItemsFromName('Mantis_Claw')  }" />
+        <img v-else src="/img/hollow_knight/MantisClaw.png" :class="{ 'opacity-25': !getNumberItemsFromName('Mantis_Claw') && !getNumberItemsFromName('Left_Mantis_Claw') && !getNumberItemsFromName('Right_Mantis_Claw')  }" />
         <span v-if="splitCrystal()">
             <img src="/img/hollow_knight/CrystalHeart.png" :class="{ 'opacity-25': !getNumberItemsFromName('Left_Crystal_Heart')  }" />
             <img src="/img/hollow_knight/CrystalHeart2.png" :class="{ 'opacity-25': !getNumberItemsFromName('Right_Crystal_Heart')  }" />
 
         </span>
-        <img v-else src="/img/hollow_knight/CrystalHeart.png" :class="{ 'opacity-25': !getNumberItemsFromName('Crystal_Heart')  }" />
+        <img v-else src="/img/hollow_knight/CrystalHeart.png" :class="{ 'opacity-25': !getNumberItemsFromName('Crystal_Heart') && !getNumberItemsFromName('Left_Crystal_Heart') && !getNumberItemsFromName('Right_Crystal_Heart')  }" />
         <img src="/img/hollow_knight/IsmaTear.png" :class="{ 'opacity-25': !getNumberItemsFromName('Isma\'s_Tear')  }" />
         <img src="/img/hollow_knight/MonarchWings.png" :class="{ 'opacity-25': !getNumberItemsFromName('Monarch_Wings')  }" />
         <span class="mr-2"></span>
@@ -116,22 +116,22 @@ export default {
                 return 1;
             },
             splitClaws: function () {
-                if (this.data.slot_data.hasOwnProperty('options') && ![2, 3, 4, 5].includes(this.data.slot_data.options.SplitMantisClaw)) {
-                    return 0;
+                if (this.data.slot_data.hasOwnProperty('options') && this.data.slot_data.options.SplitMantisClaw == 1) {
+                    return 1;
                 }
-                return 1;
+                return 0;
             },
             splitCloak: function () {
-                if (this.data.slot_data.hasOwnProperty('options') && ![2, 3, 4, 5].includes(this.data.slot_data.options.SplitMothwingCloak)) {
-                    return 0;
+                if (this.data.slot_data.hasOwnProperty('options') && this.data.slot_data.options.SplitMothwingCloak == 1) {
+                    return 1;
                 }
-                return 1;
+                return 0;
             },
             splitCrystal: function () {
-                if (this.data.slot_data.hasOwnProperty('options') && ![2, 3, 4, 5].includes(this.data.slot_data.options.SplitCrystalHeart)) {
-                    return 0;
+                if (this.data.slot_data.hasOwnProperty('options') && this.data.slot_data.options.SplitCrystalHeart == 1) {
+                    return 1;
                 }
-                return 1;
+                return 0;
             },
             getImageClass: function () {
                 if (this.$parent.$parent.$parent.OPTIONS.row_size) {
