@@ -10,7 +10,7 @@
                         v-bind:data="element">
             </PlayerSlot>
         </div>
-        <div :class=" { 'bg-emerald-200' : get_state() > 1, 'py-2' : $parent.OPTIONS.row_size,  'text-sm py-2' : !$parent.OPTIONS.row_size  }" class="relative inline-block w-full tracker-history text-xl leading-5 font-semibold font-xl h-full px-2 border-t-2 border-t-gray-900">
+        <div :class=" { 'bg-emerald-200' : get_state() > 1, 'py-6' : $parent.OPTIONS.row_size,  'text-sm py-4' : !$parent.OPTIONS.row_size  }" class="relative inline-block w-full tracker-history text-xl leading-5 font-semibold font-xl h-full px-2 border-t-2 border-t-gray-900 align-middle">
             <div class="absolute left-0 top-0 bottom-0 z-1 bg-green-500" :style="{ 'width' : str_percent_completion() }"></div>
             <div class="z-2 flex flex-column justify-between">
                 <div class="w-1/4 z-3 text-dark dark:text-white text-lg">
@@ -67,7 +67,13 @@
                 if (this.$parent.OPTIONS.sort_by == 5) {
                     return this.globaldata.players.sort((a, b) => (b.tracker_data.player_checks_done.length / b.total_locations) - (a.tracker_data.player_checks_done.length / a.total_locations));
                 }
-                return this.globaldata.players.sort((a, b) => a.id - b.id);
+                if (this.$parent.OPTIONS.sort_by == 6) {
+                    return this.globaldata.players.sort((a, b) => a.tracker_data.activity_timer.localeCompare(b.tracker_data.activity_timer));
+                }
+                if (this.$parent.OPTIONS.sort_by == 7) {
+                    return this.globaldata.players.sort((a, b) => a.game.localeCompare(b.game));
+                }
+                return this.globaldata.players;
             },
             games_completed: function () {
                 var res = 0;
