@@ -49,6 +49,8 @@
             <img v-else src="/img/oot/7_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Hookshot')  }" />
             <img src="/img/oot/8_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Megaton Hammer')  }" />
             <img src="/img/oot/12_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Din\'s Fire')  }" />
+            <img v-if="getNumberItemsFromName('Bottle with Ruto\'s Letter')" src="/img/oot/3_2.png" />
+            <img v-else src="/img/oot/3_1.png" :class="{ 'opacity-25': !hasBottle()  }" />
         </div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
@@ -192,6 +194,29 @@ export default {
                     }
                 }
                 return res;
+            },
+            getNumberItemsNameStart: function (name) {
+                var res = 0;
+                if (this.gamedata && this.gamedata.location_name_to_id) {
+                    var bottle_array = [];
+                    for (var key in this.gamedata.location_name_to_id) {
+                        if (key.startsWith(name)) {
+                            bottle_array.push(this.gamedata.location_name_to_id[key]);
+                        }
+                    }
+                    var id = this.gamedata.item_name_to_id[name];
+                    for (var x = 0; x < this.data.tracker_data.player_items_received.length; x++) {
+                        if (bottle_array.includes(this.data.tracker_data.player_items_received[x][0]))
+                            res++;
+                    }
+                }
+                return res;
+            },
+            hasBottle: function (name) {
+                if (this.getNumberItemsFromName('Empty Bottle') || this.getNumberItemsNameStart('Bottle with')) {
+                    return true;
+                }
+                return false;
             }
         },
   components: {
