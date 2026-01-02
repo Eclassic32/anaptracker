@@ -4,7 +4,19 @@ Archipelago can handle a very large variety of games, from platforms games to li
 
 We want to have a simililar tracker structure for every game, as much as we can.
 
-## General Behaivor
+## General Behavior
+
+You want to have a consistent layout.
+The first pack of icons is usually dedicated to the goal of the game, and can change depending on the goal settings.
+The others packs of icons should stays the same, unless you have a setting that add an important item (like splitting Claws for Hollow Knight, or an abiility to swim in Ocarina of Time)
+In order to know goal settings and item settings, we are using the game slot data. However, that data can be unavailable sometimes. So you also have to plan a "safe mode".
+
+**What to do when slot data is broken ?**
+
+When the slot data call fails, you should display the most common goal items (it is recommended to display everything minus the gimmicky items).
+Items that you can get through a uncommon setting should not be displayed at all. However, if the player get one of thoses, you can display it (it will change the layout, but nothing serious).
+
+
 
 ## List of items
 
