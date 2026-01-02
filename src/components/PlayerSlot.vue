@@ -100,7 +100,7 @@ export default {
                 return 0;
             },
             get_time_diff: function () {
-                if (this.data.tracker_data.activity_timer) {
+                if (this.data.tracker_data.activity_timer != '') {
                     var date_now = Date.now();
                     var date_act = new Date(this.data.tracker_data.activity_timer).getTime();
                     return Math.floor((date_now - date_act) / 1000);
