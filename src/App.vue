@@ -234,6 +234,12 @@ export default {
               this.OPTIONS.row_size = 1;
           }
 
+          // Automatically hide players done on a large player pool
+          this.OPTIONS.show_done = 1;
+          if (room_data.players.length >= 30) {
+              this.OPTIONS.show_done = 0;
+          }
+
           var SLOT_URL = this.ANAP_DATA.archipelagogg.slot_url + this.ROOM_DATA.tracker;
           var STATIC_TRACKER_URL = this.ANAP_DATA.archipelagogg.static_tracker_url + this.ROOM_DATA.tracker;
           axios

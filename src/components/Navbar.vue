@@ -19,7 +19,7 @@
                     <div class="flex flex-col bg-gray-500 w-full rounded-sm">
                         <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.show_done }" v-on:click="changeShowDone()">Players done</div>
                         <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.show_slot_number }" v-on:click="changeShowSlotNumber()">Slot #</div>
-                        <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.show_timer }" v-on:click="changeShowTimer()">Timers</div>
+                        <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.show_timer }" v-on:click="changeShowTimer()">Inactivity timers</div>
                     </div>
                 </div>
             </div>
