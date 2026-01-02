@@ -15,8 +15,8 @@
                 <div v-on:click="dropdownAdditionals()" class="text-green-600 relative mr-4 cursor-pointer hover:text-white p-3">
                     <span>Show ...</span>
                 </div>
-                <div v-bind:class="{'hidden': !showAdditionals, 'flex': showAdditionals}" class="rounded-sm w-20 w-auto bg-gray-600 text-base z-50 float-left list-none text-left rounded shadow-lg absolute" style="min-width:12rem">
-                    <div class="flex flex-col bg-gray-600 w-full rounded-sm">
+                <div v-bind:class="{'hidden': !showAdditionals, 'flex': showAdditionals}" class="rounded-sm w-20 w-auto bg-gray-500 text-base z-50 float-left list-none text-left rounded shadow-lg absolute" style="min-width:12rem">
+                    <div class="flex flex-col bg-gray-500 w-full rounded-sm">
                         <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.show_done }" v-on:click="changeShowDone()">Players done</div>
                         <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.show_slot_number }" v-on:click="changeShowSlotNumber()">Slot #</div>
                         <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.show_timer }" v-on:click="changeShowTimer()">Timers</div>
@@ -27,9 +27,9 @@
                 <div v-on:click="dropdownSortBy()" class="text-green-600 relative mr-4 cursor-pointer hover:text-white p-3">
                     <span>Sort by</span>
                 </div>
-                <div  v-bind:class="{'hidden': !showSortBy, 'flex': showSortBy}" class="rounded-sm w-20 w-auto bg-gray-600 text-base z-50 float-left list-none text-left rounded shadow-lg absolute" style="min-width:12rem">
+                <div  v-bind:class="{'hidden': !showSortBy, 'flex': showSortBy}" class="rounded-sm w-20 w-auto bg-gray-500 text-base z-50 float-left list-none text-left rounded shadow-lg absolute" style="min-width:12rem">
 
-                    <div class="flex flex-col bg-gray-600 w-full rounded-sm">
+                    <div class="flex flex-col bg-gray-500 w-full rounded-sm">
                         <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.sort_by == 0 }" v-on:click="changeSortBy(0)">Name</div>
                         <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.sort_by == 7 }" v-on:click="changeSortBy(7)">Game</div>
                         <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.sort_by == 3 }" v-on:click="changeSortBy(3)">Total checks</div>
