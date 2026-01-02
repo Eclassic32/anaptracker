@@ -60,6 +60,7 @@
         <img v-else src="/img/hollow_knight/DescendingDark.png" />
     </div>
     <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+        <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Keys</div>
         <img src="/img/hollow_knight/TramPass.png" :class="{ 'opacity-25': !getNumberItemsFromName('Tram_Pass')  }" />
     </div>
 </template>
