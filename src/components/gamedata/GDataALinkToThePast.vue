@@ -100,7 +100,7 @@ export default {
                 return res + this.getNumberItemsFromName('Progressive Sword');
             },
             getGoalTriforce: function () {
-                if (this.data.slot_data.triforce_pieces_mode) {
+                if (this.data.slot_data.triforce_pieces_mode == 1) {
                     return this.data.slot_data.triforce_pieces_required;
                 }
                 return 0;
