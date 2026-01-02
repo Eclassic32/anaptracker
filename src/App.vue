@@ -225,6 +225,15 @@ export default {
               GLOBAL_TRACKER_DATA.players.push(new PlayerStruct(index_player, room_data.players[x][0], room_data.players[x][1]));
           }
 
+          // Automatic row size depending on player count
+          this.OPTIONS.row_size = 2;
+          if (room_data.players.length >= 50) {
+              this.OPTIONS.row_size = 0;
+          }
+          else if (room_data.players.length >= 12) {
+              this.OPTIONS.row_size = 1;
+          }
+
           var SLOT_URL = this.ANAP_DATA.archipelagogg.slot_url + this.ROOM_DATA.tracker;
           var STATIC_TRACKER_URL = this.ANAP_DATA.archipelagogg.static_tracker_url + this.ROOM_DATA.tracker;
           axios
