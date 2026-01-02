@@ -58,7 +58,10 @@
 
         methods: {
             getImageClass: function () {
-                if (this.$parent.$parent.$parent.OPTIONS.row_size) {
+                if (this.$parent.$parent.$parent.OPTIONS.row_size == 2) {
+                    return 'iconbar-L my-1';
+                }
+                else if (this.$parent.$parent.$parent.OPTIONS.row_size == 1) {
                     return 'iconbar-L my-1';
                 }
                 return 'iconbar-S';

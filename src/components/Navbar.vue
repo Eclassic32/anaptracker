@@ -148,7 +148,7 @@
             },
             changeSize: function () {
                 this.$parent.OPTIONS.row_size = this.$parent.OPTIONS.row_size + 1;
-                if (this.$parent.OPTIONS.row_size > 1)
+                if (this.$parent.OPTIONS.row_size > 2)
                     this.$parent.OPTIONS.row_size = 0;
             },
             changeSortBy: function (num) {
@@ -164,6 +164,8 @@
                     case 0:
                         return 'S';
                     case 1:
+                        return 'M';
+                    case 2:
                         return 'L';
                     default:
                         return 'S';
