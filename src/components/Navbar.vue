@@ -1,8 +1,8 @@
 <template>
     <div>
         <nav class="flex flex-row flex-nowrap bg-gray-900">
-            <div class="mr-4 p-3">
-                    <span class="text-green-600 font-semibold text-l tracking-tight">ANAP Tracker</span>
+            <div v-on:click="$parent.resetBack()" class="mr-4 p-3 text-green-600 cursor-pointer hover:text-white p-3">
+                    <span class="font-semibold text-l tracking-tight">ANAP Tracker</span>
 
                 <div v-bind:class="{'hidden': !showMenu, 'flex': showMenu}" class="w-20 w-auto bg-gray-600 text-base z-50 float-left list-none text-left rounded shadow-lg mt-1 absolute mt-4" style="min-width:12rem">
 
@@ -41,7 +41,7 @@
             </div>
             <div class="text-green-600 relative justify-self-end font-roboto p-3 grow-5 text-right">
                 <span v-if="$parent.brokenSlotData()" class="text-red-400 font-bold mr-2">/!\ Broken Slot Data /!\</span>
-                <span>v0.4.1</span>
+                <a href="https://github.com/OriginalTomPouce/anaptracker" target="_blank" class="cursor-pointer hover:text-white">v0.4.1</a>
             </div>
         </nav>
     </div>

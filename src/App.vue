@@ -262,6 +262,16 @@ export default {
               this.refresh();
           }
       /* Méthodes quand l'appli est mounted*/
+      },
+      resetBack: function () {
+          this.GLOBAL_TRACKER_DATA.players = [];
+          this.GLOBAL_TRACKER_DATA.datapackage = [];
+          this.GLOBAL_TRACKER_DATA.groups = [];
+          this.GLOBAL_TRACKER_DATA.total_checks_done = 0;
+          this.GLOBAL_TRACKER_DATA.broken_slot_data = false;
+          this.ROOM_ID = '';
+          window.history.replaceState(null, document.title, H_CONFIG.URL_WEBSITE);
+          this.refresh();
       }
   },
   components: {
