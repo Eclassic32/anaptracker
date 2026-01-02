@@ -154,7 +154,7 @@ export default {
                 if (this.data.slot_data.hasOwnProperty('rainbow_bridge')) {
 
                     if ([0, 3, 4, 5].includes(this.data.slot_data.rainbow_bridge) ||
-                        !this.triforceHunt() && [2, 4, 5, 6].includes(this.data.slot_data.ganons_castle_boss_key))
+                        !this.triforceHunt() && [0, 2, 4, 5, 6].includes(this.data.slot_data.ganons_castle_boss_key))
                         return true;
                     return false;
                 }
