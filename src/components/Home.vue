@@ -34,6 +34,9 @@
                 </li>
             </ul>
         </div>
+        <div class="p-6 align-top">
+            <a href="https://github.com/OriginalTomPouce/anaptracker" target="_blank" class="cursor-pointer hover:text-white">Github page</a>
+        </div>
     </div>
 </template>
 
