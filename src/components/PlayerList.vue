@@ -13,15 +13,13 @@
         <div :class=" { 'bg-emerald-200' : get_state() > 1, 'py-6' : $parent.OPTIONS.row_size == 2,  'text-sm py-4' : !$parent.OPTIONS.row_size  }" class="relative inline-block w-full tracker-history text-xl leading-5 font-semibold font-xl h-full px-2 border-t-2 border-t-gray-900 align-middle">
             <div class="absolute left-0 top-0 bottom-0 z-1 bg-green-500" :style="{ 'width' : str_percent_completion() }"></div>
             <div class="z-2 flex flex-column justify-between">
-                <div class="w-1/4 z-3 text-dark dark:text-white text-lg">
+                <div class="w-1/2 z-3 text-lg align-middle">
 
-                    <span v-if="get_state() > 1" class="mr-2">DONE ! Congratulations !</span>
-                    <span v-else class="mr-2">Games completed : {{ games_completed() }} / {{ total_games() }}</span>
-                </div>
-                <div class="w-1/2 z-3 text-sm">
+                    <div v-if="get_state() > 1" class="mr-2">DONE ! Congratulations !</div>
+                    <div v-else class="mr-2 align-middle">Games completed : {{ games_completed() }} / {{ total_games() }}</div>
                 </div>
 
-                <div class="w-1/4 z-3 text-right text-xl"><span v-if="!$parent.OPTIONS.row_size" class="font-normal text-tiny mr-2">({{ percent_completion() }}%)</span>{{ get_current_checks() }} / {{ get_total_checks() }}<br /><span v-if="$parent.OPTIONS.row_size" class="font-normal text-tiny">({{ percent_completion() }}%)</span></div>
+                <div :class="{'text-xl':  $parent.OPTIONS.row_size == 2}" class="w-1/2 z-3 text-right text-lg"><span v-if="!$parent.OPTIONS.row_size" class="font-normal text-tiny mr-2">({{ percent_completion() }}%)</span>{{ get_current_checks() }} / {{ get_total_checks() }}<br /><span v-if="$parent.OPTIONS.row_size" class="font-normal text-tiny">({{ percent_completion() }}%)</span></div>
             </div>
         </div>
 
