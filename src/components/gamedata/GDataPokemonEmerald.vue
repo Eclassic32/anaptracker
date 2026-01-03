@@ -40,7 +40,7 @@
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Ticket</div>
 
-            <img title="Thank you for the Mystic Ticket !" src="/img/pokemon_emerald/items/mystic_ticket.png" :class="{ 'opacity-25': !getNumberItemsFromName('Mstic Ticket')  }" />
+            <img title="Thank you for the Mystic Ticket !" src="/img/pokemon_emerald/items/mystic_ticket.png" :class="{ 'opacity-25': !getNumberItemsFromName('Mystic Ticket')  }" />
         </div>
     </div>
 </template>
