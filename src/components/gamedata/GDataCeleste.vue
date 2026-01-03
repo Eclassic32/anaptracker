@@ -9,29 +9,31 @@
     <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
         <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Abilities</div>
 
-        <span class="font-medium text-[9px] mr-2" :class="{ 'opacity-25': !getNumberItemsFromName('Dash Switches')  }">DSwiches</span>
-        <span class="font-medium text-[9px] mr-2" :class="{ 'opacity-25': !getNumberItemsFromName('Dash Refills')  }">DRefills</span>
-        <span class="font-medium text-[9px] mr-2" :class="{ 'opacity-25': !getNumberItemsFromName('Double Dash Refills')  }">DDRefills</span>
-        <span class="font-medium text-[9px] mr-2" :class="{ 'opacity-25': !getNumberItemsFromName('Springs')  }">Springs</span>
+        <img src="/img/celeste/misc/dash_refill.png" :class="{ 'opacity-25': !getNumberItemsFromName('Dash Refills')  }" />
+        <img src="/img/celeste/misc/double_refill.png" :class="{ 'opacity-25': !getNumberItemsFromName('Double Dash Refills')  }" />
+        <img src="/img/celeste/misc/spring.png" :class="{ 'opacity-25': !getNumberItemsFromName('Springs')  }" />
         <img src="/img/celeste/misc/blue_booster.png" :class="{ 'opacity-25': !getNumberItemsFromName('Blue Boosters')  }" />
         <img src="/img/celeste/misc/red_booster.png" :class="{ 'opacity-25': !getNumberItemsFromName('Red Boosters')  }" />
         <img src="/img/celeste/misc/badeline_booster.png" :class="{ 'opacity-25': !getNumberItemsFromName('Badeline Boosters')  }" />
         <img src="/img/celeste/misc/bumper.png" :class="{ 'opacity-25': !getNumberItemsFromName('Bumpers')  }" />
-        <span class="font-medium text-[9px] mr-2" :class="{ 'opacity-25': !getNumberItemsFromName('Coins')  }">Coins</span>
+        <img src="/img/celeste/misc/dash_switch.png" :class="{ 'opacity-25': !getNumberItemsFromName('Dash Switches')  }" />
+        <img src="/img/celeste/misc/coin.png" :class="{ 'opacity-25': !getNumberItemsFromName('Coins')  }" />
         <img src="/img/celeste/misc/feather.png" :class="{ 'opacity-25': !getNumberItemsFromName('Feathers')  }" />
         <img src="/img/celeste/misc/seeker.png" :class="{ 'opacity-25': !getNumberItemsFromName('Seekers')  }" />
+    </div>
+    <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+        <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Blocks</div>
+        <img src="/img/celeste/misc/cassette_b_blue.png" :class="{ 'opacity-25': !getNumberItemsFromName('Blue Cassette Blocks')  }" />
+        <img src="/img/celeste/misc/cassette_b_green.png" :class="{ 'opacity-25': !getNumberItemsFromName('Green Cassette Blocks')  }" />
+        <img src="/img/celeste/misc/cassette_b_pink.png" :class="{ 'opacity-25': !getNumberItemsFromName('Pink Cassette Blocks')  }" />
+        <img src="/img/celeste/misc/cassette_b_yellow.png" :class="{ 'opacity-25': !getNumberItemsFromName('Yellow Cassette Blocks')  }" />
         <span class="mr-2"></span>
-        <span class="font-medium text-[9px] mr-2" :class="{ 'opacity-25': !getNumberItemsFromName('Blue Cassette Blocks')  }">BlueCB</span>
-        <span class="font-medium text-[9px] mr-2" :class="{ 'opacity-25': !getNumberItemsFromName('Green Cassette Blocks')  }">GreenCB</span>
-        <span class="font-medium text-[9px] mr-2" :class="{ 'opacity-25': !getNumberItemsFromName('Pink Cassette Blocks')  }">PinkCB</span>
-        <span class="font-medium text-[9px] mr-2" :class="{ 'opacity-25': !getNumberItemsFromName('Yellow Cassette Blocks')  }">YellowCB</span>
-        <span class="font-medium text-[9px] mr-2" :class="{ 'opacity-25': !getNumberItemsFromName('Pink Clouds')  }">PinkClds</span>
-        <span class="mr-2"></span>
-        <span class="font-medium text-[9px] mr-2" :class="{ 'opacity-25': !getNumberItemsFromName('Blue Blocks')  }">BlueBlks</span>
-        <span class="font-medium text-[9px] mr-2" :class="{ 'opacity-25': !getNumberItemsFromName('Move Blocks')  }">MoveBlks</span>
-        <span class="font-medium text-[9px] mr-2" :class="{ 'opacity-25': !getNumberItemsFromName('Traffic Blocks')  }">TrafficBlks</span>
-        <span class="font-medium text-[9px] mr-2" :class="{ 'opacity-25': !getNumberItemsFromName('Swap Blocks')  }">SwapBlks</span>
-        <span class="font-medium text-[9px] mr-2" :class="{ 'opacity-25': !getNumberItemsFromName('Dream Blocks')  }">DreamBlks</span>
+        <img src="/img/celeste/misc/traffic_block.png" :class="{ 'opacity-25': !getNumberItemsFromName('Traffic Blocks')  }" />
+        <img src="/img/celeste/misc/blue_block.png" :class="{ 'opacity-25': !getNumberItemsFromName('Blue Blocks')  }" />
+        <img src="/img/celeste/misc/move_block.png" :class="{ 'opacity-25': !getNumberItemsFromName('Move Blocks')  }" />
+        <img src="/img/celeste/misc/swap_block.png" :class="{ 'opacity-25': !getNumberItemsFromName('Swap Blocks')  }" />
+        <img src="/img/celeste/misc/pink_clouds.png" :class="{ 'opacity-25': !getNumberItemsFromName('Pink Clouds')  }" />
+        <img src="/img/celeste/misc/dream_block.png" :class="{ 'opacity-25': !getNumberItemsFromName('Dream Blocks')  }" />
     </div>
 </template>
     
