@@ -50,8 +50,8 @@
 
             <img title="Steel Plate" src="/img/factorio/32px-Steel_plate.png" :class="{ 'opacity-25': !getNumberItemsFromName('progressive-processing') && !getNumberItemsFromName('steel-processing') }" />
             <img v-if="getNumberItemsFromName('progressive-processing') > 2 || getNumberItemsFromName('advanced-oil-processing')" title="Advanced Oil Processing" src="/img/factorio/32px-Advanced_oil_processing.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else title="Basic Oil Processing" src="/img/factorio/32px-Basic_oil_processing.png" :class="{ 'opacity-25': !getNumberItemsFromName('progressive-processing') < 3 && !getNumberItemsFromName('basuc-oil-processing') }" />
-            <img title="Sulfur" src="/img/factorio/32px-Sulfur.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('progressive-processing') < 3 && !getNumberItemsFromName('sulful-processing') }" />
+            <img v-else title="Basic Oil Processing" src="/img/factorio/32px-Basic_oil_processing.png" :class="{ 'opacity-25': getNumberItemsFromName('progressive-processing') < 2 && !getNumberItemsFromName('basic-oil-processing') }" />
+            <img title="Sulfur" src="/img/factorio/32px-Sulfur.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': getNumberItemsFromName('progressive-processing') < 3 && !getNumberItemsFromName('sulful-processing') }" />
             <img title="Plastic Bar" src="/img/factorio/32px-Plastic_bar.png" :class="{ 'opacity-25': !getNumberItemsFromName('plastics')  }" />
             <img v-if="getNumberItemsFromName('progressive-military') > 1 || getNumberItemsFromName('military-2')" title="Military 2" src="/img/factorio/32px-Piercing_rounds_magazine.png" />
             <img v-else title="Firearm magazine" src="/img/factorio/32px-Firearm_magazine.png" :class="{ 'opacity-25': !getNumberItemsFromName('progressive-military') < 2 && !getNumberItemsFromName('military-2') }" />
