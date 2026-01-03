@@ -4,7 +4,7 @@
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Goal</div>
 
-            <span v-if="getGoalTimePieces()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Power Star')  }"><img src="/img/a_hat_in_time/items/time_piece.png" />x{{ getNumberItemsFromName('Time Piece') }} </span> / {{ getGoalTimePieces() }}</span>
+            <span v-if="getGoalTimePieces()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Time Piece')  }"><img src="/img/a_hat_in_time/items/time_piece.png" />x{{ getNumberItemsFromName('Time Piece') }} </span> / {{ getGoalTimePieces() }}</span>
             <span v-else class="mr-2 text-xs font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Time Piece')  }"><img src="/img/a_hat_in_time/items/time_piece.png" />x{{ getNumberItemsFromName('Time Piece') }} </span>
 
         </div>
