@@ -4,18 +4,53 @@
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Goal</div>
 
-            <span class="mr-2 text-xs" :class="{ 'opacity-25': !getNumberItemsFromName('Time Piece')  }"><img src="/img/a_hat_in_time/items/time_piece.png" />x{{ getNumberItemsFromName('Time Piece') }} </span>
-            <span class="mr-2" />
-            <img src="/img/a_hat_in_time/items/hookshot_badge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Hookshot Badge')  }" />
+            <span v-if="getGoalTimePieces()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Power Star')  }"><img src="/img/a_hat_in_time/items/time_piece.png" />x{{ getNumberItemsFromName('Time Piece') }} </span> / {{ getGoalTimePieces() }}</span>
+            <span v-else class="mr-2 text-xs font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Time Piece')  }"><img src="/img/a_hat_in_time/items/time_piece.png" />x{{ getNumberItemsFromName('Time Piece') }} </span>
+
         </div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
-            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Hats</div>
+            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Hats & Abilities</div>
 
             <img src="/img/a_hat_in_time/items/sprint_hat_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Sprint Hat')  }" />
             <img src="/img/a_hat_in_time/items/brewer_hat_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Brewing Hat')  }" />
             <img src="/img/a_hat_in_time/items/ice_hat_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Ice Hat')  }" />
+            <img src="/img/a_hat_in_time/items/dwellers_mask_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Dweller Mask')  }" />
             <img src="/img/a_hat_in_time/items/time_stop_hat_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Time Stop Hat')  }" />
+            <span class="mr-2" />
+            <img src="/img/a_hat_in_time/items/scooter_badge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Scooter Badge')  }" />
+            <img src="/img/a_hat_in_time/items/umbrella.png" :class="{ 'opacity-25': !getNumberItemsFromName('Umbrella')  }" />
+            <img src="/img/a_hat_in_time/items/hookshot_badge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Hookshot Badge')  }" />
+        </div>
+
+        <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Relics</div>
+
+            <img v-if="countBurgerRelic() > 1" src="/img/a_hat_in_time/items/burgerrelic_completed.png" />
+            <img v-else src="/img/a_hat_in_time/items/burgerrelic1.png" :class="{ 'opacity-25': !countBurgerRelic()  }" />
+
+            <img v-if="countTrainRelic() > 1" src="/img/a_hat_in_time/items/trainrelic_complete.png" />
+            <img v-else src="/img/a_hat_in_time/items/trainrelic1.png" :class="{ 'opacity-25': !countTrainRelic()  }" />
+
+            <img v-if="countCowRelic() > 3" src="/img/a_hat_in_time/items/uforelic_complete.png" />
+            <img v-else-if="countCowRelic() > 2" src="/img/a_hat_in_time/items/uforelic3.png" />
+            <img v-else-if="countCowRelic() > 1" src="/img/a_hat_in_time/items/uforelic2.png" />
+            <img v-else src="/img/a_hat_in_time/items/uforelic1.png" :class="{ 'opacity-25': !countCowRelic()  }" />
+
+            <img v-if="countCrayonRelic() > 3" src="/img/a_hat_in_time/items/crayonrelic_complete.png" />
+            <img v-else-if="countCrayonRelic() > 2" src="/img/a_hat_in_time/items/crayonrelic3.png" />
+            <img v-else-if="countCrayonRelic() > 1" src="/img/a_hat_in_time/items/crayonrelic2.png" />
+            <img v-else src="/img/a_hat_in_time/items/crayonrelic1.png" :class="{ 'opacity-25': !countCrayonRelic()  }" />
+
+
+            <img v-if="countCakeRelic() > 3" src="/img/a_hat_in_time/items/cakerelic_complete.png" />
+            <img v-else-if="countCakeRelic() > 2" src="/img/a_hat_in_time/items/cakerelic3.png" />
+            <img v-else-if="countCakeRelic() > 1" src="/img/a_hat_in_time/items/cakerelic2.png" />
+            <img v-else-if="hasDLC1()" src="/img/a_hat_in_time/items/cakerelic1.png" :class="{ 'opacity-25': !countCakeRelic()  }" />
+
+            <img v-if="countJewelryRelic() > 1" src="/img/a_hat_in_time/items/jewelryrelic_complete.png" />
+            <img v-else-if="hasDLC2()" src="/img/a_hat_in_time/items/jewelryrelic1.png" :class="{ 'opacity-25': !countJewelryRelic()  }" />
+
         </div>
     </div>
 </template>
@@ -27,10 +62,11 @@
     *
     * Goal is to beat a set final stage
     * It can be :
-    *   - Finale
-    *   - Rush Hour
-    *   - Seal The Deal
-    *
+    *   - 1 : Finale (Chapter 5)
+    *   - 2 : Rush Hour (Chapter 6)
+    *   - 3 : Seal The Deal (Chapter 7)
+    * Time Pieces goal will depend on the chosen chapter cost.
+    * 
     */
 export default {
   name: "gDataAHatInTime",
@@ -58,6 +94,17 @@ export default {
                 }
                 return 'iconbar-S';
             },
+            getGoalTimePieces: function () {
+                if (this.data.slot_data.EndGoal) {
+                    if (this.data.slot_data.EndGoal == 3)
+                        return this.data.slot_data.Chapter7Cost;
+                    if (this.data.slot_data.EndGoal == 2)
+                        return this.data.slot_data.Chapter6Cost;
+                    if (this.data.slot_data.EndGoal == 1)
+                        return this.data.slot_data.Chapter5Cost;
+                }
+                return 0;
+            },
             getNumberItemsFromName: function (name) {
                 var res = 0;
                 if (this.gamedata && this.gamedata.location_name_to_id) {
@@ -69,7 +116,40 @@ export default {
                     }
                 }
                 return res;
-            }
+            },
+            hasDLC1: function () {
+                if (this.data.slot_data.EnableDLC1) {
+                    return this.data.slot_data.EnableDLC1;
+                }
+                return 1;
+            },
+            hasDLC2: function () {
+                if (this.data.slot_data.EnableDLC2) {
+                    return this.data.slot_data.EnableDLC2;
+                }
+                return 1;
+            },
+            countBurgerRelic: function () {
+                return this.getNumberItemsFromName('Relic (Burger Cushion)') + this.getNumberItemsFromName('Relic (Burger Patty)');
+            },
+            countTrainRelic: function () {
+                return this.getNumberItemsFromName('Relic (Train)') + this.getNumberItemsFromName('Relic (Mountain Set)');
+            },
+            countCowRelic: function () {
+                return this.getNumberItemsFromName('Relic (Cow)') + this.getNumberItemsFromName('Relic (Cool Cow)')
+                    + this.getNumberItemsFromName('Relic (Tin-foil Hat Cow)') + this.getNumberItemsFromName('Relic (UFO)');
+            },
+            countCrayonRelic: function () {
+                return this.getNumberItemsFromName('Relic (Blue Crayon)') + this.getNumberItemsFromName('Relic (Green Crayon)')
+                    + this.getNumberItemsFromName('Relic (Red Crayon)') + this.getNumberItemsFromName('Relic (Crayon Box)');
+            },
+            countCakeRelic: function () {
+                return this.getNumberItemsFromName('Relic (Chocolate Cake)') + this.getNumberItemsFromName('Relic (Chocolate Cake Slice)')
+                    + this.getNumberItemsFromName('Relic (Shortcake)') + this.getNumberItemsFromName('Relic (Cake Stand)');
+            },
+            countJewelryRelic: function () {
+                return this.getNumberItemsFromName('Relic (Necklace)') + this.getNumberItemsFromName('Relic (Necklace Bust)');
+            },
         },
   components: {
   },
