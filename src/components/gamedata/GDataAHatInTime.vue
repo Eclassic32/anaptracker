@@ -4,52 +4,52 @@
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Goal</div>
 
-            <span v-if="getGoalTimePieces()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Time Piece')  }"><img src="/img/a_hat_in_time/items/time_piece.png" />x{{ getNumberItemsFromName('Time Piece') }} </span> / {{ getGoalTimePieces() }}</span>
-            <span v-else class="mr-2 text-xs font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Time Piece')  }"><img src="/img/a_hat_in_time/items/time_piece.png" />x{{ getNumberItemsFromName('Time Piece') }} </span>
+            <span v-if="getGoalTimePieces()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Time Piece')  }"><img title="Time Piece" src="/img/a_hat_in_time/items/time_piece.png" />x{{ getNumberItemsFromName('Time Piece') }} </span> / {{ getGoalTimePieces() }}</span>
+            <span v-else class="mr-2 text-xs font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Time Piece')  }"><img title="Time Piece" src="/img/a_hat_in_time/items/time_piece.png" />x{{ getNumberItemsFromName('Time Piece') }} </span>
 
         </div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Hats & Abilities</div>
 
-            <img src="/img/a_hat_in_time/items/sprint_hat_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Sprint Hat')  }" />
-            <img src="/img/a_hat_in_time/items/brewer_hat_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Brewing Hat')  }" />
-            <img src="/img/a_hat_in_time/items/ice_hat_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Ice Hat')  }" />
-            <img src="/img/a_hat_in_time/items/dwellers_mask_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Dweller Mask')  }" />
-            <img src="/img/a_hat_in_time/items/time_stop_hat_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Time Stop Hat')  }" />
+            <img title="Sprint Hat" src="/img/a_hat_in_time/items/sprint_hat_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Sprint Hat')  }" />
+            <img title="Brewer Hat" src="/img/a_hat_in_time/items/brewer_hat_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Brewing Hat')  }" />
+            <img title="Ice Hat Hat" src="/img/a_hat_in_time/items/ice_hat_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Ice Hat')  }" />
+            <img title="Dweller Mask" src="/img/a_hat_in_time/items/dwellers_mask_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Dweller Mask')  }" />
+            <img title="Time Stop Hat" src="/img/a_hat_in_time/items/time_stop_hat_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Time Stop Hat')  }" />
             <span class="mr-2" />
-            <img src="/img/a_hat_in_time/items/scooter_badge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Scooter Badge')  }" />
-            <img src="/img/a_hat_in_time/items/umbrella.png" :class="{ 'opacity-25': !getNumberItemsFromName('Umbrella')  }" />
-            <img src="/img/a_hat_in_time/items/hookshot_badge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Hookshot Badge')  }" />
+            <img title="Scooter Badge" src="/img/a_hat_in_time/items/scooter_badge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Scooter Badge')  }" />
+            <img title="Umbrella" src="/img/a_hat_in_time/items/umbrella.png" :class="{ 'opacity-25': !getNumberItemsFromName('Umbrella')  }" />
+            <img title="Hookshot Badge" src="/img/a_hat_in_time/items/hookshot_badge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Hookshot Badge')  }" />
         </div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Relics</div>
 
-            <img v-if="countBurgerRelic() > 1" src="/img/a_hat_in_time/items/burgerrelic_completed.png" />
-            <img v-else src="/img/a_hat_in_time/items/burgerrelic1.png" :class="{ 'opacity-25': !countBurgerRelic()  }" />
+            <img v-if="countBurgerRelic() > 1" title="Burger Relic (complete)" src="/img/a_hat_in_time/items/burgerrelic_completed.png" />
+            <img v-else title="Burger Relic" src="/img/a_hat_in_time/items/burgerrelic1.png" :class="{ 'opacity-25': !countBurgerRelic()  }" />
 
-            <img v-if="countTrainRelic() > 1" src="/img/a_hat_in_time/items/trainrelic_complete.png" />
-            <img v-else src="/img/a_hat_in_time/items/trainrelic1.png" :class="{ 'opacity-25': !countTrainRelic()  }" />
+            <img v-if="countTrainRelic() > 1" title="Train Relic (complete)" src="/img/a_hat_in_time/items/trainrelic_complete.png" />
+            <img v-else title="Train Relic" src="/img/a_hat_in_time/items/trainrelic1.png" :class="{ 'opacity-25': !countTrainRelic()  }" />
 
-            <img v-if="countCowRelic() > 3" src="/img/a_hat_in_time/items/uforelic_complete.png" />
-            <img v-else-if="countCowRelic() > 2" src="/img/a_hat_in_time/items/uforelic3.png" />
-            <img v-else-if="countCowRelic() > 1" src="/img/a_hat_in_time/items/uforelic2.png" />
-            <img v-else src="/img/a_hat_in_time/items/uforelic1.png" :class="{ 'opacity-25': !countCowRelic()  }" />
+            <img v-if="countCowRelic() > 3" title="UFO Relic (complete)" src="/img/a_hat_in_time/items/uforelic_complete.png" />
+            <img v-else-if="countCowRelic() > 2" title="UFO Relic" src="/img/a_hat_in_time/items/uforelic3.png" />
+            <img v-else-if="countCowRelic() > 1" title="UFO Relic" src="/img/a_hat_in_time/items/uforelic2.png" />
+            <img v-else src="/img/a_hat_in_time/items/uforelic1.png" title="UFO Relic" :class="{ 'opacity-25': !countCowRelic()  }" />
 
-            <img v-if="countCrayonRelic() > 3" src="/img/a_hat_in_time/items/crayonrelic_complete.png" />
-            <img v-else-if="countCrayonRelic() > 2" src="/img/a_hat_in_time/items/crayonrelic3.png" />
-            <img v-else-if="countCrayonRelic() > 1" src="/img/a_hat_in_time/items/crayonrelic2.png" />
-            <img v-else src="/img/a_hat_in_time/items/crayonrelic1.png" :class="{ 'opacity-25': !countCrayonRelic()  }" />
+            <img v-if="countCrayonRelic() > 3" title="Crayon Relic (complete)" src="/img/a_hat_in_time/items/crayonrelic_complete.png" />
+            <img v-else-if="countCrayonRelic() > 2" title="Crayon Relic" src="/img/a_hat_in_time/items/crayonrelic3.png" />
+            <img v-else-if="countCrayonRelic() > 1" title="Crayon Relic" src="/img/a_hat_in_time/items/crayonrelic2.png" />
+            <img v-else title="Crayon Relic" src="/img/a_hat_in_time/items/crayonrelic1.png" :class="{ 'opacity-25': !countCrayonRelic()  }" />
 
 
-            <img v-if="countCakeRelic() > 3" src="/img/a_hat_in_time/items/cakerelic_complete.png" />
-            <img v-else-if="countCakeRelic() > 2" src="/img/a_hat_in_time/items/cakerelic3.png" />
-            <img v-else-if="countCakeRelic() > 1" src="/img/a_hat_in_time/items/cakerelic2.png" />
-            <img v-else-if="hasDLC1()" src="/img/a_hat_in_time/items/cakerelic1.png" :class="{ 'opacity-25': !countCakeRelic()  }" />
+            <img v-if="countCakeRelic() > 3" title="Cake Relic (complete)" src="/img/a_hat_in_time/items/cakerelic_complete.png" />
+            <img v-else-if="countCakeRelic() > 2" title="Cake Relic" src="/img/a_hat_in_time/items/cakerelic3.png" />
+            <img v-else-if="countCakeRelic() > 1" title="Cake Relic" src="/img/a_hat_in_time/items/cakerelic2.png" />
+            <img v-else-if="hasDLC1()" title="Cake Relic" src="/img/a_hat_in_time/items/cakerelic1.png" :class="{ 'opacity-25': !countCakeRelic()  }" />
 
-            <img v-if="countJewelryRelic() > 1" src="/img/a_hat_in_time/items/jewelryrelic_complete.png" />
-            <img v-else-if="hasDLC2()" src="/img/a_hat_in_time/items/jewelryrelic1.png" :class="{ 'opacity-25': !countJewelryRelic()  }" />
+            <img v-if="countJewelryRelic() > 1" title="Jewelry Relic (complete)" src="/img/a_hat_in_time/items/jewelryrelic_complete.png" />
+            <img v-else-if="hasDLC2()" title="Jewelry Relic" src="/img/a_hat_in_time/items/jewelryrelic1.png" :class="{ 'opacity-25': !countJewelryRelic()  }" />
 
         </div>
     </div>
@@ -86,13 +86,10 @@ export default {
 
         methods: {
             getImageClass: function () {
-                if (this.$parent.$parent.$parent.OPTIONS.row_size == 2) {
-                    return 'iconbar-L my-1';
-                }
-                else if (this.$parent.$parent.$parent.OPTIONS.row_size == 1) {
-                    return 'iconbar-M';
-                }
-                return 'iconbar-S';
+                return this.$parent.getImageClass();
+            },
+            getNumberItemsFromName: function (name) {
+                return this.$parent.getNumberItemsFromName(name);
             },
             getGoalTimePieces: function () {
                 if (this.data.slot_data.EndGoal) {
@@ -104,18 +101,6 @@ export default {
                         return this.data.slot_data.Chapter5Cost;
                 }
                 return 0;
-            },
-            getNumberItemsFromName: function (name) {
-                var res = 0;
-                if (this.gamedata && this.gamedata.location_name_to_id) {
-
-                    var id = this.gamedata.item_name_to_id[name];
-                    for (var x = 0; x < this.data.tracker_data.player_items_received.length; x++) {
-                        if (this.data.tracker_data.player_items_received[x][0] == id)
-                            res++;
-                    }
-                }
-                return res;
             },
             hasDLC1: function () {
                 if (this.data.slot_data.EnableDLC1) {

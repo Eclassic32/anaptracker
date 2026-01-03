@@ -4,11 +4,11 @@
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Goal</div>
 
-            <span v-if="getGoalStars()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Power Star')  }"><img src="/img/sm64/star.png" />x{{ getNumberItemsFromName('Power Star') }} </span> / {{ getGoalStars() }}</span>
-            <span v-else class="mr-2 text-xs font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Power Star')  }"><img src="/img/sm64/star.png" />x{{ getNumberItemsFromName('Power Star') }} </span>
+            <span v-if="getGoalStars()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Power Star')  }"><img title="Power Star" src="/img/sm64/star.png" />x{{ getNumberItemsFromName('Power Star') }} </span> / {{ getGoalStars() }}</span>
+            <span v-else class="mr-2 text-xs font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Power Star')  }"><img title="Power Star" src="/img/sm64/star.png" />x{{ getNumberItemsFromName('Power Star') }} </span>
 
-            <img src="/img/sm64/keys/key_basement.png" :class="{ 'opacity-25': !getNumberItemsFromName('Basement Key') && !getNumberItemsFromName('Progressive Key')  }" />
-            <img src="/img/sm64/keys/key_upstairs.png" :class="{ 'opacity-25': !getNumberItemsFromName('Upstarirs Key') && getNumberItemsFromName('Progressive Key') < 2  }" />
+            <img title="Basement Key" src="/img/sm64/keys/key_basement.png" :class="{ 'opacity-25': !getNumberItemsFromName('Basement Key') && !getNumberItemsFromName('Progressive Key')  }" />
+            <img title="Upstairs Key" src="/img/sm64/keys/key_upstairs.png" :class="{ 'opacity-25': !getNumberItemsFromName('Upstarirs Key') && getNumberItemsFromName('Progressive Key') < 2  }" />
             <!--
     <img v-if="getNumberItemsFromName('Progressive Key') > 1" src="/img/sm64/keys/key_both.png" class="inline-block mr-1 w-[16px] h-[16px]" />
     <img v-else-if="getNumberItemsFromName('Progressive Key') > 0" src="/img/sm64/keys/key_basement.png" class="inline-block mr-1 w-[16px] h-[16px]" />
@@ -22,20 +22,20 @@
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Abilities</div>
 
-            <img src="/img/sm64/blocks/block_red.png" :class="{ 'opacity-25': !getNumberItemsFromName('Wing Cap')  }" />
-            <img src="/img/sm64/blocks/block_blue.png" :class="{ 'opacity-25': !getNumberItemsFromName('Vanish Cap')  }" />
-            <img src="/img/sm64/blocks/block_green.png" :class="{ 'opacity-25': !getNumberItemsFromName('Metal Cap')  }" />
+            <img title="Wing Cap" src="/img/sm64/blocks/block_red.png" :class="{ 'opacity-25': !getNumberItemsFromName('Wing Cap')  }" />
+            <img title="Vanish Cap" src="/img/sm64/blocks/block_blue.png" :class="{ 'opacity-25': !getNumberItemsFromName('Vanish Cap')  }" />
+            <img title="Metal Cap" src="/img/sm64/blocks/block_green.png" :class="{ 'opacity-25': !getNumberItemsFromName('Metal Cap')  }" />
 
-            <img v-if="moveShuffled()" src="/img/sm64/moves/climb.png" :class="{ 'opacity-25': !getNumberItemsFromName('Climb')  }" />
-            <img v-if="moveShuffled()" src="/img/sm64/moves/ledge_grab.png" :class="{ 'opacity-25': !getNumberItemsFromName('Ledge Grab')  }" />
-            <img v-if="moveShuffled()" src="/img/sm64/moves/ground_pound.png" :class="{ 'opacity-25': !getNumberItemsFromName('Ground Pound')  }" />
-            <img v-if="moveShuffled()" src="/img/sm64/moves/triple_jump.png" :class="{ 'opacity-25': !getNumberItemsFromName('Triple Jump')  }" />
-            <img v-if="moveShuffled()" src="/img/sm64/moves/long_jump.png" :class="{ 'opacity-25': !getNumberItemsFromName('Long Jump')  }" />
-            <img v-if="moveShuffled()" src="/img/sm64/moves/wall_jump.png" :class="{ 'opacity-25': !getNumberItemsFromName('Wall Kick')  }" />
-            <img v-if="moveShuffled()" src="/img/sm64/moves/sideflip.png" :class="{ 'opacity-25': !getNumberItemsFromName('Side Flip')  }" />
-            <img v-if="moveShuffled()" src="/img/sm64/moves/backflip.png" :class="{ 'opacity-25': !getNumberItemsFromName('Backflip')  }" />
-            <img v-if="moveShuffled()" src="/img/sm64/moves/kick.png" :class="{ 'opacity-25': !getNumberItemsFromName('Kick')  }" />
-            <img v-if="moveShuffled()" src="/img/sm64/moves/dive.png" :class="{ 'opacity-25': !getNumberItemsFromName('Dive')  }" />
+            <img v-if="moveShuffled()" title="Climb" src="/img/sm64/moves/climb.png" :class="{ 'opacity-25': !getNumberItemsFromName('Climb')  }" />
+            <img v-if="moveShuffled()" title="Ledge Grap" src="/img/sm64/moves/ledge_grab.png" :class="{ 'opacity-25': !getNumberItemsFromName('Ledge Grab')  }" />
+            <img v-if="moveShuffled()" title="Ground Pound" src="/img/sm64/moves/ground_pound.png" :class="{ 'opacity-25': !getNumberItemsFromName('Ground Pound')  }" />
+            <img v-if="moveShuffled()" title="Triple Jump" src="/img/sm64/moves/triple_jump.png" :class="{ 'opacity-25': !getNumberItemsFromName('Triple Jump')  }" />
+            <img v-if="moveShuffled()" title="Long Jump" src="/img/sm64/moves/long_jump.png" :class="{ 'opacity-25': !getNumberItemsFromName('Long Jump')  }" />
+            <img v-if="moveShuffled()" title="Wall Kick" src="/img/sm64/moves/wall_jump.png" :class="{ 'opacity-25': !getNumberItemsFromName('Wall Kick')  }" />
+            <img v-if="moveShuffled()" title="Side Flip" src="/img/sm64/moves/sideflip.png" :class="{ 'opacity-25': !getNumberItemsFromName('Side Flip')  }" />
+            <img v-if="moveShuffled()" title="Backflip" src="/img/sm64/moves/backflip.png" :class="{ 'opacity-25': !getNumberItemsFromName('Backflip')  }" />
+            <img v-if="moveShuffled()" title="Kick" src="/img/sm64/moves/kick.png" :class="{ 'opacity-25': !getNumberItemsFromName('Kick')  }" />
+            <img v-if="moveShuffled()" title="Dive" src="/img/sm64/moves/dive.png" :class="{ 'opacity-25': !getNumberItemsFromName('Dive')  }" />
         </div>
     </div>
 </template>
@@ -68,13 +68,10 @@ export default {
 
         methods: {
             getImageClass: function () {
-                if (this.$parent.$parent.$parent.OPTIONS.row_size == 2) {
-                    return 'iconbar-L my-1';
-                }
-                else if (this.$parent.$parent.$parent.OPTIONS.row_size == 1) {
-                    return 'iconbar-M';
-                }
-                return 'iconbar-S';
+                return this.$parent.getImageClass();
+            },
+            getNumberItemsFromName: function (name) {
+                return this.$parent.getNumberItemsFromName(name);
             },
             getGoalStars: function () {
                 if (this.data.slot_data.StarsToFinish) {
@@ -87,18 +84,6 @@ export default {
                     return this.data.slot_data.MoveRandoVec;
                 }
                 return 1;
-            },
-            getNumberItemsFromName: function (name) {
-                var res = 0;
-                if (this.gamedata && this.gamedata.location_name_to_id) {
-
-                    var id = this.gamedata.item_name_to_id[name];
-                    for (var x = 0; x < this.data.tracker_data.player_items_received.length; x++) {
-                        if (this.data.tracker_data.player_items_received[x][0] == id)
-                            res++;
-                    }
-                }
-                return res;
             }
         },
   components: {

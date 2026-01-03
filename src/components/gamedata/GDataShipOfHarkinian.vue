@@ -2,72 +2,72 @@
     <div>
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Goal</div>
-            <span v-if="triforceHunt()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Triforce Piece')  }"><img src="/img/oot/triforce.png" />x{{ getNumberItemsFromName('Triforce Piece') }} </span> / {{ triforceHunt() }}</span>
+            <span v-if="triforceHunt()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Triforce Piece')  }"><img title="Triforce Piece" src="/img/oot/triforce.png" />x{{ getNumberItemsFromName('Triforce Piece') }} </span> / {{ triforceHunt() }}</span>
 
-            <span v-if="skullsTokensCounts()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Gold Skulltula Token')  }"><img src="/img/oot/skull.png" />x{{ getNumberItemsFromName('Gold Skulltula Token') }} </span> / {{ skullsTokensCounts() }}</span>
-            <img v-if="stonesCounts()" src="/img/oot/stone_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Kokiri\'s Emerald')  }" />
-            <img v-if="stonesCounts()" src="/img/oot/stone_2.png" :class="{ 'opacity-25': !getNumberItemsFromName('Goron\'s Ruby')  }" />
-            <img v-if="stonesCounts()" src="/img/oot/stone_3.png" :class="{ 'opacity-25': !getNumberItemsFromName('Zora\'s Sapphire')  }" />
-            <img v-if="medalsCounts()" src="/img/oot/medal_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Forest Medallion')  }" />
-            <img v-if="medalsCounts()" src="/img/oot/medal_2.png" :class="{ 'opacity-25': !getNumberItemsFromName('Fire Medallion')  }" />
-            <img v-if="medalsCounts()" src="/img/oot/medal_3.png" :class="{ 'opacity-25': !getNumberItemsFromName('Water Medallion')  }" />
-            <img v-if="LACSCounts()" src="/img/oot/medal_4.png" :class="{ 'opacity-25': !getNumberItemsFromName('Shadow Medallion')  }" />
-            <img v-if="LACSCounts()" src="/img/oot/medal_5.png" :class="{ 'opacity-25': !getNumberItemsFromName('Spirit Medallion')  }" />
-            <img v-if="medalsCounts()" src="/img/oot/medal_6.png" :class="{ 'opacity-25': !getNumberItemsFromName('Light Medallion')  }" />
-            <img v-if="gregCounts()" src="/img/oot/rupee.png" :class="{ 'opacity-25': !getNumberItemsFromName('Greg the Green Rupee')  }" />
-            <img v-if="ganonBkSanity()" src="/img/oot/114_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Ganon\'s Castme Boss Key')  }" />
+            <span v-if="skullsTokensCounts()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Gold Skulltula Token')  }"><img title="Gold Skulltulla Token" src="/img/oot/skull.png" />x{{ getNumberItemsFromName('Gold Skulltula Token') }} </span> / {{ skullsTokensCounts() }}</span>
+            <img title="Kokiri's Emerald" v-if="stonesCounts()" src="/img/oot/stone_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Kokiri\'s Emerald')  }" />
+            <img title="Goron's Ruby" v-if="stonesCounts()" src="/img/oot/stone_2.png" :class="{ 'opacity-25': !getNumberItemsFromName('Goron\'s Ruby')  }" />
+            <img title="Zora's Sapphire" v-if="stonesCounts()" src="/img/oot/stone_3.png" :class="{ 'opacity-25': !getNumberItemsFromName('Zora\'s Sapphire')  }" />
+            <img title="Forest Medaillon" v-if="medalsCounts()" src="/img/oot/medal_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Forest Medallion')  }" />
+            <img title="Fire Medaillin" v-if="medalsCounts()" src="/img/oot/medal_2.png" :class="{ 'opacity-25': !getNumberItemsFromName('Fire Medallion')  }" />
+            <img title="Water Medaillon" v-if="medalsCounts()" src="/img/oot/medal_3.png" :class="{ 'opacity-25': !getNumberItemsFromName('Water Medallion')  }" />
+            <img title="Shadow Medaillon" v-if="LACSCounts()" src="/img/oot/medal_4.png" :class="{ 'opacity-25': !getNumberItemsFromName('Shadow Medallion')  }" />
+            <img title="Spirit Medaillon" v-if="LACSCounts()" src="/img/oot/medal_5.png" :class="{ 'opacity-25': !getNumberItemsFromName('Spirit Medallion')  }" />
+            <img title="Light Medaillon" v-if="medalsCounts()" src="/img/oot/medal_6.png" :class="{ 'opacity-25': !getNumberItemsFromName('Light Medallion')  }" />
+            <img title="Greg the Green Rupee" v-if="gregCounts()" src="/img/oot/rupee.png" :class="{ 'opacity-25': !getNumberItemsFromName('Greg the Green Rupee')  }" />
+            <img title="Ganon Boss Key" v-if="ganonBkSanity()" src="/img/oot/114_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Ganon\'s Castme Boss Key')  }" />
         </div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Inventory</div>
 
-            <img src="/img/oot/22_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Kokiri Sword')  }" />
-            <img src="/img/oot/23_2.png" :class="{ 'opacity-25': !getNumberItemsFromName('Master Sword')  }" />
-            <img v-if="getNumberItemsFromName('Mirror Shield')" src="/img/oot/27_1.png" />
-            <img v-else src="/img/oot/26_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Hylian Shield')  }" />
-            <img src="/img/oot/32_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Iron Boots')  }" />
-            <img src="/img/oot/33_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Hover Boots')  }" />
-            <img v-if="getNumberItemsFromName('Strength Upgrade') > 2" src="/img/oot/21_3.png" />
-            <img v-else-if="getNumberItemsFromName('Strength Upgrade') > 1" src="/img/oot/21_2.png" />
-            <img v-else src="/img/oot/21_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Strength Upgrade')  }" />
-            <img v-if="getNumberItemsFromName('Progressive Magic Meter') > 2" src="/img/oot/18_2.png" />
-            <img v-else src="/img/oot/18_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Magic Meter')  }" />
-            <img v-if="getNumberItemsFromName('Progressive Ocarina') > 1" src="/img/oot/46_2.png" />
-            <img v-else src="/img/oot/46_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Ocarina')  }" />
-            <img v-if="getNumberItemsFromName('Progressive Bomb Bag') > 2" src="/img/oot/5_3.png" />
-            <img v-else-if="getNumberItemsFromName('Progressive Bomb Bag') > 1" src="/img/oot/5_2.png" />
-            <img v-else-if="getNumberItemsFromName('Progressive Bomb Bag')" src="/img/oot/5_1.png" />
-            <img v-else-if="getNumberItemsFromName('Progressive Bombchu')" src="/img/oot/49_1.png" />
-            <img v-else src="/img/oot/5_1.png" class="opacity-25" />
-            <img src="/img/oot/2_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Boomerang')  }" />
-            <img v-if="getNumberItemsFromName('Progressive Bow') > 2" src="/img/oot/6_3.png" />
-            <img v-else-if="getNumberItemsFromName('Progressive Bow') > 1" src="/img/oot/6_2.png" />
-            <img v-else src="/img/oot/6_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Bow')  }" />
-            <img src="/img/oot/9_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Fire Arrow')  }" />
-            <img src="/img/oot/11_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Light Arrow')  }" />
-            <img v-if="getNumberItemsFromName('Progressive Hookshot') > 1" src="/img/oot/7_2.png" />
-            <img v-else src="/img/oot/7_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Hookshot')  }" />
-            <img src="/img/oot/8_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Megaton Hammer')  }" />
-            <img src="/img/oot/12_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Din\'s Fire')  }" />
-            <img v-if="getNumberItemsFromName('Bottle with Ruto\'s Letter')" src="/img/oot/3_2.png" />
-            <img v-else src="/img/oot/3_1.png" :class="{ 'opacity-25': !hasBottle()  }" />
+            <img title="Kokiri Sword" src="/img/oot/22_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Kokiri Sword')  }" />
+            <img title="Master Sword" src="/img/oot/23_2.png" :class="{ 'opacity-25': !hasMasterSword()  }" />
+            <img v-if="getNumberItemsFromName('Mirror Shield')" title="Mirror Shield" src="/img/oot/27_1.png" />
+            <img v-else src="/img/oot/26_1.png" title="Hylian Shield" :class="{ 'opacity-25': !getNumberItemsFromName('Hylian Shield')  }" />
+            <img title="Iron Boots" src="/img/oot/32_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Iron Boots')  }" />
+            <img title="Hover Boots" src="/img/oot/33_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Hover Boots')  }" />
+            <img v-if="getNumberItemsFromName('Strength Upgrade') > 2" title="Golden Gauntlets" src="/img/oot/21_3.png" />
+            <img v-else-if="getNumberItemsFromName('Strength Upgrade') > 1" title="Silver Gauntlets" src="/img/oot/21_2.png" />
+            <img v-else src="/img/oot/21_1.png" title="Goron Bracelet" :class="{ 'opacity-25': !getNumberItemsFromName('Strength Upgrade')  }" />
+            <img v-if="getNumberItemsFromName('Progressive Magic Meter') > 2" title="Magic Meter" src="/img/oot/18_2.png" />
+            <img v-else src="/img/oot/18_1.png" title="Magic Meter" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Magic Meter')  }" />
+            <img v-if="getNumberItemsFromName('Progressive Ocarina') > 1" title="Ocarina of Time" src="/img/oot/46_2.png" />
+            <img v-else src="/img/oot/46_1.png" title="Ocarina" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Ocarina')  }" />
+            <img v-if="getNumberItemsFromName('Progressive Bomb Bag') > 2" title="Bomb Bag" src="/img/oot/5_3.png" />
+            <img v-else-if="getNumberItemsFromName('Progressive Bomb Bag') > 1" title="Bomb Bag" src="/img/oot/5_2.png" />
+            <img v-else-if="getNumberItemsFromName('Progressive Bomb Bag')" title="Bomb Bag" src="/img/oot/5_1.png" />
+            <img v-else-if="getNumberItemsFromName('Progressive Bombchu')" title="Bombchu Bag" src="/img/oot/49_1.png" />
+            <img v-else src="/img/oot/5_1.png" title="Bomb Bag" class="opacity-25" />
+            <img  title="Boomerang" src="/img/oot/2_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Boomerang')  }" />
+            <img v-if="getNumberItemsFromName('Progressive Bow') > 2" title="Bow" src="/img/oot/6_3.png" />
+            <img v-else-if="getNumberItemsFromName('Progressive Bow') > 1" title="Bow" src="/img/oot/6_2.png" />
+            <img v-else src="/img/oot/6_1.png" title="Bow" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Bow')  }" />
+            <img src="/img/oot/9_1.png" title="Fire Arrow" :class="{ 'opacity-25': !getNumberItemsFromName('Fire Arrow')  }" />
+            <img src="/img/oot/11_1.png" title="Light Arrow" :class="{ 'opacity-25': !getNumberItemsFromName('Light Arrow')  }" />
+            <img v-if="getNumberItemsFromName('Progressive Hookshot') > 1" title="Longshot" src="/img/oot/7_2.png" />
+            <img v-else src="/img/oot/7_1.png" title="Hookshot" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Hookshot')  }" />
+            <img title="Megaton Hammer" src="/img/oot/8_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Megaton Hammer')  }" />
+            <img title="Din's Fire'" src="/img/oot/12_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Din\'s Fire')  }" />
+            <img v-if="getNumberItemsFromName('Bottle with Ruto\'s Letter')" title="Bottle with Letter" src="/img/oot/3_2.png" />
+            <img v-else title="Bottle" src="/img/oot/3_1.png" :class="{ 'opacity-25': !hasBottle()  }" />
         </div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Songs</div>
 
-            <img src="/img/oot/34_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Zelda\'s Lullaby')  }" />
-            <img src="/img/oot/35_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Epona\'s Song')  }" />
-            <img src="/img/oot/36_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Saria\'s Song')  }" />
-            <img src="/img/oot/37_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Song of Time')  }" />
-            <img src="/img/oot/38_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Sun\'s Song')  }" />
-            <img src="/img/oot/39_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Song of Storms')  }" />
-            <img src="/img/oot/40_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Minuet of Forest')  }" />
-            <img src="/img/oot/41_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Bolero of Fire')  }" />
-            <img src="/img/oot/42_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Serenade of Water')  }" />
-            <img src="/img/oot/43_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Requiem of Spirit')  }" />
-            <img src="/img/oot/44_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Nocturne of Shadow')  }" />
-            <img src="/img/oot/45_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Prelude of Light')  }" />
+            <img title="Zelda's Lullaby" src="/img/oot/34_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Zelda\'s Lullaby')  }" />
+            <img title="Epona's Song" src="/img/oot/35_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Epona\'s Song')  }" />
+            <img title="Saria's Song" src="/img/oot/36_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Saria\'s Song')  }" />
+            <img title="Song of Time" src="/img/oot/37_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Song of Time')  }" />
+            <img title="Sun's Song" src="/img/oot/38_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Sun\'s Song')  }" />
+            <img title="Song of Storms" src="/img/oot/39_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Song of Storms')  }" />
+            <img title="Minuet of Forest" src="/img/oot/40_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Minuet of Forest')  }" />
+            <img title="Bolero of Fire" src="/img/oot/41_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Bolero of Fire')  }" />
+            <img title="Serenade of Water" src="/img/oot/42_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Serenade of Water')  }" />
+            <img title="Requiem of Spirit" src="/img/oot/43_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Requiem of Spirit')  }" />
+            <img title="Nocturne of Shadow" src="/img/oot/44_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Nocturne of Shadow')  }" />
+            <img title="Prelude of Light" src="/img/oot/45_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Prelude of Light')  }" />
         </div>
     </div>
 </template>
@@ -121,13 +121,10 @@ export default {
 
         methods: {
             getImageClass: function () {
-                if (this.$parent.$parent.$parent.OPTIONS.row_size == 2) {
-                    return 'iconbar-L my-1';
-                }
-                else if (this.$parent.$parent.$parent.OPTIONS.row_size == 1) {
-                    return 'iconbar-M';
-                }
-                return 'iconbar-S';
+                return this.$parent.getImageClass();
+            },
+            getNumberItemsFromName: function (name) {
+                return this.$parent.getNumberItemsFromName(name);
             },
             triforceHunt: function () {
                 if (this.data.slot_data.hasOwnProperty('triforce_hunt') && this.data.slot_data.triforce_hunt == 1) {
@@ -186,18 +183,6 @@ export default {
                 }
                 return 0;
             },
-            getNumberItemsFromName: function (name) {
-                var res = 0;
-                if (this.gamedata && this.gamedata.location_name_to_id) {
-
-                    var id = this.gamedata.item_name_to_id[name];
-                    for (var x = 0; x < this.data.tracker_data.player_items_received.length; x++) {
-                        if (this.data.tracker_data.player_items_received[x][0] == id)
-                            res++;
-                    }
-                }
-                return res;
-            },
             getNumberItemsNameStart: function (name) {
                 var res = 0;
                 if (this.gamedata && this.gamedata.location_name_to_id) {
@@ -214,6 +199,12 @@ export default {
                     }
                 }
                 return res;
+            },
+            hasMasterSword: function (name) {
+                if (this.data.slot_data.hasOwnProperty('shuffle_master_sword') && this.data.slot_data.shuffle_master_sword == 1) {
+                    return this.getNumberItemsFromName('Master Sword');
+                }
+                return 1;
             },
             hasBottle: function (name) {
                 if (this.getNumberItemsFromName('Empty Bottle') || this.getNumberItemsNameStart('Bottle with')) {

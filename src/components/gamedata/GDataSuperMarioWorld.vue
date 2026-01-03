@@ -4,31 +4,31 @@
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Goal</div>
 
-            <span v-if="getGoalStars()" class="mr-1 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Yoshi Egg')  }"><img src="/img/smw/items/yoshi_egg.png" />x{{ getNumberItemsFromName('Yoshi Egg') }} </span> / {{ getGoalStars() }}</span>
-            <span v-else class="mr-1 text-xs font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Yoshi Egg')  }"><img src="/img/smw/items/yoshi_egg.png" />x{{ getNumberItemsFromName('Yoshi Egg') }} </span>
+            <span v-if="getGoalEggs()" class="mr-1 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Yoshi Egg')  }"><img src="/img/smw/items/yoshi_egg.png" title="Yoshi Egg" />x{{ getNumberItemsFromName('Yoshi Egg') }} </span> / {{ getGoalEggs() }}</span>
+            <span v-else class="mr-1 text-xs font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Yoshi Egg')  }"><img src="/img/smw/items/yoshi_egg.png" title="Yoshi Egg" />x{{ getNumberItemsFromName('Yoshi Egg') }} </span>
 
         </div>
 
         <div v-if="moveShuffled()" :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Moves</div>
 
-            <img src="/img/smw/items/ysp_full.png" :class="{ 'opacity-25': !getNumberItemsFromName('Yellow Switch Palace')  }" />
-            <img src="/img/smw/items/gsp_full.png" :class="{ 'opacity-25': !getNumberItemsFromName('Green Switch Palace')  }" />
-            <img src="/img/smw/items/rsp_full.png" :class="{ 'opacity-25': !getNumberItemsFromName('Red Switch Palace')  }" />
-            <img src="/img/smw/items/bsp_full.png" :class="{ 'opacity-25': !getNumberItemsFromName('Blue Switch Palace')  }" />
+            <img title="Yellow Switch" src="/img/smw/items/ysp_full.png" :class="{ 'opacity-25': !getNumberItemsFromName('Yellow Switch Palace')  }" />
+            <img title="Green Switch" src="/img/smw/items/gsp_full.png" :class="{ 'opacity-25': !getNumberItemsFromName('Green Switch Palace')  }" />
+            <img title="Red Switch" src="/img/smw/items/rsp_full.png" :class="{ 'opacity-25': !getNumberItemsFromName('Red Switch Palace')  }" />
+            <img title="Blue Switch" src="/img/smw/items/bsp_full.png" :class="{ 'opacity-25': !getNumberItemsFromName('Blue Switch Palace')  }" />
             <span class="mr-2"></span>
-            <img src="/img/smw/items/run.png" :class="{ 'opacity-25': !getNumberItemsFromName('Run')  }" />
-            <img src="/img/smw/items/carry.png" :class="{ 'opacity-25': !getNumberItemsFromName('Carry')  }" />
-            <img src="/img/smw/items/climb.png" :class="{ 'opacity-25': !getNumberItemsFromName('Climb')  }" />
-            <img src="/img/smw/items/swim.png" :class="{ 'opacity-25': !getNumberItemsFromName('Swim')  }" />
-            <img src="/img/smw/items/spin_jump.png" :class="{ 'opacity-25': !getNumberItemsFromName('Spin Jump')  }" />
-            <img src="/img/smw/items/big_mario.png" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Powerup')  }" />
-            <img src="/img/smw/items/fire_mario.png" :class="{ 'opacity-25': getNumberItemsFromName('Progressive Powerup') < 2  }" />
-            <img src="/img/smw/items/cape_mario.png" :class="{ 'opacity-25': getNumberItemsFromName('Progressive Powerup') < 3 }" />
+            <img title="Run" src="/img/smw/items/run.png" :class="{ 'opacity-25': !getNumberItemsFromName('Run')  }" />
+            <img title="Carry" src="/img/smw/items/carry.png" :class="{ 'opacity-25': !getNumberItemsFromName('Carry')  }" />
+            <img title="Climb" src="/img/smw/items/climb.png" :class="{ 'opacity-25': !getNumberItemsFromName('Climb')  }" />
+            <img title="Swim" src="/img/smw/items/swim.png" :class="{ 'opacity-25': !getNumberItemsFromName('Swim')  }" />
+            <img title="Spin Jump" src="/img/smw/items/spin_jump.png" :class="{ 'opacity-25': !getNumberItemsFromName('Spin Jump')  }" />
+            <img title="Powerup - Mushroom" src="/img/smw/items/big_mario.png" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Powerup')  }" />
+            <img title="Powerup - Fire Flower" src="/img/smw/items/fire_mario.png" :class="{ 'opacity-25': getNumberItemsFromName('Progressive Powerup') < 2  }" />
+            <img title="Powerup - Cape" src="/img/smw/items/cape_mario.png" :class="{ 'opacity-25': getNumberItemsFromName('Progressive Powerup') < 3 }" />
             <span class="mr-2"></span>
-            <img src="/img/smw/items/p_switch.png" :class="{ 'opacity-25': !getNumberItemsFromName('P-Switch')  }" />
-            <img src="/img/smw/items/p_balloon.png" :class="{ 'opacity-25': !getNumberItemsFromName('P-Balloon')  }" />
-            <img src="/img/smw/items/star.png" :class="{ 'opacity-25': !getNumberItemsFromName('Super Star Activate')  }" />
+            <img title="P-Switch" src="/img/smw/items/p_switch.png" :class="{ 'opacity-25': !getNumberItemsFromName('P-Switch')  }" />
+            <img title="P-Balloon" src="/img/smw/items/p_balloon.png" :class="{ 'opacity-25': !getNumberItemsFromName('P-Balloon')  }" />
+            <img title="Super Star" src="/img/smw/items/star.png" :class="{ 'opacity-25': !getNumberItemsFromName('Super Star Activate')  }" />
         </div>
     </div>
 </template>
@@ -60,17 +60,15 @@ export default {
 
         methods: {
             getImageClass: function () {
-                if (this.$parent.$parent.$parent.OPTIONS.row_size == 2) {
-                    return 'iconbar-L my-1';
-                }
-                else if (this.$parent.$parent.$parent.OPTIONS.row_size == 1) {
-                    return 'iconbar-M';
-                }
-                return 'iconbar-S';
+                return this.$parent.getImageClass();
             },
-            getGoalStars: function () {
-                if (this.data.slot_data.StarsToFinish) {
-                    return this.data.slot_data.StarsToFinish;
+            getNumberItemsFromName: function (name) {
+                return this.$parent.getNumberItemsFromName(name);
+            },
+            getGoalEggs: function () {
+                // TODO : placeholder value because Eggs' requirements are not displayed the slot data.
+                if (this.data.slot_data.hasOwnProperty('goal') && this.data.slot_data.goal == 1) {
+                    return this.data.slot_data.required_egg_count;
                 }
                 return 0;
             },
@@ -79,18 +77,6 @@ export default {
                     return this.data.slot_data.MoveRandoVec;
                 }
                 return 1;
-            },
-            getNumberItemsFromName: function (name) {
-                var res = 0;
-                if (this.gamedata && this.gamedata.location_name_to_id) {
-
-                    var id = this.gamedata.item_name_to_id[name];
-                    for (var x = 0; x < this.data.tracker_data.player_items_received.length; x++) {
-                        if (this.data.tracker_data.player_items_received[x][0] == id)
-                            res++;
-                    }
-                }
-                return res;
             }
         },
   components: {

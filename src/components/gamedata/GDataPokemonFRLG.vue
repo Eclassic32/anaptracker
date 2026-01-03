@@ -3,34 +3,34 @@
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Badges</div>
 
-            <img src="/img/pokemon_frlg/badges/boulder_badge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Boulder Badge')  }" />
-            <img src="/img/pokemon_frlg/badges/cascade_badge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Cascade Badge')  }" />
-            <img src="/img/pokemon_frlg/badges/thunder_badge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Thunder Badge')  }" />
-            <img src="/img/pokemon_frlg/badges/rainbow_badge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Rainbow Badge')  }" />
-            <img src="/img/pokemon_frlg/badges/soul_badge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Soul Badge')  }" />
-            <img src="/img/pokemon_frlg/badges/marsh_badge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Marsh Badge')  }" />
-            <img src="/img/pokemon_frlg/badges/volcano_badge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Volcano Badge')  }" />
-            <img src="/img/pokemon_frlg/badges/earth_badge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Earth Badge')  }" />
+            <img title="Boulder Badge" src="/img/pokemon_frlg/badges/boulder_badge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Boulder Badge')  }" />
+            <img title="Cascade Badge" src="/img/pokemon_frlg/badges/cascade_badge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Cascade Badge')  }" />
+            <img title="Thunder Badge" src="/img/pokemon_frlg/badges/thunder_badge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Thunder Badge')  }" />
+            <img title="Rainbow Badge" src="/img/pokemon_frlg/badges/rainbow_badge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Rainbow Badge')  }" />
+            <img title="Soul Badge" src="/img/pokemon_frlg/badges/soul_badge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Soul Badge')  }" />
+            <img title="Marsh Badge" src="/img/pokemon_frlg/badges/marsh_badge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Marsh Badge')  }" />
+            <img title="Volcano Badge" src="/img/pokemon_frlg/badges/volcano_badge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Volcano Badge')  }" />
+            <img title="Earth Badge" src="/img/pokemon_frlg/badges/earth_badge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Earth Badge')  }" />
         </div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">HMs</div>
 
-            <img src="/img/pokemon_frlg/hms/hm1.png" :class="{ 'opacity-25': !getNumberItemsFromName('HM01 Cut')  }" />
-            <img src="/img/pokemon_frlg/hms/hm2.png" :class="{ 'opacity-25': !getNumberItemsFromName('HM02 Fly')  }" />
-            <img src="/img/pokemon_frlg/hms/hm3.png" :class="{ 'opacity-25': !getNumberItemsFromName('HM03 Surf')  }" />
-            <img src="/img/pokemon_frlg/hms/hm4.png" :class="{ 'opacity-25': !getNumberItemsFromName('HM04 Strength')  }" />
-            <img src="/img/pokemon_frlg/hms/hm5.png" :class="{ 'opacity-25': !getNumberItemsFromName('HM05 Flash')  }" />
-            <img src="/img/pokemon_frlg/hms/hm6.png" :class="{ 'opacity-25': !getNumberItemsFromName('HM06 Rock Smash')  }" />
-            <img src="/img/pokemon_frlg/hms/hm7.png" :class="{ 'opacity-25': !getNumberItemsFromName('HM07 Waterfall')  }" />
+            <img title="HM01 - Cut" src="/img/pokemon_frlg/hms/hm1.png" :class="{ 'opacity-25': !getNumberItemsFromName('HM01 Cut')  }" />
+            <img title="HM02 - Fly" src="/img/pokemon_frlg/hms/hm2.png" :class="{ 'opacity-25': !getNumberItemsFromName('HM02 Fly')  }" />
+            <img title="HM03 - Surf" src="/img/pokemon_frlg/hms/hm3.png" :class="{ 'opacity-25': !getNumberItemsFromName('HM03 Surf')  }" />
+            <img title="HM04 - Strength" src="/img/pokemon_frlg/hms/hm4.png" :class="{ 'opacity-25': !getNumberItemsFromName('HM04 Strength')  }" />
+            <img title="HM05 - Flash" src="/img/pokemon_frlg/hms/hm5.png" :class="{ 'opacity-25': !getNumberItemsFromName('HM05 Flash')  }" />
+            <img title="HM06 - Rock Smash" src="/img/pokemon_frlg/hms/hm6.png" :class="{ 'opacity-25': !getNumberItemsFromName('HM06 Rock Smash')  }" />
+            <img title="HM07 - Waterfall" src="/img/pokemon_frlg/hms/hm7.png" :class="{ 'opacity-25': !getNumberItemsFromName('HM07 Waterfall')  }" />
         </div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Key Items</div>
 
-            <img src="/img/pokemon_frlg/other/bike.png" :class="{ 'opacity-25': !getNumberItemsFromName('Bike')  }" />
-            <img src="/img/pokemon_frlg/other/card_key.png" :class="{ 'opacity-25': !getNumberItemsFromName('Card Key')  }" />
-            <img src="/img/pokemon_crystal/items/tea.png" :class="{ 'opacity-25': !getNumberItemsFromName('Tea')  }" />
+            <img title="Bicycle" src="/img/pokemon_frlg/other/bike.png" :class="{ 'opacity-25': !getNumberItemsFromName('Bike')  }" />
+            <img title="Cark Key" src="/img/pokemon_frlg/other/card_key.png" :class="{ 'opacity-25': !getNumberItemsFromName('Card Key')  }" />
+            <img title="Tea" src="/img/pokemon_crystal/items/tea.png" :class="{ 'opacity-25': !getNumberItemsFromName('Tea')  }" />
         </div>
     </div>
 </template>
@@ -62,26 +62,11 @@ export default {
 
         methods: {
             getImageClass: function () {
-                if (this.$parent.$parent.$parent.OPTIONS.row_size == 2) {
-                    return 'iconbar-L my-1';
-                }
-                else if (this.$parent.$parent.$parent.OPTIONS.row_size == 1) {
-                    return 'iconbar-M';
-                }
-                return 'iconbar-S';
+                return this.$parent.getImageClass();
             },
             getNumberItemsFromName: function (name) {
-                var res = 0;
-                if (this.gamedata && this.gamedata.location_name_to_id) {
-
-                    var id = this.gamedata.item_name_to_id[name];
-                    for (var x = 0; x < this.data.tracker_data.player_items_received.length; x++) {
-                        if (this.data.tracker_data.player_items_received[x][0] == id)
-                            res++;
-                    }
-                }
-                return res;
-            }
+                return this.$parent.getNumberItemsFromName(name);
+            },
         },
   components: {
   },
