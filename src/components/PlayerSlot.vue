@@ -46,6 +46,27 @@ export default {
   },
 
         methods: {
+            getImageClass: function () {
+                if (this.$parent.$parent.OPTIONS.row_size == 2) {
+                    return 'iconbar-L my-1';
+                }
+                else if (this.$parent.$parent.OPTIONS.row_size == 1) {
+                    return 'iconbar-M';
+                }
+                return 'iconbar-S';
+            },
+            getNumberItemsFromName: function (name) {
+                var res = 0;
+                var game_data = this.get_game_data();
+                if (game_data && game_data.location_name_to_id) {
+                    var id = game_data.item_name_to_id[name];
+                    for (var x = 0; x < this.data.tracker_data.player_items_received.length; x++) {
+                        if (this.data.tracker_data.player_items_received[x][0] == id)
+                            res++;
+                    }
+                }
+                return res;
+            },
             displayable: function () {
                 if ((this.$parent.$parent.OPTIONS.show_done || this.get_time_diff() < (600)) || this.data.tracker_data.status < 30) {
                     return true;
