@@ -48,10 +48,10 @@
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Key Materials</div>
 
-            <img src="/img/factorio/32px-Steel_plate.png" :class="{ 'opacity-25': !getNumberItemsFromName('progressive-processing') && getNumberItemsFromName('steel-processing') }" />
+            <img src="/img/factorio/32px-Steel_plate.png" :class="{ 'opacity-25': !getNumberItemsFromName('progressive-processing') && !getNumberItemsFromName('steel-processing') }" />
             <img v-if="getNumberItemsFromName('progressive-processing') > 2 || getNumberItemsFromName('advanced-oil-processing')" src="/img/factorio/32px-Advanced_oil_processing.png" class="inline-block mr-1 w-[16px] h-[16px]" />
-            <img v-else src="/img/factorio/32px-Basic_oil_processing.png" :class="{ 'opacity-25': !getNumberItemsFromName('progressive-processing') < 3 && getNumberItemsFromName('basuc-oil-processing') }" />
-            <img src="/img/factorio/32px-Sulfur.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('progressive-processing') < 3 && getNumberItemsFromName('sulful-processing') }" />
+            <img v-else src="/img/factorio/32px-Basic_oil_processing.png" :class="{ 'opacity-25': !getNumberItemsFromName('progressive-processing') < 3 && !getNumberItemsFromName('basuc-oil-processing') }" />
+            <img src="/img/factorio/32px-Sulfur.png" class="inline-block mr-1 w-[16px] h-[16px]" :class="{ 'opacity-25': !getNumberItemsFromName('progressive-processing') < 3 && !getNumberItemsFromName('sulful-processing') }" />
             <img src="/img/factorio/32px-Plastic_bar.png" :class="{ 'opacity-25': !getNumberItemsFromName('plastics')  }" />
             <img v-if="getNumberItemsFromName('progressive-military') > 1 || getNumberItemsFromName('military-2')" src="/img/factorio/32px-Piercing_rounds_magazine.png" />
             <img v-else src="/img/factorio/32px-Firearm_magazine.png" :class="{ 'opacity-25': !getNumberItemsFromName('progressive-military') < 2 && !getNumberItemsFromName('military-2') }" />
