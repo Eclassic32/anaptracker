@@ -4,15 +4,15 @@
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Goal</div>
 
-            <span v-if="getGoalEmblems()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Lucky Emblem')  }"><img title="Lucky Emblem" src="/img/kingdom_hearts_2/Lucky Emblem.png" />x{{ getNumberItemsFromName('Lucky Emblem') }} </span> / {{ getGoalEmblems() }}</span>
+            <span v-if="emblemHunt() && getGoalEmblems()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Lucky Emblem')  }"><img title="Lucky Emblem" src="/img/kingdom_hearts_2/Lucky Emblem.png" />x{{ getNumberItemsFromName('Lucky Emblem') }} </span> / {{ getGoalEmblems() }}</span>
             <span v-else-if="emblemHunt()" class="mr-2 text-xs font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Lucky Emblem')  }"><img title="Lucky Emblem" src="/img/kingdom_hearts_2/Lucky Emblem.png" />x{{ getNumberItemsFromName('Lucky Emblem') }} </span>
-            <!--
-        <span v-if="bountyHunt()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Lucky Emblem')  }"><img title="Bounty" src="/img/kingdom_hearts_2/Bounty.png" />x{{ getNumberItemsFromName('Bounty') }} </span> / {{ bountyHunt() }}</span>
-        <span v-else-if="getNumberItemsFromName('Bounty')" class="mr-2 text-xs font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Lucky Emblem')  }"><img title="Bounty" src="/img/kingdom_hearts_2/Bounty.png" />x{{ getNumberItemsFromName('Bounty') }} </span>
-        -->
+
+            <span v-if="bountyHunt() && getGoalBounty()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Lucky Emblem')  }"><img title="Bounty" src="/img/kingdom_hearts_2/Bounty.png" />x{{ getNumberItemsFromName('Bounty') }} </span> / {{ bountyHunt() }}</span>
+            <span v-else-if="bountyHunt() || getNumberItemsFromName('Bounty')" class="mr-2 text-xs font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Lucky Emblem')  }"><img title="Bounty" src="/img/kingdom_hearts_2/Bounty.png" />x{{ getNumberItemsFromName('Bounty') }} </span>
+
             <img v-if="proofHunt()" title="Proof of Connection" src="/img/kingdom_hearts_2/Proof of Connection.png" :class="{ 'opacity-25': !getNumberItemsFromName('Proof of Connection')  }" />
             <img v-if="proofHunt()" title="Proof of Nonexistence" src="/img/kingdom_hearts_2/Proof of Nonexistence.png" :class="{ 'opacity-25': !getNumberItemsFromName('Proof of Nonexistence')  }" />
-            <img v-if="proofHunt()" title="Proof of Tranquility" src="/img/kingdom_hearts_2/Proof of Tranquility.png" :class="{ 'opacity-25': !getNumberItemsFromName('Proof of Tranquility')  }" />
+            <img v-if="proofHunt()" title="Proof of Peace" src="/img/kingdom_hearts_2/Proof of Tranquility.png" :class="{ 'opacity-25': !getNumberItemsFromName('Proof of Peace')  }" />
         </div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
@@ -75,19 +75,29 @@ export default {
                 return 0;
             },
             bountyHunt: function () {
-                if (this.data.slot_data.hasOwnProperty('Goal') && [2, 3].includes(this.data.slot_data.Goal)) {
-                    return this.data.slot_data.BountyRequired;
+                if (this.data.slot_data.hasOwnProperty('Goal')) {
+                    if ([2, 3].includes(this.data.slot_data.Goal))
+                        return this.data.slot_data.BountyRequired;
+                    return 0;
                 }
                 return 1;
             },
             emblemHunt: function () {
-                if (this.data.slot_data.hasOwnProperty('Goal') && [1, 3].includes(this.data.slot_data.Goal)) {
-                    return this.data.slot_data.LuckyEmblemsRequired;
+                if (this.data.slot_data.hasOwnProperty('Goal')) {
+                    if ([1, 3].includes(this.data.slot_data.Goal))
+                        return this.data.slot_data.LuckyEmblemsRequired;
+                    return 0;
                 }
                 return 1;
             },
             getGoalEmblems: function () {
                 if (this.data.slot_data.hasOwnProperty('LuckyEmblemsRequired')) {
+                    return this.data.slot_data.LuckyEmblemsRequired;
+                }
+                return 0;
+            },
+            getGoalBounty: function () {
+                if (this.data.slot_data.hasOwnProperty('BountyRequired')) {
                     return this.data.slot_data.LuckyEmblemsRequired;
                 }
                 return 0;
