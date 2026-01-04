@@ -7,8 +7,8 @@
             <span v-if="emblemHunt() && getGoalEmblems()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Lucky Emblem')  }"><img title="Lucky Emblem" src="/img/kingdom_hearts_2/Lucky Emblem.png" />x{{ getNumberItemsFromName('Lucky Emblem') }} </span> / {{ getGoalEmblems() }}</span>
             <span v-else-if="emblemHunt()" class="mr-2 text-xs font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Lucky Emblem')  }"><img title="Lucky Emblem" src="/img/kingdom_hearts_2/Lucky Emblem.png" />x{{ getNumberItemsFromName('Lucky Emblem') }} </span>
 
-            <span v-if="bountyHunt() && getGoalBounty()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Lucky Emblem')  }"><img title="Bounty" src="/img/kingdom_hearts_2/Bounty.png" />x{{ getNumberItemsFromName('Bounty') }} </span> / {{ bountyHunt() }}</span>
-            <span v-else-if="bountyHunt() || getNumberItemsFromName('Bounty')" class="mr-2 text-xs font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Lucky Emblem')  }"><img title="Bounty" src="/img/kingdom_hearts_2/Bounty.png" />x{{ getNumberItemsFromName('Bounty') }} </span>
+            <span v-if="bountyHunt() && getGoalBounty()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Bounty')  }"><img title="Bounty" src="/img/kingdom_hearts_2/Bounty.png" />x{{ getNumberItemsFromName('Bounty') }} </span> / {{ bountyHunt() }}</span>
+            <span v-else-if="bountyHunt() || getNumberItemsFromName('Bounty')" class="mr-2 text-xs font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Bounty')  }"><img title="Bounty" src="/img/kingdom_hearts_2/Bounty.png" />x{{ getNumberItemsFromName('Bounty') }} </span>
 
             <img v-if="proofHunt()" title="Proof of Connection" src="/img/kingdom_hearts_2/Proof of Connection.png" :class="{ 'opacity-25': !getNumberItemsFromName('Proof of Connection')  }" />
             <img v-if="proofHunt()" title="Proof of Nonexistence" src="/img/kingdom_hearts_2/Proof of Nonexistence.png" :class="{ 'opacity-25': !getNumberItemsFromName('Proof of Nonexistence')  }" />
