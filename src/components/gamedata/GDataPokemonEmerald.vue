@@ -78,7 +78,7 @@ export default {
                 return this.$parent.getNumberItemsFromName(name);
             },
             itemfinderRequired: function () {
-                if (this.data.slot_data.require_itemfinder) {
+                if (this.data.slot_data.hasOwnProperty('require_itemfinder')) {
                     return this.data.slot_data.require_itemfinder;
                 }
                 return 1;
