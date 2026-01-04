@@ -1,11 +1,11 @@
 <template>
     <div>
 
-        <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+        <div v-if="getGoalEggs() || !slotData()" :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Goal</div>
 
             <span v-if="getGoalEggs()" class="mr-1 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Yoshi Egg')  }"><img src="/img/smw/items/yoshi_egg.png" title="Yoshi Egg" />x{{ getNumberItemsFromName('Yoshi Egg') }} </span> / {{ getGoalEggs() }}</span>
-            <span v-else class="mr-1 text-xs font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Yoshi Egg')  }"><img src="/img/smw/items/yoshi_egg.png" title="Yoshi Egg" />x{{ getNumberItemsFromName('Yoshi Egg') }} </span>
+            <span v-else-if="!slotData()" class="mr-1 text-xs font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Yoshi Egg')  }"><img src="/img/smw/items/yoshi_egg.png" title="Yoshi Egg" />x{{ getNumberItemsFromName('Yoshi Egg') }} </span>
 
         </div>
 
@@ -64,6 +64,10 @@ export default {
             },
             getNumberItemsFromName: function (name) {
                 return this.$parent.getNumberItemsFromName(name);
+            },
+            slotData: function () {
+                // TODO : placeholder value because Eggs' requirements are not displayed the slot data.
+                return this.data.slot_data.hasOwnProperty('blocksanity');
             },
             getGoalEggs: function () {
                 // TODO : placeholder value because Eggs' requirements are not displayed the slot data.
