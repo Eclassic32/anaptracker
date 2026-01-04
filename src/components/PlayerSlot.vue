@@ -58,10 +58,25 @@ export default {
             getNumberItemsFromName: function (name) {
                 var res = 0;
                 var game_data = this.get_game_data();
-                if (game_data && game_data.location_name_to_id) {
+                if (game_data && game_data.item_name_to_id) {
                     var id = game_data.item_name_to_id[name];
                     for (var x = 0; x < this.data.tracker_data.player_items_received.length; x++) {
                         if (this.data.tracker_data.player_items_received[x][0] == id)
+                            res++;
+                    }
+                }
+                return res;
+            },
+            getNumberItemsFromGroup: function (names) {
+                var res = 0;
+                var game_data = this.get_game_data();
+                if (game_data && game_data.item_name_to_id) {
+                    var bottle_array = []
+                    for (var x = 0; x < names.length; x++) {
+                        bottle_array.push(game_data.item_name_to_id[names[x]]);
+                    }
+                    for (var x = 0; x < this.data.tracker_data.player_items_received.length; x++) {
+                        if (bottle_array.includes(this.data.tracker_data.player_items_received[x][0]))
                             res++;
                     }
                 }
@@ -79,6 +94,23 @@ export default {
                     }
                     for (var x = 0; x < this.data.tracker_data.player_items_received.length; x++) {
                         if (list_of_ids.includes(this.data.tracker_data.player_items_received[x][0]))
+                            res++;
+                    }
+                }
+                return res;
+            },
+            getNumberItemsNameStart: function (name) {
+                var res = 0;
+                var game_data = this.get_game_data();
+                if (game_data && game_data.location_name_to_id) {
+                    var bottle_array = [];
+                    for (var key in game_data.item_name_to_id) {
+                        if (key.startsWith(name)) {
+                            bottle_array.push(game_data.item_name_to_id[key]);
+                        }
+                    }
+                    for (var x = 0; x < this.data.tracker_data.player_items_received.length; x++) {
+                        if (bottle_array.includes(this.data.tracker_data.player_items_received[x][0]))
                             res++;
                     }
                 }
