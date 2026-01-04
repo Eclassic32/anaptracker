@@ -28,9 +28,32 @@
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Key Items</div>
 
-            <img title="Bicycle" src="/img/pokemon_frlg/other/bike.png" :class="{ 'opacity-25': !getNumberItemsFromName('Bike')  }" />
-            <img title="Cark Key" src="/img/pokemon_frlg/other/card_key.png" :class="{ 'opacity-25': !getNumberItemsFromName('Card Key')  }" />
-            <img title="Tea" src="/img/pokemon_crystal/items/tea.png" :class="{ 'opacity-25': !getNumberItemsFromName('Tea')  }" />
+            <img v-if="itemfinderRequired()" title="Itemfinder" src="/img/pokemon_frlg/items/itemfinder.png" :class="{ 'opacity-25': !getNumberItemsFromName('Itemfinder')  }" />
+            <img v-if="tmCaseShuffle()" title="TM Case" src="/img/pokemon_frlg/items/tm_case.png" :class="{ 'opacity-25': !getNumberItemsFromName('TM Case')  }" />
+            <img title="Bicycle" src="/img/pokemon_frlg/other/bike.png" :class="{ 'opacity-25': !getNumberItemsFromName('Bicycle')  }" />
+            <img title="S.S. Ticket" src="/img/pokemon_frlg/items/ss_ticket.png" :class="{ 'opacity-25': !getNumberItemsFromName('S.S. Ticket')  }" />
+            <img title="S.S. Ticket" src="/img/pokemon_frlg/items/poke_flute.png" :class="{ 'opacity-25': !getNumberItemsFromName('Poke Flute')  }" />
+            <img v-if="!splitTea()" title="Tea" src="/img/pokemon_frlg/items/tea.png" :class="{ 'opacity-25': !getNumberItemsFromName('Tea')  }" />
+            <img v-if="splitTea()" title="Green Tea" src="/img/pokemon_frlg/items/tea.png" :class="{ 'opacity-25': !getNumberItemsFromName('Green Tea')  }" />
+            <img v-if="splitTea()" title="Red Tea" src="/img/pokemon_frlg/items/red_tea.png" :class="{ 'opacity-25': !getNumberItemsFromName('Red Tea')  }" />
+            <img v-if="splitTea()" title="Blue Tea" src="/img/pokemon_frlg/items/blue_tea.png" :class="{ 'opacity-25': !getNumberItemsFromName('Blue Tea')  }" />
+            <img v-if="splitTea()" title="Purple Tea" src="/img/pokemon_frlg/items/purple_tea.png" :class="{ 'opacity-25': !getNumberItemsFromName('Purple Tea')  }" />
+            <img v-if="!splitCardKey()" title="Card Key" src="/img/pokemon_frlg/other/card_key.png" :class="{ 'opacity-25': !getNumberItemsFromName('Card Key')  }" />
+            <span v-else class="text-xs mr-1 font-bold" :class="{ 'opacity-25': !countCardKeys()  }"><img title="Card Key" src="/img/pokemon_frlg/items/card_key.png" />x{{countCardKeys()}}</span>
+
+            <img v-if="!splitGymKey()" title="Secret Key" src="/img/pokemon_frlg/items/secret_key.png" :class="{ 'opacity-25': !getNumberItemsFromName('Secret Key')  }" />
+            <span v-else class="text-xs mr-1 font-bold" :class="{ 'opacity-25': !countGymKeys()  }"><img title="Gym Key" src="/img/pokemon_frlg/items/secret_key.png" />x{{countGymKeys()}}</span>
+
+        </div>
+
+        <div v-if="!kantoOnly()" :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Sevii</div>
+
+            <span v-if="seviiPasses()" class="text-xs mr-1 font-bold" :class="{ 'opacity-25': !countSeviiPasses()  }"><img title="Island Pass" src="/img/pokemon_frlg/items/rainbow_pass.png" />x{{countSeviiPasses()}}</span>
+            <img v-if="roundTwo()" title="Ruby" src="/img/pokemon_frlg/items/ruby.png" :class="{ 'opacity-25': !getNumberItemsFromName('Ruby')  }" />
+            <img v-if="roundTwo()" title="Sapphire" src="/img/pokemon_frlg/items/sapphire.png" :class="{ 'opacity-25': !getNumberItemsFromName('Sapphire')  }" />
+            <img title="Thank you for the Mystic Ticket !" src="/img/pokemon_frlg/items/mystic_ticket.png" :class="{ 'opacity-25': !getNumberItemsFromName('Mystic Ticket')  }" />
+
         </div>
     </div>
 </template>
@@ -59,13 +82,70 @@ export default {
     return {
     };
   },
-
+  
         methods: {
             getImageClass: function () {
                 return this.$parent.getImageClass();
             },
             getNumberItemsFromName: function (name) {
                 return this.$parent.getNumberItemsFromName(name);
+            },
+            countSeviiPasses: function (name) {
+                return this.$parent.getNumberItemsFromGroup(['One Pass', 'Two Pass', 'Three Pass', 'Four Pass', 'Five Pass', 'Six Pass', 'Seven Pass']);
+            },
+            countGymKeys: function (name) {
+                return this.$parent.getNumberItemsFromGroup(['Cinnabar Key', 'Saffron Key', 'Viridian Key', 'Pewter Key', 'Cerulean Key', 'Celadon Key', 'Fuchsia Key', 'Vermilion Key']);
+            },
+            countCardKeys: function () {
+                return this.$parent.getNumberItemsNameStart('Card Key');
+            }, 
+            roundTwo: function () {
+                if (this.data.slot_data.hasOwnProperty('elite_four_rematch_requirement')) {
+                    return this.data.slot_data.elite_four_rematch_requirement;
+                }
+                return 1;
+            },
+            kantoOnly: function () {
+                if (this.data.slot_data.hasOwnProperty('kanto_only')) {
+                    return this.data.slot_data.kanto_only;
+                }
+                return 0;
+            },
+            tmCaseShuffle: function () {
+                if (this.data.slot_data.hasOwnProperty('shuffle_tm_case')) {
+                    return this.data.slot_data.shuffle_tm_case;
+                }
+                return 0;
+            },
+            itemfinderRequired: function () {
+                if (this.data.slot_data.hasOwnProperty('itemfinder_required')) {
+                    return this.data.slot_data.itemfinder_required;
+                }
+                return 1;
+            },
+            splitTea: function () {
+                if (this.data.slot_data.hasOwnProperty('split_teas')) {
+                    return this.data.slot_data.split_teas;
+                }
+                return 0;
+            },
+            splitCardKey: function () {
+                if (this.data.slot_data.hasOwnProperty('card_key')) {
+                    return this.data.slot_data.card_key;
+                }
+                return 0;
+            },
+            splitGymKey: function () {
+                if (this.data.slot_data.hasOwnProperty('gym_keys')) {
+                    return this.data.slot_data.gym_keys;
+                }
+                return 0;
+            },
+            seviiPasses: function () {
+                if (this.data.slot_data.hasOwnProperty('island_passes')) {
+                    return this.data.slot_data.island_passes;
+                }
+                return this.countSeviiPasses();
             },
         },
   components: {
