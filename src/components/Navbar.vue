@@ -41,7 +41,7 @@
             </div>
             <div class="text-green-600 relative justify-self-end font-roboto p-3 grow-5 text-right">
                 <span v-if="$parent.brokenSlotData()" class="text-red-400 font-bold mr-2">/!\ Broken Slot Data /!\</span>
-                <a href="https://github.com/OriginalTomPouce/anaptracker" target="_blank" class="cursor-pointer hover:text-white">v{{H_CONFIG.APP_VERION}}</a>
+                <a href="https://github.com/OriginalTomPouce/anaptracker" target="_blank" class="cursor-pointer hover:text-white">v{{H_CONFIG.APP_VERSION}}</a>
             </div>
         </nav>
     </div>
@@ -131,31 +131,37 @@
                 this.$parent.OPTIONS.show_done = this.$parent.OPTIONS.show_done + 1;
                 if (this.$parent.OPTIONS.show_done > 1)
                     this.$parent.OPTIONS.show_done = 0;
+                this.$parent.saveOptions();
             },
             changeShowTimer: function () {
                 this.$parent.OPTIONS.show_timer = this.$parent.OPTIONS.show_timer + 1;
                 if (this.$parent.OPTIONS.show_timer > 1)
                     this.$parent.OPTIONS.show_timer = 0;
+                this.$parent.saveOptions();
             },
             changeShowSlotNumber: function () {
                 this.$parent.OPTIONS.show_slot_number = this.$parent.OPTIONS.show_slot_number + 1;
                 if (this.$parent.OPTIONS.show_slot_number > 1)
                     this.$parent.OPTIONS.show_slot_number = 0;
+                this.$parent.saveOptions();
             },
             changeShowChecksLefts: function () {
                 this.$parent.OPTIONS.show_checks_left = this.$parent.OPTIONS.show_checks_left + 1;
                 if (this.$parent.OPTIONS.show_checks_left > 1)
                     this.$parent.OPTIONS.show_checks_left = 0;
+                this.$parent.saveOptions();
             },
             changeSize: function () {
                 this.$parent.OPTIONS.row_size = this.$parent.OPTIONS.row_size + 1;
                 if (this.$parent.OPTIONS.row_size > 2)
                     this.$parent.OPTIONS.row_size = 0;
+                this.$parent.saveOptions();
             },
             changeSortBy: function (num) {
                 this.$parent.OPTIONS.sort_by = num;
                 if (this.$parent.OPTIONS.sort_by > 7 || this.$parent.OPTIONS.sort_by < 0)
                     this.$parent.OPTIONS.sort_by = 0;
+                this.$parent.saveOptions();
 
                 // We do a first sort by ID here in order to have the closest sorting results used by archipelago.gg
                 this.$parent.GLOBAL_TRACKER_DATA.players.sort((a, b) => a.id - b.id);

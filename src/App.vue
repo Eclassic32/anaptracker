@@ -26,6 +26,8 @@
     var ROOM_ID = '';
 
 
+
+
     var GLOBAL_TRACKER_DATA = {
         players: [],
         datapackage: [],
@@ -249,6 +251,7 @@ export default {
           axios
               .get(SLOT_URL)
               .then(response => (this.getSlotData(response.data)));
+          this.loadOptions();
           this.autoRefresh();
       },
       refresh: function () {
@@ -257,7 +260,7 @@ export default {
           axios
               .get(ROOM_URL)
               .then(response => (this.beginTrackingData(response.data)));
-     },
+      },
       loadRoom: function (roomid) {
           this.ROOM_ID = roomid;
           window.history.replaceState(null, document.title, H_CONFIG.URL_WEBSITE + '/' + roomid);
@@ -287,6 +290,27 @@ export default {
           this.ROOM_ID = '';
           window.history.replaceState(null, document.title, H_CONFIG.URL_WEBSITE);
           this.refresh();
+      },
+      saveOptions: function () {
+          localStorage.setItem('TPCE_ANAP_ROOM_' + this.ROOM_ID, JSON.stringify(this.OPTIONS));
+          localStorage.setItem('TPCE_ANAP_VROOM_' + this.ROOM_ID, H_CONFIG.APP_VERSION);
+          localStorage.setItem('TPCE_ANAP_ROOM_LAST', JSON.stringify(this.OPTIONS));
+          localStorage.setItem('TPCE_ANAP_VROOM_LAST', H_CONFIG.APP_VERSION);
+      },
+      loadOptions: function () {
+          // If we got the specific Room options, we load it.
+          var roomData = localStorage.getItem('TPCE_ANAP_ROOM_' + this.ROOM_ID);
+          var vRoomData = localStorage.getItem('TPCE_ANAP_VROOM_' + this.ROOM_ID);
+          if (roomData != null && roomData != '' && vRoomData != null && vRoomData == H_CONFIG.APP_VERSION) {
+              this.OPTIONS = JSON.parse(roomData);
+          }
+          else {
+               // If not, we load the last options set
+              roomData = localStorage.getItem('TPCE_ANAP_ROOM_LAST');
+              vRoomData = localStorage.getItem('TPCE_ANAP_VROOM_LAST');
+              if (roomData != null && roomData != '' && vRoomData != null && vRoomData == H_CONFIG.APP_VERSION)
+                  this.OPTIONS = JSON.parse(roomData);
+          }
       }
   },
   components: {
