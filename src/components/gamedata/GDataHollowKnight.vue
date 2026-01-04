@@ -81,7 +81,7 @@
     *   - 2 - Siblings : get 3 Dreamers plus both White fragments and Void Heart
     *   - 2 - Radiance : get 3 Dreamers, Dream Nail and Void Heart
     *   - 3 - Godhome : get 3 Dreamers, Dream Nail and Void Heart
-    *   - 4 - Godhome flower : get 3 Dreamers, Dream Nail and Void Heart
+    *   - 4 - Godhome flower : Get Fragnant Flower
     *   - 5 - Grub Hunt : get Grubs
     *
     */
@@ -115,7 +115,7 @@ export default {
                 return 0;
             },
             grubHunt: function () {
-                if (this.data.slot_data.hasOwnProperty('options') && this.data.slot_data.options.Goal == 5) {
+                if (this.data.slot_data.hasOwnProperty('options') && [0,5].includes(this.data.slot_data.options.Goal)) {
                     return this.data.slot_data.options.GrubHuntGoal;
                 }
                 return 0;
