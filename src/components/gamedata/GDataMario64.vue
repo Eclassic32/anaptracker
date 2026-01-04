@@ -7,8 +7,8 @@
             <span v-if="getGoalStars()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Power Star')  }"><img title="Power Star" src="/img/sm64/star.png" />x{{ getNumberItemsFromName('Power Star') }} </span> / {{ getGoalStars() }}</span>
             <span v-else class="mr-2 text-xs font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Power Star')  }"><img title="Power Star" src="/img/sm64/star.png" />x{{ getNumberItemsFromName('Power Star') }} </span>
 
-            <img title="Basement Key" src="/img/sm64/keys/key_basement.png" :class="{ 'opacity-25': !getNumberItemsFromName('Basement Key') && !getNumberItemsFromName('Progressive Key')  }" />
-            <img title="Upstairs Key" src="/img/sm64/keys/key_upstairs.png" :class="{ 'opacity-25': !getNumberItemsFromName('Upstarirs Key') && getNumberItemsFromName('Progressive Key') < 2  }" />
+            <img title="Basement Key" src="/img/sm64/keys/key_basement.png" :class="{ 'opacity-25': !basementKey()  }" />
+            <img title="Upstairs Key" src="/img/sm64/keys/key_upstairs.png" :class="{ 'opacity-25': !upstairsKey()  }" />
             <!--
     <img v-if="getNumberItemsFromName('Progressive Key') > 1" src="/img/sm64/keys/key_both.png" class="inline-block mr-1 w-[16px] h-[16px]" />
     <img v-else-if="getNumberItemsFromName('Progressive Key') > 0" src="/img/sm64/keys/key_basement.png" class="inline-block mr-1 w-[16px] h-[16px]" />
@@ -78,6 +78,19 @@ export default {
                     return this.data.slot_data.StarsToFinish;
                 }
                 return 0;
+            },
+            upstairsKey: function () {
+                if (this.getNumberItemsFromName('Upstairs Key') || this.getNumberItemsFromName('Progressive Key') ||
+                    this.data.slot_data.hasOwnProperty('SecondFloorDoorCost') && this.getNumberItemsFromName('Power Star') >= this.data.slot_data.SecondFloorDoorCost)
+                    return true;
+                return false;
+                
+            },
+            basementKey: function () {
+                if (this.getNumberItemsFromName('Basement Key') || this.getNumberItemsFromName('Progressive Key') > 1 ||
+                    this.data.slot_data.hasOwnProperty('BasementDoorCost') && this.getNumberItemsFromName('Power Star') >= this.data.slot_data.BasementDoorCost)
+                    return true;
+                return false;
             },
             moveShuffled: function () {
                 if (this.data.slot_data.MoveRandoVec) {
