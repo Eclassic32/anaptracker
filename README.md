@@ -20,14 +20,14 @@ What you'll be able to see or to do :
 ## Which games are supported ?
 At the moment, a good chunk of very common games, such as Hollow Knight, Celeste, Pokemon games and some Zelda games. It also has some niche games that I enjoy to play (because I wanted a tracker on them first).
 
-The game list is available on the Homepage. It loads the supported game list from the source data.
+The game list is available on the Homepage. It loads the supported game list from the sources.
 
 I do my best to add new games, and try to prioritize thoses who are popular at the moment.
 
 
 ## Can i deploy the app on my side ?
 
-Not yet ! You can but you'll have to tweak a few things to make it fully usable.
+Not yet ! You can, but you'll have to tweak a few things to make it fully usable.
 Because the webapp is making API calls, you'll either have to enable CORS on your browser, or make a bridge API on your side.
 If you're not familiar with building backend stuff, just enable CORS (using a browser extension).
 
@@ -39,6 +39,7 @@ Then set the URL_WEBSITE from `src/hconfig.js` to localhost :
 `URL_WEBSITE: 'http://localhost:5173',`
 
 FInally, run the application by using npm (`npm run dev`).
+
 Images are not yet on the repository, because I want to give credit to the cool artists who made them.
 
 
