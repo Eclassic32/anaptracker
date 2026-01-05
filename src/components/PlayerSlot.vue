@@ -3,8 +3,8 @@
           >
         <div class="absolute left-0 top-0 bottom-0 z-1 bg-green-500" :style="{ 'width' : str_percent_completion() }"></div>
         <div @click="toggleExpand()" class="z-2 flex flex-column justify-between">
-            <div class="w-1/4 z-3 text-dark" :class="{ 'opacity-50' : get_status() == 0 }"><span v-if="$parent.$parent.OPTIONS.show_slot_number" class="font-bold">{{ data.id }} - </span><span class="mr-2 font-bold">{{ player_name }}</span><br v-if="$parent.$parent.OPTIONS.row_size" /><span class="font-normal text-tiny">({{ player_game }})</span></div>
-            <div class="w-1/2 z-3 text-sm">
+            <div class="w-1/4 lg:w-1/5 2xl:w-1/6 z-3 text-dark" :class="{ 'opacity-50' : get_status() == 0 }"><span v-if="$parent.$parent.OPTIONS.show_slot_number" class="font-bold">{{ data.id }} - </span><span class="mr-2 font-bold">{{ player_name }}</span><br v-if="$parent.$parent.OPTIONS.row_size" /><span class="font-normal text-tiny">({{ player_game }})</span></div>
+            <div class="w-auto z-3 text-sm">
                 <div class="clear-both text-center font-normal">
                     <component :is="get_game_data_class()"
                                v-bind:data="data"
@@ -13,7 +13,7 @@
                 </div>
             </div>
             
-            <div class="w-1/4 z-3 text-right">
+            <div class="w-1/4 lg:w-1/5 2xl:w-1/6 z-3 text-right">
                 <span v-if="$parent.$parent.OPTIONS.show_timer" class="font-bold
                       text-tiny mr-3">{{ get_last_activity() }}</span><span v-if="!$parent.$parent.OPTIONS.row_size" class="font-normal text-tiny mr-2">({{ percent_completion() }}%)</span><span class="font-bold">{{ get_current_checks() }}</span> / {{ get_total_checks() }}<br /><span v-if="$parent.$parent.OPTIONS.row_size" class="font-normal text-tiny">({{ percent_completion() }}%)</span></div>
         </div>
