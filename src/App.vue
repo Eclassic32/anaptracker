@@ -7,7 +7,8 @@
                 <Navbar v-bind:data="TRACKER_DATA" v-bind:gamedata="DATA_PACKAGE" v-bind:static_data="STATIC_TRACKER_DATA" v-bind:room="ROOM_DATA"></Navbar>
             </div>
             <div>
-                <PlayerList v-if="validRoom()" v-bind:globaldata="GLOBAL_TRACKER_DATA" v-bind:gamedata="DATA_PACKAGE"></PlayerList>
+                <Statistics v-if="ROOM_ID == 'statistics'"></Statistics>
+                <PlayerList v-else-if="validRoom()" v-bind:globaldata="GLOBAL_TRACKER_DATA" v-bind:gamedata="DATA_PACKAGE"></PlayerList>
                 <Home v-else></Home>
             </div>
         </div>
@@ -17,6 +18,7 @@
     import PlayerList from "./components/PlayerList.vue";
     import Navbar from './components/Navbar.vue';
     import Home from './components/Home.vue';
+    import Statistics from './components/Statistics.vue';
     import H_CONFIG from "./hconfig.js";
     import axios from 'axios';
     import ANAP_DATA from "./anapdata.js";
@@ -266,6 +268,10 @@ export default {
           window.history.replaceState(null, document.title, H_CONFIG.URL_WEBSITE + '/' + roomid);
           this.refresh();
       },
+      goToStats: function () {
+          this.ROOM_ID = 'statistics';
+          window.history.replaceState(null, document.title, H_CONFIG.URL_WEBSITE + '/' + this.ROOM_ID);
+      },
       getRouteInfos: function () {
           var urltosec = H_CONFIG.URL_WEBSITE;
           console.log(this.$route);
@@ -277,7 +283,8 @@ export default {
           var fake_args = fake_route.split('/');
           if (fake_args.length > 0 && fake_args[0].length > 0) {
               this.ROOM_ID = fake_args[0];
-              this.refresh();
+              if (this.ROOM_ID && this.ROOM_ID != 'statistics')
+                  this.refresh();
           }
       /* Méthodes quand l'appli est mounted*/
       },
@@ -289,7 +296,6 @@ export default {
           this.GLOBAL_TRACKER_DATA.broken_slot_data = false;
           this.ROOM_ID = '';
           window.history.replaceState(null, document.title, H_CONFIG.URL_WEBSITE);
-          this.refresh();
       },
       saveOptions: function () {
           localStorage.setItem('TPCE_ANAP_ROOM_' + this.ROOM_ID, JSON.stringify(this.OPTIONS));
@@ -316,7 +322,8 @@ export default {
   components: {
     PlayerList,
     Navbar,
-    Home
+    Home,
+    Statistics
   },
         mounted: function () {
             var url = location.href;
