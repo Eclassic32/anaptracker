@@ -81,7 +81,7 @@ export default {
                 return 0;
             },
             upstairsKey: function () {
-                if (this.getNumberItemsFromName('Upstairs Key') || this.getNumberItemsFromName('Progressive Key'))
+                if (this.getNumberItemsFromName('Second Floor Key') || this.getNumberItemsFromName('Progressive Key'))
                     return true;
                 return false;
                 
