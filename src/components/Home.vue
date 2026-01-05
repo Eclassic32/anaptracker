@@ -1,6 +1,6 @@
 <template>
     <div class="text-center text-white">
-        <h1 class="text-xl my-4">Welcome to A Normal AP Tracker !</h1>
+        <h1 class="text-2xl my-4">Welcome to A Normal AP Tracker !</h1>
         <div class="mt-4 mb-10 p-6 align-top">
 
             <span class="text-lg">Please enter the ID or the URL of the Archipelago Room.</span>
