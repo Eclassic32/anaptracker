@@ -4,7 +4,7 @@
     <div class="relative h-screen">
         <div class="flex flex-col">
             <div>
-                <Navbar v-bind:data="TRACKER_DATA" v-bind:gamedata="DATA_PACKAGE" v-bind:static_data="STATIC_TRACKER_DATA" v-bind:room="ROOM_DATA"></Navbar>
+                <Navbar v-bind:gamedata="DATA_PACKAGE" v-bind:room="ROOM_DATA"></Navbar>
             </div>
             <div>
                 <Statistics v-if="ROOM_ID == 'statistics'"></Statistics>
@@ -46,12 +46,6 @@
         show_slot_number: 0,
         sort_by: 0
     };
-    var STATIC_TRACKER_DATA = {
-        datapackage: [],
-        groups: [],
-        player_locations_total: []
-
-    };
     class PlayerStruct {
 
         tracker_data = {
@@ -77,15 +71,6 @@
             this.game = new_game;
         }
     }
-var TRACKER_DATA = {
-        activity_timers: [],
-        aliases: [],
-        connection_timers: [],
-        hints: [],
-        player_checks_done: [],
-        player_status: [],
-        total_checks_done: []
-    };
     var STATIC_TRACKER_DATA = {
         datapackage: [],
         groups: [],
@@ -101,7 +86,6 @@ export default {
   data: function () {
       return {
           ANAP_DATA,
-          STATIC_TRACKER_DATA,
           GLOBAL_TRACKER_DATA,
           SLOT_DATA,
           ROOM_DATA,
