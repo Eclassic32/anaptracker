@@ -38,7 +38,7 @@
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Key Items</div>
 
-            <img title="Pokegear" src="/img/pokemon_crystal/items/itemfinder.png" :class="{ 'opacity-25': !getNumberItemsFromName('Itemfinder')  }" />
+            <img v-if="itemfinderRequired()" title="Itemfinder" src="/img/pokemon_crystal/items/itemfinder.png" :class="{ 'opacity-25': !getNumberItemsFromName('Itemfinder')  }" />
             <img v-if="!getNumberItemsFromName('EXPN Card') && !getNumberItemsFromName('Radio Card')" src="/img/pokemon_crystal/items/pokegear.png" title="Pokegear" :class="{ 'opacity-25': !getNumberItemsFromName('Pokegear')  }" />
             <img v-else-if="!getNumberItemsFromName('EXPN Card')" title="Radio Card" src="/img/pokemon_crystal/items/radiocard.png" />
             <img v-else title="EXPN. Card" src="/img/pokemon_crystal/items/expncard.png" />
@@ -80,6 +80,12 @@ export default {
   },
 
         methods: {
+            itemfinderRequired: function () {
+                if (this.data.slot_data.hasOwnProperty('require_itemfinder')) {
+                    return this.data.slot_data.require_itemfinder;
+                }
+                return 1;
+            },
             getImageClass: function () {
                 return this.$parent.getImageClass();
             },
