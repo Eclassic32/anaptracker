@@ -81,15 +81,13 @@ export default {
                 return 0;
             },
             upstairsKey: function () {
-                if (this.getNumberItemsFromName('Upstairs Key') || this.getNumberItemsFromName('Progressive Key') ||
-                    this.data.slot_data.hasOwnProperty('SecondFloorDoorCost') && this.getNumberItemsFromName('Power Star') >= this.data.slot_data.SecondFloorDoorCost)
+                if (this.getNumberItemsFromName('Upstairs Key') || this.getNumberItemsFromName('Progressive Key'))
                     return true;
                 return false;
                 
             },
             basementKey: function () {
-                if (this.getNumberItemsFromName('Basement Key') || this.getNumberItemsFromName('Progressive Key') > 1 ||
-                    this.data.slot_data.hasOwnProperty('BasementDoorCost') && this.getNumberItemsFromName('Power Star') >= this.data.slot_data.BasementDoorCost)
+                if (this.getNumberItemsFromName('Basement Key') || this.getNumberItemsFromName('Progressive Key') > 1)
                     return true;
                 return false;
             },
