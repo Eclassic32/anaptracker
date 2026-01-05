@@ -166,7 +166,7 @@ export default {
             str_percent_completion: function () {
                 var total_checks = this.get_total_checks();
                 if (total_checks > 0 && this.get_status() < 30)
-                    return Math.floor(this.get_current_checks() * 100 / total_checks).toString() + '%';
+                    return (Math.floor(this.get_current_checks() * 10000 / total_checks) / 100).toString() + '%';
                 return 0;
             },
             get_time_diff: function () {
