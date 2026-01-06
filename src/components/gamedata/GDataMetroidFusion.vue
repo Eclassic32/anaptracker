@@ -15,8 +15,8 @@
 
             <span v-if="getNumberItemsFromName('Energy Tank')" class="text-xs mr-1"><img title="Energy Tank" src="/img/metroid_fusion/EnergyTank.png" />x{{getNumberItemsFromName('Energy Tank')}}</span>
             <span v-else class="text-xs mr-1 opacity-25"><img title="Energy Tank" src="/img/metroid_fusion/EnergyTank.png" />x0</span>
-            <span :class="{ 'opacity-25': !getNumberItemsFromName('Missile Data')  }" class="text-xs mr-1"><img title="Missile" src="/img/metroid_fusion/MissileLauncher.png" />x{{getNumberItemsFromName('Missile')}}</span>
-            <span :class="{ 'opacity-25': !getNumberItemsFromName('Power Bomb Data')  }" class="text-xs mr-1"><img title="Power Bomb" src="/img/metroid_fusion/PowerBombs.png" />x{{getNumberItemsFromName('Power Bomb')}}</span>
+            <span :class="{ 'opacity-25': !getNumberItemsFromName('Missile Data')  }" class="text-xs mr-1"><img title="Missile" src="/img/metroid_fusion/MissileLauncher.png" />x{{getNumberItemsFromName('Missile Tank')}}</span>
+            <span :class="{ 'opacity-25': !getNumberItemsFromName('Power Bomb Data')  }" class="text-xs mr-1"><img title="Power Bomb" src="/img/metroid_fusion/PowerBombs.png" />x{{getNumberItemsFromName('Power Bomb Tank')}}</span>
         </div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
@@ -39,16 +39,16 @@
             <img title="Varia Suit" src="/img/metroid_fusion/VariaSuit.png" :class="{ 'opacity-25': !getNumberItemsFromName('Varia Suit')  }" />
             <img title="Gravity Suit" src="/img/metroid_fusion/GravitySuit.png" :class="{ 'opacity-25': !getNumberItemsFromName('Gravity Suit')  }" />
             <img title="Morph Ball" src="/img/metroid_fusion/MorphBall.png" :class="{ 'opacity-25': !getNumberItemsFromName('Morph Ball')  }" />
-            <img title="Bomb" src="/img/metroid_fusion/MorphBallBombs.png" :class="{ 'opacity-25': !getNumberItemsFromName('Bomb')  }" />
+            <img title="Bomb" src="/img/metroid_fusion/MorphBallBombs.png" :class="{ 'opacity-25': !getNumberItemsFromName('Bomb Data')  }" />
             <img title="Screw Attack" src="/img/metroid_fusion/ScrewAttack.png" :class="{ 'opacity-25': !getNumberItemsFromName('Screw Attack')  }" />
             <img title="Hi-Jump Boots" src="/img/metroid_fusion/HiJumpBoots.png" :class="{ 'opacity-25': !getNumberItemsFromName('Hi-Jump Boots')  }" />
             <img title="Speed Booster" src="/img/metroid_fusion/SpeedBooster.png" :class="{ 'opacity-25': !getNumberItemsFromName('Speed Booster')  }" />
             <img title="Space Jump" src="/img/metroid_fusion/SpaceJump.png" :class="{ 'opacity-25': !getNumberItemsFromName('Space Jump')  }" />
             <span class="mr-2"></span>
-            <img title="Level 1 Doors" src="/img/metroid_fusion/LockLevel1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Level 1 Doors')  }" />
-            <img title="Level 2 Doors" src="/img/metroid_fusion/LockLevel2.png" :class="{ 'opacity-25': !getNumberItemsFromName('Level 2 Doors')  }" />
-            <img title="Level 3 Doors" src="/img/metroid_fusion/LockLevel3.png" :class="{ 'opacity-25': !getNumberItemsFromName('Level 3 Doors')  }" />
-            <img title="Level 4 Doors" src="/img/metroid_fusion/LockLevel4.png" :class="{ 'opacity-25': !getNumberItemsFromName('Level 4 Doors')  }" />
+            <img title="Level 1 Keycard" src="/img/metroid_fusion/LockLevel1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Level 1 Keycard')  }" />
+            <img title="Level 2 Keycard" src="/img/metroid_fusion/LockLevel2.png" :class="{ 'opacity-25': !getNumberItemsFromName('Level 2 Keycard')  }" />
+            <img title="Level 3 Keycard" src="/img/metroid_fusion/LockLevel3.png" :class="{ 'opacity-25': !getNumberItemsFromName('Level 3 Keycard')  }" />
+            <img title="Level 4 Keycard" src="/img/metroid_fusion/LockLevel4.png" :class="{ 'opacity-25': !getNumberItemsFromName('Level 4 Keycard')  }" />
         </div>
     </div>
 </template>
