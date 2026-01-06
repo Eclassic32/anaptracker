@@ -29,9 +29,9 @@
 
 
             <span v-if="!jockerGoal()" class="mr-2 text-xs font-bold" :class="{ 'opacity-25': !getNumberItemsFromCategory('Joker')  }"><img title="Joker Cards" src="/img/balatro/joker.png" />x{{ getNumberItemsFromCategory('Joker') }} </span>
-            <span class="mr-2 text-xs font-bold" :class="{ 'opacity-25': !getNumberItemsFromCategory('Planet')  }"><img title="Planet Cards" src="/img/balatro/planet.png" />x{{ getNumberItemsFromCategory('Planet') }} </span>
-            <span class="mr-2 text-xs font-bold" :class="{ 'opacity-25': !getNumberItemsFromCategory('Spectral')  }"><img title="Spectral Cards" src="/img/balatro/spectral.png" />x{{ getNumberItemsFromCategory('Spectral') }} </span>
-            <span class="mr-2 text-xs font-bold" :class="{ 'opacity-25': !getNumberItemsFromCategory('Tarot')  }"><img title="Tarot Cards" src="/img/balatro/tarot.png" />x{{ getNumberItemsFromCategory('Tarot') }} </span>
+            <span class="mr-2 text-xs font-bold" :class="{ 'opacity-25': !getPlanetCards()  }"><img title="Planet Cards" src="/img/balatro/planet.png" />x{{ getPlanetCards() }} </span>
+            <span class="mr-2 text-xs font-bold" :class="{ 'opacity-25': !getSpectralCards()  }"><img title="Spectral Cards" src="/img/balatro/spectral.png" />x{{ getSpectralCards() }} </span>
+            <span class="mr-2 text-xs font-bold" :class="{ 'opacity-25': !getTarotCards()  }"><img title="Tarot Cards" src="/img/balatro/tarot.png" />x{{ getTarotCards() }} </span>
 
         </div>
     </div>
@@ -84,6 +84,21 @@ export default {
                     return this.data.slot_data.StarsToFinish;
                 }
                 return 0;
+            },
+            getTarotCards: function () {
+                if (this.getNumberItemsFromName('Tarot Bundle'))
+                    return 23;
+                return this.getNumberItemsFromCategory('Tarot');
+            },
+            getSpectralCards: function () {
+                if (this.getNumberItemsFromName('Spectral Bundle'))
+                    return 19;
+                return this.getNumberItemsFromCategory('Spectral');
+            },
+            getPlanetCards: function () {
+                if (this.getNumberItemsFromName('Planet Bundle'))
+                    return 13;
+                return this.getNumberItemsFromCategory('Planet');
             },
             deckExists: function (name) {
                 if (this.data.slot_data.hasOwnProperty('included_decks') && this.data.slot_data.included_decks.length > 0)
