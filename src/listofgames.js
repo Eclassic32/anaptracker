@@ -1,6 +1,7 @@
 
 import GDataAHatInTime from './components/gamedata/GDataAHatInTime.vue';
 import GDataALinkToThePast from './components/gamedata/GDataALinkToThePast.vue';
+import GDataBalatro from './components/gamedata/GDataBalatro.vue';
 import GDataCeleste from './components/gamedata/GDataCeleste.vue';
 import GDataCrystalProject from './components/gamedata/GDataCrystalProject.vue';
 import GDataFactorio from './components/gamedata/GDataFactorio.vue';
@@ -27,6 +28,10 @@ var LIST_OF_GAMES = [
     {
         'name': 'A Link to the Past',
         'class': GDataALinkToThePast
+    },
+    {
+        'name': 'Balatro',
+        'class': GDataBalatro
     },
     {
         'name': 'Celeste (Open World)',
