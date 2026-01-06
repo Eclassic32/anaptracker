@@ -33,7 +33,7 @@
             <img title="Screw Attack" src="/img/metroid_zero_mission/ScrewAttack.png" :class="{ 'opacity-25': !getNumberItemsFromName('Screw Attack')  }" />
             <img title="Power Grip" src="/img/metroid_zero_mission/PowerGrip.png" :class="{ 'opacity-25': !getNumberItemsFromName('Power Grip')  }" />
             <img title="Hi-Jump Boots" src="/img/metroid_zero_mission/HiJump.png" :class="{ 'opacity-25': !getNumberItemsFromName('Hi-Jump')  }" />
-            <img v-if="luxurySetting()" title="Spring Attack" src="/img/super_metroid/items/springball.png" :class="{ 'opacity-25': !getNumberItemsFromName('Spring Ball')  }" />
+            <img v-if="luxurySetting()" title="Spring Ball" src="/img/super_metroid/items/springball.png" :class="{ 'opacity-25': !getNumberItemsFromName('Spring Ball')  }" />
             <img title="Speed Booster" src="/img/metroid_zero_mission/SpeedBooster.png" :class="{ 'opacity-25': !getNumberItemsFromName('Speed Booster')  }" />
             <img v-if="metroidDNA()" title="Space Jump" src="/img/metroid_zero_mission/SpaceJump.png" :class="{ 'opacity-25': !getNumberItemsFromName('Space Jump')  }" />
             <img v-else title="Space Jump" src="/img/metroid_zero_mission/UnknownSpaceJump.png" :class="{ 'opacity-15': !getNumberItemsFromName('Space Jump'), 'opacity-75': getNumberItemsFromName('Space Jump')  }" />

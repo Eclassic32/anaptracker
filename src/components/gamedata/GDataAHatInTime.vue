@@ -13,7 +13,7 @@
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Hats & Abilities</div>
 
 
-            <span v-if="!hatMode()" class="mr-2 text-xs font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Yarn')  }"><img title="Time Piece" src="/img/a_hat_in_time/items/yarn.png" />x{{ getNumberItemsFromName('Yarn') }} </span>
+            <span v-if="!hatMode()" class="mr-2 text-xs font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Yarn')  }"><img title="Yarn" src="/img/a_hat_in_time/items/yarn.png" />x{{ getNumberItemsFromName('Yarn') }} </span>
             <img v-if="hatMode()" title="Sprint Hat" src="/img/a_hat_in_time/items/sprint_hat_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Sprint Hat')  }" />
             <img v-if="hatMode()" title="Brewer Hat" src="/img/a_hat_in_time/items/brewer_hat_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Brewing Hat')  }" />
             <img v-if="hatMode()" title="Ice Hat Hat" src="/img/a_hat_in_time/items/ice_hat_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Ice Hat')  }" />
