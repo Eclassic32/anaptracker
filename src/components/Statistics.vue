@@ -4,7 +4,7 @@
         <div class="inline-block w-full p-6 align-top align-center relative">
             <div>
 
-                <div class="inline-block bg-red-800 rounded-sm mx-4 bg-opacity-25 p-4">Number of failed API calls<div class="text-5xl font-bold mt-4">{{ STATS_DATA.api_failed_stats.length }}</div></div>
+                <div class="inline-block bg-red-800 rounded-sm mx-4 bg-opacity-25 p-4">Failed API calls<div class="text-5xl font-bold mt-4">{{ STATS_DATA.api_failed_stats.length }}</div></div>
 
                 <div class="inline-block bg-emerald-800 rounded-sm mx-4 bg-opacity-25 p-4">Multiworld rooms tracked<div class="text-5xl font-bold mt-4">{{ STATS_DATA.rooms_stats.length }}</div></div>
 
@@ -14,25 +14,6 @@
             </div>
 
             <div class="mt-6 inline-block w-full lg:w-1/2 align-top">
-                <table class="align-center clear-both border-collapse inline-block float-none table-fixed">
-                    <caption class="caption-top">
-                        Api calls failed :
-                    </caption>
-                    <thead>
-                        <tr>
-                            <th class="border border-gray-400 p-1 font-bold w-120">URL</th>
-                            <th class="border border-gray-400 p-1 font-bold w-40">Error</th>
-                            <th class="border border-gray-400 p-1 font-bold w-40">Time</th>
-                        </tr>
-                    </thead>
-                    <tr v-for="(call, index) in STATS_DATA.api_failed_stats">
-                        <td v-if="recentBy(call.created_at, 1)" class="text-xs border border-gray-400 p-1">{{call.arg1}}</td>
-                        <td v-if="recentBy(call.created_at, 1)" class="text-sm border border-gray-400 p-1">{{call.arg2}}</td>
-                        <td v-if="recentBy(call.created_at, 1)" class="text-sm border border-gray-400 p-1">{{call.created_at}}</td>
-                    </tr>
-                </table>
-            </div>
-            <div class="mt-6 inline-block w-1/2 lg:w-1/2 align-top">
                 <table class="align-center clear-both border-collapse inline-block float-none table-fixed">
                     <caption class="caption-top">
                         List of games tracked :
@@ -48,6 +29,25 @@
                         <td :class="{'p-1' : index < 100, 'text-lg' : index < 10, 'text-sm' : index >= 20, 'text-xs' : index >= 50}" class="border border-gray-400">{{index + 1}}</td>
                         <td :class="{'p-1' : index < 100, 'text-lg' : index < 10, 'text-sm' : index >= 20, 'text-xs' : index >= 50}" class="border border-gray-400"><img v-if="supportedGame(game.game)" title="ANAP tracker supports this game!" src="/img/crystal_project/system/image_part_005.png" class="mr-1 w-[16px] h-[16px] inline" />{{game.game}}</td>
                         <td :class="{'p-1' : index < 100, 'text-lg' : index < 10, 'text-sm' : index >= 20, 'text-xs' : index >= 50}" class="border border-gray-400">{{game.count}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="mt-6 inline-block w-full lg:w-1/2 align-top">
+                <table class="align-center clear-both border-collapse inline-block float-none table-fixed">
+                    <caption class="caption-top">
+                        Api calls failed (last 7 days) :
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th class="border border-gray-400 p-1 font-bold w-120">URL</th>
+                            <th class="border border-gray-400 p-1 font-bold w-40">Error</th>
+                            <th class="border border-gray-400 p-1 font-bold w-40">Time</th>
+                        </tr>
+                    </thead>
+                    <tr v-for="(call, index) in STATS_DATA.api_failed_stats">
+                        <td v-if="recentBy(call.created_at, 7)" class="text-xs border border-gray-400 p-1">{{call.arg1}}</td>
+                        <td v-if="recentBy(call.created_at, 7)" class="text-sm border border-gray-400 p-1">{{call.arg2}}</td>
+                        <td v-if="recentBy(call.created_at, 7)" class="text-sm border border-gray-400 p-1">{{call.created_at}}</td>
                     </tr>
                 </table>
             </div>

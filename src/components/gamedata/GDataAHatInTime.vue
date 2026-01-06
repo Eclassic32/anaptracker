@@ -12,11 +12,13 @@
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Hats & Abilities</div>
 
-            <img title="Sprint Hat" src="/img/a_hat_in_time/items/sprint_hat_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Sprint Hat')  }" />
-            <img title="Brewer Hat" src="/img/a_hat_in_time/items/brewer_hat_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Brewing Hat')  }" />
-            <img title="Ice Hat Hat" src="/img/a_hat_in_time/items/ice_hat_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Ice Hat')  }" />
-            <img title="Dweller Mask" src="/img/a_hat_in_time/items/dwellers_mask_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Dweller Mask')  }" />
-            <img title="Time Stop Hat" src="/img/a_hat_in_time/items/time_stop_hat_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Time Stop Hat')  }" />
+
+            <span v-if="!hatMode()" class="mr-2 text-xs font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Yarn')  }"><img title="Time Piece" src="/img/a_hat_in_time/items/yarn.png" />x{{ getNumberItemsFromName('Yarn') }} </span>
+            <img v-if="hatMode()" title="Sprint Hat" src="/img/a_hat_in_time/items/sprint_hat_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Sprint Hat')  }" />
+            <img v-if="hatMode()" title="Brewer Hat" src="/img/a_hat_in_time/items/brewer_hat_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Brewing Hat')  }" />
+            <img v-if="hatMode()" title="Ice Hat Hat" src="/img/a_hat_in_time/items/ice_hat_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Ice Hat')  }" />
+            <img v-if="hatMode()" title="Dweller Mask" src="/img/a_hat_in_time/items/dwellers_mask_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Dweller Mask')  }" />
+            <img v-if="hatMode()" title="Time Stop Hat" src="/img/a_hat_in_time/items/time_stop_hat_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Time Stop Hat')  }" />
             <span class="mr-2" />
             <img title="Scooter Badge" src="/img/a_hat_in_time/items/scooter_badge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Scooter Badge')  }" />
             <img title="Umbrella" src="/img/a_hat_in_time/items/umbrella.png" :class="{ 'opacity-25': !getNumberItemsFromName('Umbrella')  }" />
@@ -27,29 +29,28 @@
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Relics</div>
 
             <img v-if="countBurgerRelic() > 1" title="Burger Relic (complete)" src="/img/a_hat_in_time/items/burgerrelic_completed.png" />
-            <img v-else title="Burger Relic" src="/img/a_hat_in_time/items/burgerrelic1.png" :class="{ 'opacity-25': !countBurgerRelic()  }" />
+            <img v-else title="Burger Relic" src="/img/a_hat_in_time/items/burgerrelic1.png" :class="{ 'opacity-15': !countBurgerRelic(), 'opacity-60': countBurgerRelic()  }" />
 
             <img v-if="countTrainRelic() > 1" title="Train Relic (complete)" src="/img/a_hat_in_time/items/trainrelic_complete.png" />
-            <img v-else title="Train Relic" src="/img/a_hat_in_time/items/trainrelic1.png" :class="{ 'opacity-25': !countTrainRelic()  }" />
+            <img v-else title="Train Relic" src="/img/a_hat_in_time/items/trainrelic1.png" :class="{ 'opacity-15': !countTrainRelic(), 'opacity-60': countTrainRelic()  }" />
 
             <img v-if="countCowRelic() > 3" title="UFO Relic (complete)" src="/img/a_hat_in_time/items/uforelic_complete.png" />
-            <img v-else-if="countCowRelic() > 2" title="UFO Relic" src="/img/a_hat_in_time/items/uforelic3.png" />
-            <img v-else-if="countCowRelic() > 1" title="UFO Relic" src="/img/a_hat_in_time/items/uforelic2.png" />
-            <img v-else src="/img/a_hat_in_time/items/uforelic1.png" title="UFO Relic" :class="{ 'opacity-25': !countCowRelic()  }" />
+            <img v-else-if="countCowRelic() > 2" title="UFO Relic" class="opacity-60" src="/img/a_hat_in_time/items/uforelic3.png" />
+            <img v-else-if="countCowRelic() > 1" title="UFO Relic" class="opacity-60" src="/img/a_hat_in_time/items/uforelic2.png" />
+            <img v-else src="/img/a_hat_in_time/items/uforelic1.png" title="UFO Relic" :class="{ 'opacity-15': !countCowRelic(), 'opacity-60': countCowRelic()  }" />
 
             <img v-if="countCrayonRelic() > 3" title="Crayon Relic (complete)" src="/img/a_hat_in_time/items/crayonrelic_complete.png" />
-            <img v-else-if="countCrayonRelic() > 2" title="Crayon Relic" src="/img/a_hat_in_time/items/crayonrelic3.png" />
-            <img v-else-if="countCrayonRelic() > 1" title="Crayon Relic" src="/img/a_hat_in_time/items/crayonrelic2.png" />
-            <img v-else title="Crayon Relic" src="/img/a_hat_in_time/items/crayonrelic1.png" :class="{ 'opacity-25': !countCrayonRelic()  }" />
-
+            <img v-else-if="countCrayonRelic() > 2" title="Crayon Relic" class="opacity-60" src="/img/a_hat_in_time/items/crayonrelic3.png" />
+            <img v-else-if="countCrayonRelic() > 1" title="Crayon Relic" class="opacity-60" src="/img/a_hat_in_time/items/crayonrelic2.png" />
+            <img v-else title="Crayon Relic" src="/img/a_hat_in_time/items/crayonrelic1.png" :class="{ 'opacity-15': !countCrayonRelic(), 'opacity-60': countCrayonRelic()  }" />
 
             <img v-if="countCakeRelic() > 3" title="Cake Relic (complete)" src="/img/a_hat_in_time/items/cakerelic_complete.png" />
-            <img v-else-if="countCakeRelic() > 2" title="Cake Relic" src="/img/a_hat_in_time/items/cakerelic3.png" />
-            <img v-else-if="countCakeRelic() > 1" title="Cake Relic" src="/img/a_hat_in_time/items/cakerelic2.png" />
-            <img v-else-if="hasDLC1()" title="Cake Relic" src="/img/a_hat_in_time/items/cakerelic1.png" :class="{ 'opacity-25': !countCakeRelic()  }" />
+            <img v-else-if="countCakeRelic() > 2" title="Cake Relic" class="opacity-60" src="/img/a_hat_in_time/items/cakerelic3.png" />
+            <img v-else-if="countCakeRelic() > 1" title="Cake Relic" class="opacity-60" src="/img/a_hat_in_time/items/cakerelic2.png" />
+            <img v-else-if="hasDLC1()" title="Cake Relic" src="/img/a_hat_in_time/items/cakerelic1.png" :class="{ 'opacity-15': !countCakeRelic(), 'opacity-60': countCakeRelic()  }" />
 
             <img v-if="countJewelryRelic() > 1" title="Jewelry Relic (complete)" src="/img/a_hat_in_time/items/jewelryrelic_complete.png" />
-            <img v-else-if="hasDLC2()" title="Jewelry Relic" src="/img/a_hat_in_time/items/jewelryrelic1.png" :class="{ 'opacity-25': !countJewelryRelic()  }" />
+            <img v-else-if="hasDLC2()" title="Jewelry Relic" src="/img/a_hat_in_time/items/jewelryrelic1.png" :class="{ 'opacity-15': !countJewelryRelic(), 'opacity-60': countJewelryRelic()  }" />
 
         </div>
     </div>
@@ -92,7 +93,7 @@ export default {
                 return this.$parent.getNumberItemsFromName(name);
             },
             getGoalTimePieces: function () {
-                if (this.data.slot_data.EndGoal) {
+                if (this.data.slot_data.hasOwnProperty('EndGoal')) {
                     if (this.data.slot_data.EndGoal == 3)
                         return this.data.slot_data.Chapter7Cost;
                     if (this.data.slot_data.EndGoal == 2)
@@ -103,16 +104,22 @@ export default {
                 return 0;
             },
             hasDLC1: function () {
-                if (this.data.slot_data.EnableDLC1) {
+                if (this.data.slot_data.hasOwnProperty('EnableDLC1')) {
                     return this.data.slot_data.EnableDLC1;
                 }
                 return 1;
             },
             hasDLC2: function () {
-                if (this.data.slot_data.EnableDLC2) {
+                if (this.data.slot_data.hasOwnProperty('EnableDLC2')) {
                     return this.data.slot_data.EnableDLC2;
                 }
                 return 1;
+            },
+            hatMode: function () {
+                if (this.data.slot_data.hasOwnProperty('HatItems')) {
+                    return this.data.slot_data.HatItems;
+                }
+                return !this.getNumberItemsFromName('Yarn');
             },
             countBurgerRelic: function () {
                 return this.getNumberItemsFromName('Relic (Burger Cushion)') + this.getNumberItemsFromName('Relic (Burger Patty)');

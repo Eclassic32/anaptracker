@@ -1,12 +1,15 @@
 
 import GDataAHatInTime from './components/gamedata/GDataAHatInTime.vue';
 import GDataALinkToThePast from './components/gamedata/GDataALinkToThePast.vue';
+import GDataBalatro from './components/gamedata/GDataBalatro.vue';
 import GDataCeleste from './components/gamedata/GDataCeleste.vue';
 import GDataCrystalProject from './components/gamedata/GDataCrystalProject.vue';
 import GDataFactorio from './components/gamedata/GDataFactorio.vue';
 import GDataFFMysticQuest from './components/gamedata/GDataFFMysticQuest.vue';
 import GDataHollowKnight from './components/gamedata/GDataHollowKnight.vue';
 import GDataKingdomHearts2 from './components/gamedata/GDataKingdomHearts2.vue';
+import GDataMetroidFusion from './components/gamedata/GDataMetroidFusion.vue';
+import GDataMetroidZeroMission from './components/gamedata/GDataMetroidZeroMission.vue';
 import GDataPokemonCrystal from './components/gamedata/GDataPokemonCrystal.vue';
 import GDataPokemonEmerald from './components/gamedata/GDataPokemonEmerald.vue';
 import GDataPokemonFRLG from './components/gamedata/GDataPokemonFRLG.vue';
@@ -27,6 +30,10 @@ var LIST_OF_GAMES = [
     {
         'name': 'A Link to the Past',
         'class': GDataALinkToThePast
+    },
+    {
+        'name': 'Balatro',
+        'class': GDataBalatro
     },
     {
         'name': 'Celeste (Open World)',
@@ -55,6 +62,14 @@ var LIST_OF_GAMES = [
     {
         'name': 'Majora\'s Mask Recompiled',
         'class': GDataMajorasMask
+    },
+    {
+        'name': 'Metroid Fusion',
+        'class': GDataMetroidFusion
+    },
+    {
+        'name': 'Metroid Zero Mission',
+        'class': GDataMetroidZeroMission
     },
     {
         'name': 'Super Mario World',
