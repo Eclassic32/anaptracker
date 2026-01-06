@@ -8,6 +8,7 @@ import GDataFactorio from './components/gamedata/GDataFactorio.vue';
 import GDataFFMysticQuest from './components/gamedata/GDataFFMysticQuest.vue';
 import GDataHollowKnight from './components/gamedata/GDataHollowKnight.vue';
 import GDataKingdomHearts2 from './components/gamedata/GDataKingdomHearts2.vue';
+import GDataMetroidFusion from './components/gamedata/GDataMetroidFusion.vue';
 import GDataPokemonCrystal from './components/gamedata/GDataPokemonCrystal.vue';
 import GDataPokemonEmerald from './components/gamedata/GDataPokemonEmerald.vue';
 import GDataPokemonFRLG from './components/gamedata/GDataPokemonFRLG.vue';
@@ -60,6 +61,10 @@ var LIST_OF_GAMES = [
     {
         'name': 'Majora\'s Mask Recompiled',
         'class': GDataMajorasMask
+    },
+    {
+        'name': 'Metroid Fusion',
+        'class': GDataMetroidFusion
     },
     {
         'name': 'Super Mario World',
