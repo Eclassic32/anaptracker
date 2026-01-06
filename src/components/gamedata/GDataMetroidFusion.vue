@@ -84,11 +84,9 @@ export default {
                 return this.$parent.getNumberItemsFromName(name);
             },
             slotData: function () {
-                // TODO : placeholder value because Eggs' requirements are not displayed the slot data.
                 return this.data.slot_data.hasOwnProperty('GameMode');
             },
             getGoalMetroids: function () {
-                // TODO : placeholder value because Eggs' requirements are not displayed the slot data.
                 if (this.data.slot_data.hasOwnProperty('InfantMetroidsRequired')) {
                     return this.data.slot_data.InfantMetroidsRequired;
                 }

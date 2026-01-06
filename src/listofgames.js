@@ -9,6 +9,7 @@ import GDataFFMysticQuest from './components/gamedata/GDataFFMysticQuest.vue';
 import GDataHollowKnight from './components/gamedata/GDataHollowKnight.vue';
 import GDataKingdomHearts2 from './components/gamedata/GDataKingdomHearts2.vue';
 import GDataMetroidFusion from './components/gamedata/GDataMetroidFusion.vue';
+import GDataMetroidZeroMission from './components/gamedata/GDataMetroidZeroMission.vue';
 import GDataPokemonCrystal from './components/gamedata/GDataPokemonCrystal.vue';
 import GDataPokemonEmerald from './components/gamedata/GDataPokemonEmerald.vue';
 import GDataPokemonFRLG from './components/gamedata/GDataPokemonFRLG.vue';
@@ -65,6 +66,10 @@ var LIST_OF_GAMES = [
     {
         'name': 'Metroid Fusion',
         'class': GDataMetroidFusion
+    },
+    {
+        'name': 'Metroid Zero Mission',
+        'class': GDataMetroidZeroMission
     },
     {
         'name': 'Super Mario World',
