@@ -291,6 +291,7 @@ export default {
           // If we got the specific Room options, we load it.
           var roomData = localStorage.getItem('TPCE_ANAP_ROOM_' + this.ROOM_ID);
           var vRoomData = localStorage.getItem('TPCE_ANAP_VROOM_' + this.ROOM_ID);
+          /*
           if (roomData != null && roomData != '' && vRoomData != null && vRoomData == H_CONFIG.APP_VERSION) {
               this.OPTIONS = JSON.parse(roomData);
           }
@@ -301,6 +302,7 @@ export default {
               if (roomData != null && roomData != '' && vRoomData != null && vRoomData == H_CONFIG.APP_VERSION)
                   this.OPTIONS = JSON.parse(roomData);
           }
+          */
       }
   },
   components: {
