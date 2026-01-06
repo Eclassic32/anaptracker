@@ -46,7 +46,6 @@
     /**
     * Metroid Zero Mission
     *
-    * Main objective is to get Infants Metroids.
     */
 export default {
         name: "gDataMetroidZeroMission",
