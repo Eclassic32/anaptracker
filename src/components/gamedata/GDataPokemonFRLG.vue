@@ -49,7 +49,11 @@
         <div v-if="!kantoOnly()" :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Sevii</div>
 
-            <span v-if="seviiPasses()" class="text-xs mr-1 font-bold" :class="{ 'opacity-25': !countSeviiPasses()  }"><img title="Island Pass" src="/img/pokemon_frlg/items/rainbow_pass.png" />x{{countSeviiPasses()}}</span>
+            <span v-if="splitSeviiPasses()" class="text-xs mr-1 font-bold" :class="{ 'opacity-25': !countSeviiPasses()  }"><img title="Island Pass" src="/img/pokemon_frlg/items/rainbow_pass.png" />x{{countSeviiPasses()}}</span>
+            <span v-else>
+                <img title="Tri Pass" src="/img/pokemon_frlg/items/tri_pass.png" :class="{ 'opacity-25': !getNumberItemsFromName('Tri Pass') && !getNumberItemsFromName('Progressive Pass') }" />
+                <img title="Rainbow Pass" src="/img/pokemon_frlg/items/rainbow_pass.png" :class="{ 'opacity-25':  !getNumberItemsFromName('Rainbow Pass') && getNumberItemsFromName('Progressive Pass') < 2  }" />
+            </span>
             <img v-if="roundTwo()" title="Ruby" src="/img/pokemon_frlg/items/ruby.png" :class="{ 'opacity-25': !getNumberItemsFromName('Ruby')  }" />
             <img v-if="roundTwo()" title="Sapphire" src="/img/pokemon_frlg/items/sapphire.png" :class="{ 'opacity-25': !getNumberItemsFromName('Sapphire')  }" />
             <img title="Thank you for the Mystic Ticket !" src="/img/pokemon_frlg/items/mystic_ticket.png" :class="{ 'opacity-25': !getNumberItemsFromName('Mystic Ticket')  }" />
@@ -97,11 +101,11 @@ export default {
                 return this.$parent.getNumberItemsFromGroup(['Cinnabar Key', 'Saffron Key', 'Viridian Key', 'Pewter Key', 'Cerulean Key', 'Celadon Key', 'Fuchsia Key', 'Vermilion Key']);
             },
             countCardKeys: function () {
-                return this.$parent.getNumberItemsNameStart('Card Key');
+                return this.$parent.getNumberItemsFromName('Progressive Card Key') + this.$parent.getNumberItemsNameStart('Card Key');
             }, 
             roundTwo: function () {
-                if (this.data.slot_data.hasOwnProperty('elite_four_rematch_requirement')) {
-                    return this.data.slot_data.elite_four_rematch_requirement;
+                if (this.data.slot_data.hasOwnProperty('goal')) {
+                    return this.data.slot_data.goal;
                 }
                 return 1;
             },
@@ -141,9 +145,9 @@ export default {
                 }
                 return 0;
             },
-            seviiPasses: function () {
+            splitSeviiPasses: function () {
                 if (this.data.slot_data.hasOwnProperty('island_passes')) {
-                    return this.data.slot_data.island_passes;
+                    return this.data.slot_data.island_passes > 1;
                 }
                 return this.countSeviiPasses();
             },
