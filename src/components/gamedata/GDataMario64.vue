@@ -92,7 +92,7 @@ export default {
                 return false;
             },
             moveShuffled: function () {
-                if (this.data.slot_data.MoveRandoVec) {
+                if (this.data.slot_data.hasOwnProperty('MoveRandoVec')) {
                     return this.data.slot_data.MoveRandoVec;
                 }
                 return 1;
