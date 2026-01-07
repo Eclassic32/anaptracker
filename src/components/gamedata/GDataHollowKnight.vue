@@ -25,10 +25,10 @@
 
         <!-- Left_Wing_Mowthing_Cloak and Right_Wing_Mowthing_Cloak -->
         <span v-if="splitCloak()">
-            <img v-if="!getNumberItemsFromName('Left_Wing_Mowthing_Cloak')" title="Mothwing Cloak Left" src="/img/hollow_knight/MothwingCloak.png" class="opacity-25" />
+            <img v-if="!getNumberItemsFromName('Left_Mothwing_Cloak')" title="Mothwing Cloak Left" src="/img/hollow_knight/MothwingCloak.png" class="opacity-25" />
             <img v-else-if="!getNumberItemsFromName('Shade_Cloak')" title="Mothwing Cloak Left" src="/img/hollow_knight/MothwingCloak.png" />
             <img v-else title="Shade Cloak Left" src="/img/hollow_knight/ShadeCloak.png" />
-            <img v-if="!getNumberItemsFromName('Right_Wing_Mowthing_Cloak')" title="Mothwing Cloak Right" src="/img/hollow_knight/MothwingCloak2.png" class="opacity-25" />
+            <img v-if="!getNumberItemsFromName('Right_Mothwing_Cloak')" title="Mothwing Cloak Right" src="/img/hollow_knight/MothwingCloak2.png" class="opacity-25" />
             <img v-else-if="!getNumberItemsFromName('Shade_Cloak')" title="Mothwing Cloak Right" src="/img/hollow_knight/MothwingCloak2.png" />
             <img v-else title="Shade Cloak Right" src="/img/hollow_knight/ShadeCloak2.png" />
         </span>
