@@ -23,7 +23,7 @@
             <img title="Thunder Element" src="/img/kingdom_hearts_2/Thunder.png" :class="{ 'opacity-25': !getNumberItemsFromName('Thunder Element')  }" />
             <img title="Cure Element" src="/img/kingdom_hearts_2/Cure.png" :class="{ 'opacity-25': !getNumberItemsFromName('Cure Element')  }" />
             <img title="Magnet Element" src="/img/kingdom_hearts_2/Magnet.png" :class="{ 'opacity-25': !getNumberItemsFromName('Magnet Element')  }" />
-            <img title="Reflet Element" src="/img/kingdom_hearts_2/Fire.png" :class="{ 'opacity-25': !getNumberItemsFromName('Reflet Element')  }" />
+            <img title="Reflect Element" src="/img/kingdom_hearts_2/Reflect.png" :class="{ 'opacity-25': !getNumberItemsFromName('Reflect Element')  }" />
             <span class="mr-2"></span>
             <img title="Valor Form" src="/img/kingdom_hearts_2/Valor Orb.png" :class="{ 'opacity-25': !getNumberItemsFromName('Valor Form')  }" />
             <img title="Wisdom Form" src="/img/kingdom_hearts_2/Wisdom Orb.png" :class="{ 'opacity-25': !getNumberItemsFromName('Wisdom Form')  }" />
