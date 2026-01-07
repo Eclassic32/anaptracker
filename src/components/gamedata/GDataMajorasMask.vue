@@ -19,8 +19,8 @@
             <img v-if="getShieldLevel() > 1" title="Mirror Shield" src="/img/mm/equipment/shield2.png" />
             <img v-else title="Hero's Shield" src="/img/mm/equipment/shield1.png" :class="{ 'opacity-25': !getShieldLevel()  }" />
 
-            <img v-if="getNumberItemsFromName('Progressive Magic Meter') > 2" title="Magic Meter" src="/img/mm/equipment/magic2.png" />
-            <img v-else src="/img/mm/equipment/magic1.png" title="Magic Meter" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Magic Meter')  }" />
+            <img v-if="getNumberItemsFromName('Progressive Magic') > 1" title="Magic" src="/img/mm/equipment/magic2.png" />
+            <img v-else src="/img/mm/equipment/magic1.png" title="Magic" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Magic')  }" />
 
             <img title="Ocarina of Time" src="/img/mm/items/ocarina.png" />
             <img v-if="getNumberItemsFromName('Progressive Bomb Bag')"  title="Bomb Bag" src="/img/mm/items/bomb.png" />
@@ -40,7 +40,7 @@
             <img title="Deku Mask" src="/img/mm/masks/deku_mask.png" :class="{ 'opacity-25': !getNumberItemsFromName('Deku Mask')  }" />
             <img title="Goron Mask" src="/img/mm/masks/goron.png" :class="{ 'opacity-25': !getNumberItemsFromName('Goron Mask')  }" />
             <img title="Zora Mask" src="/img/mm/masks/zora.png" :class="{ 'opacity-25': !getNumberItemsFromName('Zora Mask')  }" />
-            <img title="Fierce Deity's Mask" src="/img/mm/masks/fierce_deity.png" :class="{ 'opacity-25': !getNumberItemsFromName('Fiece Deity\'s Mask')  }" />
+            <img title="Fierce Deity's Mask" src="/img/mm/masks/fierce_deity.png" :class="{ 'opacity-25': !getNumberItemsFromName('Fierce Deity\'s Mask')  }" />
             <img title="Kafei's Mask" src="/img/mm/masks/kafei_mask.png" :class="{ 'opacity-25': !getNumberItemsFromName('Kafei\'s Mask')  }" />
             <img title="Great Fairy Mask" src="/img/mm/masks/fairy_mask.png" :class="{ 'opacity-25': !getNumberItemsFromName('Great Fairy Mask')  }" />
             <img v-if="getNumberItemsFromName('Gibdo Mask') > 2" title="Ikana Pass - Gibdo Mask" src="/img/mm/masks/gibdo.png" />
@@ -52,11 +52,11 @@
 
             <img title="Song of Time" src="/img/mm/equipment/song_time.png" :class="{ 'opacity-25': !getNumberItemsFromName('Song of Time')  }" />
             <img title="Epona's Song" src="/img/mm/equipment/song_epona.png" :class="{ 'opacity-25': !getNumberItemsFromName('Epona\'s Song')  }" />
-            <img title="Saria's Song" src="/img/mm/equipment/song_healing.png" :class="{ 'opacity-25': !getNumberItemsFromName('Saria\'s Song')  }" />
+            <img title="Song of Healing" src="/img/mm/equipment/song_healing.png" :class="{ 'opacity-25': !getNumberItemsFromName('Song of Healing')  }" />
             <img title="Song of Soaring" src="/img/mm/equipment/song_soaring.png" :class="{ 'opacity-25': !getNumberItemsFromName('Song of Soaring')  }" />
             <img title="Song of Storms" src="/img/mm/equipment/song_storms.png" :class="{ 'opacity-25': !getNumberItemsFromName('Song of Storms')  }" />
             <img title="Sonata of Awakening" src="/img/mm/equipment/song_sonata.png" :class="{ 'opacity-25': !getNumberItemsFromName('Sonata of Awakening')  }" />
-            <img title="Goron's Lullaby" src="/img/mm/equipment/song_lullaby.png" :class="{ 'opacity-25': !getNumberItemsFromName('Goron\'s Lullaby')  }" />
+            <img title="Goron's Lullaby" src="/img/mm/equipment/song_lullaby.png" :class="{ 'opacity-25': !getNumberItemsFromName('Goron Lullaby')  }" />
             <img title="New Wave Bossa Nova" src="/img/mm/equipment/song_bossa_nova.png" :class="{ 'opacity-25': !getNumberItemsFromName('New Wave Bossa Nova')  }" />
             <img title="Elegy of Emptiness" src="/img/mm/equipment/song_elegy.png" :class="{ 'opacity-25': !getNumberItemsFromName('Elegy of Emptiness')  }" />
             <img title="Oath to Order" src="/img/mm/equipment/song_oath.png" :class="{ 'opacity-25': !getNumberItemsFromName('Oath to Order')  }" />
