@@ -81,13 +81,13 @@ export default {
                 return 0;
             },
             upstairsKey: function () {
-                if (this.getNumberItemsFromName('Second Floor Key') || this.getNumberItemsFromName('Progressive Key'))
+                if (this.getNumberItemsFromName('Second Floor Key') || this.getNumberItemsFromName('Progressive Key') > 1)
                     return true;
                 return false;
                 
             },
             basementKey: function () {
-                if (this.getNumberItemsFromName('Basement Key') || this.getNumberItemsFromName('Progressive Key') > 1)
+                if (this.getNumberItemsFromName('Basement Key') || this.getNumberItemsFromName('Progressive Key'))
                     return true;
                 return false;
             },
