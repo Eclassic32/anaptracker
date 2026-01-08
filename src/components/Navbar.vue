@@ -44,14 +44,14 @@
             </div>
             <div class="text-green-600 relative justify-self-end font-roboto p-3 grow-5 text-right">
                 <span v-if="$parent.brokenSlotData()" class="text-red-400 font-bold mr-2">/!\ Broken Slot Data /!\</span>
-                <a href="https://github.com/OriginalTomPouce/anaptracker" target="_blank" class="cursor-pointer hover:text-white">v{{H_CONFIG.APP_VERSION}}</a>
+                <a href="https://github.com/OriginalTomPouce/anaptracker" target="_blank" class="cursor-pointer hover:text-white">v{{ANAP_CONFIG.APP_VERSION}}</a>
             </div>
         </nav>
     </div>
 </template>
 
 <script>
-    import H_CONFIG from "../hconfig.js";
+    import ANAP_CONFIG from "../anapconfig.js";
 
     export default {
         name: 'navbar',
@@ -64,7 +64,7 @@
                 showMenu: false,
                 showAdditionals: false,
                 showSortBy: false,
-                H_CONFIG
+                ANAP_CONFIG
             }
         },
 
