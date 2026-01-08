@@ -10,7 +10,7 @@
         <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Abilities</div>
 
         <img title="Dash Refills" src="/img/celeste/misc/dash_refill.png" :class="{ 'opacity-25': !getNumberItemsFromName('Dash Refills')  }" />
-        <img title="Double Dash Refills" src="/img/celeste/misc/double_refill.png" :class="{ 'opacity-25': !getNumberItemsFromName('Double Dash Refills')  }" />
+        <img v-if="includeFarewell()" title="Double Dash Refills" src="/img/celeste/misc/double_refill.png" :class="{ 'opacity-25': !getNumberItemsFromName('Double Dash Refills')  }" />
         <img title="Spings" src="/img/celeste/misc/spring.png" :class="{ 'opacity-25': !getNumberItemsFromName('Springs')  }" />
         <img title="Blue Boosters" src="/img/celeste/misc/blue_booster.png" :class="{ 'opacity-25': !getNumberItemsFromName('Blue Boosters')  }" />
         <img title="Red Boosters" src="/img/celeste/misc/red_booster.png" :class="{ 'opacity-25': !getNumberItemsFromName('Red Boosters')  }" />
@@ -20,18 +20,20 @@
         <img title="Coins" src="/img/celeste/misc/coin.png" :class="{ 'opacity-25': !getNumberItemsFromName('Coins')  }" />
         <img title="Feathers" src="/img/celeste/misc/feather.png" :class="{ 'opacity-25': !getNumberItemsFromName('Feathers')  }" />
         <img title="Seekers" src="/img/celeste/misc/seeker.png" :class="{ 'opacity-25': !getNumberItemsFromName('Seekers')  }" />
+        <img v-if="includeFarewell()" title="Jellyfish" src="/img/celeste/misc/jellyfish.png" :class="{ 'opacity-25': !getNumberItemsFromName('Jellyfish')  }" />
     </div>
     <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
         <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Blocks</div>
         <img title="Blue Cassette Blocks" src="/img/celeste/misc/cassette_b_blue.png" :class="{ 'opacity-25': !getNumberItemsFromName('Blue Cassette Blocks')  }" />
         <img title="Pink Cassette Blocks" src="/img/celeste/misc/cassette_b_pink.png" :class="{ 'opacity-25': !getNumberItemsFromName('Pink Cassette Blocks')  }" />
-        <img title="Green Cassette Blocks" src="/img/celeste/misc/cassette_b_green.png" :class="{ 'opacity-25': !getNumberItemsFromName('Green Cassette Blocks')  }" />
-        <img title="Yellow Cassette Blocks" src="/img/celeste/misc/cassette_b_yellow.png" :class="{ 'opacity-25': !getNumberItemsFromName('Yellow Cassette Blocks')  }" />
+        <img v-if="includeFarewell() == 2" title="Green Cassette Blocks" src="/img/celeste/misc/cassette_b_green.png" :class="{ 'opacity-25': !getNumberItemsFromName('Green Cassette Blocks')  }" />
+        <img v-if="includeFarewell() == 2" title="Yellow Cassette Blocks" src="/img/celeste/misc/cassette_b_yellow.png" :class="{ 'opacity-25': !getNumberItemsFromName('Yellow Cassette Blocks')  }" />
         <span class="mr-2"></span>
         <img title="Traffic Blocks" src="/img/celeste/misc/traffic_block.png" :class="{ 'opacity-25': !getNumberItemsFromName('Traffic Blocks')  }" />
         <img title="Kevins Blocks" src="/img/celeste/misc/blue_block.png" :class="{ 'opacity-25': !getNumberItemsFromName('Kevins')  }" />
         <img title="Move Blocks" src="/img/celeste/misc/move_block.png" :class="{ 'opacity-25': !getNumberItemsFromName('Move Blocks')  }" />
         <img title="Swap Blocks" src="/img/celeste/misc/swap_block.png" :class="{ 'opacity-25': !getNumberItemsFromName('Swap Blocks')  }" />
+        <img title="Blue Clouds" src="/img/celeste/misc/blue_clouds.png" :class="{ 'opacity-25': !getNumberItemsFromName('Blue Clouds')  }" />
         <img title="Pink Clouds" src="/img/celeste/misc/pink_clouds.png" :class="{ 'opacity-25': !getNumberItemsFromName('Pink Clouds')  }" />
         <img title="Dream Blocks" src="/img/celeste/misc/dream_block.png" :class="{ 'opacity-25': !getNumberItemsFromName('Dream Blocks')  }" />
     </div>
@@ -74,11 +76,30 @@ export default {
             getNumberItemsFromName: function (name) {
                 return this.$parent.getNumberItemsFromName(name);
             },
+            goalLocked: function() {
+                if (this.data.slot_data.hasOwnProperty('lock_goal_area')) {
+                    return this.data.slot_data.lock_goal_area;
+                }
+                return 1;
+                  
+            },
             getGoalStrawberries: function () {
                 if (this.data.slot_data.strawberries_required) {
                     return this.data.slot_data.strawberries_required;
                 }
                 return 0;
+            },
+            includeFarewell: function () {
+                if (this.data.slot_data.hasOwnProperty('include_farewell')) {
+                    return this.data.slot_data.include_farewell;
+                }
+                return 2;
+            },
+            includeFarewellCSide: function () {
+                if (this.data.slot_data.hasOwnProperty('include_farewell')) {
+                    return this.data.slot_data.include_farewell && this.data.slot_data.include_c_sides;
+                }
+                return 1;
             }
         },
   components: {
