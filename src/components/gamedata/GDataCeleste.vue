@@ -29,7 +29,7 @@
         <img title="Yellow Cassette Blocks" src="/img/celeste/misc/cassette_b_yellow.png" :class="{ 'opacity-25': !getNumberItemsFromName('Yellow Cassette Blocks')  }" />
         <span class="mr-2"></span>
         <img title="Traffic Blocks" src="/img/celeste/misc/traffic_block.png" :class="{ 'opacity-25': !getNumberItemsFromName('Traffic Blocks')  }" />
-        <img title="Blue Blocks" src="/img/celeste/misc/blue_block.png" :class="{ 'opacity-25': !getNumberItemsFromName('Blue Blocks')  }" />
+        <img title="Kevins Blocks" src="/img/celeste/misc/blue_block.png" :class="{ 'opacity-25': !getNumberItemsFromName('Kevins')  }" />
         <img title="Move Blocks" src="/img/celeste/misc/move_block.png" :class="{ 'opacity-25': !getNumberItemsFromName('Move Blocks')  }" />
         <img title="Swap Blocks" src="/img/celeste/misc/swap_block.png" :class="{ 'opacity-25': !getNumberItemsFromName('Swap Blocks')  }" />
         <img title="Pink Clouds" src="/img/celeste/misc/pink_clouds.png" :class="{ 'opacity-25': !getNumberItemsFromName('Pink Clouds')  }" />

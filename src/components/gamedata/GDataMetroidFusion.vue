@@ -30,7 +30,7 @@
             <span class="mr-2"></span>
             <img title="Super Missile" src="/img/metroid_fusion/SuperMissile.png" :class="{ 'opacity-25': !getNumberItemsFromName('Super Missile')  }" />
             <img title="Ice Missile" src="/img/metroid_fusion/IceMissile.png" :class="{ 'opacity-25': !getNumberItemsFromName('Ice Missile')  }" />
-            <img title="Diffusion Missile" src="/img/metroid_fusion/DiffusionMissile.png" :class="{ 'opacity-25': !getNumberItemsFromName('Difussion Missile')  }" />
+            <img title="Diffusion Missile" src="/img/metroid_fusion/DiffusionMissile.png" :class="{ 'opacity-25': !getNumberItemsFromName('Diffusion Missile')  }" />
         </div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
