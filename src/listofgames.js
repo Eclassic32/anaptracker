@@ -15,6 +15,7 @@ import GDataPokemonEmerald from './components/gamedata/GDataPokemonEmerald.vue';
 import GDataPokemonFRLG from './components/gamedata/GDataPokemonFRLG.vue';
 import GDataPokemonRedBlue from './components/gamedata/GDataPokemonRedBlue.vue';
 import GDataShipOfHarkinian from './components/gamedata/GDataShipOfHarkinian.vue';
+import GDataSonicAdventure2Battle from './components/gamedata/GDataSonicAdventure2Battle.vue';
 import GDataMario64 from './components/gamedata/GDataMario64.vue';
 import GDataSuperMarioWorld from './components/gamedata/GDataSuperMarioWorld.vue';
 import GDataSuperMetroid from './components/gamedata/GDataSuperMetroid.vue';
@@ -94,6 +95,10 @@ var LIST_OF_GAMES = [
     {
         'name': 'Pokemon Red and Blue',
         'class': GDataPokemonRedBlue
+    }, 
+    {
+        'name': 'Sonic Adventure 2 Battle',
+        'class': GDataSonicAdventure2Battle
     },
     {
         'name': 'Ship of Harkinian',
