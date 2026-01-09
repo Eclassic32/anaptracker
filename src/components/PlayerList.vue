@@ -10,16 +10,16 @@
                         v-bind:data="element">
             </PlayerSlot>
         </div>
-        <div :class=" { 'bg-emerald-200' : get_state() > 1, 'py-6' : $parent.OPTIONS.row_size == 2,  'text-sm py-4' : !$parent.OPTIONS.row_size  }" class="relative inline-block w-full tracker-history text-xl leading-5 font-semibold font-xl h-full px-2 border-t-2 border-t-gray-900 align-middle">
+        <div :class=" { 'bg-emerald-200' : get_state() > 1, 'py-6' : $parent.OPTIONS.row_size,  'text-sm py-4' : !$parent.OPTIONS.row_size  }" class="relative inline-block w-full tracker-history text-xl leading-5 font-semibold font-xl h-full px-2 border-t-2 border-t-gray-900">
             <div class="absolute left-0 top-0 bottom-0 z-1 bg-green-500" :style="{ 'width' : str_percent_completion() }"></div>
-            <div class="z-2 flex flex-column justify-between">
-                <div class="w-1/2 z-3 text-lg align-middle">
+            <div class="z-2 flex flex-column justify-between text-lg items-center ">
+                <div class="w-1/2 z-3 text-lg" >
 
-                    <div v-if="get_state() > 1" class="mr-2">DONE ! Congratulations !</div>
-                    <div v-else class="mr-2 align-middle">Games completed : {{ games_completed() }} / {{ total_games() }}</div>
+                    <div v-if="get_state() > 1" class="mr-2" :class="{'text-2xl':  $parent.OPTIONS.row_size == 2, 'text-xl':  $parent.OPTIONS.row_size == 1}">DONE ! Congratulations !</div>
+                    <div v-else class="mr-2 align-middle" :class="{'text-2xl':  $parent.OPTIONS.row_size == 2, 'text-xl':  $parent.OPTIONS.row_size == 1}">Games completed : {{ games_completed() }} / {{ total_games() }}</div>
                 </div>
 
-                <div :class="{'text-xl':  $parent.OPTIONS.row_size == 2}" class="w-1/2 z-3 text-right text-lg"><span v-if="!$parent.OPTIONS.row_size" class="font-normal text-tiny mr-2">({{ percent_completion() }}%)</span>{{ get_current_checks() }} / {{ get_total_checks() }}<br /><span v-if="$parent.OPTIONS.row_size" class="font-normal text-tiny">({{ percent_completion() }}%)</span></div>
+                <div :class="{'text-2xl':  $parent.OPTIONS.row_size == 2, 'text-xl':  $parent.OPTIONS.row_size == 1}" class="w-1/2 z-3 text-right"><span v-if="!$parent.OPTIONS.row_size" class="font-normal text-tiny mr-2">({{ percent_completion() }}%)</span>{{ get_current_checks() }} / {{ get_total_checks() }}<br /><span v-if="$parent.OPTIONS.row_size" class="font-normal text-tiny">({{ percent_completion() }}%)</span></div>
             </div>
         </div>
 
