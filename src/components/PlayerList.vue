@@ -13,7 +13,7 @@
         <div :class=" { 'bg-emerald-200' : get_state() > 1, 'py-6' : $parent.OPTIONS.row_size,  'text-sm py-4' : !$parent.OPTIONS.row_size  }" class="relative inline-block w-full tracker-history text-xl leading-5 font-semibold font-xl h-full px-2 border-t-2 border-t-gray-900">
             <div class="absolute left-0 top-0 bottom-0 z-1 bg-green-500" :style="{ 'width' : str_percent_completion() }"></div>
             <div class="z-2 flex flex-column justify-between text-lg items-center ">
-                <div class="w-1/2 z-3 text-lg" >
+                <div class="w-1/2 z-3 text-lg">
 
                     <div v-if="get_state() > 1" class="mr-2" :class="{'text-2xl':  $parent.OPTIONS.row_size == 2, 'text-xl':  $parent.OPTIONS.row_size == 1}">DONE ! Congratulations !</div>
                     <div v-else class="mr-2 align-middle" :class="{'text-2xl':  $parent.OPTIONS.row_size == 2, 'text-xl':  $parent.OPTIONS.row_size == 1}">Games completed : {{ games_completed() }} / {{ total_games() }}</div>
@@ -118,7 +118,7 @@
             str_percent_completion: function () {
                 var total_checks = this.get_total_checks();
                 if (total_checks > 0 && this.get_state() < 2)
-                    return Math.floor(this.get_current_checks() * 100 / total_checks).toString() + '%';
+                    return (Math.floor(this.get_current_checks() * 10000 / total_checks) / 100).toString() + '%';
                 return 0;
             }
 
