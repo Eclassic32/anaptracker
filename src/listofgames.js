@@ -18,6 +18,7 @@ import GDataShipOfHarkinian from './components/gamedata/GDataShipOfHarkinian.vue
 import GDataSonicAdventure2Battle from './components/gamedata/GDataSonicAdventure2Battle.vue';
 import GDataMario64 from './components/gamedata/GDataMario64.vue';
 import GDataSuperMarioWorld from './components/gamedata/GDataSuperMarioWorld.vue';
+import GDataSecretOfEvermore from './components/gamedata/GDataSecretOfEvermore.vue';
 import GDataSuperMetroid from './components/gamedata/GDataSuperMetroid.vue';
 import GDataMajorasMask from './components/gamedata/GDataMajorasMask.vue';
 import GDataTheMinishCap from './components/gamedata/GDataTheMinishCap.vue';
@@ -71,6 +72,10 @@ var LIST_OF_GAMES = [
     {
         'name': 'Metroid Zero Mission',
         'class': GDataMetroidZeroMission
+    },
+    {
+        'name': 'Secret of Evermore',
+        'class': GDataSecretOfEvermore
     },
     {
         'name': 'Super Mario World',
