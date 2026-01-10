@@ -41,7 +41,7 @@
             <img title="Morph Ball" src="/img/metroid_fusion/MorphBall.png" :class="{ 'opacity-25': !getNumberItemsFromName('Morph Ball')  }" />
             <img title="Bomb" src="/img/metroid_fusion/MorphBallBombs.png" :class="{ 'opacity-25': !getNumberItemsFromName('Bomb Data')  }" />
             <img title="Screw Attack" src="/img/metroid_fusion/ScrewAttack.png" :class="{ 'opacity-25': !getNumberItemsFromName('Screw Attack')  }" />
-            <img title="Hi-Jump Boots" src="/img/metroid_fusion/HiJumpBoots.png" :class="{ 'opacity-25': !getNumberItemsFromName('Hi-Jump Boots')  }" />
+            <img title="Hi-Jump" src="/img/metroid_fusion/HiJumpBoots.png" :class="{ 'opacity-25': !getNumberItemsFromName('Hi-Jump')  }" />
             <img title="Speed Booster" src="/img/metroid_fusion/SpeedBooster.png" :class="{ 'opacity-25': !getNumberItemsFromName('Speed Booster')  }" />
             <img title="Space Jump" src="/img/metroid_fusion/SpaceJump.png" :class="{ 'opacity-25': !getNumberItemsFromName('Space Jump')  }" />
             <span class="mr-2"></span>
