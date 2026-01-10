@@ -44,13 +44,13 @@
             <img v-else title="EXPN. Card" src="/img/pokemon_crystal/items/expncard.png" />
             <img title="Bicycle" src="/img/pokemon_crystal/items/bicycle.png" :class="{ 'opacity-25': !getNumberItemsFromName('Bicycle')  }" />
             <img title="Squirtbottle" src="/img/pokemon_crystal/items/squirtbottle.png" :class="{ 'opacity-25': !getNumberItemsFromName('Squirtbottle')  }" />
-            <img title="S.S. Ticket" src="/img/pokemon_crystal/items/ssticket.png" :class="{ 'opacity-25': !getNumberItemsFromName('S.S. Ticket')  }" />
-            <img title="Pass" src="/img/pokemon_crystal/items/pass.png" :class="{ 'opacity-25': !getNumberItemsFromName('Pass')  }" />
+            <img v-if="kantoIsOn()" title="S.S. Ticket" src="/img/pokemon_crystal/items/ssticket.png" :class="{ 'opacity-25': !getNumberItemsFromName('S.S. Ticket')  }" />
+            <img v-if="kantoIsOn()" title="Pass" src="/img/pokemon_crystal/items/pass.png" :class="{ 'opacity-25': !getNumberItemsFromName('Pass')  }" />
             <img title="Basement Key" src="/img/pokemon_crystal/items/basementkey.png" :class="{ 'opacity-25': !getNumberItemsFromName('Basement Key')  }" />
             <img title="Card Key" src="/img/pokemon_crystal/items/cardkey.png" :class="{ 'opacity-25': !getNumberItemsFromName('Card Key')  }" />
-            <img title="Rainbow Wing" src="/img/pokemon_crystal/items/rainbowwing.png" :class="{ 'opacity-25': !getNumberItemsFromName('Rainbow Wing')  }" />
-            <img title="Machine Part" src="/img/pokemon_crystal/items/machinepart.png" :class="{ 'opacity-25': !getNumberItemsFromName('Machine Part')  }" />
-            <img title="Tea" src="/img/pokemon_crystal/items/tea.png" :class="{ 'opacity-25': !getNumberItemsFromName('Tea')  }" />
+            <img title="Clear Bell" src="/img/pokemon_crystal/items/clearbell.png" :class="{ 'opacity-25': !getNumberItemsFromName('Clear Bell')  }" />
+            <img v-if="kantoIsOn()" title="Tea" src="/img/pokemon_crystal/items/tea.png" :class="{ 'opacity-25': !getNumberItemsFromName('Tea')  }" />
+            <img v-if="kantoIsOn()" title="Machine Part" src="/img/pokemon_crystal/items/machinepart.png" :class="{ 'opacity-25': !getNumberItemsFromName('Machine Part')  }" />
         </div>
     </div>
 </template>
