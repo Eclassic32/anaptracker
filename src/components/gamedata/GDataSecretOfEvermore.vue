@@ -34,11 +34,10 @@
             <img v-else-if="getNumberItemsFromName('Bronze Spear')" title="Bronze Spear" src="/img/secret_of_evermore/weapons/spear_2.png" />
             <img v-else title="Horn Spear" src="/img/secret_of_evermore/weapons/spear_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Horn Spear')  }" />
 
-            <img v-if="!getNumberItemsFromName('Bazooka')" title="Bazooka" src="/img/secret_of_evermore/weapons/bazooka.png" class="opacity-25" />
-            <img v-else-if="!getNumberItemsFromName('30 Thunderball') && !getNumberItemsFromName('30 Particle Bombs') && !getNumberItemsFromName('30 Cryo Blast')" title="Bazooka" src="/img/secret_of_evermore/weapons/bazooka.png" />
             <img v-else-if="getNumberItemsFromName('30 Cryo Blast')" title="Cryo Blast" src="/img/secret_of_evermore/weapons/ammo_3.png" />
             <img v-else-if="getNumberItemsFromName('30 Particle Bombs')" title="Particle Bomb" src="/img/secret_of_evermore/weapons/ammo_2.png" />
-            <img v-else title="Thunderball" src="/img/secret_of_evermore/weapons/ammo_1.png" />
+            <img v-else-if="!getNumberItemsFromName('30 Thunderball')" " title="Thunderball" src="/img/secret_of_evermore/weapons/ammo_1.png" />
+            <img v-else title="Bazooka" src="/img/secret_of_evermore/weapons/bazooka.png" class="opacity-25" :class="{ 'opacity-25': !getNumberItemsFromName('Bazooka')  }"/>
 
         </div>
 
@@ -85,11 +84,19 @@
     
 <script>
 /**
- *  Final Fantasy Mystic Quest
+ *  Secret of Evermore
+ *  
+ *  The goal is to reach Omnitopia and beat Carltron's Robot 
+ *  You need the rocket ingredients (Diamond Eyes, Gauge and Wheel), and the Energy Core that can be splitted depending on the goal
+ *  
+ *  The game slot data is empty at the moment, but the goal can be :
+ *  - 0 : Vanilla Core
+ *  - 1 : Shuffled Core
+ *  - 2 : Shuffled Fragments
  * 
- * Unfortunately, i'm very restricted on what I can do.
- * The game doesn't have Slot Data so I cannot add any goal information.
- * Also, the game always starts with a Steel Armor and one weapon (a Steel Sword per default)
+ * Notes :
+ * - You always start with a Bone Crusher. (it's never tracked by archipelago)
+ * - A Bazooka is needed to fire their projectiles, but you can get a free one on Ebony (sphere 2).
  * 
  */ 
 export default {
@@ -117,7 +124,7 @@ export default {
             },
             coreFragmentMode: function () {
                 if (this.data.slot_data.hasOwnProperty('Goal')) {
-                    return [0, 3, 4, 5].includes(this.data.slot_data.Goal);
+                    return this.data.slot_data.Goal == 2;
                 }
                 return this.getNumberItemsFromName('Energy Core Fragment');
             },
