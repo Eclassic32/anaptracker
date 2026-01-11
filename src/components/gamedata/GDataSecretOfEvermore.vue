@@ -123,14 +123,14 @@ export default {
                 return this.$parent.getNumberItemsFromName(name);
             },
             coreFragmentMode: function () {
-                if (this.data.slot_data.hasOwnProperty('Goal')) {
-                    return this.data.slot_data.Goal == 2;
+                if (this.data.slot_data.hasOwnProperty('EnergyCore') && this.data.slot_data.EnergyCore == 2) {
+                    return 1;
                 }
                 return this.getNumberItemsFromName('Energy Core Fragment');
             },
             coreFragmentNumber: function () {
                 if (this.coreFragmentMode()) {
-                    return this.data.slot_data.EmblemsForCannonsCore;
+                    return this.data.slot_data.RequiredFragments;
                 }
                 return 0;
             }
