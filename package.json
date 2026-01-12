@@ -11,8 +11,10 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@primeuix/themes": "^2.0.2",
     "@tailwindcss/vite": "^4.1.4",
     "axios": "^1.13.2",
+    "primevue": "^4.5.4",
     "tailwindcss": "^4.1.4",
     "vitest": "^3.2.4",
     "vue": "^3.5.13",

@@ -454,7 +454,6 @@
                 }
             },
             resetBack: function () {
-                this.ROOM_DATA.players = [];
                 this.GLOBAL_TRACKER_DATA.players = [];
                 this.GLOBAL_TRACKER_DATA.datapackage = [];
                 this.GLOBAL_TRACKER_DATA.groups = [];
@@ -462,8 +461,7 @@
                 this.GLOBAL_TRACKER_DATA.broken_slot_data = false;
                 this.ROOM_ID = '';
                 this.TRACKER_ID = '';
-                document.title = "A normal AP Tracker";
-                this.updateURL();
+                this.route(null, null, null);
             },
             loadRoom: function (roomid) {
                 this.route('room', 'archipelago', roomid);
