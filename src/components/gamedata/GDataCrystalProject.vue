@@ -36,21 +36,21 @@
 
             <span v-if="logicalLevel()"  title="Logical Level" class="mr-2 text-xs"><img src="/img/crystal_project/system/image_part_005.png" />lvl <b>{{ logicalLevel() }}</b> </span>
 
-            <img v-if="getNumberItemsFromName('Item - Progressive Mount Instrusment') > 6"  title="Quintar Instrument" src="/img/crystal_project/keys/quintar ocarina.png" />
-            <img v-else-if="getNumberItemsFromName('Item - Progressive Mount Instrusment') > 1"  title="Quintar Instrument" src="/img/crystal_project/keys/quintar flute.png" />
-            <img v-else-if="getNumberItemsFromName('Item - Progressive Mount Instrusment') > 0"  title="Quintar Instrument" src="/img/crystal_project/keys/proof of merit.png" />
+            <img v-if="getNumberItemsFromName('Item - Progressive Mount Instrument') > 6"  title="Quintar Instrument" src="/img/crystal_project/keys/quintar ocarina.png" />
+            <img v-else-if="getNumberItemsFromName('Item - Progressive Mount Instrument') > 1"  title="Quintar Instrument" src="/img/crystal_project/keys/quintar flute.png" />
+            <img v-else-if="getNumberItemsFromName('Item - Progressive Mount Instrument') > 0"  title="Quintar Instrument" src="/img/crystal_project/keys/proof of merit.png" />
             <img v-else-if="getNumberItemsFromName('Item - Progressive Quintar Flute') > 2"  title="Quintar Instrument" src="/img/crystal_project/keys/quintar ocarina.png" />
             <img v-else-if="getNumberItemsFromName('Item - Progressive Quintar Flute') > 1"  title="Quintar Instrument" src="/img/crystal_project/keys/quintar flute.png" />
             <img v-else src="/img/crystal_project/keys/proof of merit.png"  title="Quintar Instrument" :class="{ 'opacity-25': !getNumberItemsFromName('Item - Progressive Quintar Flute')  }" />
 
-            <img v-if="getNumberItemsFromName('Item - Progressive Mount Instrusment') > 2" title="Ibek Bell" src="/img/crystal_project/keys/ibek bell.png" />
+            <img v-if="getNumberItemsFromName('Item - Progressive Mount Instrument') > 2" title="Ibek Bell" src="/img/crystal_project/keys/ibek bell.png" />
             <img v-else src="/img/crystal_project/keys/ibek bell.png"  title="Ibek Bell" :class="{ 'opacity-25': !getNumberItemsFromName('Item - Ibek Bell')  }" />
 
-            <img v-if="getNumberItemsFromName('Item - Progressive Mount Instrusment') > 3" title="Owl Drum" src="/img/crystal_project/keys/owl drum.png" />
+            <img v-if="getNumberItemsFromName('Item - Progressive Mount Instrument') > 3" title="Owl Drum" src="/img/crystal_project/keys/owl drum.png" />
             <img v-else src="/img/crystal_project/keys/owl drum.png" title="Owl Drum" :class="{ 'opacity-25': !getNumberItemsFromName('Item - Owl Drum')  }" />
 
-            <img v-if="getNumberItemsFromName('Item - Progressive Mount Instrusment') > 5" title="Salmon Instrument" src="/img/crystal_project/keys/salmon cello.png" />
-            <img v-else-if="getNumberItemsFromName('Item - Progressive Mount Instrusment') > 4" title="Salmon Instrument" src="/img/crystal_project/keys/salmon violin.png" />
+            <img v-if="getNumberItemsFromName('Item - Progressive Mount Instrument') > 5" title="Salmon Instrument" src="/img/crystal_project/keys/salmon cello.png" />
+            <img v-else-if="getNumberItemsFromName('Item - Progressive Mount Instrument') > 4" title="Salmon Instrument" src="/img/crystal_project/keys/salmon violin.png" />
             <img v-else-if="getNumberItemsFromName('Item - Progressive Salmon Violin') > 1" title="Salmon Instrument" src="/img/crystal_project/keys/salmon cello.png" />
             <img v-else src="/img/crystal_project/keys/salmon violin.png" title="Salmon Instrument" :class="{ 'opacity-25': !getNumberItemsFromName('Item - Progressive Salmon Violin')  }" />
 
