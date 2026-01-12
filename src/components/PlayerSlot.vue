@@ -8,27 +8,27 @@
                 <div class="clear-both text-center font-normal">
 
 
-                    <div v-if="getImportantSentHints()" :class="getImageClass()" class="inline-block bg-red-400/70 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+                    <div v-if="getImportantRecievedHints()" :class="getImageClass()" class="inline-block bg-red-400/70 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
                         <div v-if="get_size()" class="text-xs font-normal text-left">Hints</div>
 
-                        <span v-if="getImportantSentHints() > 5" class="mr-2 text-xs font-bold"><img title="Sent Hints" src="/img/event.png" />x{{ getImportantSentHints() }} </span>
+                        <span v-if="getImportantRecievedHints() > 5" class="mr-2 text-xs font-bold"><img title="Hinted Item on their world" src="/img/event.png" />x{{ getImportantRecievedHints() }} </span>
                         <span v-else class="text-xs font-bold">
-                            <img v-if="getImportantSentHints() > 4" title="Sent Hints" src="/img/event.png" />
-                            <img v-if="getImportantSentHints() > 3" title="Sent Hints" src="/img/event.png" />
-                            <img v-if="getImportantSentHints() > 2" title="Sent Hints" src="/img/event.png" />
-                            <img v-if="getImportantSentHints() > 1" title="Sent Hints" src="/img/event.png" />
+                            <img v-if="getImportantRecievedHints() > 4" title="Hinted Item on their world" src="/img/event.png" />
+                            <img v-if="getImportantRecievedHints() > 3" title="Hinted Item on their world" src="/img/event.png" />
+                            <img v-if="getImportantRecievedHints() > 2" title="Hinted Item on their world" src="/img/event.png" />
+                            <img v-if="getImportantRecievedHints() > 1" title="Hinted Item on their world" src="/img/event.png" />
                             <img title="Sent Hints" src="/img/event.png" />
                         </span>
                     </div>
-                    <div v-if="getImportantRecievedHints()" :class="getImageClass()" class="inline-block bg-blue-400/70 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+                    <div v-if="getImportantSentHints()" :class="getImageClass()" class="inline-block bg-blue-400/70 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
                         <div v-if="get_size()" class="text-xs font-normal text-left">Hints</div>
 
-                        <span v-if="getImportantRecievedHints() > 5" class="mr-2 text-xs font-bold"><img title="Recieved Hints" src="/img/unknown.png" />x{{ getImportantRecievedHints() }} </span>
+                        <span v-if="getImportantRecievedHints() > 5" class="mr-2 text-xs font-bold"><img title="Hint sent to another player" src="/img/unknown.png" />x{{ getImportantSentHints() }} </span>
                         <span v-else class="text-xs font-bold">
-                            <img v-if="getImportantRecievedHints() > 4" title="Recieved Hints" src="/img/unknown.png" />
-                            <img v-if="getImportantRecievedHints() > 3" title="Recieved Hints" src="/img/unknown.png" />
-                            <img v-if="getImportantRecievedHints() > 2" title="Recieved Hints" src="/img/unknown.png" />
-                            <img v-if="getImportantRecievedHints() > 1" title="Recieved Hints" src="/img/unknown.png" />
+                            <img v-if="getImportantSentHints() > 4" title="Hint sent to another player" src="/img/unknown.png" />
+                            <img v-if="getImportantSentHints() > 3" title="Hint sent to another player" src="/img/unknown.png" />
+                            <img v-if="getImportantSentHints() > 2" title="Hint sent to another player" src="/img/unknown.png" />
+                            <img v-if="getImportantSentHints() > 1" title="Hint sent to another player" src="/img/unknown.png" />
                             <img title="Recieved Hints" src="/img/unknown.png" />
                         </span>
                     </div>
@@ -243,7 +243,7 @@ export default {
             getImportantSentHints: function (name) {
                 var res = 0;
                 for (var x = 0; x < this.data.tracker_data.hints.length; x++) {
-                    if (this.data.tracker_data.hints[x][1] == this.data.id && this.data.tracker_data.hints[x][6] == 2 && this.data.tracker_data.hints[x][4] == false)
+                    if (this.data.tracker_data.hints[x][0] == this.data.id && this.data.tracker_data.hints[x][1] != this.data.id && this.data.tracker_data.hints[x][6] == 2 && this.data.tracker_data.hints[x][4] == false)
                         res++;
                 }
                 return res;
@@ -251,7 +251,7 @@ export default {
             getImportantRecievedHints: function (name) {
                 var res = 0;
                 for (var x = 0; x < this.data.tracker_data.hints.length; x++) {
-                    if (this.data.tracker_data.hints[x][0] == this.data.id && this.data.tracker_data.hints[x][6] == 2 && this.data.tracker_data.hints[x][4] == false)
+                    if (this.data.tracker_data.hints[x][1] == this.data.id && this.data.tracker_data.hints[x][0] != this.data.id && this.data.tracker_data.hints[x][6] == 2 && this.data.tracker_data.hints[x][4] == false)
                         res++;
                 }
                 return res;
