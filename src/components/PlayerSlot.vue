@@ -17,7 +17,7 @@
                             <img v-if="getImportantRecievedHints() > 3" title="Hinted Item on their world" src="/img/event.png" />
                             <img v-if="getImportantRecievedHints() > 2" title="Hinted Item on their world" src="/img/event.png" />
                             <img v-if="getImportantRecievedHints() > 1" title="Hinted Item on their world" src="/img/event.png" />
-                            <img title="Sent Hints" src="/img/event.png" />
+                            <img title="Hinted Item on their world" src="/img/event.png" />
                         </span>
                     </div>
                     <div v-if="getImportantSentHints()" :class="getImageClass()" class="inline-block bg-blue-400/70 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
@@ -29,7 +29,7 @@
                             <img v-if="getImportantSentHints() > 3" title="Hint sent to another player" src="/img/unknown.png" />
                             <img v-if="getImportantSentHints() > 2" title="Hint sent to another player" src="/img/unknown.png" />
                             <img v-if="getImportantSentHints() > 1" title="Hint sent to another player" src="/img/unknown.png" />
-                            <img title="Recieved Hints" src="/img/unknown.png" />
+                            <img title="Hint sent to another player" src="/img/unknown.png" />
                         </span>
                     </div>
 
