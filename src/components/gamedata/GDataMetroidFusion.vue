@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="inline-block">
 
 
         <div v-if="getGoalMetroids() || getNumberItemsFromName('Infant Metroid')" :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
