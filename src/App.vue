@@ -398,7 +398,7 @@
              * route is the first method to call when you load a new page !!!
              */
             route: function (arg1, arg2, arg3) {
-                var route = 'room'; // Default route
+                var route = ''; // Default route
                 // Page selection
                 if (['statistics', 'room', 'tracker'].includes(arg1)) {
                     route = arg1;
@@ -424,13 +424,12 @@
                     arg1 = arg2;
                 // ID
                 var id = arg1;
-
                 console.log('Full route is ' + route + ' / ' + webhost + ' / ' + id);
 
                 this.ROOM_ID = arg1;
-                if (this.ROOM_ID && route == 'room')
+                if (this.ROOM_ID && route == 'room' && id != null && id.length == 22)
                     this.startLoadingFromRoom();
-                if (this.ROOM_ID && route == 'tracker')
+                if (this.ROOM_ID && route == 'tracker' && id != null && id.length == 22)
                     this.startLoadingFromTracker();
 
                 this.updateURL(route, webhost, id);
