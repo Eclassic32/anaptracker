@@ -4,7 +4,7 @@
     <div class="relative h-screen">
         <div class="flex flex-col">
             <div>
-                <Navbar v-bind:gamedata="DATA_PACKAGE" v-bind:room="ROOM_DATA"></Navbar>
+                <Navbar v-bind:gamedata="DATA_PACKAGE"></Navbar>
             </div>
             <div>
                 <Statistics v-if="ROOM_ID == 'statistics'"></Statistics>
@@ -13,6 +13,7 @@
             </div>
         </div>
     </div>
+    <Toast  position="bottom-right" />
 </template>
 <script>
     import PlayerList from "./components/PlayerList.vue";
@@ -22,12 +23,14 @@
     import ANAP_CONFIG from "./anapconfig.js";
     import axios from 'axios';
     import ANAP_DATA from "./anapdata.js";
+    import ANAP_WEBHOST from "./anapwebhost.js";
     import LIST_OF_GAMES from "./listofgames.js";
 
     var TRACKER_ID = '';
     var ROOM_ID = '';
+    var WEBHOST_USED = 'archipelago';
 
-
+    
 
 
     var GLOBAL_TRACKER_DATA = {
@@ -77,7 +80,6 @@
         player_locations_total: []
 
     };
-    var ROOM_DATA = { players: [] };
     var SLOT_DATA = {};
     var DATA_PACKAGE = {};
 
@@ -88,12 +90,12 @@
                 ANAP_DATA,
                 GLOBAL_TRACKER_DATA,
                 SLOT_DATA,
-                ROOM_DATA,
                 DATA_PACKAGE,
                 TRACKER_ID,
                 ROOM_ID,
                 LIST_OF_GAMES,
-                OPTIONS
+                OPTIONS,
+                WEBHOST_USED
             };
         },
         created() {
@@ -106,13 +108,13 @@
         methods: {
             // Checks if the loaded room is valid (can fetch data, has players, ...)
             validRoom: function () {
-                if (this.ROOM_ID && this.ROOM_DATA.players.length > 0)
+                if (this.TRACKER_ID && this.GLOBAL_TRACKER_DATA.players.length > 0)
                     return true;
                 return false;
             },
             // Checks if the tracker is ready to use (make sure most of the calls are loaded)
             trackerIsReady: function () {
-                if (this.ROOM_DATA.players && this.ROOM_DATA.players.length > 0 &&
+                if (this.GLOBAL_TRACKER_DATA.players && this.GLOBAL_TRACKER_DATA.players.length > 0 &&
                     this.STATIC_TRACKER_DATA.datapackage && this.STATIC_TRACKER_DATA.datapackage.length > 0)
                     return true;
                 return false;
@@ -120,6 +122,12 @@
             // Checks if the Slot Data call broke
             brokenSlotData: function () {
                 return this.GLOBAL_TRACKER_DATA.broken_slot_data;
+            },
+            toasOasIOAST: function (message, category) {
+                if (category == null)
+                    category = info;
+
+                //this.$toast.add({ summary: message, severity: category, life: 8000 });
             },
             // Refresh the tracker data, using the tracker API call result
             refreshTrackerData: function (tdata) {
@@ -140,7 +148,7 @@
             },
             // The refresh loop call
             autoRefresh: function () {
-                var TRACKER_URL = this.ANAP_DATA.archipelagogg.tracker_url + this.ROOM_DATA.tracker;
+                var TRACKER_URL = this.ANAP_DATA.archipelagogg.tracker_url + this.WEBHOST_USED + '/' + this.TRACKER_ID;
 
                 axios
                     .get(TRACKER_URL)
@@ -180,6 +188,11 @@
                         }
                     }
                 }
+
+                if (this.GLOBAL_TRACKER_DATA.broken_slot_data == true) {
+                    this.toasOasIOAST('No Slot Data available for this room. Tracking will have less precision than usual.', 'error');
+                }
+
             },
             // Make the Datapackage call thread.
             getChainStaticData: function () {
@@ -192,7 +205,7 @@
                                 console.log("Getting data package from " + key);
                                 this.DATA_PACKAGE[key] = "";
                                 axios
-                                    .get(this.ANAP_DATA.archipelagogg.datapackage_url + this.STATIC_TRACKER_DATA.datapackage[key].checksum)
+                                    .get(this.ANAP_DATA.archipelagogg.datapackage_url + this.WEBHOST_USED + '/' + this.STATIC_TRACKER_DATA.datapackage[key].checksum)
                                     .then(response => (this.DATA_PACKAGE[key] = response.data))
                                     .then(response => (setTimeout(function (scope) {
                                         scope.getChainStaticData();
@@ -205,37 +218,37 @@
                 }
             },
             // Begin tracking a room, setting the call chain.
-            beginTrackingData(room_data) {
-                this.ROOM_DATA = room_data;
-                GLOBAL_TRACKER_DATA.players = [];
+            beginTrackingDataFromRoom(room_data) {
+                this.GLOBAL_TRACKER_DATA.players = [];
 
-                if (!this.validRoom())
-                    return;
-                this.updateTitle();
                 var index_player = 0;
                 // Pushing room data in a proprer structure. This will allow us to sort the data later
                 for (var x = 0; x < room_data.players.length; x++) {
                     index_player += 1;
-                    GLOBAL_TRACKER_DATA.players.push(new PlayerStruct(index_player, room_data.players[x][0], room_data.players[x][1]));
+                    this.GLOBAL_TRACKER_DATA.players.push(new PlayerStruct(index_player, room_data.players[x][0], room_data.players[x][1]));
                 }
+                this.TRACKER_ID = room_data.tracker;
+
+                if (!this.validRoom())
+                    return;
+                this.updateTitle('room', 'archipelago', this.ROOM_ID);
 
                 // Automatic row size depending on player count
                 this.OPTIONS.row_size = 2;
-                if (room_data.players.length >= 50) {
+                if (this.GLOBAL_TRACKER_DATA.players.length >= 50) {
                     this.OPTIONS.row_size = 0;
                 }
-                else if (room_data.players.length >= 12) {
+                else if (GLOBAL_TRACKER_DATA.players.length >= 12) {
                     this.OPTIONS.row_size = 1;
                 }
 
                 // Automatically hide players done on a large player pool
                 this.OPTIONS.show_done = 1;
-                if (room_data.players.length >= 30) {
+                if (this.GLOBAL_TRACKER_DATA.players.length >= 30) {
                     this.OPTIONS.show_done = 0;
                 }
-
-                var SLOT_URL = this.ANAP_DATA.archipelagogg.slot_url + this.ROOM_DATA.tracker;
-                var STATIC_TRACKER_URL = this.ANAP_DATA.archipelagogg.static_tracker_url + this.ROOM_DATA.tracker;
+                var SLOT_URL = this.ANAP_DATA.archipelagogg.slot_url + this.WEBHOST_USED + '/' + room_data.tracker;
+                var STATIC_TRACKER_URL = this.ANAP_DATA.archipelagogg.static_tracker_url + this.WEBHOST_USED + '/' + room_data.tracker;
                 axios
                     .get(STATIC_TRACKER_URL)
                     .then(response => (this.getStaticData(response.data)));
@@ -246,12 +259,44 @@
                 this.loadOptions();
                 this.autoRefresh();
             },
-            refresh: function () {
-                var ROOM_URL = this.ANAP_DATA.archipelagogg.room_url + this.ROOM_ID;
+            // Begin tracking a tracker, setting the call chain.
+            beginTrackingDataFromTracker(room_data) {
+                this.GLOBAL_TRACKER_DATA.players = [];
+
+                var index_player = 0;
+                // Pushing room data in a proprer structure. This will allow us to sort the data later
+                for (var x = 0; x < room_data.player_game.length; x++) {
+                    index_player += 1;
+                    GLOBAL_TRACKER_DATA.players.push(new PlayerStruct(index_player, 'Slot ' + room_data.player_game[x].player, room_data.player_game[x].game));
+                }
+
+                if (!this.validRoom())
+                    return;
+                this.updateTitle('room', 'archipelago', this.ROOM_ID);
+
+                // Automatic row size depending on player count
+                this.OPTIONS.row_size = 2;
+                if (this.GLOBAL_TRACKER_DATA.players.length >= 50) {
+                    this.OPTIONS.row_size = 0;
+                }
+                else if (this.GLOBAL_TRACKER_DATA.players.length >= 12) {
+                    this.OPTIONS.row_size = 1;
+                }
+
+                // Automatically hide players done on a large player pool
+                this.OPTIONS.show_done = 1;
+                if (this.GLOBAL_TRACKER_DATA.players.length >= 30) {
+                    this.OPTIONS.show_done = 0;
+                }
+
+                var SLOT_URL = this.ANAP_DATA.archipelagogg.slot_url + this.WEBHOST_USED + '/' + this.TRACKER_ID;
+                this.getStaticData(room_data);
 
                 axios
-                    .get(ROOM_URL)
-                    .then(response => (this.beginTrackingData(response.data)));
+                    .get(SLOT_URL)
+                    .then(response => (this.getSlotData(response.data)));
+                this.loadOptions();
+                this.autoRefresh();
             },
             loadOptions: function () {
                 // If we got the specific Room options, we load it.
@@ -277,7 +322,7 @@
                 localStorage.setItem('TPCE_ANAP_VROOM_LAST', ANAP_CONFIG.APP_VERSION);
             },
             // Routing Methods
-            updateTitle: function () {
+            updateTitle: function (route, webhost, id) {
                 var urltosec = ANAP_CONFIG.URL_WEBSITE;
                 var fake_route = location.href.slice(urltosec.length + 1); // La route à couper.
                 var fake_args = fake_route.split('/');
@@ -289,14 +334,84 @@
                 else
                     document.title = "A normal AP Tracker";
             },
-            updateURL: function (route) {
+            updateURL: function (route, webhost, id) {
                 var urltosec = ANAP_CONFIG.URL_WEBSITE;
                 if (route != null)
-                    window.history.replaceState(null, document.title, ANAP_CONFIG.URL_WEBSITE + '/' + route);
-                else
-                    window.history.replaceState(null, document.title, ANAP_CONFIG.URL_WEBSITE);
+                    urltosec += '/' + route;
+                if (webhost != null)
+                    urltosec += '/' + webhost;
+                if (id != null)
+                    urltosec += '/' + id;
 
-                this.updateTitle();
+                window.history.replaceState(null, document.title, urltosec);
+
+                this.updateTitle(route, webhost, id);
+            },
+            startLoadingFromRoom: function () {
+                var ROOM_URL = this.ANAP_DATA.archipelagogg.room_url + this.WEBHOST_USED + '/' + this.ROOM_ID;
+
+                axios
+                    .get(ROOM_URL)
+                    .then(response => (this.beginTrackingDataFromRoom(response.data)));
+            },
+            startLoadingFromTracker: function () {
+                var ROOM_URL = this.ANAP_DATA.archipelagogg.static_tracker_url + this.WEBHOST_USED + '/' + this.ROOM_ID;
+                this.TRACKER_ID = this.ROOM_ID;
+
+                axios
+                    .get(ROOM_URL)
+                    .then(response => (this.beginTrackingDataFromTracker(response.data)));
+            },
+            /**
+             * Route :
+             * Arg 1 : main route
+             *  - statistics : get the dashboard
+             *  - room : get Tracker Data from a room ID ()
+             *  - tracker : get Tracker Data from a tracker ID
+             *  Ignored if the route is not recognized
+             * Arg 2 : webhost
+             *  Redirect the tracker data to a recognized webhost, otherwise, go to the 3rd argument
+             * Arg 3 : ID of the room/tracker
+             * 
+             * route is the first method to call when you load a new page !!!
+             */
+            route: function (arg1, arg2, arg3) {
+                var route = 'room'; // Default route
+                // Page selection
+                if (['statistics', 'room', 'tracker'].includes(arg1)) {
+                    route = arg1;
+                }
+                if (arg2 != null)
+                    arg1 = arg2;
+                if (arg3 != null)
+                    arg2 = arg3;
+
+                // Webhost Selection
+                var webhost = null;
+                if (['archipelago', 'bananium'].includes(arg1)) {
+                    webhost = arg1;
+                    this.WEBHOST_USED = 'archipelago';
+                    // Not shown on the URL if possible.
+                    if (webhost == 'archipelago')
+                        webhost = null;
+                    else
+                        this.WEBHOST_USED = webhost;
+                }
+
+                if (arg2 != null)
+                    arg1 = arg2;
+                // ID
+                var id = arg1;
+
+                console.log('Full route is ' + route + ' / ' + webhost + ' / ' + id);
+
+                this.ROOM_ID = arg1;
+                if (this.ROOM_ID && route == 'room')
+                    this.startLoadingFromRoom();
+                if (this.ROOM_ID && route == 'tracker')
+                    this.startLoadingFromTracker();
+
+                this.updateURL(route, webhost, id);
             },
             getRouteInfos: function () {
                 var urltosec = ANAP_CONFIG.URL_WEBSITE;
@@ -308,29 +423,31 @@
 
 
                 if (fake_args.length > 0 && fake_args[0].length > 0) {
-                    this.ROOM_ID = fake_args[0];
-                    if (this.ROOM_ID && this.ROOM_ID != 'statistics')
-                        this.refresh();
+
+                    var arg1 = fake_args[0];
+                    var arg2 = fake_args.length > 1 ? fake_args[1] : null;
+                    var arg3 = fake_args.length > 2 ? fake_args[2] : null;
+
+                    this.route(arg1, arg2, arg3);
                 }
             },
             resetBack: function () {
+                this.ROOM_DATA.players = [];
                 this.GLOBAL_TRACKER_DATA.players = [];
                 this.GLOBAL_TRACKER_DATA.datapackage = [];
                 this.GLOBAL_TRACKER_DATA.groups = [];
                 this.GLOBAL_TRACKER_DATA.total_checks_done = 0;
                 this.GLOBAL_TRACKER_DATA.broken_slot_data = false;
                 this.ROOM_ID = '';
+                this.TRACKER_ID = '';
                 document.title = "A normal AP Tracker";
                 this.updateURL();
             },
             loadRoom: function (roomid) {
-                this.ROOM_ID = roomid;
-                this.updateURL(this.ROOM_ID);
-                this.refresh();
+                this.route('room', 'archipelago', roomid);
             },
             goToStats: function () {
-                this.ROOM_ID = 'statistics';
-                this.updateURL(this.ROOM_ID);
+                this.route('statistics');
             },
         },
         components: {
@@ -342,6 +459,7 @@
         mounted: function () {
             var url = location.href;
             this.getRouteInfos();
+
         },
     };
 
