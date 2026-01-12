@@ -23,7 +23,6 @@
     import ANAP_CONFIG from "./anapconfig.js";
     import axios from 'axios';
     import ANAP_DATA from "./anapdata.js";
-    import ANAP_WEBHOST from "./anapwebhost.js";
     import LIST_OF_GAMES from "./listofgames.js";
 
     var TRACKER_ID = '';
@@ -32,6 +31,21 @@
 
     
 
+    var EMPTY_DATAPACKAGE = {
+        checksum: 'a',
+        item_name_groups: {
+            a: ['rakdo']
+        },
+        item_name_to_id: {
+            a: 'rakdo'
+        },
+        location_name_groups: {
+            a: ['rakdo']
+        },
+        location_name_to_id: {
+            a: 'rakdo'
+        }
+    };
 
     var GLOBAL_TRACKER_DATA = {
         players: [],
@@ -54,6 +68,7 @@
         tracker_data = {
             player_items_received: [],
             player_checks_done: [],
+            hints: [],
             activity_timer: '',
             status: '',
         };
@@ -137,6 +152,7 @@
                         if (this.GLOBAL_TRACKER_DATA.players[x].id == tdata.player_checks_done[y].player) {
                             this.GLOBAL_TRACKER_DATA.players[x].tracker_data.player_items_received = tdata.player_items_received[y].items;
                             this.GLOBAL_TRACKER_DATA.players[x].tracker_data.player_checks_done = tdata.player_checks_done[y].locations;
+                            this.GLOBAL_TRACKER_DATA.players[x].tracker_data.hints = tdata.hints[y].hints;
                             if (tdata.activity_timers[y].time) {
                                 this.GLOBAL_TRACKER_DATA.players[x].tracker_data.activity_timer = tdata.activity_timers[y].time;
                             }
@@ -194,6 +210,12 @@
                 }
 
             },
+            setDataPackageData: function (key, data) {
+                if (data.hasOwnProperty('checksum'))
+                    this.DATA_PACKAGE[key] = data;
+                else
+                    this.DATA_PACKAGE[key] = EMPTY_DATAPACKAGE;
+            },
             // Make the Datapackage call thread.
             getChainStaticData: function () {
                 for (var key in this.DATA_PACKAGE) {
@@ -206,7 +228,7 @@
                                 this.DATA_PACKAGE[key] = "";
                                 axios
                                     .get(this.ANAP_DATA.archipelagogg.datapackage_url + this.WEBHOST_USED + '/' + this.STATIC_TRACKER_DATA.datapackage[key].checksum)
-                                    .then(response => (this.DATA_PACKAGE[key] = response.data))
+                                    .then(response => (this.setDataPackageData(key, response.data)))
                                     .then(response => (setTimeout(function (scope) {
                                         scope.getChainStaticData();
                                     }, 250, this)));
