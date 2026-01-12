@@ -243,7 +243,7 @@ export default {
             getImportantSentHints: function (name) {
                 var res = 0;
                 for (var x = 0; x < this.data.tracker_data.hints.length; x++) {
-                    if (this.data.tracker_data.hints[x][0] == this.data.id && this.data.tracker_data.hints[x][6] == 2 && this.data.tracker_data.hints[x][4] == true)
+                    if (this.data.tracker_data.hints[x][0] == this.data.id && this.data.tracker_data.hints[x][6] == 2 && this.data.tracker_data.hints[x][4] == false)
                         res++;
                 }
                 return res;
@@ -251,7 +251,7 @@ export default {
             getImportantRecievedHints: function (name) {
                 var res = 0;
                 for (var x = 0; x < this.data.tracker_data.hints.length; x++) {
-                    if (this.data.tracker_data.hints[x][1] == this.data.id && this.data.tracker_data.hints[x][6] == 2 && this.data.tracker_data.hints[x][4] == true)
+                    if (this.data.tracker_data.hints[x][1] == this.data.id && this.data.tracker_data.hints[x][6] == 2 && this.data.tracker_data.hints[x][4] == false)
                         res++;
                 }
                 return res;
