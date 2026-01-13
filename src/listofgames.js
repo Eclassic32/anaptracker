@@ -13,6 +13,7 @@ import GDataMetroidZeroMission from './components/gamedata/GDataMetroidZeroMissi
 import GDataPokemonCrystal from './components/gamedata/GDataPokemonCrystal.vue';
 import GDataPokemonEmerald from './components/gamedata/GDataPokemonEmerald.vue';
 import GDataPokemonFRLG from './components/gamedata/GDataPokemonFRLG.vue';
+import GDataRiskOfRain2 from './components/gamedata/GDataRiskOfRain2.vue';
 import GDataPokemonRedBlue from './components/gamedata/GDataPokemonRedBlue.vue';
 import GDataShipOfHarkinian from './components/gamedata/GDataShipOfHarkinian.vue';
 import GDataSonicAdventure2Battle from './components/gamedata/GDataSonicAdventure2Battle.vue';
@@ -97,11 +98,15 @@ var LIST_OF_GAMES = [
     {
         'name': 'Pokemon FireRed and LeafGreen',
         'class': GDataPokemonFRLG
-    },
+    }, 
     {
         'name': 'Pokemon Red and Blue',
         'class': GDataPokemonRedBlue
-    }, 
+    },
+    {
+        'name': 'Risk of Rain 2',
+        'class': GDataRiskOfRain2
+    },
     {
         'name': 'Sonic Adventure 2 Battle',
         'class': GDataSonicAdventure2Battle

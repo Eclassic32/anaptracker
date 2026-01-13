@@ -17,7 +17,7 @@
 <script>
 
     /**
-    * Hollow Knight
+    * Terraria
     *
     * Goal is to beat a set Boss
     * It can be :
