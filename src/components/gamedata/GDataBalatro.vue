@@ -123,7 +123,7 @@ export default {
             stakeGoal: function () {
                 if (this.data.slot_data.hasOwnProperty('goal') && [3,5].includes(this.data.slot_data.goal))
                     return true;
-                return this.getNumberItemsFromCategory('Stake');
+                return this.$parent.getNumberItemsFromGroup(['White Stake', 'Red Stake', 'Green Stake', 'Black Stake', 'Blue Stake', 'Purple Stake', 'Orange Stake', 'Gold Stake']);
 
             },
             moveShuffled: function () {
