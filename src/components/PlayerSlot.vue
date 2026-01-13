@@ -23,7 +23,7 @@
                     <div v-if="getImportantSentHints()" :class="getImageClass()" class="inline-block bg-blue-400/70 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
                         <div v-if="get_size()" class="text-xs font-normal text-left">Hints</div>
 
-                        <span v-if="getImportantRecievedHints() > 5" class="mr-2 text-xs font-bold"><img title="Hint sent to another player" src="/img/unknown.png" />x{{ getImportantSentHints() }} </span>
+                        <span v-if="getImportantSentHints() > 5" class="mr-2 text-xs font-bold"><img title="Hint sent to another player" src="/img/unknown.png" />x{{ getImportantSentHints() }} </span>
                         <span v-else class="text-xs font-bold">
                             <img v-if="getImportantSentHints() > 4" title="Hint sent to another player" src="/img/unknown.png" />
                             <img v-if="getImportantSentHints() > 3" title="Hint sent to another player" src="/img/unknown.png" />
