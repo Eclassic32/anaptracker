@@ -78,10 +78,10 @@
     *   - 0 - Any : Get any ending
     *   - 1 - Hollow Knight : get 3 Dreamers
     *   - 2 - Siblings : get 3 Dreamers plus both White fragments and Void Heart
-    *   - 2 - Radiance : get 3 Dreamers, Dream Nail and Void Heart
-    *   - 3 - Godhome : get 3 Dreamers, Dream Nail and Void Heart
-    *   - 4 - Godhome flower : Get Fragnant Flower
-    *   - 5 - Grub Hunt : get Grubs
+    *   - 3 - Radiance : get 3 Dreamers, Dream Nail and Void Heart
+    *   - 4 - Godhome : get 3 Dreamers, Dream Nail and Void Heart
+    *   - 5 - Godhome flower : Get Fragnant Flower
+    *   - 6 - Grub Hunt : get Grubs
     *
     */
 export default {
@@ -114,7 +114,7 @@ export default {
                 return 0;
             },
             grubHunt: function () {
-                if (this.data.slot_data.hasOwnProperty('options') && [0,5].includes(this.data.slot_data.options.Goal)) {
+                if (this.data.slot_data.hasOwnProperty('options') && [0,6].includes(this.data.slot_data.options.Goal)) {
                     return this.data.slot_data.options.GrubHuntGoal;
                 }
                 return 0;
