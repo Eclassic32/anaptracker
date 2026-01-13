@@ -6,6 +6,16 @@
             <span v-if="jockerGoal()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Joker')  }"><img title="Joker" src="/img/balatro/joker.png" />x{{ getNumberItemsFromName('Joker') }} </span> / {{ jockerGoal() }}</span>
             <span v-if="jockerGoal()" class="mr-2"></span>
 
+            <img v-if="stakeExists(1, 'White Stake')" title="White Stake" src="/img/balatro/white_stake.png" :class="{ 'opacity-25': !getNumberItemsFromName('White Stake')  }" />
+            <img v-if="stakeExists(2, 'Red Stake')" title="Red Stake" src="/img/balatro/red_stake.png" :class="{ 'opacity-25': !getNumberItemsFromName('Red Stake')  }" />
+            <img v-if="stakeExists(3, 'Green Stake')" title="Green Stake" src="/img/balatro/green_stake.png" :class="{ 'opacity-25': !getNumberItemsFromName('Green Stake')  }" />
+            <img v-if="stakeExists(4, 'Black Stake')" title="Black Stake" src="/img/balatro/black_stake.png" :class="{ 'opacity-25': !getNumberItemsFromName('Black Stake')  }" />
+            <img v-if="stakeExists(5, 'Blue Stake')" title="Blue Stake" src="/img/balatro/blue_stake.png" :class="{ 'opacity-25': !getNumberItemsFromName('Blue Stake')  }" />
+            <img v-if="stakeExists(6, 'Purple Stake')" title="Purple Stake" src="/img/balatro/purple_stake.png" :class="{ 'opacity-25': !getNumberItemsFromName('Purple Stake')  }" />
+            <img v-if="stakeExists(7, 'Orange Stake')" title="Orange Stake" src="/img/balatro/orange_stake.png" :class="{ 'opacity-25': !getNumberItemsFromName('Orange Stake')  }" />
+            <img v-if="stakeExists(8, 'Gold Stake')" title="Gold Stake" src="/img/balatro/gold_stake.png" :class="{ 'opacity-25': !getNumberItemsFromName('Gold Stake')  }" />
+            <span v-if="stakeGoal()" class="mr-2"></span>
+
             <img v-if="deckExists('b_blue')" title="Blue Deck" src="/img/balatro/blue_deck.png" :class="{ 'opacity-25': !getNumberItemsFromName('Blue Deck')  }" />
             <img v-if="deckExists('b_red')" title="Red Deck" src="/img/balatro/red_deck.png" :class="{ 'opacity-25': !getNumberItemsFromName('Red Deck')  }" />
             <img v-if="deckExists('b_yellow')" title="Yellow Deck" src="/img/balatro/yellow_deck.png" :class="{ 'opacity-25': !getNumberItemsFromName('Yellow Deck')  }" />
@@ -50,7 +60,7 @@
 * 1 - Unlock Jockets
 * 2 - Beat Ante
 * 3 - Beat Decks on specific stake
-* 4 - Win wwith specifics jokers on stake
+* 4 - Win with specifics jokers on stake
 * 5 - Beat with a specific combinaison of decks and stakes
 */ 
 export default {
@@ -79,12 +89,6 @@ export default {
             getNumberItemsFromCategory: function (name) {
                 return this.$parent.getNumberItemsFromCategory(name);
             },
-            getGoalStars: function () {
-                if (this.data.slot_data.StarsToFinish) {
-                    return this.data.slot_data.StarsToFinish;
-                }
-                return 0;
-            },
             getTarotCards: function () {
                 if (this.getNumberItemsFromName('Tarot Bundle'))
                     return 23;
@@ -105,11 +109,22 @@ export default {
                     return this.data.slot_data.included_decks.includes(name);
                 return true;
             },
+            stakeExists: function (id, name) {
+                if (this.data.slot_data.hasOwnProperty('included_stakes') && this.data.slot_data.included_stakes.length > 0)
+                    return this.data.slot_data.included_stakes.includes(id);
+                return this.getNumberItemsFromName(name);
+            },
             jockerGoal: function () {
                 if (this.data.slot_data.hasOwnProperty('goal') && this.data.slot_data.goal == 1)
                     return this.data.slot_data.jokers_unlock_goal;
                 return false;
                 
+            },
+            stakeGoal: function () {
+                if (this.data.slot_data.hasOwnProperty('goal') && [3,5].includes(this.data.slot_data.goal))
+                    return true;
+                return this.getNumberItemsFromCategory('Stake');
+
             },
             moveShuffled: function () {
                 if (this.data.slot_data.MoveRandoVec) {
