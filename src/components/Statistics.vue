@@ -21,14 +21,16 @@
                     <thead>
                         <tr>
                             <th class="border border-gray-400 p-1 font-bold w-20">#</th>
-                            <th class="border border-gray-400 p-1 font-bold w-120">Game</th>
-                            <th class="border border-gray-400 p-1 font-bold w-40"># Tracked</th>
+                            <th class="border border-gray-400 p-1 font-bold w-100">Game</th>
+                            <th class="border border-gray-400 p-1 font-bold w-30"># Tracked</th>
+                            <th class="border border-gray-400 p-1 font-bold w-30">Frequency</th>
                         </tr>
                     </thead>
                     <tr v-for="(game, index) in STATS_DATA.game_counted">
                         <td :class="{'p-1' : index < 100, 'text-lg' : index < 10, 'text-sm' : index >= 20, 'text-xs' : index >= 50}" class="border border-gray-400">{{index + 1}}</td>
                         <td :class="{'p-1' : index < 100, 'text-lg' : index < 10, 'text-sm' : index >= 20, 'text-xs' : index >= 50}" class="border border-gray-400"><img v-if="supportedGame(game.game)" title="ANAP tracker supports this game!" src="/img/crystal_project/system/image_part_005.png" class="mr-1 w-[16px] h-[16px] inline" />{{game.game}}</td>
                         <td :class="{'p-1' : index < 100, 'text-lg' : index < 10, 'text-sm' : index >= 20, 'text-xs' : index >= 50}" class="border border-gray-400">{{game.count}}</td>
+                        <td :class="{'p-1' : index < 100, 'text-lg' : index < 10, 'text-sm' : index >= 20, 'text-xs' : index >= 50}" class="border border-gray-400">{{frequencyPercent(game.frequency)}}</td>
                     </tr>
                 </table>
             </div>
@@ -108,6 +110,9 @@
                 }
                 return '0%';
             },
+            frequencyPercent: function (number) {
+                return Math.floor(number * 100 / this.STATS_DATA.rooms_stats.length).toString() + '%';
+            },
             loadStatistics: function (data) {
                 for (var x = 0; x < data.length; x++) {
                     if (data[x].type == 1) {
@@ -123,17 +128,28 @@
                     }
                 }
 
+                var room_id = '';
+                var frequent_games = [];
                 for (var x = 0; x < this.STATS_DATA.game_stats.length; x++) {
                     var new_game = 1;
+                    if (this.STATS_DATA.game_stats[x].arg1.split("/")[1] != room_id) {
+                        frequent_games = [];
+                        room_id = this.STATS_DATA.game_stats[x].arg1.split("/")[1];
+                    }
+
                     for (var y = 0; y < this.STATS_DATA.game_counted.length; y++) {
                         if (this.STATS_DATA.game_counted[y].game == this.STATS_DATA.game_stats[x].arg2) {
                             this.STATS_DATA.game_counted[y].count += 1;
+                            if (!frequent_games.includes(this.STATS_DATA.game_counted[y].game))
+                                this.STATS_DATA.game_counted[y].frequency += 1;
+                            frequent_games.push(this.STATS_DATA.game_counted[y].game);
                             new_game = 0;
                             break;
                         }
                     }
                     if (new_game) {
-                        this.STATS_DATA.game_counted.push({ game: this.STATS_DATA.game_stats[x].arg2, count: 1 });
+                        this.STATS_DATA.game_counted.push({ game: this.STATS_DATA.game_stats[x].arg2, count: 1, frequency: 1 });
+                        frequent_games.push(this.STATS_DATA.game_counted[y].game);
                     }
                     if (this.supportedGame(this.STATS_DATA.game_stats[x].arg2))
                         this.STATS_DATA.coverage += 1;
