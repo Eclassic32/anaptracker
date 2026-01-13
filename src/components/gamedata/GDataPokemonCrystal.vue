@@ -1,8 +1,17 @@
 <template>
     <div class="inline-block">
 
+        <div v-if="unownGoal()" :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Tiles</div>
+
+            <span v-if="unownGoal()" class="text-xs mr-1 font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Kabuto Tile')  }"><img title="Kabuto Tile" src="/img/pokemon_crystal/items/KABUTO_TILE.png" />x{{getNumberItemsFromName('Kabuto Tile')}}</span>
+            <span v-if="unownGoal()" class="text-xs mr-1 font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Omanyte Tile')  }"><img title="Omanyte Tile" src="/img/pokemon_crystal/items/OMANYTE_TILE.png" />x{{getNumberItemsFromName('Omanyte Tile')}}</span>
+            <span v-if="unownGoal()" class="text-xs mr-1 font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Aerodactyl Tile')  }"><img title="Aerodactyl Tile" src="/img/pokemon_crystal/items/AERODACTYL_TILE.png" />x{{getNumberItemsFromName('Aerodactyl Tile')}}</span>
+            <span v-if="unownGoal()" class="text-xs mr-1 font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Ho-Oh Tile')  }"><img title="Ho-Oh Tile" src="/img/pokemon_crystal/items/HO-OH_TILE.png" />x{{getNumberItemsFromName('Ho-Oh Tile')}}</span>
+        </div>
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Badges</div>
+
 
             <img title="Zephyr Badge" src="/img/pokemon_crystal/items/zephyrbadge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Zephyr Badge')  }" />
             <img title="Hive Badge" src="/img/pokemon_crystal/items/hivebadge.png" :class="{ 'opacity-25': !getNumberItemsFromName('Hive Badge')  }" />
@@ -85,7 +94,7 @@ export default {
                     return this.data.slot_data.require_itemfinder;
                 }
                 return 1;
-            },
+            }, 
             getImageClass: function () {
                 return this.$parent.getImageClass();
             },
@@ -96,6 +105,15 @@ export default {
                 if (this.data.slot_data.hasOwnProperty('johto_only') && this.data.slot_data.johto_only == 1)
                     return false;
                 return true;
+            },
+            unownGoal: function () {
+                if (this.data.slot_data.hasOwnProperty('goal')) {
+                    if (this.data.slot_data.goal == 5)
+                        return true;
+                    return false;
+
+                }
+                return this.getNumberItemsFromName('Omanyte Tile') + this.getNumberItemsFromName('Aerodactyl Tile') + this.getNumberItemsFromName('Ho-Oh Tile') + this.getNumberItemsFromName('Kabuto Tile');
             }
         },
   components: {
