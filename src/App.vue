@@ -349,8 +349,10 @@
                 var fake_route = location.href.slice(urltosec.length + 1); // La route à couper.
                 var fake_args = fake_route.split('/');
 
-                if (this.validRoom())
-                    document.title = "Room " + this.ROOM_ID + " for archipelago.gg";
+                if (this.validRoom() && this.ROOM_ID != this.TRACKER_ID)
+                    document.title = "Room " + this.ROOM_ID + " from " + this.WEBHOST_USED;
+                else if (this.validRoom())
+                    document.title = "Tracker " + this.ROOM_ID + " from" + this.WEBHOST_USED;
                 else if (fake_args.length > 0 && fake_args[0] == 'statistics')
                     document.title = "A normal Dashboard";
                 else
@@ -424,9 +426,15 @@
                     arg1 = arg2;
                 // ID
                 var id = arg1;
-                console.log('Full route is ' + route + ' / ' + webhost + ' / ' + id);
 
                 this.ROOM_ID = arg1;
+                if (id.length == 22 && route == '')
+                    route = 'room';
+                if (!['room', 'tracker'].includes(route))
+                    id = null;
+
+
+                console.log('Full route is ' + route + ' / ' + webhost + ' / ' + id);
                 if (this.ROOM_ID && route == 'room' && id != null && id.length == 22)
                     this.startLoadingFromRoom();
                 if (this.ROOM_ID && route == 'tracker' && id != null && id.length == 22)
@@ -460,7 +468,7 @@
                 this.GLOBAL_TRACKER_DATA.broken_slot_data = false;
                 this.ROOM_ID = '';
                 this.TRACKER_ID = '';
-                this.route(null, null, null);
+                this.route('', null, null);
             },
             loadRoom: function (roomid) {
                 this.route('room', 'archipelago', roomid);
