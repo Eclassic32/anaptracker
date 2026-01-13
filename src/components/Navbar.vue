@@ -22,6 +22,7 @@
                     <div class="flex flex-col bg-gray-500 w-full rounded-sm font-roboto font-bold">
                         <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.show_done }" v-on:click="changeShowDone()">Players done</div>
                         <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.show_slot_number }" v-on:click="changeShowSlotNumber()">Slot #</div>
+                        <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.show_hints }" v-on:click="changeShowHints()">Hints</div>
                         <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.show_timer }" v-on:click="changeShowTimer()">Inactivity timers</div>
                     </div>
                 </div>
@@ -140,6 +141,12 @@
                 this.$parent.OPTIONS.show_timer = this.$parent.OPTIONS.show_timer + 1;
                 if (this.$parent.OPTIONS.show_timer > 1)
                     this.$parent.OPTIONS.show_timer = 0;
+                this.$parent.saveOptions();
+            },
+            changeShowHints: function () {
+                this.$parent.OPTIONS.show_hints = this.$parent.OPTIONS.show_hints + 1;
+                if (this.$parent.OPTIONS.show_hints > 1)
+                    this.$parent.OPTIONS.show_hints = 0;
                 this.$parent.saveOptions();
             },
             changeShowSlotNumber: function () {

@@ -8,7 +8,7 @@
                 <div class="clear-both text-center font-normal">
 
 
-                    <div v-if="getImportantRecievedHints()" :class="getImageClass()" class="inline-block bg-red-400/70 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+                    <div v-if="displayHints() && getImportantRecievedHints()" :class="getImageClass()" class="inline-block bg-red-400/70 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
                         <div v-if="get_size()" class="text-xs font-normal text-left">Hints</div>
 
                         <span v-if="getImportantRecievedHints() > 5" class="mr-2 text-xs font-bold"><img title="Hinted Item on their world" src="/img/event.png" />x{{ getImportantRecievedHints() }} </span>
@@ -20,7 +20,7 @@
                             <img title="Hinted Item on their world" src="/img/event.png" />
                         </span>
                     </div>
-                    <div v-if="getImportantSentHints()" :class="getImageClass()" class="inline-block bg-blue-400/70 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+                    <div v-if="displayHints() && getImportantSentHints()" :class="getImageClass()" class="inline-block bg-blue-400/70 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
                         <div v-if="get_size()" class="text-xs font-normal text-left">Hints</div>
 
                         <span v-if="getImportantSentHints() > 5" class="mr-2 text-xs font-bold"><img title="Hint sent to another player" src="/img/unknown.png" />x{{ getImportantSentHints() }} </span>
@@ -149,6 +149,9 @@ export default {
                     return true;
                 }
                 return false;
+            },
+            displayHints: function () {
+                return this.$parent.$parent.OPTIONS.show_hints;
             },
             get_game_data_class: function () {
                 for (var x = 0; x < this.LIST_OF_GAMES.length; x++) {

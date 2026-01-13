@@ -59,6 +59,7 @@
         row_size: 0,
         show_done: 1,
         show_timer: 1,
+        show_hints: 1,
         show_checks_left: 0,
         show_slot_number: 0,
         sort_by: 0
