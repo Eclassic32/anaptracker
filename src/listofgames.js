@@ -21,6 +21,7 @@ import GDataSuperMarioWorld from './components/gamedata/GDataSuperMarioWorld.vue
 import GDataSecretOfEvermore from './components/gamedata/GDataSecretOfEvermore.vue';
 import GDataSuperMetroid from './components/gamedata/GDataSuperMetroid.vue';
 import GDataMajorasMask from './components/gamedata/GDataMajorasMask.vue';
+import GDataTerraria from './components/gamedata/GDataTerraria.vue';
 import GDataTheMinishCap from './components/gamedata/GDataTheMinishCap.vue';
 
 
@@ -108,6 +109,10 @@ var LIST_OF_GAMES = [
     {
         'name': 'Ship of Harkinian',
         'class': GDataShipOfHarkinian
+    },
+    {
+        'name': 'Terraria',
+        'class': GDataTerraria
     },
     {
         'name': 'The Minish Cap',
