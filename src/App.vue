@@ -58,7 +58,7 @@
 
     };
     var DEFAULT_OPTIONS = {
-        row_size: 0,
+        row_size: -1,
         auto_row_m: 12,
         auto_row_s: 40,
         auto_show_player_done: 40,
