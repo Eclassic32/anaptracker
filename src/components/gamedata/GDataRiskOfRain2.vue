@@ -22,7 +22,7 @@
         <span class="mr-2"></span>
         <img title="Sky Meadow" src="/img/risk_of_rain_2/sky_meadow.png" :class="{ 'opacity-10': !stageUnlocked('Sky Meadow') && getNumberItemsFromName('Progressive Stage') < 4,  'opacity-35': xOrStageLevel('Sky Meadow', 4) }" />
         <span class="mr-2"></span>
-        <img title="Commencement" src="/img/risk_of_rain_2/commencement.png" :class="{ 'opacity-10': !stageUnlocked('Commencement') && getNumberItemsFromName('Progressive Stage') < 5, 'opacity-35': xOrStageLevel('Commencement', 4)  }" />
+        <img title="Commencement" src="/img/risk_of_rain_2/commencement.png" :class="{ 'opacity-10': !stageUnlocked('Commencement') && getNumberItemsFromName('Progressive Stage') < 4, 'opacity-35': xOrStageLevel('Commencement', 4)  }" />
 
         <span v-if="limboRoute()" class="mr-2"></span>
         <img v-if="limboRoute()" title="Hidden Realm: A Moment, Fractured" src="/img/risk_of_rain_2/a_moment_fractured.png" :class="{ 'opacity-35': !stageUnlocked('Hidden Realm: A Moment, Fractured')  }" />
