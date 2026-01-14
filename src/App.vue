@@ -165,6 +165,9 @@
             },
             // The refresh loop call
             autoRefresh: function () {
+                if (!this.validRoom())
+                    return;
+
                 var TRACKER_URL = this.ANAP_DATA.archipelagogg.tracker_url + this.WEBHOST_USED + '/' + this.TRACKER_ID;
 
                 axios
