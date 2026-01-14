@@ -94,20 +94,20 @@ export default {
                 return 1;
             },
             getVictory: function () {
-                if (this.data.slot_data.hasOwnProperty('goal')) {
-                    return this.data.slot_data.goal;
+                if (this.data.slot_data.hasOwnProperty('victory')) {
+                    return this.data.slot_data.victory;
                 }
                 return 0;
             },
             limboRoute: function () {
-                if (this.data.slot_data.hasOwnProperty('goal')) {
-                    return this.data.slot_data.goal == 3;
+                if (this.data.slot_data.hasOwnProperty('victory')) {
+                    return this.data.slot_data.victory == 3;
                 }
                 return 1;
             },
             voidlingRoute: function () {
-                if (this.data.slot_data.hasOwnProperty('goal')) {
-                    return this.data.slot_data.goal == 2;
+                if (this.data.slot_data.hasOwnProperty('victory')) {
+                    return this.data.slot_data.victory == 2;
                 }
                 return 1;
             }
