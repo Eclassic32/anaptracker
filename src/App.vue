@@ -162,6 +162,9 @@
                         }
                     }
                 }
+
+                // Keeping the Primary Sort then Alphabetical Sort in place.
+                this.GLOBAL_TRACKER_DATA.players.sort((a, b) => a.id - b.id);
             },
             // The refresh loop call
             autoRefresh: function () {
