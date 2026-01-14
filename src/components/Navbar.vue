@@ -8,8 +8,11 @@
 
                 </div>
             </div>
-            <div v-if="!$parent.validRoom()"  v-on:click="$parent.goToStats()" class="text-green-600 relative mr-4 cursor-pointer hover:text-white p-3 font-roboto font-bold">
-                <span>Statistics</span>
+            <div v-if="!$parent.validRoom()" v-on:click="$parent.goToSettings()" class="text-green-600 relative mr-4 cursor-pointer hover:text-white p-3 font-roboto font-bold">
+                <span>Settings</span>
+            </div>
+            <div v-if="!$parent.validRoom()" v-on:click="$parent.goToStats()" class="text-green-600 relative mr-4 cursor-pointer hover:text-white p-3 font-roboto font-bold">
+                <span>Dashboard</span>
             </div>
             <div v-if="$parent.validRoom()" v-on:click="changeSize()" class="text-green-600 relative mr-4 cursor-pointer hover:text-white p-3 font-roboto font-bold">
                 <span>Size {{ getSize() }}</span>
@@ -34,7 +37,7 @@
                 <div v-bind:class="{'hidden': !showSortBy, 'flex': showSortBy}" class="rounded-sm w-20 w-auto bg-gray-500 text-base z-50 float-left list-none text-left rounded shadow-lg absolute" style="min-width:12rem">
 
                     <div class="flex flex-col bg-gray-500 w-full rounded-sm font-roboto font-bold">
-                        <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.sort_by == 0 }" v-on:click="changeSortBy(0)">Name</div>
+                        <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.sort_by == 0 }" v-on:click="changeSortBy(0)">Slot # (Name)</div>
                         <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.sort_by == 7 }" v-on:click="changeSortBy(7)">Game</div>
                         <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.sort_by == 3 }" v-on:click="changeSortBy(3)">Total checks</div>
                         <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.sort_by == 1 }" v-on:click="changeSortBy(1)">Checks done</div>

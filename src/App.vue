@@ -8,6 +8,7 @@
             </div>
             <div>
                 <Statistics v-if="ROOM_ID == 'statistics'"></Statistics>
+                <Settings v-if="ROOM_ID == 'settings'"></Settings>
                 <PlayerList v-else-if="validRoom()" v-bind:globaldata="GLOBAL_TRACKER_DATA" v-bind:gamedata="DATA_PACKAGE"></PlayerList>
                 <Home v-else></Home>
             </div>
@@ -18,6 +19,7 @@
 <script>
     import PlayerList from "./components/PlayerList.vue";
     import Navbar from './components/Navbar.vue';
+    import Settings from './components/Settings.vue';
     import Home from './components/Home.vue';
     import Statistics from './components/Statistics.vue';
     import ANAP_CONFIG from "./anapconfig.js";
@@ -54,6 +56,20 @@
         total_checks_done: 0,
         broken_slot_data: false
 
+    };
+    var DEFAULT_OPTIONS = {
+        row_size: 0,
+        auto_row_m: 12,
+        auto_row_s: 40,
+        auto_show_player_done: 40,
+        show_done: 1,
+        show_timer: 1,
+        show_hints: 1,
+        show_checks_left: 0,
+        show_slot_number: 0,
+        sort_by: 0,
+        store_datapackage: 1,
+        store_individual_rooms: 0,
     };
     var OPTIONS = {
         row_size: 0,
@@ -111,7 +127,8 @@
                 ROOM_ID,
                 LIST_OF_GAMES,
                 OPTIONS,
-                WEBHOST_USED
+                WEBHOST_USED,
+                DEFAULT_OPTIONS
             };
         },
         created() {
@@ -334,21 +351,14 @@
                 if (roomData != null && roomData != '' && vRoomData != null && vRoomData == ANAP_CONFIG.APP_VERSION) {
                     this.OPTIONS = JSON.parse(roomData);
                 }
-                /*
-                else {
-                     // If not, we load the last options set
-                    roomData = localStorage.getItem('TPCE_ANAP_ROOM_LAST');
-                    vRoomData = localStorage.getItem('TPCE_ANAP_VROOM_LAST');
-                    if (roomData != null && roomData != '' && vRoomData != null && vRoomData == ANAP_CONFIG.APP_VERSION)
-                        this.OPTIONS = JSON.parse(roomData);
-                }
-                */
+            },
+            saveDefaultOptions: function () {
+                localStorage.setItem('TPCE_ANAP_DEFAULT_OPT', JSON.stringify(this.DEFAULT_OPTIONS));
+                localStorage.setItem('TPCE_ANAP_VDEFAULT_OPT', ANAP_CONFIG.APP_VERSION);
             },
             saveOptions: function () {
                 localStorage.setItem('TPCE_ANAP_ROOM_' + this.ROOM_ID, JSON.stringify(this.OPTIONS));
                 localStorage.setItem('TPCE_ANAP_VROOM_' + this.ROOM_ID, ANAP_CONFIG.APP_VERSION);
-                localStorage.setItem('TPCE_ANAP_ROOM_LAST', JSON.stringify(this.OPTIONS));
-                localStorage.setItem('TPCE_ANAP_VROOM_LAST', ANAP_CONFIG.APP_VERSION);
             },
             // Routing Methods
             updateTitle: function (route, webhost, id) {
@@ -361,7 +371,9 @@
                 else if (this.validRoom())
                     document.title = "Tracker " + this.ROOM_ID + " from" + this.WEBHOST_USED;
                 else if (fake_args.length > 0 && fake_args[0] == 'statistics')
-                    document.title = "A normal Dashboard";
+                    document.title = "A normal dashboard";
+                else if (fake_args.length > 0 && fake_args[0] == 'settings')
+                    document.title = "A normal settings page";
                 else
                     document.title = "A normal AP Tracker";
             },
@@ -409,7 +421,7 @@
             route: function (arg1, arg2, arg3) {
                 var route = ''; // Default route
                 // Page selection
-                if (['statistics', 'room', 'tracker'].includes(arg1)) {
+                if (['statistics', 'settings', 'room', 'tracker'].includes(arg1)) {
                     route = arg1;
                 }
                 if (arg2 != null)
@@ -483,11 +495,15 @@
             goToStats: function () {
                 this.route('statistics');
             },
+            goToSettings: function () {
+                this.route('settings');
+            },
         },
         components: {
             PlayerList,
             Navbar,
             Home,
+            Settings,
             Statistics
         },
         mounted: function () {
