@@ -20,7 +20,7 @@
                             <img title="Hinted Item on their world" src="/img/event.png" />
                         </span>
                     </div>
-                    <div v-if="displayHints() && getImportantSentHints()" :class="getImageClass()" class="inline-block bg-cyan-300/70 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+                    <div v-if="displayHints() && getImportantSentHints()" :class="getImageClass()" class="inline-block bg-cyan-200/70 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
                         <div v-if="get_size()" class="text-xs font-normal text-left">Hints</div>
 
                         <span v-if="getImportantSentHints() > 5" class="mr-2 text-xs font-bold"><img title="Hint sent to another player" src="/img/unknown.png" />x{{ getImportantSentHints() }} </span>
