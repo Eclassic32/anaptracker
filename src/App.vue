@@ -353,11 +353,22 @@
                 this.autoRefresh();
             },
             loadOptions: function () {
+
+                if (this.DEFAULT_OPTIONS.row_size >= 0)
+                    this.OPTIONS.row_size = this.DEFAULT_OPTIONS.row_size;
+                this.OPTIONS.show_done = this.DEFAULT_OPTIONS.show_done;
+                this.OPTIONS.show_timer = this.DEFAULT_OPTIONS.show_timer;
+                this.OPTIONS.show_hints = this.DEFAULT_OPTIONS.show_checks_left;
+                this.OPTIONS.show_checks_left = this.DEFAULT_OPTIONS.show_slot_number;
+                this.OPTIONS.sort_by = this.DEFAULT_OPTIONS.sort_by;
+
                 // If we got the specific Room options, we load it.
-                var roomData = localStorage.getItem('TPCE_ANAP_ROOM_' + this.ROOM_ID);
-                var vRoomData = localStorage.getItem('TPCE_ANAP_VROOM_' + this.ROOM_ID);
-                if (roomData != null && roomData != '' && vRoomData != null && vRoomData == ANAP_CONFIG.SETTINGS_VERSION) {
-                    this.OPTIONS = JSON.parse(roomData);
+                if (this.DEFAULT_OPTIONS.store_individual_rooms) {
+                    var roomData = localStorage.getItem('TPCE_ANAP_ROOM_' + this.ROOM_ID);
+                    var vRoomData = localStorage.getItem('TPCE_ANAP_VROOM_' + this.ROOM_ID);
+                    if (roomData != null && roomData != '' && vRoomData != null && vRoomData == ANAP_CONFIG.SETTINGS_VERSION) {
+                        this.OPTIONS = JSON.parse(roomData);
+                    }
                 }
             },
             loadDefaultOptions: function () {
@@ -373,8 +384,10 @@
                 localStorage.setItem('TPCE_ANAP_VDEFAULT_OPT', ANAP_CONFIG.SETTINGS_VERSION);
             },
             saveOptions: function () {
-                localStorage.setItem('TPCE_ANAP_ROOM_' + this.ROOM_ID, JSON.stringify(this.OPTIONS));
-                localStorage.setItem('TPCE_ANAP_VROOM_' + this.ROOM_ID, ANAP_CONFIG.SETTINGS_VERSION);
+                if (this.DEFAULT_OPTIONS.store_individual_rooms) {
+                    localStorage.setItem('TPCE_ANAP_ROOM_' + this.ROOM_ID, JSON.stringify(this.OPTIONS));
+                    localStorage.setItem('TPCE_ANAP_VROOM_' + this.ROOM_ID, ANAP_CONFIG.SETTINGS_VERSION);
+                }
             },
             // Routing Methods
             updateTitle: function (route, webhost, id) {
