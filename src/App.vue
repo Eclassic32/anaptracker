@@ -234,11 +234,13 @@
                 }
 
             },
-            setDataPackageData: function (key, data) {
+            setDataPackageData: function (key, data, store = true) {
                 if (data.hasOwnProperty('checksum'))
                     this.DATA_PACKAGE[key] = data;
                 else
                     this.DATA_PACKAGE[key] = EMPTY_DATAPACKAGE;
+                if (this.DEFAULT_OPTIONS.store_datapackage && store)
+                    localStorage.setItem('TPCE_ANAP_DATAPACKAGE_' + this.STATIC_TRACKER_DATA.datapackage[key].checksum, JSON.stringify(data));
             },
             // Make the Datapackage call thread.
             getChainStaticData: function () {
@@ -247,17 +249,23 @@
 
                         for (var x = 0; x < this.LIST_OF_GAMES.length; x++) {
                             if (LIST_OF_GAMES[x].name == key) {
-
-                                console.log("Getting data package from " + key);
-                                this.DATA_PACKAGE[key] = "";
-                                axios
-                                    .get(this.ANAP_DATA.archipelagogg.datapackage_url + this.WEBHOST_USED + '/' + this.STATIC_TRACKER_DATA.datapackage[key].checksum)
-                                    .then(response => (this.setDataPackageData(key, response.data)))
-                                    .then(response => (setTimeout(function (scope) {
-                                        scope.getChainStaticData();
-                                    }, 250, this)));
-                                // Putting a delay because Archipelago server can't handle too many requests.
-                                return;
+                                // Retrieving the datapackage
+                                var vRoomData = localStorage.getItem('TPCE_ANAP_DATAPACKAGE_' + this.STATIC_TRACKER_DATA.datapackage[key].checksum);
+                                if (vRoomData != null && vRoomData != '' && this.DEFAULT_OPTIONS.store_datapackage) {
+                                    this.setDataPackageData(key, JSON.parse(vRoomData), false);
+                                }
+                                else {
+                                    console.log("Getting data package from " + key);
+                                    this.DATA_PACKAGE[key] = "";
+                                    axios
+                                        .get(this.ANAP_DATA.archipelagogg.datapackage_url + this.WEBHOST_USED + '/' + this.STATIC_TRACKER_DATA.datapackage[key].checksum)
+                                        .then(response => (this.setDataPackageData(key, response.data)))
+                                        .then(response => (setTimeout(function (scope) {
+                                            scope.getChainStaticData();
+                                        }, 250, this)));
+                                    // Putting a delay because Archipelago server can't handle too many requests.
+                                    return;
+                                }
                             }
                         }
                     }
@@ -348,17 +356,25 @@
                 // If we got the specific Room options, we load it.
                 var roomData = localStorage.getItem('TPCE_ANAP_ROOM_' + this.ROOM_ID);
                 var vRoomData = localStorage.getItem('TPCE_ANAP_VROOM_' + this.ROOM_ID);
-                if (roomData != null && roomData != '' && vRoomData != null && vRoomData == ANAP_CONFIG.APP_VERSION) {
+                if (roomData != null && roomData != '' && vRoomData != null && vRoomData == ANAP_CONFIG.SETTINGS_VERSION) {
                     this.OPTIONS = JSON.parse(roomData);
+                }
+            },
+            loadDefaultOptions: function () {
+                // If we got the specific Room options, we load it.
+                var roomData = localStorage.getItem('TPCE_ANAP_DEFAULT_OPT' + this.ROOM_ID);
+                var vRoomData = localStorage.getItem('TPCE_ANAP_VDEFAULT_OPT' + this.ROOM_ID);
+                if (roomData != null && roomData != '' && vRoomData != null && vRoomData == ANAP_CONFIG.SETTINGS_VERSION) {
+                    this.DEFAULT_OPTIONS = JSON.parse(roomData);
                 }
             },
             saveDefaultOptions: function () {
                 localStorage.setItem('TPCE_ANAP_DEFAULT_OPT', JSON.stringify(this.DEFAULT_OPTIONS));
-                localStorage.setItem('TPCE_ANAP_VDEFAULT_OPT', ANAP_CONFIG.APP_VERSION);
+                localStorage.setItem('TPCE_ANAP_VDEFAULT_OPT', ANAP_CONFIG.SETTINGS_VERSION);
             },
             saveOptions: function () {
                 localStorage.setItem('TPCE_ANAP_ROOM_' + this.ROOM_ID, JSON.stringify(this.OPTIONS));
-                localStorage.setItem('TPCE_ANAP_VROOM_' + this.ROOM_ID, ANAP_CONFIG.APP_VERSION);
+                localStorage.setItem('TPCE_ANAP_VROOM_' + this.ROOM_ID, ANAP_CONFIG.SETTINGS_VERSION);
             },
             // Routing Methods
             updateTitle: function (route, webhost, id) {
@@ -508,6 +524,7 @@
         },
         mounted: function () {
             var url = location.href;
+            this.loadDefaultOptions();
             this.getRouteInfos();
 
         },
