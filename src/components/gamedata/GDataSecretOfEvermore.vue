@@ -36,7 +36,7 @@
 
             <img v-if="getNumberItemsFromName('30 Cryo Blast')" title="Cryo Blast" src="/img/secret_of_evermore/weapons/ammo_3.png" />
             <img v-else-if="getNumberItemsFromName('30 Particle Bombs')" title="Particle Bomb" src="/img/secret_of_evermore/weapons/ammo_2.png" />
-            <img v-else-if="!getNumberItemsFromName('30 Thunderball')" " title="Thunderball" src="/img/secret_of_evermore/weapons/ammo_1.png" />
+            <img v-else-if="getNumberItemsFromName('30 Thunderball')" title="Thunderball" src="/img/secret_of_evermore/weapons/ammo_1.png" />
             <img v-else title="Bazooka" src="/img/secret_of_evermore/weapons/bazooka.png" class="opacity-25" :class="{ 'opacity-25': !getNumberItemsFromName('Bazooka')  }"/>
 
         </div>
