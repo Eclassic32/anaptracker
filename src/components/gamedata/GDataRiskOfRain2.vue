@@ -76,27 +76,27 @@ export default {
                 return true;
             },
             xOrStageLevel: function (stage, level) {
-                if (this.getNumberItemsFromName('Progressive Stage') < level && this.getNumberItemsFromName(stage) ||
-                    this.getNumberItemsFromName('Progressive Stage') >= level && !this.getNumberItemsFromName(stage)) {
+                if ((this.getNumberItemsFromName('Progressive Stage') < level || !this.getNumberItemsFromName('Stage' + level.toString())) && this.getNumberItemsFromName(stage) ||
+                    (this.getNumberItemsFromName('Progressive Stage') >= level || this.getNumberItemsFromName('Stage' + level.toString())) && !this.getNumberItemsFromName(stage)) {
                     return true;
                 }
                 return false;
             }, 
             getVictory: function () {
-                if (this.data.slot_data.hasOwnProperty('Victory')) {
-                    return this.data.slot_data.options.Victory;
+                if (this.data.slot_data.hasOwnProperty('goal')) {
+                    return this.data.slot_data.goal;
                 }
                 return 0;
             },
             limboRoute: function () {
-                if (this.data.slot_data.hasOwnProperty('Victory')) {
-                    return this.data.slot_data.options.Victory == 3;
+                if (this.data.slot_data.hasOwnProperty('goal')) {
+                    return this.data.slot_data.goal == 3;
                 }
                 return 1;
             },
             voidlingRoute: function () {
-                if (this.data.slot_data.hasOwnProperty('Victory')) {
-                    return this.data.slot_data.options.Victory == 2;
+                if (this.data.slot_data.hasOwnProperty('goal')) {
+                    return this.data.slot_data.goal == 2;
                 }
                 return 1;
             }
