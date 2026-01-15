@@ -1,6 +1,6 @@
 <template>
     <div class="text-center text-white">
-        <div class="text-2xl">Settings</div>
+        <div class="text-2xl my-4">Settings</div>
         <div class="mt-6 text-center">
             <div class="text-xl">Row size</div>
             <div class="flex flex-row w-auto font-roboto justify-center">

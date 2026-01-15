@@ -8,7 +8,7 @@
             </div>
             <div>
                 <Statistics v-if="ROOM_ID == 'statistics'"></Statistics>
-                <Settings v-if="ROOM_ID == 'settings'"></Settings>
+                <Settings v-else-if="ROOM_ID == 'settings'"></Settings>
                 <PlayerList v-else-if="validRoom()" v-bind:globaldata="GLOBAL_TRACKER_DATA" v-bind:gamedata="DATA_PACKAGE"></PlayerList>
                 <Home v-else></Home>
             </div>
@@ -64,7 +64,7 @@
         auto_show_player_done: 40,
         show_done: 1,
         show_timer: 1,
-        show_hints: 1,
+        show_hints: 0,
         show_checks_left: 0,
         show_slot_number: 0,
         sort_by: 0,
