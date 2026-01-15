@@ -232,6 +232,11 @@ export default {
                     this.data.extended = 1;
                 }
             },
+            importantHint: function (itemClassification, hintClassification) {
+                if (hintClassification == 30 || (itemClassification == 1 && hintClassification != 10))
+                    return true;
+                return false;
+            },
             /**
              * 0 : Player who send the hint
              * 1 : Player whi recieve the hint
@@ -246,7 +251,7 @@ export default {
             getImportantSentHints: function (name) {
                 var res = 0;
                 for (var x = 0; x < this.data.tracker_data.hints.length; x++) {
-                    if (this.data.tracker_data.hints[x][0] == this.data.id && this.data.tracker_data.hints[x][1] != this.data.id && this.data.tracker_data.hints[x][6] == 1 && this.data.tracker_data.hints[x][4] == false)
+                    if (this.data.tracker_data.hints[x][0] == this.data.id && this.data.tracker_data.hints[x][1] != this.data.id && this.importantHint(this.data.tracker_data.hints[x][6], this.data.tracker_data.hints[x][7]) && this.data.tracker_data.hints[x][4] == false)
                         res++;
                 }
                 return res;
@@ -254,7 +259,7 @@ export default {
             getImportantRecievedHints: function (name) {
                 var res = 0;
                 for (var x = 0; x < this.data.tracker_data.hints.length; x++) {
-                    if (this.data.tracker_data.hints[x][1] == this.data.id && this.data.tracker_data.hints[x][0] != this.data.id && this.data.tracker_data.hints[x][6] == 1 && this.data.tracker_data.hints[x][4] == false)
+                    if (this.data.tracker_data.hints[x][1] == this.data.id && this.data.tracker_data.hints[x][0] != this.data.id && this.importantHint(this.data.tracker_data.hints[x][6], this.data.tracker_data.hints[x][7]) && this.data.tracker_data.hints[x][4] == false)
                         res++;
                 }
                 return res;
