@@ -1,7 +1,7 @@
 <template>
     <div class="inline-block">
         <div v-if="getGoalTriforce()" :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
-            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Rewards</div>
+            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Goal</div>
 
             <span class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Triforce Piece')  }"><img title="Triforce Piece" src="/img/alttp/items/triforce_piece.png" />x{{ getNumberItemsFromName('Triforce Piece') }} </span> / {{ getGoalTriforce() }}</span>
         </div>
@@ -19,6 +19,10 @@
             <img v-else-if="getNumberItemsFromName('Progressive Sword') > 2" title="White Sword (Two)" src="/img/minish_cap/items/SmithSword_3.png" />
             <img v-else-if="getNumberItemsFromName('Progressive Sword') > 1" title="White Sword" src="/img/minish_cap/items/SmithSword_2.png" />
             <img v-else title="Smith's' Sword" src="/img/minish_cap/items/SmithSword_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Sword')  }" />
+        </div>
+
+        <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Inventory</div>
 
             <img v-if="getNumberItemsFromName('Progressive Shield') > 1" title="Mirror Shield" src="/img/minish_cap/items/Shield_2.png" />
             <img v-else src="/img/minish_cap/items/Shield_1.png" title="Hero's Shield" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Shield')  }" />
@@ -27,12 +31,8 @@
             <img title="Power Bracelets" src="/img/minish_cap/items/PowerBracelets.png" :class="{ 'opacity-25': !getNumberItemsFromName('Power Bracelets')  }" />
             <img title="Grip Ring" src="/img/minish_cap/items/GripRing.png" :class="{ 'opacity-25': !getNumberItemsFromName('Grip Ring')  }" />
             <img title="Flippers" src="/img/minish_cap/items/Flippers.png" :class="{ 'opacity-25': !getNumberItemsFromName('Flippers')  }" />
-        </div>
-
-        <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
-            <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Items</div>
-
-            <img title="Ocarina" src="/img/minish_cap/items/Ocarina.png"  />
+            <span class="mr-2"></span>
+            <img title="Ocarina" src="/img/minish_cap/items/Ocarina.png" />
             <img v-if="getNumberItemsFromName('Progressive Bow') > 1" title="Bow" src="/img/minish_cap/items/Bow_2.png" />
             <img v-else title="Bow" src="/img/minish_cap/items/Bow_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Bow')  }" />
 
