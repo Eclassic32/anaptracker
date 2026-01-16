@@ -36,8 +36,8 @@
 
             <img v-if="getNumberItemsFromName('30 Cryo Blast')" title="Cryo Blast" src="/img/secret_of_evermore/weapons/ammo_3.png" />
             <img v-else-if="getNumberItemsFromName('30 Particle Bombs')" title="Particle Bomb" src="/img/secret_of_evermore/weapons/ammo_2.png" />
-            <img v-else-if="getNumberItemsFromName('30 Thunderball')" title="Thunderball" src="/img/secret_of_evermore/weapons/ammo_1.png" />
-            <img v-else title="Bazooka" src="/img/secret_of_evermore/weapons/bazooka.png" class="opacity-25" :class="{ 'opacity-25': !getNumberItemsFromName('Bazooka')  }"/>
+            <img v-else-if="getNumberItemsFromName('30 Thunderballs')" title="Thunderball" src="/img/secret_of_evermore/weapons/ammo_1.png" />
+            <img v-else title="Bazooka" src="/img/secret_of_evermore/weapons/bazooka.png" class="{ 'opacity-25': !getNumberItemsFromName('Bazooka')  }" />
 
         </div>
 
@@ -46,6 +46,7 @@
 
             <img title="Levitate" src="/img/secret_of_evermore/magic/levitate.gif" :class="{ 'opacity-25': !getNumberItemsFromName('Levitate')  }" />
             <img title="Revealer" src="/img/secret_of_evermore/magic/revealer.gif" :class="{ 'opacity-25': !getNumberItemsFromName('Revealer')  }" />
+            <img title="Escape" src="/img/secret_of_evermore/magic/escape.gif" :class="{ 'opacity-25': !getNumberItemsFromName('Escape')  }" />
             <span class="mr-2"></span>
             <img v-if="getNumberItemsFromName('Super Heal')" title="Super Heal" src="/img/secret_of_evermore/magic/super_heal.gif" />
             <img v-else title="Heal" src="/img/secret_of_evermore/magic/heal.gif" :class="{ 'opacity-25': !getNumberItemsFromName('Heal')  }" />
@@ -53,9 +54,11 @@
             <img title="Revive" src="/img/secret_of_evermore/magic/revive.gif" :class="{ 'opacity-25': !getNumberItemsFromName('Revive')  }" />
             <img v-if="getNumberItemsFromName('Miracle Cure')" title="Miracle Cure" src="/img/secret_of_evermore/magic/miracle_cure.gif" />
             <img v-else title="Cure" src="/img/secret_of_evermore/magic/cure.gif" :class="{ 'opacity-25': !getNumberItemsFromName('Cure')  }" />
-            <img title="Barrier" src="/img/secret_of_evermore/magic/barrier.gif" :class="{ 'opacity-25': !getNumberItemsFromName('Barrier')  }" />
-            <img title="Defend" src="/img/secret_of_evermore/magic/defend.gif" :class="{ 'opacity-25': !getNumberItemsFromName('Defend')  }" />
-            <img title="Energize" src="/img/secret_of_evermore/magic/energize.gif" :class="{ 'opacity-25': !getNumberItemsFromName('Energize')  }" />
+            <img v-if="getNumberItemsFromName('Barrier')" title="Barrier" src="/img/secret_of_evermore/magic/barrier.gif" />
+            <img v-else-if="getNumberItemsFromName('Speed')" title="Speed" src="/img/secret_of_evermore/magic/speed.gif" />
+            <img v-else title="Defend" src="/img/secret_of_evermore/magic/defend.gif" :class="{ 'opacity-25': !getNumberItemsFromName('Defend')  }" />
+            <img v-if="getNumberItemsFromName('Energize')" title="Energize" src="/img/secret_of_evermore/magic/energize.gif" :class="{ 'opacity-25': !getNumberItemsFromName('Energize')  }" />
+            <img v-else title="Atlas" src="/img/secret_of_evermore/magic/atlas.gif" :class="{ 'opacity-25': !getNumberItemsFromName('Atlas')  }" />
             <img title="Call Up" src="/img/secret_of_evermore/magic/call_up.gif" :class="{ 'opacity-25': !getNumberItemsFromName('Call Up')  }" />
             <span class="mr-2"></span>
 
