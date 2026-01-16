@@ -17,10 +17,9 @@
     <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
         <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Moveset</div>
 
-        <img v-if="!getNumberItemsFromName('Awoken_Deam_Nail')" title="Dream Nail" src="/img/hollow_knight/DreamNail1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Dream_Nail')  }" />
-        <img v-else title="Awoken Dream Nail" src="/img/hollow_knight/DreamNail2.png" />
-        <img title="Dream Gate" src="/img/hollow_knight/DreamGate.png" :class="{ 'opacity-25': !getNumberItemsFromName('Dream_Gate')  }" />
-
+        <img v-if="dreamNailLevel() > 2" title="Awoken Dream Nail" src="/img/hollow_knight/DreamNail2.png" />
+        <img v-else-if="dreamNailLevel() > 1" title="Drema Nail & Dream Gate" src="/img/hollow_knight/DreamGate.png" />
+        <img v-else title="Dream Nail" src="/img/hollow_knight/DreamNail1.png" :class="{ 'opacity-25': !dreamNailLevel() }" />
 
         <!-- Left_Wing_Mowthing_Cloak and Right_Wing_Mowthing_Cloak -->
         <span v-if="splitCloak()">
@@ -32,7 +31,7 @@
             <img v-else title="Shade Cloak Right" src="/img/hollow_knight/ShadeCloak2.png" />
         </span>
         <span v-else>
-            <img v-if="!getNumberItemsFromName('Shade_Cloak')" title="Mothwing Cloak" src="/img/hollow_knight/MothwingCloak.png" :class="{ 'opacity-25': !getNumberItemsFromName('Mothwing_Cloak') && !getNumberItemsFromName('Left_Mothwing_Cloak') && !getNumberItemsFromName('Right_Mothwing_Cloak')  }" />
+            <img v-if="!getNumberItemsFromName('Shade_Cloak') || !getNumberItemsFromName('Mothwing_Cloak')" title="Mothwing Cloak" src="/img/hollow_knight/MothwingCloak.png" :class="{ 'opacity-25': !getNumberItemsFromName('Shade_Cloak') && !getNumberItemsFromName('Mothwing_Cloak')  }" />
             <img v-else title="Shade Cloak" src="/img/hollow_knight/ShadeCloak.png" />
         </span>
 
@@ -42,14 +41,14 @@
 
         </span>
         <img v-else title="Mantis Claw" src="/img/hollow_knight/MantisClaw.png" :class="{ 'opacity-25': !getNumberItemsFromName('Mantis_Claw') && !getNumberItemsFromName('Left_Mantis_Claw') && !getNumberItemsFromName('Right_Mantis_Claw')  }" />
-        
+
         <span v-if="splitCrystal()">
             <img title="Crystal Heart Left" src="/img/hollow_knight/CrystalHeart.png" :class="{ 'opacity-25': !getNumberItemsFromName('Left_Crystal_Heart')  }" />
             <img title="Crystal Heart Right" src="/img/hollow_knight/CrystalHeart2.png" :class="{ 'opacity-25': !getNumberItemsFromName('Right_Crystal_Heart')  }" />
 
         </span>
         <img v-else title="Crystal Heart" src="/img/hollow_knight/CrystalHeart.png" :class="{ 'opacity-25': !getNumberItemsFromName('Crystal_Heart') && !getNumberItemsFromName('Left_Crystal_Heart') && !getNumberItemsFromName('Right_Crystal_Heart')  }" />
-        
+
         <img title="Isma's Tear" src="/img/hollow_knight/IsmaTear.png" :class="{ 'opacity-25': !getNumberItemsFromName('Isma\'s_Tear')  }" />
         <img title="Monarch Wings" src="/img/hollow_knight/MonarchWings.png" :class="{ 'opacity-25': !getNumberItemsFromName('Monarch_Wings')  }" />
         <span class="mr-2"></span>
@@ -119,6 +118,9 @@ export default {
                 }
                 return 0;
             },
+            dreamNailLevel: function () {
+                return this.$parent.getNumberItemsFromGroup(['Dream_Nail'], ['Dream_Gate'], ['Awoken_Dream_Nail']);
+            },
             siblingsGoal: function () {
                 if (this.data.slot_data.hasOwnProperty('options') && this.data.slot_data.options.Goal != 2) {
                     return 0;
@@ -132,22 +134,22 @@ export default {
                 return 1;
             },
             splitClaws: function () {
-                if (this.data.slot_data.hasOwnProperty('options') && this.data.slot_data.options.SplitMantisClaw == 1) {
-                    return 1;
+                if (this.data.slot_data.hasOwnProperty('options')) {
+                    return this.data.slot_data.options.SplitMantisClaw;
                 }
-                return 0;
+                return this.$parent.getNumberItemsFromGroup(['Left_Mantis_Claw'], ['Right_Mantis_Claw']);
             },
             splitCloak: function () {
-                if (this.data.slot_data.hasOwnProperty('options') && this.data.slot_data.options.SplitMothwingCloak == 1) {
-                    return 1;
+                if (this.data.slot_data.hasOwnProperty('options')) {
+                    return this.data.slot_data.options.SplitMothwingCloak;
                 }
-                return 0;
+                return this.$parent.getNumberItemsFromGroup(['Left_Mothwing_Cloak'], ['Right_Mothwing_Cloak']);
             },
             splitCrystal: function () {
-                if (this.data.slot_data.hasOwnProperty('options') && this.data.slot_data.options.SplitCrystalHeart == 1) {
-                    return 1;
+                if (this.data.slot_data.hasOwnProperty('options')) {
+                    return this.data.slot_data.options.SplitCrystalHeart;
                 }
-                return 0;
+                return this.$parent.getNumberItemsFromGroup(['Left_Crystal_Heart'], ['Right_Crystal_Heart']);
             }
         },
   components: {
