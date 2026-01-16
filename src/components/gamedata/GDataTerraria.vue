@@ -3,12 +3,12 @@
     <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
         <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Goal Progression</div>
 
-        <img title="Post-Skeleton" src="/img/terraria/the_skeleton.png" :class="{ 'opacity-25': !getNumberItemsFromName('Post-Skeleton')  }" />
+        <img title="Post-Skeletron" src="/img/terraria/the_skeleton.png" :class="{ 'opacity-25': !getNumberItemsFromName('Post-Skeletron')  }" />
         <img title="Hardmode" src="/img/terraria/hard_mode.png" :class="{ 'opacity-25': !getNumberItemsFromName('Hardmode')  }" />
         <span v-if="getGoal() > 1" class="mr-2"></span>
         <img v-if="getGoal() > 1" title="Post-The Twins" src="/img/terraria/the_twins.png" :class="{ 'opacity-25': !getNumberItemsFromName('Post-The Twins')  }" />
         <img v-if="getGoal() > 1" title="Post-The Destroyer" src="/img/terraria/the_destroyer.png" :class="{ 'opacity-25': !getNumberItemsFromName('Post-The Destroyer')  }" />
-        <img v-if="getGoal() > 1" title="Post-Skeleton Prime" src="/img/terraria/skeleton_prime.png" :class="{ 'opacity-25': !getNumberItemsFromName('Post-Skeleton Prime')  }" />
+        <img v-if="getGoal() > 1" title="Post-Skeletron Prime" src="/img/terraria/skeleton_prime.png" :class="{ 'opacity-25': !getNumberItemsFromName('Post-Skeletron Prime')  }" />
         <img v-if="getGoal() > 2" title="Post-Plantera" src="/img/terraria/planterra.png" :class="{ 'opacity-25': !getNumberItemsFromName('Post-Plantera')  }" />
         <img v-if="getGoal() > 3" title="Post-Golem" src="/img/terraria/golem.png" :class="{ 'opacity-25': !getNumberItemsFromName('Post-Golem')  }" />
     </div>
