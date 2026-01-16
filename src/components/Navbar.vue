@@ -21,12 +21,12 @@
                 <div v-on:click="dropdownAdditionals()" class="text-green-600 relative mr-4 cursor-pointer hover:text-white p-3 font-roboto font-bold">
                     <span>Show ...</span>
                 </div>
-                <div v-bind:class="{'hidden': !showAdditionals, 'flex': showAdditionals}" class="rounded-sm w-20 w-auto bg-gray-500 text-base z-50 float-left list-none text-left rounded shadow-lg absolute" style="min-width:12rem">
+                <div v-bind:class="{'hidden': !showAdditionals, 'flex': showAdditionals}" class="shadow-xl/70 rounded-sm w-20 w-auto bg-gray-500 text-base z-50 float-left list-none text-left rounded absolute" style="min-width:12rem">
                     <div class="flex flex-col bg-gray-500 w-full rounded-sm font-roboto font-bold">
-                        <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.show_done }" v-on:click="changeShowDone()">Players done</div>
-                        <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.show_slot_number }" v-on:click="changeShowSlotNumber()">Slot #</div>
-                        <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.show_hints }" v-on:click="changeShowHints()">Hints</div>
-                        <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.show_timer }" v-on:click="changeShowTimer()">Inactivity timers</div>
+                        <div class="p-2 cursor-pointer border-t-2" :class="{'bg-gray-200': $parent.OPTIONS.show_done }" v-on:click="changeShowDone()">Players done</div>
+                        <div class="p-2 cursor-pointer border-t-2" :class="{'bg-gray-200': $parent.OPTIONS.show_slot_number }" v-on:click="changeShowSlotNumber()">Slot #</div>
+                        <div class="p-2 cursor-pointer border-t-2" :class="{'bg-gray-200': $parent.OPTIONS.show_hints }" v-on:click="changeShowHints()">Hints</div>
+                        <div class="p-2 cursor-pointer border-t-2" :class="{'bg-gray-200': $parent.OPTIONS.show_timer }" v-on:click="changeShowTimer()">Inactivity timers</div>
                     </div>
                 </div>
             </div>
@@ -34,15 +34,15 @@
                 <div v-on:click="dropdownSortBy()" class="text-green-600 relative mr-4 cursor-pointer hover:text-white p-3 font-roboto font-bold">
                     <span>Sort by</span>
                 </div>
-                <div v-bind:class="{'hidden': !showSortBy, 'flex': showSortBy}" class="rounded-sm w-20 w-auto bg-gray-500 text-base z-50 float-left list-none text-left rounded shadow-lg absolute" style="min-width:12rem">
+                <div v-bind:class="{'hidden': !showSortBy, 'flex': showSortBy}" class="shadow-xl/70 rounded-sm w-20 w-auto bg-gray-500 text-base z-50 float-left list-none text-left rounded absolute" style="min-width:12rem">
 
                     <div class="flex flex-col bg-gray-500 w-full rounded-sm font-roboto font-bold">
-                        <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.sort_by == 0 }" v-on:click="changeSortBy(0)">Slot # (Name)</div>
-                        <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.sort_by == 7 }" v-on:click="changeSortBy(7)">Game</div>
-                        <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.sort_by == 3 }" v-on:click="changeSortBy(3)">Total checks</div>
-                        <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.sort_by == 1 }" v-on:click="changeSortBy(1)">Checks done</div>
-                        <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.sort_by == 2 }" v-on:click="changeSortBy(2)">% done</div>
-                        <div class="p-2 cursor-pointer border-b-2" :class="{'bg-gray-200': $parent.OPTIONS.sort_by == 4 }" v-on:click="changeSortBy(4)">Remainings checks</div>
+                        <div class="p-2 cursor-pointer border-t-2" :class="{'bg-gray-200': $parent.OPTIONS.sort_by == 0 }" v-on:click="changeSortBy(0)">Slot # (Name)</div>
+                        <div class="p-2 cursor-pointer border-t-2" :class="{'bg-gray-200': $parent.OPTIONS.sort_by == 7 }" v-on:click="changeSortBy(7)">Game</div>
+                        <div class="p-2 cursor-pointer border-t-2" :class="{'bg-gray-200': $parent.OPTIONS.sort_by == 3 }" v-on:click="changeSortBy(3)">Total checks</div>
+                        <div class="p-2 cursor-pointer border-t-2" :class="{'bg-gray-200': $parent.OPTIONS.sort_by == 1 }" v-on:click="changeSortBy(1)">Checks done</div>
+                        <div class="p-2 cursor-pointer border-t-2" :class="{'bg-gray-200': $parent.OPTIONS.sort_by == 2 }" v-on:click="changeSortBy(2)">% done</div>
+                        <div class="p-2 cursor-pointer border-t-2" :class="{'bg-gray-200': $parent.OPTIONS.sort_by == 4 }" v-on:click="changeSortBy(4)">Remainings checks</div>
                     </div>
                 </div>
             </div>
