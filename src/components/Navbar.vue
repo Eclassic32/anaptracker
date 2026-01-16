@@ -46,6 +46,12 @@
                     </div>
                 </div>
             </div>
+            <div v-if="$parent.validRoom()" class="relative hidden lg:inline-block">
+                <div class="text-gray-400 relative mr-4 cursor-pointer hover:text-white p-2 font-roboto">
+                    <input type="text" class="p-1 bg-gray-800 rounded-md" placeholder="filter" v-model="text_filter" v-on:keyup="refreshSearch()" />
+                </div>
+
+            </div>
             <div class="text-green-600 relative justify-self-end font-roboto p-3 grow-5 text-right">
                 <span v-if="$parent.brokenSlotData()" class="text-red-400 font-bold mr-2">/!\ Broken Slot Data /!\</span>
                 <a href="https://github.com/OriginalTomPouce/anaptracker" target="_blank" class="cursor-pointer hover:text-white">v{{ANAP_CONFIG.APP_VERSION}}</a>
@@ -68,13 +74,17 @@
                 showMenu: false,
                 showAdditionals: false,
                 showSortBy: false,
-                ANAP_CONFIG
+                ANAP_CONFIG,
+                text_filter: ''
             }
         },
 
         methods: {
             closeNavbar: function () {
                 this.showMenu = false;
+            },
+            refreshSearch: function () {
+                this.$parent.GLOBAL_TRACKER_DATA.text_filter = this.text_filter;
             },
             dropdownAdditionals: function () {
                 if (this.showAdditionals == false) {

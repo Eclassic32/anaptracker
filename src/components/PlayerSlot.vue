@@ -3,7 +3,7 @@
         <div class="absolute left-0 top-0 bottom-0 z-1 bg-green-500" :style="{ 'width' : str_percent_completion() }"></div>
 
         <div @click="toggleExpand()" class="z-2 flex flex-column justify-between">
-            <div class="w-1/4 lg:w-1/5 2xl:w-1/6 z-3 text-dark " :class="{ 'opacity-50' : get_status() == 0 }"><span v-if="$parent.$parent.OPTIONS.show_slot_number" class="font-bold">{{ data.id }} - </span><span class="mr-2 font-bold">{{ player_name }}</span><br v-if="$parent.$parent.OPTIONS.row_size" /><span class="font-normal text-tiny">({{ player_game }})</span></div>
+            <div class="w-1/4 lg:w-1/5 2xl:w-1/6 z-3 text-dark " :class="{ 'opacity-50' : get_status() == 0 }"><a :href="slotURL()" target="_blank" class="mr-2 font-bold hover:text-blue-800 hover:underline"><span v-if="$parent.$parent.OPTIONS.show_slot_number" class="font-bold">{{ data.id }} - </span>{{ player_name }}</a><br v-if="$parent.$parent.OPTIONS.row_size" /><span class="font-normal text-tiny">({{ player_game }})</span></div>
             <div class="w-auto z-3 text-sm">
                 <div class="clear-both text-center font-normal">
 
@@ -144,8 +144,15 @@ export default {
                 }
                 return res;
             },
+            matchesResearch: function () {
+                if (this.$parent.$parent.GLOBAL_TRACKER_DATA.text_filter == '')
+                    return true;
+                if (this.data.game.toLowerCase().includes(this.$parent.$parent.GLOBAL_TRACKER_DATA.text_filter.toLowerCase()) || this.data.name.toLowerCase().includes(this.$parent.$parent.GLOBAL_TRACKER_DATA.text_filter.toLowerCase()))
+                    return true;
+                return false;
+            },
             displayable: function () {
-                if ((this.$parent.$parent.OPTIONS.show_done || this.get_time_diff() < (600)) || this.data.tracker_data.status < 30) {
+                if (((this.$parent.$parent.OPTIONS.show_done || this.get_time_diff() < (600)) || this.data.tracker_data.status < 30) && this.matchesResearch()) {
                     return true;
                 }
                 return false;
@@ -258,6 +265,14 @@ export default {
                         res++;
                 }
                 return res;
+            },
+            slotURL: function () {
+                var URL = "https://archipelago.gg";
+                if (this.$parent.$parent.WEBHOST_USED == 'bananium')
+                    URL = "https://ap.bananium.fr";
+
+                URL += "/tracker/" + this.$parent.$parent.TRACKER_ID + "/0/" + this.data.id;
+                return URL;
             },
         },
         components: {

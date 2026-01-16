@@ -56,6 +56,8 @@
         total_checks_done: 0,
         broken_slot_data: false,
         timer_refresh: 10000,
+        webhost: 'archipelago',
+        text_filter: ''
 
     };
     var DEFAULT_OPTIONS = {
@@ -543,6 +545,7 @@
                 this.GLOBAL_TRACKER_DATA.groups = [];
                 this.GLOBAL_TRACKER_DATA.total_checks_done = 0;
                 this.GLOBAL_TRACKER_DATA.broken_slot_data = false;
+                this.GLOBAL_TRACKER_DATA.text_filter = ''; 
                 this.ROOM_ID = '';
                 this.TRACKER_ID = '';
                 this.route('', null, null);
