@@ -33,7 +33,7 @@
             <img title="Flippers" src="/img/minish_cap/items/Flippers.png" :class="{ 'opacity-25': !getNumberItemsFromName('Flippers')  }" />
             <span class="mr-2"></span>
             <img title="Ocarina" src="/img/minish_cap/items/Ocarina.png" />
-            <img v-if="getNumberItemsFromName('Progressive Bow') > 1" title="Bow" src="/img/minish_cap/items/Bow_2.png" />
+            <img v-if="getNumberItemsFromName('Progressive Bow') > 1" title="Silver Bow" src="/img/minish_cap/items/Bow_2.png" />
             <img v-else title="Bow" src="/img/minish_cap/items/Bow_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Bow')  }" />
 
             <img v-if="getNumberItemsFromName('Progressive Boomerang') > 1" title="Boomerang" src="/img/minish_cap/items/Boomerang_2.png" />
