@@ -54,7 +54,8 @@
         datapackage: [],
         groups: [],
         total_checks_done: 0,
-        broken_slot_data: false
+        broken_slot_data: false,
+        timer_refresh: 10000,
 
     };
     var DEFAULT_OPTIONS = {
@@ -196,7 +197,7 @@
 
                 setTimeout(function (scope) {
                     scope.autoRefresh();
-                }, 10000, this);
+                }, this.GLOBAL_TRACKER_DATA.timer_refresh, this);
             },
             // Push the static_tracker API call result on the App
             getStaticData: function (sdata) {
@@ -301,6 +302,15 @@
                 if (this.GLOBAL_TRACKER_DATA.players.length >= 30) {
                     this.OPTIONS.show_done = 0;
                 }
+
+                // Change timer refresh depending on player count
+                if (this.GLOBAL_TRACKER_DATA.players.length > ANAP_CONFIG.BIG_WORLD_THRESHOLD)
+                    this.GLOBAL_TRACKER_DATA.timer_refresh = ANAP_CONFIG.REFRESH_TIMER_BIG;
+                else if (this.GLOBAL_TRACKER_DATA.players.length > ANAP_CONFIG.MEDIUM_WORLD_THRESHOLD)
+                    this.GLOBAL_TRACKER_DATA.timer_refresh = ANAP_CONFIG.REFRESH_TIMER_MEDIUM;
+                else
+                    this.GLOBAL_TRACKER_DATA.timer_refresh = ANAP_CONFIG.REFRESH_TIMER_SMALL;
+
                 var SLOT_URL = this.ANAP_DATA.archipelagogg.slot_url + this.WEBHOST_USED + '/' + room_data.tracker;
                 var STATIC_TRACKER_URL = this.ANAP_DATA.archipelagogg.static_tracker_url + this.WEBHOST_USED + '/' + room_data.tracker;
                 axios
@@ -311,6 +321,7 @@
                     .get(SLOT_URL)
                     .then(response => (this.getSlotData(response.data)));
                 this.loadOptions();
+
                 this.autoRefresh();
             },
             // Begin tracking a tracker, setting the call chain.
@@ -342,6 +353,14 @@
                 if (this.GLOBAL_TRACKER_DATA.players.length >= 30) {
                     this.OPTIONS.show_done = 0;
                 }
+
+                // Change timer refresh depending on player count
+                if (this.GLOBAL_TRACKER_DATA.players.length > ANAP_CONFIG.BIG_WORLD_THRESHOLD)
+                    this.GLOBAL_TRACKER_DATA.timer_refresh = ANAP_CONFIG.REFRESH_TIMER_BIG;
+                else if (this.GLOBAL_TRACKER_DATA.players.length > ANAP_CONFIG.MEDIUM_WORLD_THRESHOLD)
+                    this.GLOBAL_TRACKER_DATA.timer_refresh = ANAP_CONFIG.REFRESH_TIMER_MEDIUM;
+                else
+                    this.GLOBAL_TRACKER_DATA.timer_refresh = ANAP_CONFIG.REFRESH_TIMER_SMALL;
 
                 var SLOT_URL = this.ANAP_DATA.archipelagogg.slot_url + this.WEBHOST_USED + '/' + this.TRACKER_ID;
                 this.getStaticData(room_data);
