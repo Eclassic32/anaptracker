@@ -9,7 +9,7 @@
             <div>
                 <Statistics v-if="ROOM_ID == 'statistics'"></Statistics>
                 <Settings v-else-if="ROOM_ID == 'settings'"></Settings>
-                <PlayerList v-else-if="validRoom()" v-bind:globaldata="GLOBAL_TRACKER_DATA" v-bind:gamedata="DATA_PACKAGE"></PlayerList>
+                <PlayerList v-else-if="validRoom()" v-bind:globaldata="GLOBAL_TRACKER_DATA" v-bind:gamedata="DATA_PACKAGE" ref="playerLisrt"></PlayerList>
                 <Home v-else></Home>
             </div>
         </div>
@@ -189,11 +189,21 @@
                 if (!this.validRoom())
                     return;
 
+
                 var TRACKER_URL = this.ANAP_DATA.archipelagogg.tracker_url + this.WEBHOST_USED + '/' + this.TRACKER_ID;
 
                 axios
                     .get(TRACKER_URL)
                     .then(response => (this.refreshTrackerData(response.data)));
+
+
+                // If the multiworld is completed, there is no point to keep calling the API.
+                var res = 0;
+                for (var x = 0; x < this.GLOBAL_TRACKER_DATA.players.length; x++) {
+                    res += this.GLOBAL_TRACKER_DATA.players[x].total_locations;
+                }
+                if (res > 0 && res == this.GLOBAL_TRACKER_DATA.total_checks_done)
+                    return;
 
                 setTimeout(function (scope) {
                     scope.autoRefresh();
