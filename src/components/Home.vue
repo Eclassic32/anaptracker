@@ -8,6 +8,7 @@
                 <input v-model="roomid" type="text" class="border-1 border-gray-500 rounded-xs p-2 mr-2 text-lg" />
                 <input type="submit" class="bg-blue-800 p-2 br-1 rounded-xs text-lg" value="Track !" />
             </form>
+            <div v-if="error" class="text-red-400 font-bold mt-2">The URL or the room ID is unrecognized.</div>
         </div>
         <div class="inline-block w-100 p-6 align-top">
             <span class="font-bold text-lg">What the app can do :</span>
@@ -52,15 +53,29 @@
         ) {
             return {
                 roomid: '',
-                LIST_OF_GAMES
+                LIST_OF_GAMES,
+                error: 0
             }
         },
 
         methods: {
             loadRoom: function () {
+                this.error = 0;
                 var roomstr = this.roomid;
                 var fake_args = roomstr.split('/');
-                this.$parent.loadRoom(fake_args[fake_args.length - 1]);
+                var method = 'room';
+                var webhost = 'archipelago';
+                var id = fake_args[fake_args.length - 1];
+
+                if (fake_args.length > 1 && fake_args[fake_args.length - 2] == 'tracker')
+                    method = 'tracker';
+                if (fake_args.length > 2 && fake_args[fake_args.length - 3] == 'ap.bananium.fr')
+                    webhost = 'bananium';
+
+                if (id.length == 22)
+                    this.$parent.route(method, webhost, id);
+                else
+                    this.error = 1;
             }
 
         },

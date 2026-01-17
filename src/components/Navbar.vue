@@ -48,7 +48,7 @@
             </div>
             <div v-if="$parent.validRoom()" class="relative hidden lg:inline-block">
                 <div class="text-gray-400 relative mr-4 cursor-pointer hover:text-white p-2 font-roboto">
-                    <input type="text" class="p-1 bg-gray-800 rounded-md" placeholder="filter" v-model="text_filter" v-on:keyup="refreshSearch()" />
+                    <input type="text" class="p-1 px-3 bg-gray-800 rounded-md" placeholder="filter" v-model="text_filter" v-on:keyup="refreshSearch()" />
                 </div>
 
             </div>
