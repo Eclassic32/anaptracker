@@ -62,7 +62,7 @@
     <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
         <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Misc</div>
         <img title="Tram Pass" src="/img/hollow_knight/TramPass.png" :class="{ 'opacity-25': !getNumberItemsFromName('Tram_Pass')  }" />
-        <span v-if="!grubHunt() && grubHuntGoal()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Grub')  }"><img title="Grub" src="/img/hollow_knight/grub.png" />x{{ getNumberItemsFromName('Grub') }} </span> / {{ grubHuntGoal() }}</span>
+        <span v-if="!grubHunt() && grubHuntGoal() && shuffleGrubs()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Grub')  }"><img title="Grub" src="/img/hollow_knight/grub.png" />x{{ getNumberItemsFromName('Grub') }} </span> / {{ grubHuntGoal() }}</span>
 
     </div>
 </template>
@@ -111,6 +111,13 @@ export default {
                     return this.data.slot_data.grub_count;
                 }
                 return 0;
+            },
+            shuffleGrubs: function () {
+                if (this.data.slot_data.hasOwnProperty('options') && !this.data.slot_data.options.RandomizeGrubs == 0) {
+                    return 0;
+                }
+                return 1;
+                
             },
             grubHunt: function () {
                 if (this.data.slot_data.hasOwnProperty('options') && [0,6].includes(this.data.slot_data.options.Goal)) {
