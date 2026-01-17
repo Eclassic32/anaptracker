@@ -113,7 +113,7 @@ export default {
                 return 0;
             },
             shuffleGrubs: function () {
-                if (this.data.slot_data.hasOwnProperty('options') && !this.data.slot_data.options.RandomizeGrubs == 0) {
+                if (this.data.slot_data.hasOwnProperty('options') && this.data.slot_data.options.RandomizeGrubs == 0) {
                     return 0;
                 }
                 return 1;
