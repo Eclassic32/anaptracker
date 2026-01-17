@@ -1,5 +1,5 @@
 <template>
-    <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+    <div v-if="strawberriesRequired()" :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
         <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Goal</div>
 
         <span v-if="getGoalStrawberries()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Strawberry')  }"><img title="Strawberry" src="/img/celeste/items/berry.png" />x{{ getNumberItemsFromName('Strawberry') }} </span> / {{ getGoalStrawberries() }}</span>
@@ -83,8 +83,14 @@ export default {
                 return 1;
                   
             },
+            strawberriesRequired: function () {
+                if (this.data.slot_data.hasOwnProperty('strawberries_required')) {
+                    return this.data.slot_data.strawberries_required;
+                }
+                return 1;
+            },
             getGoalStrawberries: function () {
-                if (this.data.slot_data.strawberries_required) {
+                if (this.data.slot_data.hasOwnProperty('strawberries_required')) {
                     return this.data.slot_data.strawberries_required;
                 }
                 return 0;
