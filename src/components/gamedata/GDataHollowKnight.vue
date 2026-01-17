@@ -52,12 +52,12 @@
         <img title="Isma's Tear" src="/img/hollow_knight/IsmaTear.png" :class="{ 'opacity-25': !getNumberItemsFromName('Isma\'s_Tear')  }" />
         <img title="Monarch Wings" src="/img/hollow_knight/MonarchWings.png" :class="{ 'opacity-25': !getNumberItemsFromName('Monarch_Wings')  }" />
         <span class="mr-2"></span>
-        <img v-if="!getNumberItemsFromName('Shade_Soul')" title="Vengeful Spirit" src="/img/hollow_knight/VengefulSpirit.png" :class="{ 'opacity-25': !getNumberItemsFromName('VengefulSpirit')  }" />
-        <img v-else title="Shade Soul" src="/img/hollow_knight/ShadeSoul.png" />
-        <img v-if="!getNumberItemsFromName('Abyss_Shriek')" title="Howling Wraiths" src="/img/hollow_knight/HowlingWraiths.png" :class="{ 'opacity-25': !getNumberItemsFromName('Howling_Wreaiths')  }" />
-        <img v-else title="Abyss Shriek" src="/img/hollow_knight/AbyssShriek.png" />
-        <img v-if="!getNumberItemsFromName('Descending_Dark')" title="Desolate Dive" src="/img/hollow_knight/DesolateDive.png" :class="{ 'opacity-25': !getNumberItemsFromName('Desolate_Dive')  }" />
-        <img v-else title="Descending Dark" src="/img/hollow_knight/DescendingDark.png" />
+        <img v-if="getNumberItemsFromName('Shade_Soul') && getNumberItemsFromName('VengefulSpirit')" title="Shade Soul" src="/img/hollow_knight/ShadeSoul.png" />
+        <img v-else title="Vengeful Spirit" src="/img/hollow_knight/VengefulSpirit.png" :class="{ 'opacity-25': !getNumberItemsFromName('Shade_Soul') && !getNumberItemsFromName('VengefulSpirit')  }" />
+        <img v-if="getNumberItemsFromName('Abyss_Shriek') && getNumberItemsFromName('Howling_Wraiths')" title="Abyss Shriek" src="/img/hollow_knight/AbyssShriek.png" />
+        <img v-else title="Howling Wraiths" src="/img/hollow_knight/HowlingWraiths.png" :class="{ 'opacity-25': !getNumberItemsFromName('Abyss_Shriek') && !getNumberItemsFromName('Howling_Wraiths')  }" />
+        <img v-if="getNumberItemsFromName('Descending_Dark') && getNumberItemsFromName('Desolate_Dive')" title="Descending Dark" src="/img/hollow_knight/DescendingDark.png" />
+        <img v-else title="Desolate Dive" src="/img/hollow_knight/DesolateDive.png" :class="{ 'opacity-25': !getNumberItemsFromName('Descending_Dark') && !getNumberItemsFromName('Desolate_Dive')  }" />
     </div>
     <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
         <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Misc</div>
@@ -82,6 +82,21 @@
     *   - 5 - Godhome flower : Get Fragnant Flower
     *   - 6 - Grub Hunt : get Grubs
     *
+    * 
+    * Logic :
+    * To handle logical progress, Hollow Knight still makes the distinction between items, but put them into a progression pool once you've collected them.
+    * Example :
+    * - Dream Nail, Dream Gate, and Awoken Dream Nail are on the same progressive pool.
+    *   - If you collect 1 of the 3 items, you got Dream Nail
+    *   - If you collect 2, you have Dream Nail and Dream Gate
+    *   - If you got all 3, you have all 3 items.
+    *   
+    * Hollow Knight item pools :
+    * - Dream pool : Dream Nail, Dream Gate, Awoken Dream Nail
+    * - Cloak Pool : Mothwing Cloak, Shade Cloak (if cloak is splitted, Shade Cloak becomes a duplicate directed Mothwing Cloak)
+    * - Neutral Spell Pool : Vengeful Spirit and Shade Soul
+    * - Up Spell Pool : Abyss Shriek and Howling Wraiths
+    * - Down Spell Pool : Descending Dark and Desolate Dive
     */
 export default {
   name: "gDataHollowKnight",
