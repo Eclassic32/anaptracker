@@ -52,8 +52,8 @@
         <img title="Isma's Tear" src="/img/hollow_knight/IsmaTear.png" :class="{ 'opacity-25': !getNumberItemsFromName('Isma\'s_Tear')  }" />
         <img title="Monarch Wings" src="/img/hollow_knight/MonarchWings.png" :class="{ 'opacity-25': !getNumberItemsFromName('Monarch_Wings')  }" />
         <span class="mr-2"></span>
-        <img v-if="getNumberItemsFromName('Shade_Soul') && getNumberItemsFromName('VengefulSpirit')" title="Shade Soul" src="/img/hollow_knight/ShadeSoul.png" />
-        <img v-else title="Vengeful Spirit" src="/img/hollow_knight/VengefulSpirit.png" :class="{ 'opacity-25': !getNumberItemsFromName('Shade_Soul') && !getNumberItemsFromName('VengefulSpirit')  }" />
+        <img v-if="getNumberItemsFromName('Shade_Soul') && getNumberItemsFromName('Vengeful_Spirit')" title="Shade Soul" src="/img/hollow_knight/ShadeSoul.png" />
+        <img v-else title="Vengeful Spirit" src="/img/hollow_knight/VengefulSpirit.png" :class="{ 'opacity-25': !getNumberItemsFromName('Shade_Soul') && !getNumberItemsFromName('Vengeful_Spirit')  }" />
         <img v-if="getNumberItemsFromName('Abyss_Shriek') && getNumberItemsFromName('Howling_Wraiths')" title="Abyss Shriek" src="/img/hollow_knight/AbyssShriek.png" />
         <img v-else title="Howling Wraiths" src="/img/hollow_knight/HowlingWraiths.png" :class="{ 'opacity-25': !getNumberItemsFromName('Abyss_Shriek') && !getNumberItemsFromName('Howling_Wraiths')  }" />
         <img v-if="getNumberItemsFromName('Descending_Dark') && getNumberItemsFromName('Desolate_Dive')" title="Descending Dark" src="/img/hollow_knight/DescendingDark.png" />
