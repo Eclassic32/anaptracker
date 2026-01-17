@@ -429,7 +429,7 @@
                 if (this.validRoom() && this.ROOM_ID != this.TRACKER_ID)
                     document.title = "Room " + this.ROOM_ID + " from " + this.WEBHOST_USED;
                 else if (this.validRoom())
-                    document.title = "Tracker " + this.ROOM_ID + " from" + this.WEBHOST_USED;
+                    document.title = "Tracker " + this.ROOM_ID + " from " + this.WEBHOST_USED;
                 else if (fake_args.length > 0 && fake_args[0] == 'statistics')
                     document.title = "A normal dashboard";
                 else if (fake_args.length > 0 && fake_args[0] == 'settings')
