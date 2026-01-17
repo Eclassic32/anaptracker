@@ -32,6 +32,14 @@
             <img v-else src="/img/oot/21_1.png" title="Goron Bracelet" :class="{ 'opacity-25': !getNumberItemsFromName('Strength Upgrade')  }" />
             <img v-if="getNumberItemsFromName('Progressive Magic Meter') > 2" title="Magic Meter" src="/img/oot/18_2.png" />
             <img v-else src="/img/oot/18_1.png" title="Magic Meter" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Magic Meter')  }" />
+            <img v-if="shuffleSwim() && getNumberItemsFromName('Progressive Scale') > 2" title="Gold Scale" src="/img/oot/20_2.png" />
+            <img v-else-if="shuffleSwim() && getNumberItemsFromName('Progressive Scale') > 1" title="Silver Scale" src="/img/oot/20_1.png" />
+            <img v-else-if="shuffleSwim()" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Scale')  }" title="Bronze Scale" src="/img/oot/20_0.png" />
+            <img v-else-if="getNumberItemsFromName('Progressive Scale') > 1" title="Gold Scale" src="/img/oot/20_2.png" />
+            <img v-else title="Silver Scale" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Scale')  }" src="/img/oot/20_1.png" />
+
+
+
             <img v-if="getNumberItemsFromName('Progressive Ocarina') > 1" title="Ocarina of Time" src="/img/oot/46_2.png" />
             <img v-else src="/img/oot/46_1.png" title="Ocarina" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Ocarina')  }" />
             <img v-if="getNumberItemsFromName('Progressive Bomb Bag') > 2" title="Bomb Bag" src="/img/oot/5_3.png" />
@@ -39,7 +47,7 @@
             <img v-else-if="getNumberItemsFromName('Progressive Bomb Bag')" title="Bomb Bag" src="/img/oot/5_1.png" />
             <img v-else-if="getNumberItemsFromName('Progressive Bombchu')" title="Bombchu Bag" src="/img/oot/49_1.png" />
             <img v-else src="/img/oot/5_1.png" title="Bomb Bag" class="opacity-25" />
-            <img  title="Boomerang" src="/img/oot/2_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Boomerang')  }" />
+            <img title="Boomerang" src="/img/oot/2_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Boomerang')  }" />
             <img v-if="getNumberItemsFromName('Progressive Bow') > 2" title="Bow" src="/img/oot/6_3.png" />
             <img v-else-if="getNumberItemsFromName('Progressive Bow') > 1" title="Bow" src="/img/oot/6_2.png" />
             <img v-else src="/img/oot/6_1.png" title="Bow" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Bow')  }" />
@@ -185,20 +193,25 @@ export default {
             },
             getNumberItemsNameStart: function (name) {
                 var res = 0;
-                if (this.gamedata && this.gamedata.location_name_to_id) {
+                if (this.gamedata && this.gamedata.item_name_to_id) {
                     var bottle_array = [];
-                    for (var key in this.gamedata.location_name_to_id) {
+                    for (var key in this.gamedata.item_name_to_id) {
                         if (key.startsWith(name)) {
-                            bottle_array.push(this.gamedata.location_name_to_id[key]);
+                            bottle_array.push(this.gamedata.item_name_to_id[key]);
                         }
                     }
-                    var id = this.gamedata.item_name_to_id[name];
                     for (var x = 0; x < this.data.tracker_data.player_items_received.length; x++) {
                         if (bottle_array.includes(this.data.tracker_data.player_items_received[x][0]))
                             res++;
                     }
                 }
                 return res;
+            },
+            shuffleSwim: function (name) {
+                if (this.data.slot_data.hasOwnProperty('shuffle_swim')) {
+                    return this.data.slot_data.shuffle_swim;
+                }
+                return 0;
             },
             hasMasterSword: function (name) {
                 if (this.data.slot_data.hasOwnProperty('shuffle_master_sword') && this.data.slot_data.shuffle_master_sword == 1) {
