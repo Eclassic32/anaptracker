@@ -22,8 +22,8 @@
                         <tr>
                             <th class="border border-gray-400 p-1 font-bold w-20">#</th>
                             <th class="border border-gray-400 p-1 font-bold w-100">Game</th>
-                            <th class="border border-gray-400 p-1 font-bold w-30"># Tracked</th>
-                            <th class="border border-gray-400 p-1 font-bold w-30">Frequency</th>
+                            <th class="border border-gray-400 p-1 font-bold w-30"><span class="cursor-pointer hover:text-green-400" v-on:click="sortByCount()"># Tracked</span></th>
+                            <th class="border border-gray-400 p-1 font-bold w-30"><span class="cursor-pointer hover:text-green-400" v-on:click="sortByPresence()">Presence</span></th>
                         </tr>
                     </thead>
                     <tr v-for="(game, index) in STATS_DATA.game_counted">
@@ -87,6 +87,14 @@
         },
 
         methods: {
+            sortByCount: function () {
+                this.STATS_DATA.game_counted.sort((a, b) => a.game - b.game);
+                this.STATS_DATA.game_counted.sort((a, b) => b.count - a.count);
+            },
+            sortByPresence: function () {
+                this.sortByCount();
+                this.STATS_DATA.game_counted.sort((a, b) => b.frequency - a.frequency);
+            },
             recentBy: function (time, days) {
                 var date_now = Date.now();
                 var date_act = new Date(time).getTime();
@@ -154,8 +162,7 @@
                     if (this.supportedGame(this.STATS_DATA.game_stats[x].arg2))
                         this.STATS_DATA.coverage += 1;
                 }
-                this.STATS_DATA.game_counted.sort((a, b) => a.game - b.game);
-                this.STATS_DATA.game_counted.sort((a, b) => b.count - a.count);
+                this.sortByCount();
                 this.STATS_DATA.api_failed_stats.sort((a, b) => b.created_at.localeCompare(a.created_at));
             }
 
