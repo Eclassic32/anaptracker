@@ -12,6 +12,8 @@
         <img title="Dash Refills" src="/img/celeste/misc/dash_refill.png" :class="{ 'opacity-25': !getNumberItemsFromName('Dash Refills')  }" />
         <img v-if="includeFarewell()" title="Double Dash Refills" src="/img/celeste/misc/double_refill.png" :class="{ 'opacity-25': !getNumberItemsFromName('Double Dash Refills')  }" />
         <img title="Spings" src="/img/celeste/misc/spring.png" :class="{ 'opacity-25': !getNumberItemsFromName('Springs')  }" />
+        <img title="Moving Platforms" src="/img/celeste/misc/moving_platform.png" :class="{ 'opacity-25': !getNumberItemsFromName('Moving Platforms')  }" />
+        <img title="Sinking Platforms" src="/img/celeste/misc/sinking_platform.png" :class="{ 'opacity-25': !getNumberItemsFromName('Sinking Platforms')  }" />
         <img title="Blue Boosters" src="/img/celeste/misc/blue_booster.png" :class="{ 'opacity-25': !getNumberItemsFromName('Blue Boosters')  }" />
         <img title="Red Boosters" src="/img/celeste/misc/red_booster.png" :class="{ 'opacity-25': !getNumberItemsFromName('Red Boosters')  }" />
         <img title="Badeline Boosters" src="/img/celeste/misc/badeline_booster.png" :class="{ 'opacity-25': !getNumberItemsFromName('Badeline Boosters')  }" />
