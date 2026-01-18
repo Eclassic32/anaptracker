@@ -27,7 +27,7 @@
             <img v-if="getNumberItemsFromName('Atom Smasher')" title="Atom Smasher" src="/img/secret_of_evermore/weapons/axe_4.png" />
             <img v-else-if="getNumberItemsFromName('Knight Basher')" title="Knight Basher" src="/img/secret_of_evermore/weapons/axe_3.png" />
             <img v-else-if="getNumberItemsFromName('Bronze Axe')" title="Bronze Axe" src="/img/secret_of_evermore/weapons/axe_2.png" />
-            <img v-else title="Spider's Claw" src="/img/secret_of_evermore/weapons/axe_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Spider\'s Claw')  }" />
+            <img v-else title="Spider's Claw" src="/img/secret_of_evermore/weapons/axe_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Spider Claw')  }" />
 
             <img v-if="getNumberItemsFromName('Laser Lance')" title="Laser Lance" src="/img/secret_of_evermore/weapons/spear_4.png" />
             <img v-else-if="getNumberItemsFromName('Lance (Weapon)')" title="Lance" src="/img/secret_of_evermore/weapons/spear_3.png" />
@@ -46,7 +46,6 @@
 
             <img title="Levitate" src="/img/secret_of_evermore/magic/levitate.gif" :class="{ 'opacity-25': !getNumberItemsFromName('Levitate')  }" />
             <img title="Revealer" src="/img/secret_of_evermore/magic/revealer.gif" :class="{ 'opacity-25': !getNumberItemsFromName('Revealer')  }" />
-            <img title="Escape" src="/img/secret_of_evermore/magic/escape.gif" :class="{ 'opacity-25': !getNumberItemsFromName('Escape')  }" />
             <span class="mr-2"></span>
             <img v-if="getNumberItemsFromName('Super Heal')" title="Super Heal" src="/img/secret_of_evermore/magic/super_heal.gif" />
             <img v-else title="Heal" src="/img/secret_of_evermore/magic/heal.gif" :class="{ 'opacity-25': !getNumberItemsFromName('Heal')  }" />

@@ -16,7 +16,7 @@
             <span v-if="!hatMode()" class="mr-2 text-xs font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Yarn')  }"><img title="Yarn" src="/img/a_hat_in_time/items/yarn.png" />x{{ getNumberItemsFromName('Yarn') }} </span>
             <img v-if="hatMode()" title="Sprint Hat" src="/img/a_hat_in_time/items/sprint_hat_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Sprint Hat')  }" />
             <img v-if="hatMode()" title="Brewer Hat" src="/img/a_hat_in_time/items/brewer_hat_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Brewing Hat')  }" />
-            <img v-if="hatMode()" title="Ice Hat Hat" src="/img/a_hat_in_time/items/ice_hat_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Ice Hat')  }" />
+            <img v-if="hatMode()" title="Ice Hat" src="/img/a_hat_in_time/items/ice_hat_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Ice Hat')  }" />
             <img v-if="hatMode()" title="Dweller Mask" src="/img/a_hat_in_time/items/dwellers_mask_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Dweller Mask')  }" />
             <img v-if="hatMode()" title="Time Stop Hat" src="/img/a_hat_in_time/items/time_stop_hat_icon.png" :class="{ 'opacity-25': !getNumberItemsFromName('Time Stop Hat')  }" />
             <span class="mr-2" />
