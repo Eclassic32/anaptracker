@@ -11,7 +11,7 @@
             <div v-if="!$parent.validRoom()" v-on:click="$parent.goToSettings()" class="text-green-600 relative mr-4 cursor-pointer hover:text-white p-3 font-roboto font-bold">
                 <span>Settings</span>
             </div>
-            <div v-if="!$parent.validRoom()" v-on:click="$parent.goToStats()" class="text-green-600 relative mr-4 cursor-pointer hover:text-white p-3 font-roboto font-bold">
+            <div v-if="!$parent.validRoom()" v-on:click="$parent.goToStats()" id="navbar-stats" class="text-green-600 relative mr-4 cursor-pointer hover:text-white p-3 font-roboto font-bold">
                 <span>Dashboard</span>
             </div>
             <div v-if="$parent.validRoom()" v-on:click="changeSize()" class="text-green-600 relative mr-4 cursor-pointer hover:text-white p-3 font-roboto font-bold">
