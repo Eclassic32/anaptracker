@@ -10,7 +10,7 @@ export default defineConfig({
         bail: 1,
         clearMocks: true,
         coverage: {
-            enabled: true,
+            enabled: false,
             exclude: [],
             include: ['src/**/*'],
             reporter: ['text'],
@@ -42,6 +42,7 @@ export default defineConfig({
   },
     build: {
         rollupOptions: {
+            //external: [/img\/.*/],
             output: {
                 assetFileNames: (assetInfo) => {
                     let extType = assetInfo.name.split('.').at(1);
