@@ -68,7 +68,7 @@
     import ANAP_CONFIG from "../anapconfig.js";
 
     ANAP_CONFIG.URL_WEBSITE = import.meta.env.VITE_URL_WEBSITE;
-    ANAP_CONFIG.OFFLINE = import.meta.env.VITE_OFFLINE;
+    ANAP_CONFIG.OFFLINE = (import.meta.env.VITE_OFFLINE == 'true') ? true : false;
 
     var STATS_DATA = {
         coverage: 0,
