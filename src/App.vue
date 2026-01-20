@@ -7,8 +7,8 @@
                 <Navbar v-bind:gamedata="DATA_PACKAGE"></Navbar>
             </div>
             <div>
-                <Statistics v-if="ROOM_ID == 'statistics'"></Statistics>
-                <Settings v-else-if="ROOM_ID == 'settings'"></Settings>
+                <Statistics v-if="ROOM_ID == 'statistics'" ref="dashboard"></Statistics>
+                <Settings v-else-if="ROOM_ID == 'settings'" ref="settings"></Settings>
                 <PlayerList v-else-if="validRoom()" v-bind:globaldata="GLOBAL_TRACKER_DATA" v-bind:gamedata="DATA_PACKAGE" ref="playerList"></PlayerList>
                 <Home v-else></Home>
             </div>
@@ -32,6 +32,7 @@
     var WEBHOST_USED = 'archipelago';
 
     ANAP_CONFIG.URL_WEBSITE = import.meta.env.VITE_URL_WEBSITE;
+    ANAP_CONFIG.OFFLINE = import.meta.env.VITE_OFFLINE;
 
     var EMPTY_DATAPACKAGE = {
         checksum: 'a',
@@ -194,9 +195,11 @@
 
                 var TRACKER_URL = this.ANAP_DATA.archipelagogg.tracker_url + this.WEBHOST_USED + '/' + this.TRACKER_ID;
 
-                axios
-                    .get(TRACKER_URL)
-                    .then(response => (this.refreshTrackerData(response.data)));
+                if (!ANAP_CONFIG.OFFLINE) {
+                    axios
+                        .get(TRACKER_URL)
+                        .then(response => (this.refreshTrackerData(response.data)));
+                }
 
 
                 // If the multiworld is completed, there is no point to keep calling the API.
@@ -270,12 +273,14 @@
                                 else {
                                     console.log("Getting data package from " + key);
                                     this.DATA_PACKAGE[key] = "";
-                                    axios
-                                        .get(this.ANAP_DATA.archipelagogg.datapackage_url + this.WEBHOST_USED + '/' + this.STATIC_TRACKER_DATA.datapackage[key].checksum)
-                                        .then(response => (this.setDataPackageData(key, response.data)))
-                                        .then(response => (setTimeout(function (scope) {
-                                            scope.getChainStaticData();
-                                        }, 250, this)));
+                                    if (!ANAP_CONFIG.OFFLINE) {
+                                        axios
+                                            .get(this.ANAP_DATA.archipelagogg.datapackage_url + this.WEBHOST_USED + '/' + this.STATIC_TRACKER_DATA.datapackage[key].checksum)
+                                            .then(response => (this.setDataPackageData(key, response.data)))
+                                            .then(response => (setTimeout(function (scope) {
+                                                scope.getChainStaticData();
+                                            }, 250, this)));
+                                    }
                                     // Putting a delay because Archipelago server can't handle too many requests.
                                     return;
                                 }
@@ -325,13 +330,15 @@
 
                 var SLOT_URL = this.ANAP_DATA.archipelagogg.slot_url + this.WEBHOST_USED + '/' + room_data.tracker;
                 var STATIC_TRACKER_URL = this.ANAP_DATA.archipelagogg.static_tracker_url + this.WEBHOST_USED + '/' + room_data.tracker;
-                axios
-                    .get(STATIC_TRACKER_URL)
-                    .then(response => (this.getStaticData(response.data)));
+                if (!ANAP_CONFIG.OFFLINE) {
+                    axios
+                        .get(STATIC_TRACKER_URL)
+                        .then(response => (this.getStaticData(response.data)));
 
-                axios
-                    .get(SLOT_URL)
-                    .then(response => (this.getSlotData(response.data)));
+                    axios
+                        .get(SLOT_URL)
+                        .then(response => (this.getSlotData(response.data)));
+                }
                 this.loadOptions();
 
                 this.autoRefresh();
@@ -377,9 +384,11 @@
                 var SLOT_URL = this.ANAP_DATA.archipelagogg.slot_url + this.WEBHOST_USED + '/' + this.TRACKER_ID;
                 this.getStaticData(room_data);
 
-                axios
-                    .get(SLOT_URL)
-                    .then(response => (this.getSlotData(response.data)));
+                if (!ANAP_CONFIG.OFFLINE) {
+                    axios
+                        .get(SLOT_URL)
+                        .then(response => (this.getSlotData(response.data)));
+                }
                 this.loadOptions();
                 this.autoRefresh();
             },
@@ -453,9 +462,11 @@
             startLoadingFromRoom: function () {
                 var ROOM_URL = this.ANAP_DATA.archipelagogg.room_url + this.WEBHOST_USED + '/' + this.ROOM_ID;
 
-                axios
-                    .get(ROOM_URL)
-                    .then(response => (this.beginTrackingDataFromRoom(response.data)));
+                if (!ANAP_CONFIG.OFFLINE) {
+                    axios
+                        .get(ROOM_URL)
+                        .then(response => (this.beginTrackingDataFromRoom(response.data)));
+                }
             },
             startLoadingFromTracker: function () {
                 var ROOM_URL = this.ANAP_DATA.archipelagogg.static_tracker_url + this.WEBHOST_USED + '/' + this.ROOM_ID;
@@ -558,6 +569,9 @@
             },
             goToSettings: function () {
                 this.route('settings');
+            },
+            getStatsObject: function () {
+                return this.$refs['dashboard'];
             },
         },
         components: {

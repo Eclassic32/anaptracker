@@ -65,6 +65,11 @@
     import ANAP_DATA from "../anapdata.js";
     import axios from 'axios';
     import LIST_OF_GAMES from "../listofgames.js";
+    import ANAP_CONFIG from "../anapconfig.js";
+
+    ANAP_CONFIG.URL_WEBSITE = import.meta.env.VITE_URL_WEBSITE;
+    ANAP_CONFIG.OFFLINE = import.meta.env.VITE_OFFLINE;
+
     var STATS_DATA = {
         coverage: 0,
         rooms_stats: [],
@@ -170,7 +175,7 @@
         components: {
         },
         mounted: function () {
-            if (STATS_DATA.rooms_stats.length == 0) {
+            if (STATS_DATA.rooms_stats.length == 0 && !ANAP_CONFIG.OFFLINE) {
                 axios
                     .get(ANAP_DATA.tomagueri.statistics_url)
                     .then(response => (this.loadStatistics(response.data)));

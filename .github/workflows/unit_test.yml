@@ -1,4 +1,4 @@
-name: NodeJS build
+name: Unit testing.
 on:
   push:
     branches: [ "main" ]

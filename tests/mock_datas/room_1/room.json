@@ -1,0 +1,28 @@
+{
+  "downloads": [
+    {
+      "download": "/slot_file/d8mHW-auQvyYtBpEx9b67w/3",
+      "slot": 3
+    },
+    {
+      "download": "/slot_file/d8mHW-auQvyYtBpEx9b67w/4",
+      "slot": 4
+    },
+    {
+      "download": "/dl_patch/d8mHW-auQvyYtBpEx9b67w/4165698",
+      "slot": 6
+    }
+  ],
+  "last_activity": "Tue, 30 Dec 2025 12:54:51 GMT",
+  "last_port": 55931,
+  "players": [
+    [ "TomPounce_B3313", "Super Mario 64" ],
+    [ "TomPounce_CP", "Crystal Project" ],
+    [ "TomPounce_P_Crys", "Pokemon Crystal" ],
+    [ "TomPounce_FFMQ", "Final Fantasy Mystic Quest" ],
+    [ "Tom_The_PIRATE", "Ship of Harkinian" ],
+    [ "TomPounce_SM", "Super Metroid" ]
+  ],
+  "timeout": 7200,
+  "tracker": "4dgEleyQRiuiZYLhJQhgDg"
+}

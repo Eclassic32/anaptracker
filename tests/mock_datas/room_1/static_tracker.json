@@ -1,0 +1,97 @@
+{
+  "datapackage": {
+    "Archipelago": {
+      "checksum": "ac9141e9ad0318df2fa27da5f20c50a842afeecb",
+      "version": 0
+    },
+    "Crystal Project": {
+      "checksum": "771b6eed7ca979346b195bf17793b26000413941",
+      "version": 0
+    },
+    "Final Fantasy Mystic Quest": {
+      "checksum": "b00c186566e1844b8a233db88bf197e071c7930f",
+      "version": 0
+    },
+    "Pokemon Crystal": {
+      "checksum": "d93667e7d6339f6768a50c7566892d559170f946",
+      "version": 0
+    },
+    "Ship of Harkinian": {
+      "checksum": "cc0e832b3ba8eda5de6ad3b32a40af88e839bd58",
+      "version": 0
+    },
+    "Super Mario 64": {
+      "checksum": "713e2c7118ccda0d9a6ebc6a0bb925f5b60021f8",
+      "version": 0
+    },
+    "Super Metroid": {
+      "checksum": "4fd6c0bb6c0f0ab1157fb5dbda01a572ae3d0da6",
+      "version": 0
+    }
+  },
+  "groups": [],
+  "player_game": [
+    {
+      "game": "Super Mario 64",
+      "player": 1,
+      "team": 0
+    },
+    {
+      "game": "Crystal Project",
+      "player": 2,
+      "team": 0
+    },
+    {
+      "game": "Pokemon Crystal",
+      "player": 3,
+      "team": 0
+    },
+    {
+      "game": "Final Fantasy Mystic Quest",
+      "player": 4,
+      "team": 0
+    },
+    {
+      "game": "Ship of Harkinian",
+      "player": 5,
+      "team": 0
+    },
+    {
+      "game": "Super Metroid",
+      "player": 6,
+      "team": 0
+    }
+  ],
+  "player_locations_total": [
+    {
+      "player": 1,
+      "team": 0,
+      "total_locations": 149
+    },
+    {
+      "player": 2,
+      "team": 0,
+      "total_locations": 783
+    },
+    {
+      "player": 3,
+      "team": 0,
+      "total_locations": 417
+    },
+    {
+      "player": 4,
+      "team": 0,
+      "total_locations": 251
+    },
+    {
+      "player": 5,
+      "team": 0,
+      "total_locations": 797
+    },
+    {
+      "player": 6,
+      "team": 0,
+      "total_locations": 100
+    }
+  ]
+}

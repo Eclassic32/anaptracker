@@ -1,0 +1,2435 @@
+[
+  {
+    "player": 1,
+    "slot_data": {
+      "AreaRando": {
+        "41": 241,
+        "51": 231,
+        "71": 81,
+        "81": 91,
+        "91": 101,
+        "101": 132,
+        "111": 121,
+        "121": 151,
+        "131": 111,
+        "132": 131,
+        "141": 71,
+        "151": 41,
+        "171": 171,
+        "181": 181,
+        "191": 191,
+        "201": 201,
+        "221": 221,
+        "231": 141,
+        "241": 51,
+        "271": 271,
+        "281": 281,
+        "291": 291,
+        "311": 311,
+        "361": 361
+      },
+      "BasementDoorCost": 30,
+      "CompletionType": 0,
+      "DeathLink": 0,
+      "FirstBowserDoorCost": 8,
+      "MIPS1Cost": 15,
+      "MIPS2Cost": 50,
+      "MoveRandoVec": 2046,
+      "SecondFloorDoorCost": 50,
+      "StarsToFinish": 90
+    }
+  },
+  {
+    "player": 2,
+    "slot_data": {
+      "apworldVersion": "0.11.0",
+      "autoEquipPassives": false,
+      "autoSpendLP": true,
+      "clamshellGoalQuantity": 2,
+      "disableSparks": false,
+      "easyLeveling": true,
+      "extraClamshellsInPool": 3,
+      "goal": 0,
+      "includeScholarAbilities": 1,
+      "includeSummonAbilities": 1,
+      "includedRegions": [ "Menu", "Spawning Meadows", "Delende", "Mercury Shrine", "Soiled Den", "The Pale Grotto", "Seaside Cliffs", "Draft Shaft Conduit", "Yamagawa M.A.", "Proving Meadows", "Skumparadise", "Capital Sequoia", "Jojo Sewers", "Boomer Society", "Rolling Quintar Fields", "Quintar Nest", "Quintar Sanctum", "Capital Jail", "Capital Pipeline", "Cobblestone Crag", "Okimoto N.S.", "Greenshire Reprise", "Salmon Pass", "Salmon River", "Shoudu Waterfront", "Poko Poko Desert", "Sara Sara Bazaar", "Sara Sara Beach East", "Sara Sara Beach West", "Ancient Reservoir", "Salmon Bay", "The Open Sea", "Shoudu Province", "The Undercity", "Ganymede Shrine", "Beaurior Volcano", "Beaurior Rock", "Lake Delende", "Quintar Reserve", "Dione Shrine", "Quintar Mausoleum", "Eastern Chasm", "Tall, Tall Heights", "Northern Cave", "Land's End", "Slip Glide Ride", "Sequoia Athenaeum", "Northern Stretch", "Castle Ramparts", "The Chalice of Tar", "Flyer's Crag", "Jidamba Tangle", "Jidamba Eaclaneya", "The Deep Sea", "Neptune Shrine", "Jade Cavern", "Continental Tram", "The New World" ],
+      "includedRegionsOption": 2,
+      "itemInfoMode": 1,
+      "jobGoalAmount": 18,
+      "jobRando": 2,
+      "keyMode": 3,
+      "killBossesMode": false,
+      "levelComparedToEnemies": 0,
+      "levelGating": 3,
+      "maxLevel": 70,
+      "modInfo": [],
+      "moddedLocations": [],
+      "obscureRoutes": false,
+      "prefillMap": false,
+      "progressiveLevelSize": 4,
+      "progressiveMountMode": 0,
+      "randomizeMusic": false,
+      "randomizeStartingJobs": true,
+      "regionsanity": 0,
+      "removedLocations": [],
+      "shopsanity": 0,
+      "startWithMaps": true,
+      "starterRegion": "",
+      "startingJobQuantity": 2,
+      "startingJobs": [ 11, 9 ],
+      "startingJobsForUT": [ "Job - Aegis", "Job - Shaman" ],
+      "useMods": 0
+    }
+  },
+  {
+    "player": 3,
+    "slot_data": {
+      "all_pokemon_seen": 0,
+      "apworld_version": "5.2.7",
+      "blackthorn_dark_cave_access": 1,
+      "breeding_info": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 4,
+        "5": 4,
+        "6": 4,
+        "7": 7,
+        "8": 7,
+        "9": 7,
+        "10": 10,
+        "11": 10,
+        "12": 10,
+        "13": 13,
+        "14": 13,
+        "15": 13,
+        "16": 16,
+        "17": 16,
+        "18": 16,
+        "19": 19,
+        "20": 19,
+        "21": 21,
+        "22": 21,
+        "23": 23,
+        "24": 23,
+        "25": 172,
+        "26": 172,
+        "27": 27,
+        "28": 27,
+        "29": 29,
+        "32": 32,
+        "33": 32,
+        "34": 32,
+        "35": 173,
+        "36": 173,
+        "37": 37,
+        "38": 37,
+        "39": 174,
+        "40": 174,
+        "41": 41,
+        "42": 41,
+        "43": 43,
+        "44": 43,
+        "45": 43,
+        "46": 46,
+        "47": 46,
+        "48": 48,
+        "49": 48,
+        "50": 50,
+        "51": 50,
+        "52": 52,
+        "53": 52,
+        "54": 54,
+        "55": 54,
+        "56": 56,
+        "57": 56,
+        "58": 58,
+        "59": 58,
+        "60": 60,
+        "61": 60,
+        "62": 60,
+        "63": 63,
+        "64": 63,
+        "65": 63,
+        "66": 66,
+        "67": 66,
+        "68": 66,
+        "69": 69,
+        "70": 69,
+        "71": 69,
+        "72": 72,
+        "73": 72,
+        "74": 74,
+        "75": 74,
+        "76": 74,
+        "77": 77,
+        "78": 77,
+        "79": 79,
+        "80": 79,
+        "81": 81,
+        "82": 81,
+        "83": 83,
+        "84": 84,
+        "85": 84,
+        "86": 86,
+        "87": 86,
+        "88": 88,
+        "89": 88,
+        "90": 90,
+        "91": 90,
+        "92": 92,
+        "93": 92,
+        "94": 92,
+        "95": 95,
+        "96": 96,
+        "97": 96,
+        "98": 98,
+        "99": 98,
+        "100": 100,
+        "101": 100,
+        "102": 102,
+        "103": 102,
+        "104": 104,
+        "105": 104,
+        "106": 106,
+        "107": 107,
+        "108": 108,
+        "109": 109,
+        "110": 109,
+        "111": 111,
+        "112": 111,
+        "113": 113,
+        "114": 114,
+        "115": 115,
+        "116": 116,
+        "117": 116,
+        "118": 118,
+        "119": 118,
+        "120": 120,
+        "121": 120,
+        "122": 122,
+        "123": 123,
+        "124": 238,
+        "125": 239,
+        "126": 240,
+        "127": 127,
+        "128": 128,
+        "129": 129,
+        "130": 129,
+        "131": 131,
+        "133": 133,
+        "134": 133,
+        "135": 133,
+        "136": 133,
+        "137": 137,
+        "138": 138,
+        "139": 138,
+        "140": 140,
+        "141": 140,
+        "142": 142,
+        "143": 143,
+        "147": 147,
+        "148": 147,
+        "149": 147,
+        "152": 152,
+        "153": 152,
+        "154": 152,
+        "155": 155,
+        "156": 155,
+        "157": 155,
+        "158": 158,
+        "159": 158,
+        "160": 158,
+        "161": 161,
+        "162": 161,
+        "163": 163,
+        "164": 163,
+        "165": 165,
+        "166": 165,
+        "167": 167,
+        "168": 167,
+        "169": 41,
+        "170": 170,
+        "171": 170,
+        "176": 175,
+        "177": 177,
+        "178": 177,
+        "179": 179,
+        "180": 179,
+        "181": 179,
+        "182": 43,
+        "183": 183,
+        "184": 183,
+        "185": 185,
+        "186": 60,
+        "187": 187,
+        "188": 187,
+        "189": 187,
+        "190": 190,
+        "191": 191,
+        "192": 191,
+        "193": 193,
+        "194": 194,
+        "195": 194,
+        "196": 133,
+        "197": 133,
+        "198": 198,
+        "199": 79,
+        "200": 200,
+        "202": 202,
+        "203": 203,
+        "204": 204,
+        "205": 204,
+        "206": 206,
+        "207": 207,
+        "208": 95,
+        "209": 209,
+        "210": 209,
+        "211": 211,
+        "212": 212,
+        "213": 213,
+        "214": 214,
+        "215": 215,
+        "216": 216,
+        "217": 216,
+        "218": 218,
+        "219": 218,
+        "220": 220,
+        "221": 220,
+        "222": 222,
+        "223": 223,
+        "224": 223,
+        "225": 225,
+        "226": 226,
+        "227": 227,
+        "228": 228,
+        "229": 228,
+        "230": 117,
+        "231": 231,
+        "232": 231,
+        "233": 137,
+        "234": 234,
+        "235": 235,
+        "237": 236,
+        "241": 241,
+        "242": 113,
+        "246": 246,
+        "247": 246,
+        "248": 246
+      },
+      "breeding_methods_required": 1,
+      "dark_areas": [ "Dragons Den", "Ice Path", "Ilex Forest", "Mount Mortar", "Rock Tunnel", "Victory Road" ],
+      "dexcountsanity": 0,
+      "dexcountsanity_checks": 0,
+      "dexcountsanity_counts": [],
+      "dexcountsanity_leniency": 0,
+      "dexcountsanity_step": 1,
+      "dexsanity": 0,
+      "dexsanity_count": 0,
+      "dexsanity_pokemon": [],
+      "east_west_underground": 1,
+      "elite_four_count": 12,
+      "elite_four_requirement": 0,
+      "enable_mischief": 0,
+      "encmethod_fishing": 2,
+      "encmethod_headbutt": 2,
+      "encmethod_land": 2,
+      "encmethod_rocksmash": 2,
+      "encmethod_water": 2,
+      "enforce_wild_encounter_methods_logic": 1,
+      "evolution_gym_levels": 8,
+      "evolution_info": {
+        "1": [
+          {
+            "condition": 16,
+            "into": 2,
+            "level": 16,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "2": [
+          {
+            "condition": 32,
+            "into": 3,
+            "level": 32,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "4": [
+          {
+            "condition": 16,
+            "into": 5,
+            "level": 16,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "5": [
+          {
+            "condition": 36,
+            "into": 6,
+            "level": 36,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "7": [
+          {
+            "condition": 16,
+            "into": 8,
+            "level": 16,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "8": [
+          {
+            "condition": 36,
+            "into": 9,
+            "level": 36,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "10": [
+          {
+            "condition": 7,
+            "into": 11,
+            "level": 7,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "11": [
+          {
+            "condition": 10,
+            "into": 12,
+            "level": 10,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "13": [
+          {
+            "condition": 7,
+            "into": 14,
+            "level": 7,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "14": [
+          {
+            "condition": 10,
+            "into": 15,
+            "level": 10,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "16": [
+          {
+            "condition": 18,
+            "into": 17,
+            "level": 18,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "17": [
+          {
+            "condition": 36,
+            "into": 18,
+            "level": 36,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "19": [
+          {
+            "condition": 20,
+            "into": 20,
+            "level": 20,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "21": [
+          {
+            "condition": 20,
+            "into": 22,
+            "level": 20,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "23": [
+          {
+            "condition": 22,
+            "into": 24,
+            "level": 22,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "25": [
+          {
+            "condition": "THUNDERSTONE",
+            "into": 26,
+            "level": null,
+            "method": "EVOLVE_ITEM"
+          }
+        ],
+        "27": [
+          {
+            "condition": 22,
+            "into": 28,
+            "level": 22,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "29": [
+          {
+            "condition": 16,
+            "into": 30,
+            "level": 16,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "30": [
+          {
+            "condition": "MOON_STONE",
+            "into": 31,
+            "level": null,
+            "method": "EVOLVE_ITEM"
+          }
+        ],
+        "32": [
+          {
+            "condition": 16,
+            "into": 33,
+            "level": 16,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "33": [
+          {
+            "condition": "MOON_STONE",
+            "into": 34,
+            "level": null,
+            "method": "EVOLVE_ITEM"
+          }
+        ],
+        "35": [
+          {
+            "condition": "MOON_STONE",
+            "into": 36,
+            "level": null,
+            "method": "EVOLVE_ITEM"
+          }
+        ],
+        "37": [
+          {
+            "condition": "FIRE_STONE",
+            "into": 38,
+            "level": null,
+            "method": "EVOLVE_ITEM"
+          }
+        ],
+        "39": [
+          {
+            "condition": "MOON_STONE",
+            "into": 40,
+            "level": null,
+            "method": "EVOLVE_ITEM"
+          }
+        ],
+        "41": [
+          {
+            "condition": 22,
+            "into": 42,
+            "level": 22,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "42": [
+          {
+            "condition": "TR_ANYTIME",
+            "into": 169,
+            "level": null,
+            "method": "EVOLVE_HAPPINESS"
+          }
+        ],
+        "43": [
+          {
+            "condition": 21,
+            "into": 44,
+            "level": 21,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "44": [
+          {
+            "condition": "LEAF_STONE",
+            "into": 45,
+            "level": null,
+            "method": "EVOLVE_ITEM"
+          },
+          {
+            "condition": "SUN_STONE",
+            "into": 182,
+            "level": null,
+            "method": "EVOLVE_ITEM"
+          }
+        ],
+        "46": [
+          {
+            "condition": 24,
+            "into": 47,
+            "level": 24,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "48": [
+          {
+            "condition": 31,
+            "into": 49,
+            "level": 31,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "50": [
+          {
+            "condition": 26,
+            "into": 51,
+            "level": 26,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "52": [
+          {
+            "condition": 28,
+            "into": 53,
+            "level": 28,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "54": [
+          {
+            "condition": 33,
+            "into": 55,
+            "level": 33,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "56": [
+          {
+            "condition": 28,
+            "into": 57,
+            "level": 28,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "58": [
+          {
+            "condition": "FIRE_STONE",
+            "into": 59,
+            "level": null,
+            "method": "EVOLVE_ITEM"
+          }
+        ],
+        "60": [
+          {
+            "condition": 25,
+            "into": 61,
+            "level": 25,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "61": [
+          {
+            "condition": "WATER_STONE",
+            "into": 62,
+            "level": null,
+            "method": "EVOLVE_ITEM"
+          },
+          {
+            "condition": "KINGS_ROCK",
+            "into": 186,
+            "level": null,
+            "method": "EVOLVE_ITEM"
+          }
+        ],
+        "63": [
+          {
+            "condition": 16,
+            "into": 64,
+            "level": 16,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "64": [
+          {
+            "condition": 37,
+            "into": 65,
+            "level": 37,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "66": [
+          {
+            "condition": 28,
+            "into": 67,
+            "level": 28,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "67": [
+          {
+            "condition": 37,
+            "into": 68,
+            "level": 37,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "69": [
+          {
+            "condition": 21,
+            "into": 70,
+            "level": 21,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "70": [
+          {
+            "condition": "LEAF_STONE",
+            "into": 71,
+            "level": null,
+            "method": "EVOLVE_ITEM"
+          }
+        ],
+        "72": [
+          {
+            "condition": 30,
+            "into": 73,
+            "level": 30,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "74": [
+          {
+            "condition": 25,
+            "into": 75,
+            "level": 25,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "75": [
+          {
+            "condition": 37,
+            "into": 76,
+            "level": 37,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "77": [
+          {
+            "condition": 40,
+            "into": 78,
+            "level": 40,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "79": [
+          {
+            "condition": 37,
+            "into": 80,
+            "level": 37,
+            "method": "EVOLVE_LEVEL"
+          },
+          {
+            "condition": "KINGS_ROCK",
+            "into": 199,
+            "level": null,
+            "method": "EVOLVE_ITEM"
+          }
+        ],
+        "81": [
+          {
+            "condition": 30,
+            "into": 82,
+            "level": 30,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "84": [
+          {
+            "condition": 31,
+            "into": 85,
+            "level": 31,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "86": [
+          {
+            "condition": 34,
+            "into": 87,
+            "level": 34,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "88": [
+          {
+            "condition": 38,
+            "into": 89,
+            "level": 38,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "90": [
+          {
+            "condition": "WATER_STONE",
+            "into": 91,
+            "level": null,
+            "method": "EVOLVE_ITEM"
+          }
+        ],
+        "92": [
+          {
+            "condition": 25,
+            "into": 93,
+            "level": 25,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "93": [
+          {
+            "condition": 37,
+            "into": 94,
+            "level": 37,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "95": [
+          {
+            "condition": "METAL_COAT",
+            "into": 208,
+            "level": null,
+            "method": "EVOLVE_ITEM"
+          }
+        ],
+        "96": [
+          {
+            "condition": 26,
+            "into": 97,
+            "level": 26,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "98": [
+          {
+            "condition": 28,
+            "into": 99,
+            "level": 28,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "100": [
+          {
+            "condition": 30,
+            "into": 101,
+            "level": 30,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "102": [
+          {
+            "condition": "LEAF_STONE",
+            "into": 103,
+            "level": null,
+            "method": "EVOLVE_ITEM"
+          }
+        ],
+        "104": [
+          {
+            "condition": 28,
+            "into": 105,
+            "level": 28,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "109": [
+          {
+            "condition": 35,
+            "into": 110,
+            "level": 35,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "111": [
+          {
+            "condition": 42,
+            "into": 112,
+            "level": 42,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "113": [
+          {
+            "condition": "TR_ANYTIME",
+            "into": 242,
+            "level": null,
+            "method": "EVOLVE_HAPPINESS"
+          }
+        ],
+        "116": [
+          {
+            "condition": 32,
+            "into": 117,
+            "level": 32,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "117": [
+          {
+            "condition": "DRAGON_SCALE",
+            "into": 230,
+            "level": null,
+            "method": "EVOLVE_ITEM"
+          }
+        ],
+        "118": [
+          {
+            "condition": 33,
+            "into": 119,
+            "level": 33,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "120": [
+          {
+            "condition": "WATER_STONE",
+            "into": 121,
+            "level": null,
+            "method": "EVOLVE_ITEM"
+          }
+        ],
+        "123": [
+          {
+            "condition": "METAL_COAT",
+            "into": 212,
+            "level": null,
+            "method": "EVOLVE_ITEM"
+          }
+        ],
+        "129": [
+          {
+            "condition": 20,
+            "into": 130,
+            "level": 20,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "133": [
+          {
+            "condition": "THUNDERSTONE",
+            "into": 135,
+            "level": null,
+            "method": "EVOLVE_ITEM"
+          },
+          {
+            "condition": "WATER_STONE",
+            "into": 134,
+            "level": null,
+            "method": "EVOLVE_ITEM"
+          },
+          {
+            "condition": "FIRE_STONE",
+            "into": 136,
+            "level": null,
+            "method": "EVOLVE_ITEM"
+          },
+          {
+            "condition": "SUN_STONE",
+            "into": 196,
+            "level": null,
+            "method": "EVOLVE_ITEM"
+          },
+          {
+            "condition": "MOON_STONE",
+            "into": 197,
+            "level": null,
+            "method": "EVOLVE_ITEM"
+          }
+        ],
+        "137": [
+          {
+            "condition": "UP_GRADE",
+            "into": 233,
+            "level": null,
+            "method": "EVOLVE_ITEM"
+          }
+        ],
+        "138": [
+          {
+            "condition": 40,
+            "into": 139,
+            "level": 40,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "140": [
+          {
+            "condition": 40,
+            "into": 141,
+            "level": 40,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "147": [
+          {
+            "condition": 30,
+            "into": 148,
+            "level": 30,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "148": [
+          {
+            "condition": 55,
+            "into": 149,
+            "level": 55,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "152": [
+          {
+            "condition": 16,
+            "into": 153,
+            "level": 16,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "153": [
+          {
+            "condition": 32,
+            "into": 154,
+            "level": 32,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "155": [
+          {
+            "condition": 14,
+            "into": 156,
+            "level": 14,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "156": [
+          {
+            "condition": 36,
+            "into": 157,
+            "level": 36,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "158": [
+          {
+            "condition": 18,
+            "into": 159,
+            "level": 18,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "159": [
+          {
+            "condition": 30,
+            "into": 160,
+            "level": 30,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "161": [
+          {
+            "condition": 15,
+            "into": 162,
+            "level": 15,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "163": [
+          {
+            "condition": 20,
+            "into": 164,
+            "level": 20,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "165": [
+          {
+            "condition": 18,
+            "into": 166,
+            "level": 18,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "167": [
+          {
+            "condition": 22,
+            "into": 168,
+            "level": 22,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "170": [
+          {
+            "condition": 27,
+            "into": 171,
+            "level": 27,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "172": [
+          {
+            "condition": "TR_ANYTIME",
+            "into": 25,
+            "level": null,
+            "method": "EVOLVE_HAPPINESS"
+          }
+        ],
+        "173": [
+          {
+            "condition": "TR_ANYTIME",
+            "into": 35,
+            "level": null,
+            "method": "EVOLVE_HAPPINESS"
+          }
+        ],
+        "174": [
+          {
+            "condition": "TR_ANYTIME",
+            "into": 39,
+            "level": null,
+            "method": "EVOLVE_HAPPINESS"
+          }
+        ],
+        "175": [
+          {
+            "condition": "TR_ANYTIME",
+            "into": 176,
+            "level": null,
+            "method": "EVOLVE_HAPPINESS"
+          }
+        ],
+        "177": [
+          {
+            "condition": 25,
+            "into": 178,
+            "level": 25,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "179": [
+          {
+            "condition": 15,
+            "into": 180,
+            "level": 15,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "180": [
+          {
+            "condition": 30,
+            "into": 181,
+            "level": 30,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "183": [
+          {
+            "condition": 18,
+            "into": 184,
+            "level": 18,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "187": [
+          {
+            "condition": 18,
+            "into": 188,
+            "level": 18,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "188": [
+          {
+            "condition": 27,
+            "into": 189,
+            "level": 27,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "191": [
+          {
+            "condition": "SUN_STONE",
+            "into": 192,
+            "level": null,
+            "method": "EVOLVE_ITEM"
+          }
+        ],
+        "194": [
+          {
+            "condition": 20,
+            "into": 195,
+            "level": 20,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "204": [
+          {
+            "condition": 31,
+            "into": 205,
+            "level": 31,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "209": [
+          {
+            "condition": 23,
+            "into": 210,
+            "level": 23,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "216": [
+          {
+            "condition": 30,
+            "into": 217,
+            "level": 30,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "218": [
+          {
+            "condition": 38,
+            "into": 219,
+            "level": 38,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "220": [
+          {
+            "condition": 33,
+            "into": 221,
+            "level": 33,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "223": [
+          {
+            "condition": 25,
+            "into": 224,
+            "level": 25,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "228": [
+          {
+            "condition": 24,
+            "into": 229,
+            "level": 24,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "231": [
+          {
+            "condition": 25,
+            "into": 232,
+            "level": 25,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "236": [
+          {
+            "condition": "ATK_LT_DEF",
+            "into": 107,
+            "level": 20,
+            "method": "EVOLVE_STAT"
+          },
+          {
+            "condition": "ATK_GT_DEF",
+            "into": 106,
+            "level": 20,
+            "method": "EVOLVE_STAT"
+          },
+          {
+            "condition": "ATK_EQ_DEF",
+            "into": 237,
+            "level": 20,
+            "method": "EVOLVE_STAT"
+          }
+        ],
+        "238": [
+          {
+            "condition": 30,
+            "into": 124,
+            "level": 30,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "239": [
+          {
+            "condition": 30,
+            "into": 125,
+            "level": 30,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "240": [
+          {
+            "condition": 30,
+            "into": 126,
+            "level": 30,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "246": [
+          {
+            "condition": 30,
+            "into": 247,
+            "level": 30,
+            "method": "EVOLVE_LEVEL"
+          }
+        ],
+        "247": [
+          {
+            "condition": 55,
+            "into": 248,
+            "level": 55,
+            "method": "EVOLVE_LEVEL"
+          }
+        ]
+      },
+      "evolution_methods_required": [ "Happiness", "Level", "Use Item" ],
+      "evomethod_happiness": 1,
+      "evomethod_level": 1,
+      "evomethod_tyrogue": 0,
+      "evomethod_useitem": 1,
+      "field_moves_always_usable": 1,
+      "fly_cheese": 0,
+      "free__all": 0,
+      "free__random": 0,
+      "free_cut": 0,
+      "free_flash": 0,
+      "free_fly": 0,
+      "free_fly_location": 0,
+      "free_fly_location_option": 3,
+      "free_strength": 0,
+      "free_surf": 0,
+      "free_waterfall": 0,
+      "free_whirlpool": 0,
+      "goal": 1,
+      "grass_location_mapping": {},
+      "grasssanity": 0,
+      "hiddenitem_logic": 5,
+      "hm_badge_requirements": 3,
+      "hm_compat": {
+        "1": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "2": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "3": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "4": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "5": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "6": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "7": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "8": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "9": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "10": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "11": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "12": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "13": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "14": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "15": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "16": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "17": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "18": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "19": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "20": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "21": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "22": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "23": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "24": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "25": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "26": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "27": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "28": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "29": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "30": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "31": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "32": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "33": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "34": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "35": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "36": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "37": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "38": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "39": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "40": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "41": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "42": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "43": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "44": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "45": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "46": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "47": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "48": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "49": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "50": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "51": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "52": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "53": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "54": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "55": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "56": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "57": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "58": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "59": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "60": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "61": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "62": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "63": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "64": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "65": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "66": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "67": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "68": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "69": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "70": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "71": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "72": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "73": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "74": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "75": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "76": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "77": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "78": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "79": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "80": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "81": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "82": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "83": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "84": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "85": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "86": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "87": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "88": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "89": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "90": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "91": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "92": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "93": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "94": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "95": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "96": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "97": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "98": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "99": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "100": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "101": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "102": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "103": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "104": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "105": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "106": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "107": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "108": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "109": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "110": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "111": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "112": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "113": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "114": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "115": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "116": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "117": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "118": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "119": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "120": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "121": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "122": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "123": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "124": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "125": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "126": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "127": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "128": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "129": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "130": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "131": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "132": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "133": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "134": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "135": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "136": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "137": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "138": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "139": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "140": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "141": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "142": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "143": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "144": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "145": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "146": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "147": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "148": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "149": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "150": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "151": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "152": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "153": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "154": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "155": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "156": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "157": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "158": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "159": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "160": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "161": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "162": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "163": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "164": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "165": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "166": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "167": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "168": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "169": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "170": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "171": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "172": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "173": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "174": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "175": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "176": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "177": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "178": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "179": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "180": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "181": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "182": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "183": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "184": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "185": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "186": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "187": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "188": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "189": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "190": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "191": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "192": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "193": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "194": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "195": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "196": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "197": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "198": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "199": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "200": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "201": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "202": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "203": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "204": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "205": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "206": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "207": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "208": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "209": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "210": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "211": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "212": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "213": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "214": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "215": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "216": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "217": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "218": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "219": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "220": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "221": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "222": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "223": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "224": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "225": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "226": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "227": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "228": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "229": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "230": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "231": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "232": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "233": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "234": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "235": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "236": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "237": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "238": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "239": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "240": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "241": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "242": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "243": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "244": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "245": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "246": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "247": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "248": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "249": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "250": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "251": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
+      },
+      "johto_only": 0,
+      "johto_trainersanity": 0,
+      "kanto_access_count": 10,
+      "kanto_access_requirement": 3,
+      "kanto_trainersanity": 0,
+      "lock_kanto_gyms": 0,
+      "map_card_fly_location": 22,
+      "mount_mortar_access": 0,
+      "mt_silver_count": 10,
+      "mt_silver_requirement": 0,
+      "national_park_access": 1,
+      "provide_shop_hints": 1,
+      "radio_tower_count": 11,
+      "radio_tower_requirement": 0,
+      "randomize_badges": 2,
+      "randomize_berry_trees": 1,
+      "randomize_breeding": 0,
+      "randomize_evolution": 0,
+      "randomize_fly_unlocks": 1,
+      "randomize_hidden_items": 1,
+      "randomize_pokegear": 1,
+      "randomize_pokemon_requests": 0,
+      "randomize_starting_town": 1,
+      "red_count": 16,
+      "red_gyarados_access": 0,
+      "red_requirement": 0,
+      "region_encounters": {
+        "Static_CatchTutorial1": [ 241 ],
+        "Static_CatchTutorial2": [ 209 ],
+        "Static_CatchTutorial3": [ 26 ],
+        "Static_CeladonGameCornerPrizeRoom1": [ 177 ],
+        "Static_CeladonGameCornerPrizeRoom2": [ 68 ],
+        "Static_CeladonGameCornerPrizeRoom3": [ 234 ],
+        "Static_Celebi": [ 159 ],
+        "Static_Dratini": [ 14 ],
+        "Static_Eevee": [ 231 ],
+        "Static_EggTogepi": [ 19 ],
+        "Static_Entei": [ 19 ],
+        "Static_GoldenrodGameCorner1": [ 8 ],
+        "Static_GoldenrodGameCorner2": [ 175 ],
+        "Static_GoldenrodGameCorner3": [ 31 ],
+        "Static_Ho_Oh": [ 140 ],
+        "Static_Kenya": [ 204 ],
+        "Static_Lugia": [ 54 ],
+        "Static_OddEgg": [ 16 ],
+        "Static_Raikou": [ 187 ],
+        "Static_RedGyarados": [ 109 ],
+        "Static_RocketHQElectrode1": [ 250 ],
+        "Static_RocketHQElectrode2": [ 56 ],
+        "Static_RocketHQElectrode3": [ 163 ],
+        "Static_RocketHQTrap1": [ 24 ],
+        "Static_RocketHQTrap2": [ 159 ],
+        "Static_RocketHQTrap3": [ 150 ],
+        "Static_Shuckie": [ 42 ],
+        "Static_Snorlax": [ 80 ],
+        "Static_Sudowoodo": [ 230 ],
+        "Static_Suicune": [ 75 ],
+        "Static_Tyrogue": [ 182 ],
+        "Static_UnionCaveLapras": [ 136 ],
+        "WildFish_Dratini_2_Good": [ 168, 33, 98, 243 ],
+        "WildFish_Dratini_2_Old": [ 114, 18, 39 ],
+        "WildFish_Dratini_2_Super": [ 64, 66, 96, 78 ],
+        "WildFish_Dratini_Good": [ 122, 203, 29, 110 ],
+        "WildFish_Dratini_Old": [ 161, 114, 172 ],
+        "WildFish_Dratini_Super": [ 245, 229, 190, 173 ],
+        "WildFish_Gyarados_Good": [ 123, 82, 51, 239 ],
+        "WildFish_Gyarados_Old": [ 89, 177, 209 ],
+        "WildFish_Gyarados_Super": [ 145, 34, 85, 237 ],
+        "WildFish_Lake_Good": [ 90, 163, 148, 12 ],
+        "WildFish_Lake_Old": [ 113, 243, 116 ],
+        "WildFish_Lake_Super": [ 41, 186, 27, 143 ],
+        "WildFish_Ocean_Good": [ 156, 132, 182, 118 ],
+        "WildFish_Ocean_Old": [ 114, 69, 206 ],
+        "WildFish_Ocean_Super": [ 40, 248, 3, 148 ],
+        "WildFish_Pond_Good": [ 40, 10, 223, 103 ],
+        "WildFish_Pond_Old": [ 104, 84, 190 ],
+        "WildFish_Pond_Super": [ 210, 218, 130, 154 ],
+        "WildFish_Qwilfish_Good": [ 176, 166, 182, 159 ],
+        "WildFish_Qwilfish_Old": [ 56, 203, 140 ],
+        "WildFish_Qwilfish_Super": [ 72, 249, 37, 46 ],
+        "WildFish_Qwilfish_Swarm_Good": [ 225, 4, 6, 7 ],
+        "WildFish_Qwilfish_Swarm_Old": [ 168, 56, 47 ],
+        "WildFish_Qwilfish_Swarm_Super": [ 16, 65, 42, 72 ],
+        "WildFish_Remoraid_Good": [ 82, 99, 244, 247 ],
+        "WildFish_Remoraid_Old": [ 178, 243, 42 ],
+        "WildFish_Remoraid_Super": [ 177, 134, 157, 118 ],
+        "WildFish_Remoraid_Swarm_Good": [ 112, 26, 132, 141 ],
+        "WildFish_Remoraid_Swarm_Old": [ 146, 12, 110 ],
+        "WildFish_Remoraid_Swarm_Super": [ 193, 170, 195, 188 ],
+        "WildFish_Shore_Good": [ 88, 19, 44, 125 ],
+        "WildFish_Shore_Old": [ 9, 154, 12 ],
+        "WildFish_Shore_Super": [ 17, 234, 91, 164 ],
+        "WildFish_WhirlIslands_Good": [ 233, 61, 133, 215 ],
+        "WildFish_WhirlIslands_Old": [ 124, 221, 166 ],
+        "WildFish_WhirlIslands_Super": [ 26, 52, 181, 239 ],
+        "WildGrass_BURNED_TOWER_1F": [ 49, 210, 116, 56, 217, 91, 220 ],
+        "WildGrass_BURNED_TOWER_B1F": [ 250, 204, 205, 212, 180, 57, 122 ],
+        "WildGrass_DARK_CAVE_BLACKTHORN_ENTRANCE": [ 134, 231, 205, 177, 244, 93, 223 ],
+        "WildGrass_DARK_CAVE_VIOLET_ENTRANCE": [ 229, 102, 168, 236, 174, 23, 153 ],
+        "WildGrass_DIGLETTS_CAVE": [ 202, 76, 111, 246, 182, 59, 126 ],
+        "WildGrass_ICE_PATH_1F": [ 1, 3, 15, 111, 80, 119, 121 ],
+        "WildGrass_ICE_PATH_B1F": [ 129, 98, 37, 72, 136, 212, 21 ],
+        "WildGrass_ICE_PATH_B2F_BLACKTHORN_SIDE": [ 34, 196, 69, 231, 106, 53, 182 ],
+        "WildGrass_ICE_PATH_B2F_MAHOGANY_SIDE": [ 9, 170, 105, 146, 242, 151, 88 ],
+        "WildGrass_ICE_PATH_B3F": [ 224, 71, 206, 49, 82, 59, 62 ],
+        "WildGrass_ILEX_FOREST": [ 2, 195, 137, 173, 78, 116, 150 ],
+        "WildGrass_MOUNT_MOON": [ 196, 101, 11, 203, 20, 84, 61 ],
+        "WildGrass_MOUNT_MORTAR_1F_INSIDE": [ 170, 204, 16, 242, 51, 215, 189 ],
+        "WildGrass_MOUNT_MORTAR_1F_OUTSIDE": [ 162, 75, 247, 24, 218, 27, 30 ],
+        "WildGrass_MOUNT_MORTAR_2F_INSIDE": [ 160, 132, 6, 236, 15, 112, 23 ],
+        "WildGrass_MOUNT_MORTAR_B1F": [ 227, 60, 239, 53, 26, 124, 127 ],
+        "WildGrass_NATIONAL_PARK": [ 225, 1, 68, 239, 211, 117, 126 ],
+        "WildGrass_ROCK_TUNNEL_1F": [ 67, 44, 142, 211, 247, 154, 187 ],
+        "WildGrass_ROCK_TUNNEL_B1F": [ 67, 102, 140, 109, 78, 15, 85 ],
+        "WildGrass_ROUTE_1": [ 226, 132, 167, 13, 15, 82, 217 ],
+        "WildGrass_ROUTE_10_NORTH": [ 2, 195, 90, 200, 41, 248, 250 ],
+        "WildGrass_ROUTE_11": [ 64, 65, 1, 199, 106, 237, 31 ],
+        "WildGrass_ROUTE_13": [ 228, 168, 14, 148, 246, 156, 125 ],
+        "WildGrass_ROUTE_14": [ 164, 105, 74, 12, 239, 246, 29 ],
+        "WildGrass_ROUTE_15": [ 100, 71, 170, 238, 144, 19, 30 ],
+        "WildGrass_ROUTE_16": [ 68, 168, 14, 206, 15, 154, 124 ],
+        "WildGrass_ROUTE_17": [ 227, 230, 104, 137, 136, 250, 29 ],
+        "WildGrass_ROUTE_18": [ 192, 167, 8, 201, 110, 79, 156 ],
+        "WildGrass_ROUTE_2": [ 225, 194, 37, 109, 213, 157, 94 ],
+        "WildGrass_ROUTE_21": [ 65, 14, 145, 21, 149, 247, 152 ],
+        "WildGrass_ROUTE_22": [ 69, 73, 41, 218, 214, 23, 186 ],
+        "WildGrass_ROUTE_24": [ 133, 71, 168, 236, 115, 153, 156 ],
+        "WildGrass_ROUTE_25": [ 128, 193, 34, 179, 251, 93, 223 ],
+        "WildGrass_ROUTE_26": [ 168, 105, 234, 20, 57, 158, 94 ],
+        "WildGrass_ROUTE_27": [ 163, 108, 148, 151, 152, 28, 126 ],
+        "WildGrass_ROUTE_28": [ 99, 35, 67, 134, 39, 8, 155 ],
+        "WildGrass_ROUTE_29": [ 130, 35, 43, 174, 212, 213, 218 ],
+        "WildGrass_ROUTE_3": [ 128, 99, 35, 146, 245, 90, 191 ],
+        "WildGrass_ROUTE_30": [ 194, 201, 107, 174, 16, 149, 63 ],
+        "WildGrass_ROUTE_31": [ 9, 235, 45, 49, 216, 62, 223 ],
+        "WildGrass_ROUTE_32": [ 132, 71, 47, 156, 121, 28, 93 ],
+        "WildGrass_ROUTE_33": [ 36, 77, 78, 206, 115, 251, 223 ],
+        "WildGrass_ROUTE_34": [ 203, 175, 113, 83, 245, 248, 185 ],
+        "WildGrass_ROUTE_35": [ 128, 196, 104, 204, 238, 48, 26 ],
+        "WildGrass_ROUTE_36": [ 227, 135, 176, 50, 119, 183, 124 ],
+        "WildGrass_ROUTE_37": [ 72, 107, 173, 17, 151, 59, 94 ],
+        "WildGrass_ROUTE_38": [ 198, 104, 170, 76, 45, 206, 191 ],
+        "WildGrass_ROUTE_39": [ 226, 231, 199, 241, 49, 83, 121 ],
+        "WildGrass_ROUTE_4": [ 163, 108, 141, 111, 247, 24, 188 ],
+        "WildGrass_ROUTE_42": [ 134, 201, 175, 176, 183, 90, 223 ],
+        "WildGrass_ROUTE_43": [ 197, 70, 231, 199, 236, 44, 154 ],
+        "WildGrass_ROUTE_44": [ 192, 76, 110, 15, 211, 120, 190 ],
+        "WildGrass_ROUTE_45": [ 37, 122, 110, 52, 214, 24, 56 ],
+        "WildGrass_ROUTE_46": [ 164, 231, 204, 144, 213, 55, 248 ],
+        "WildGrass_ROUTE_5": [ 128, 9, 139, 108, 207, 80, 157 ],
+        "WildGrass_ROUTE_6": [ 129, 225, 131, 233, 177, 185, 60 ],
+        "WildGrass_ROUTE_7": [ 197, 102, 113, 147, 211, 247, 61 ],
+        "WildGrass_ROUTE_8": [ 10, 138, 76, 205, 60, 52, 28 ],
+        "WildGrass_ROUTE_9": [ 96, 197, 51, 244, 181, 247, 88 ],
+        "WildGrass_RUINS_OF_ALPH_INNER_CHAMBER": [ 7, 71, 72, 75, 111, 82, 123 ],
+        "WildGrass_RUINS_OF_ALPH_OUTSIDE": [ 8, 202, 109, 50, 23, 155, 189 ],
+        "WildGrass_SILVER_CAVE_ITEM_ROOMS": [ 8, 172, 143, 217, 187, 61, 223 ],
+        "WildGrass_SILVER_CAVE_OUTSIDE": [ 128, 165, 146, 212, 85, 217, 156 ],
+        "WildGrass_SILVER_CAVE_ROOM_1": [ 2, 164, 4, 74, 54, 187, 92 ],
+        "WildGrass_SILVER_CAVE_ROOM_2": [ 96, 66, 196, 201, 179, 211, 58 ],
+        "WildGrass_SILVER_CAVE_ROOM_3": [ 39, 169, 142, 148, 86, 24, 59 ],
+        "WildGrass_SLOWPOKE_WELL_B1F": [ 229, 39, 43, 53, 22, 250, 222 ],
+        "WildGrass_SLOWPOKE_WELL_B2F": [ 32, 195, 196, 37, 45, 77, 119 ],
+        "WildGrass_SPROUT_TOWER_2F": [ 224, 205, 219, 116, 54, 23, 251 ],
+        "WildGrass_SPROUT_TOWER_3F": [ 69, 108, 144, 19, 147, 57, 220 ],
+        "WildGrass_TIN_TOWER_2F": [ 2, 71, 105, 205, 177, 151, 93 ],
+        "WildGrass_TIN_TOWER_3F": [ 197, 44, 241, 19, 87, 219, 63 ],
+        "WildGrass_TIN_TOWER_4F": [ 162, 4, 6, 76, 52, 214, 221 ],
+        "WildGrass_TIN_TOWER_5F": [ 97, 6, 169, 76, 55, 120, 60 ],
+        "WildGrass_TIN_TOWER_6F": [ 161, 65, 99, 198, 115, 153, 27 ],
+        "WildGrass_TIN_TOWER_7F": [ 160, 225, 3, 209, 114, 19, 116 ],
+        "WildGrass_TIN_TOWER_8F": [ 226, 169, 237, 238, 216, 186, 125 ],
+        "WildGrass_TIN_TOWER_9F": [ 1, 131, 197, 105, 43, 12, 183 ],
+        "WildGrass_TOHJO_FALLS": [ 130, 70, 135, 109, 48, 81, 27 ],
+        "WildGrass_UNION_CAVE_1F": [ 107, 77, 78, 238, 55, 249, 222 ],
+        "WildGrass_UNION_CAVE_B1F": [ 160, 86, 88, 153, 250, 93, 222 ],
+        "WildGrass_UNION_CAVE_B2F": [ 193, 66, 98, 104, 203, 211, 150 ],
+        "WildGrass_VICTORY_ROAD": [ 167, 41, 171, 108, 237, 152, 88 ],
+        "WildGrass_WHIRL_ISLAND_B1F": [ 193, 228, 75, 206, 142, 245, 249 ],
+        "WildGrass_WHIRL_ISLAND_B2F": [ 136, 140, 187, 155, 176, 84, 91 ],
+        "WildGrass_WHIRL_ISLAND_CAVE": [ 166, 8, 107, 115, 181, 28, 125 ],
+        "WildGrass_WHIRL_ISLAND_LUGIA_CHAMBER": [ 96, 196, 8, 107, 113, 122, 251 ],
+        "WildGrass_WHIRL_ISLAND_NE": [ 197, 169, 11, 179, 51, 117, 123 ],
+        "WildGrass_WHIRL_ISLAND_NW": [ 131, 249, 103, 140, 177, 118, 89 ],
+        "WildGrass_WHIRL_ISLAND_SE": [ 97, 35, 6, 230, 8, 181, 183 ],
+        "WildGrass_WHIRL_ISLAND_SW": [ 137, 80, 148, 53, 214, 221, 63 ],
+        "WildRockSmash": [ 42, 212 ],
+        "WildTree_Border_Common": [ 226, 108, 205, 175, 248, 57 ],
+        "WildTree_Border_Rare": [ 103, 168, 75, 207, 218, 189 ],
+        "WildTree_Canyon_Common": [ 4, 135, 12, 46, 152, 60 ],
+        "WildTree_Canyon_Rare": [ 227, 15, 244, 119, 120, 61 ],
+        "WildTree_Forest_Common": [ 4, 233, 76, 51, 54, 123 ],
+        "WildTree_Forest_Rare": [ 69, 231, 49, 57, 58, 27 ],
+        "WildTree_Lake_Common": [ 67, 240, 115, 93, 190, 63 ],
+        "WildTree_Lake_Rare": [ 164, 38, 41, 150, 249, 25 ],
+        "WildTree_Route_Common": [ 4, 13, 208, 210, 83, 94 ],
+        "WildTree_Route_Rare": [ 160, 198, 10, 243, 58, 28 ],
+        "WildTree_Town_Common": [ 210, 117, 149, 183, 55, 58 ],
+        "WildTree_Town_Rare": [ 167, 11, 139, 54, 91, 94 ],
+        "WildWater_BLACKTHORN_CITY": [ 251, 222, 206 ],
+        "WildWater_CELADON_CITY": [ 40, 41, 64 ],
+        "WildWater_CERULEAN_CITY": [ 224, 137, 34 ],
+        "WildWater_CHERRYGROVE_CITY": [ 184, 238, 6 ],
+        "WildWater_CIANWOOD_CITY": [ 232, 249, 194 ],
+        "WildWater_CINNABAR_ISLAND": [ 160, 83, 101 ],
+        "WildWater_DARK_CAVE_BLACKTHORN_ENTRANCE": [ 162, 11, 85 ],
+        "WildWater_DARK_CAVE_VIOLET_ENTRANCE": [ 49, 188, 132 ],
+        "WildWater_DRAGONS_DEN_B1F": [ 145, 211, 110 ],
+        "WildWater_ECRUTEAK_CITY": [ 24, 209, 71 ],
+        "WildWater_FUCHSIA_CITY": [ 144, 101, 109 ],
+        "WildWater_ILEX_FOREST": [ 16, 130, 40 ],
+        "WildWater_LAKE_OF_RAGE": [ 218, 4, 182 ],
+        "WildWater_MOUNT_MORTAR_1F_OUTSIDE": [ 18, 243, 53 ],
+        "WildWater_MOUNT_MORTAR_2F_INSIDE": [ 161, 58, 7 ],
+        "WildWater_MOUNT_MORTAR_B1F": [ 2, 100, 154 ],
+        "WildWater_NEW_BARK_TOWN": [ 133, 157, 191 ],
+        "WildWater_OLIVINE_CITY": [ 216, 62, 167 ],
+        "WildWater_OLIVINE_PORT": [ 112, 134, 182 ],
+        "WildWater_PALLET_TOWN": [ 49, 91, 189 ],
+        "WildWater_ROUTE_10_NORTH": [ 176, 50, 37 ],
+        "WildWater_ROUTE_12": [ 81, 178, 109 ],
+        "WildWater_ROUTE_13": [ 218, 30, 238 ],
+        "WildWater_ROUTE_19": [ 177, 58, 221 ],
+        "WildWater_ROUTE_20": [ 195, 172, 191 ],
+        "WildWater_ROUTE_21": [ 249, 190, 7 ],
+        "WildWater_ROUTE_22": [ 198, 182, 135 ],
+        "WildWater_ROUTE_24": [ 152, 10, 154 ],
+        "WildWater_ROUTE_25": [ 152, 203, 39 ],
+        "WildWater_ROUTE_26": [ 100, 245, 36 ],
+        "WildWater_ROUTE_27": [ 123, 67, 87 ],
+        "WildWater_ROUTE_28": [ 208, 48, 219 ],
+        "WildWater_ROUTE_30": [ 157, 246, 15 ],
+        "WildWater_ROUTE_31": [ 240, 95, 127 ],
+        "WildWater_ROUTE_32": [ 135, 241, 47 ],
+        "WildWater_ROUTE_34": [ 99, 141, 151 ],
+        "WildWater_ROUTE_35": [ 164, 244, 207 ],
+        "WildWater_ROUTE_4": [ 59, 10, 139 ],
+        "WildWater_ROUTE_40": [ 170, 53, 5 ],
+        "WildWater_ROUTE_41": [ 98, 19, 95 ],
+        "WildWater_ROUTE_42": [ 140, 212, 126 ],
+        "WildWater_ROUTE_43": [ 217, 75, 36 ],
+        "WildWater_ROUTE_44": [ 233, 118, 238 ],
+        "WildWater_ROUTE_45": [ 48, 116, 55 ],
+        "WildWater_ROUTE_6": [ 42, 107, 182 ],
+        "WildWater_ROUTE_9": [ 40, 11, 103 ],
+        "WildWater_RUINS_OF_ALPH_OUTSIDE": [ 184, 8, 230 ],
+        "WildWater_SILVER_CAVE_OUTSIDE": [ 51, 203, 55 ],
+        "WildWater_SILVER_CAVE_ROOM_2": [ 25, 162, 220 ],
+        "WildWater_SLOWPOKE_WELL_B1F": [ 121, 149, 238 ],
+        "WildWater_SLOWPOKE_WELL_B2F": [ 185, 116, 109 ],
+        "WildWater_TOHJO_FALLS": [ 235, 52, 125 ],
+        "WildWater_UNION_CAVE_1F": [ 89, 31, 223 ],
+        "WildWater_UNION_CAVE_B1F": [ 64, 139, 92 ],
+        "WildWater_UNION_CAVE_B2F": [ 145, 138, 3 ],
+        "WildWater_VERMILION_CITY": [ 32, 195, 140 ],
+        "WildWater_VERMILION_PORT": [ 200, 129, 58 ],
+        "WildWater_VIOLET_CITY": [ 192, 221, 174 ],
+        "WildWater_VIRIDIAN_CITY": [ 176, 203, 214 ],
+        "WildWater_WHIRL_ISLAND_B2F": [ 240, 33, 205 ],
+        "WildWater_WHIRL_ISLAND_LUGIA_CHAMBER": [ 130, 63, 239 ],
+        "WildWater_WHIRL_ISLAND_SW": [ 144, 236, 44 ]
+      },
+      "rematchsanity": 0,
+      "remove_badge_requirement": [],
+      "remove_ilex_cut_tree": 0,
+      "request_pokemon": [ 108, 43, 120, 58, 172 ],
+      "require_flash": 1,
+      "require_itemfinder": 2,
+      "route_2_access": 2,
+      "route_32_condition": 3,
+      "route_3_access": 0,
+      "route_44_access_count": 8,
+      "route_44_access_requirement": 0,
+      "saffron_gatehouse_tea": [ "North" ],
+      "shopsanity": [],
+      "shopsanity_apricorn": 0,
+      "shopsanity_bluecard": 0,
+      "shopsanity_gamecorners": 0,
+      "shopsanity_johtomarts": 0,
+      "shopsanity_kantomarts": 0,
+      "skip_elite_four": 0,
+      "starting_town": 9,
+      "static_pokemon_required": 1,
+      "tea_east": 0,
+      "tea_north": 1,
+      "tea_south": 0,
+      "tea_west": 0,
+      "trainersanity": [],
+      "undergrounds_require_power": 0,
+      "vanilla_clair": 0,
+      "victory_road_access": 1,
+      "wild_encounter_methods_required": [ "Fishing", "Headbutt", "Land", "Rock Smash", "Surfing" ]
+    }
+  },
+  {
+    "player": 4,
+    "slot_data": {}
+  },
+  {
+    "player": 5,
+    "slot_data": {
+      "apworld_version": "1.0.0",
+      "big_poe_target_count": 1,
+      "blue_fire_arrows": 1,
+      "bombchu_bag": 1,
+      "bombchu_drops": 1,
+      "closed_forest": 2,
+      "complete_mask_quest": 1,
+      "door_of_time": 2,
+      "fortress_carpenters": 1,
+      "full_wallets": 1,
+      "ganons_castle_boss_key": 5,
+      "ganons_castle_boss_key_dungeon_rewards_required": 7,
+      "ganons_castle_boss_key_dungeons_required": 8,
+      "ganons_castle_boss_key_greg_modifier": 0,
+      "ganons_castle_boss_key_medallions_required": 6,
+      "ganons_castle_boss_key_skull_tokens_required": 50,
+      "ganons_castle_boss_key_stones_required": 3,
+      "ice_trap_count": 6,
+      "ice_trap_filler_replacement": 0,
+      "infinite_upgrades": 0,
+      "jabu_jabu": 0,
+      "kakariko_gate": 1,
+      "key_rings": 0,
+      "lock_overworld_doors": 1,
+      "maps_and_compasses": 1,
+      "no_logic": 0,
+      "rainbow_bridge": 4,
+      "rainbow_bridge_dungeon_rewards_required": 5,
+      "rainbow_bridge_dungeons_required": 8,
+      "rainbow_bridge_greg_modifier": 0,
+      "rainbow_bridge_medallions_required": 6,
+      "rainbow_bridge_skull_tokens_required": 50,
+      "rainbow_bridge_stones_required": 3,
+      "scrub_prices": {
+        "Colossus Deku Scrub Grotto Front": 10,
+        "Colossus Deku Scrub Grotto Rear": 10,
+        "DMC Deku Scrub": 10,
+        "DMC Deku Scrub Grotto Center": 10,
+        "DMC Deku Scrub Grotto Left": 10,
+        "DMC Deku Scrub Grotto Right": 10,
+        "Dodongos Cavern Deku Scrub Lobby": 10,
+        "Dodongos Cavern Deku Scrub Near Bomb Bag Left": 10,
+        "Dodongos Cavern Deku Scrub Near Bomb Bag Right": 10,
+        "Dodongos Cavern Deku Scrub Side Room Near Dodongos": 10,
+        "GC Deku Scrub Grotto Center": 10,
+        "GC Deku Scrub Grotto Left": 10,
+        "GC Deku Scrub Grotto Right": 10,
+        "GV Deku Scrub Grotto Front": 10,
+        "GV Deku Scrub Grotto Rear": 10,
+        "Ganon's Castle Deku Scrub Center-Left": 10,
+        "Ganon's Castle Deku Scrub Center-Right": 10,
+        "Ganon's Castle Deku Scrub Left": 10,
+        "Ganon's Castle Deku Scrub Right": 10,
+        "HF Deku Scrub Grotto": 10,
+        "Jabu Jabus Belly Deku Scrub": 10,
+        "LH Deku Scrub Grotto Center": 10,
+        "LH Deku Scrub Grotto Left": 10,
+        "LH Deku Scrub Grotto Right": 10,
+        "LLR Deku Scrub Grotto Center": 10,
+        "LLR Deku Scrub Grotto Left": 10,
+        "LLR Deku Scrub Grotto Right": 10,
+        "LW Deku Scrub Grotto Front": 10,
+        "LW Deku Scrub Grotto Rear": 10,
+        "LW Deku Scrub Near Bridge": 10,
+        "LW Deku Scrub Near Deku Theater Left": 10,
+        "LW Deku Scrub Near Deku Theater Right": 10,
+        "SFM Deku Scrub Grotto Front": 10,
+        "SFM Deku Scrub Grotto Rear": 10,
+        "ZR Deku Scrub Grotto Front": 10,
+        "ZR Deku Scrub Grotto Rear": 10
+      },
+      "shop_prices": {
+        "GC Shop Item 1": 25,
+        "GC Shop Item 2": 50,
+        "GC Shop Item 3": 80,
+        "GC Shop Item 4": 120,
+        "GC Shop Item 5": 200,
+        "GC Shop Item 6": 10,
+        "GC Shop Item 7": 40,
+        "GC Shop Item 8": 10,
+        "KF Shop Item 1": 40,
+        "KF Shop Item 2": 15,
+        "KF Shop Item 3": 30,
+        "KF Shop Item 4": 10,
+        "KF Shop Item 5": 30,
+        "KF Shop Item 6": 20,
+        "KF Shop Item 7": 60,
+        "KF Shop Item 8": 10,
+        "Kak Bazaar Item 1": 80,
+        "Kak Bazaar Item 2": 35,
+        "Kak Bazaar Item 3": 15,
+        "Kak Bazaar Item 4": 10,
+        "Kak Bazaar Item 5": 20,
+        "Kak Bazaar Item 6": 90,
+        "Kak Bazaar Item 7": 10,
+        "Kak Bazaar Item 8": 60,
+        "Kak Potion Shop Item 1": 30,
+        "Kak Potion Shop Item 2": 300,
+        "Kak Potion Shop Item 3": 30,
+        "Kak Potion Shop Item 4": 50,
+        "Kak Potion Shop Item 5": 15,
+        "Kak Potion Shop Item 6": 50,
+        "Kak Potion Shop Item 7": 30,
+        "Kak Potion Shop Item 8": 200,
+        "Market Bazaar Item 1": 80,
+        "Market Bazaar Item 2": 35,
+        "Market Bazaar Item 3": 15,
+        "Market Bazaar Item 4": 10,
+        "Market Bazaar Item 5": 20,
+        "Market Bazaar Item 6": 90,
+        "Market Bazaar Item 7": 10,
+        "Market Bazaar Item 8": 60,
+        "Market Bombchu Shop Item 1": 99,
+        "Market Bombchu Shop Item 2": 99,
+        "Market Bombchu Shop Item 3": 99,
+        "Market Bombchu Shop Item 4": 99,
+        "Market Bombchu Shop Item 5": 180,
+        "Market Bombchu Shop Item 6": 180,
+        "Market Bombchu Shop Item 7": 180,
+        "Market Bombchu Shop Item 8": 180,
+        "Market Potion Shop Item 1": 30,
+        "Market Potion Shop Item 2": 300,
+        "Market Potion Shop Item 3": 30,
+        "Market Potion Shop Item 4": 50,
+        "Market Potion Shop Item 5": 15,
+        "Market Potion Shop Item 6": 50,
+        "Market Potion Shop Item 7": 30,
+        "Market Potion Shop Item 8": 200,
+        "ZD Shop Item 1": 20,
+        "ZD Shop Item 2": 20,
+        "ZD Shop Item 3": 10,
+        "ZD Shop Item 4": 60,
+        "ZD Shop Item 5": 15,
+        "ZD Shop Item 6": 90,
+        "ZD Shop Item 7": 200,
+        "ZD Shop Item 8": 30
+      },
+      "shop_vanilla_items": {
+        "GC Shop Item 1": "Buy Bombs (5) [25]",
+        "GC Shop Item 2": "Buy Bombs (10)",
+        "GC Shop Item 3": "Buy Bombs (20)",
+        "GC Shop Item 4": "Buy Bombs (30)",
+        "GC Shop Item 5": "Buy Goron Tunic",
+        "GC Shop Item 6": "Buy Heart",
+        "GC Shop Item 7": "Buy Red Potion [40]",
+        "GC Shop Item 8": "Buy Heart",
+        "KF Shop Item 1": "Buy Deku Shield",
+        "KF Shop Item 2": "Buy Deku Nut (5)",
+        "KF Shop Item 3": "Buy Deku Nut (10)",
+        "KF Shop Item 4": "Buy Deku Stick (1)",
+        "KF Shop Item 5": "Buy Deku Seeds (30)",
+        "KF Shop Item 6": "Buy Arrows (10)",
+        "KF Shop Item 7": "Buy Arrows (30)",
+        "KF Shop Item 8": "Buy Heart",
+        "Kak Bazaar Item 1": "Buy Hylian Shield",
+        "Kak Bazaar Item 2": "Buy Bombs (5) [35]",
+        "Kak Bazaar Item 3": "Buy Deku Nut (5)",
+        "Kak Bazaar Item 4": "Buy Heart",
+        "Kak Bazaar Item 5": "Buy Arrows (10)",
+        "Kak Bazaar Item 6": "Buy Arrows (50)",
+        "Kak Bazaar Item 7": "Buy Deku Stick (1)",
+        "Kak Bazaar Item 8": "Buy Arrows (30)",
+        "Kak Potion Shop Item 1": "Buy Green Potion",
+        "Kak Potion Shop Item 2": "Buy Blue Fire",
+        "Kak Potion Shop Item 3": "Buy Red Potion [30]",
+        "Kak Potion Shop Item 4": "Buy Fairy's Spirit",
+        "Kak Potion Shop Item 5": "Buy Deku Nut (5)",
+        "Kak Potion Shop Item 6": "Buy Bottle Bug",
+        "Kak Potion Shop Item 7": "Buy Poe",
+        "Kak Potion Shop Item 8": "Buy Fish",
+        "Market Bazaar Item 1": "Buy Hylian Shield",
+        "Market Bazaar Item 2": "Buy Bombs (5) [35]",
+        "Market Bazaar Item 3": "Buy Deku Nut (5)",
+        "Market Bazaar Item 4": "Buy Heart",
+        "Market Bazaar Item 5": "Buy Arrows (10)",
+        "Market Bazaar Item 6": "Buy Arrows (50)",
+        "Market Bazaar Item 7": "Buy Deku Stick (1)",
+        "Market Bazaar Item 8": "Buy Arrows (30)",
+        "Market Bombchu Shop Item 1": "Buy Bombchu (10)",
+        "Market Bombchu Shop Item 2": "Buy Bombchu (10)",
+        "Market Bombchu Shop Item 3": "Buy Bombchu (10)",
+        "Market Bombchu Shop Item 4": "Buy Bombchu (10)",
+        "Market Bombchu Shop Item 5": "Buy Bombchu (20)",
+        "Market Bombchu Shop Item 6": "Buy Bombchu (20)",
+        "Market Bombchu Shop Item 7": "Buy Bombchu (20)",
+        "Market Bombchu Shop Item 8": "Buy Bombchu (20)",
+        "Market Potion Shop Item 1": "Buy Green Potion",
+        "Market Potion Shop Item 2": "Buy Blue Fire",
+        "Market Potion Shop Item 3": "Buy Red Potion [30]",
+        "Market Potion Shop Item 4": "Buy Fairy's Spirit",
+        "Market Potion Shop Item 5": "Buy Deku Nut (5)",
+        "Market Potion Shop Item 6": "Buy Bottle Bug",
+        "Market Potion Shop Item 7": "Buy Poe",
+        "Market Potion Shop Item 8": "Buy Fish",
+        "ZD Shop Item 1": "Buy Zora Tunic",
+        "ZD Shop Item 2": "Buy Arrows (10)",
+        "ZD Shop Item 3": "Buy Heart",
+        "ZD Shop Item 4": "Buy Arrows (30)",
+        "ZD Shop Item 5": "Buy Deku Nut (5)",
+        "ZD Shop Item 6": "Buy Arrows (50)",
+        "ZD Shop Item 7": "Buy Fish",
+        "ZD Shop Item 8": "Buy Red Potion [30]"
+      },
+      "shuffle_100_gs_reward": 0,
+      "shuffle_adult_trade_items": 0,
+      "shuffle_bean_fairies": 0,
+      "shuffle_beehives": 0,
+      "shuffle_boss_souls": 0,
+      "shuffle_childs_wallet": 1,
+      "shuffle_cows": 1,
+      "shuffle_crates": 0,
+      "shuffle_deku_nut_bag": 1,
+      "shuffle_deku_stick_bag": 1,
+      "shuffle_dungeon_rewards": 1,
+      "shuffle_fish": 0,
+      "shuffle_fishing_pole": 1,
+      "shuffle_fountain_fairies": 1,
+      "shuffle_freestanding_items": 1,
+      "shuffle_frog_song_rupees": 0,
+      "shuffle_grass": 0,
+      "shuffle_master_sword": 1,
+      "shuffle_merchants": 0,
+      "shuffle_ocarina_buttons": 1,
+      "shuffle_pots": 1,
+      "shuffle_scrubs": 1,
+      "shuffle_shops": 0,
+      "shuffle_shops_item_amount": 7,
+      "shuffle_skull_tokens": 3,
+      "shuffle_song_fairies": 0,
+      "shuffle_stone_fairies": 0,
+      "shuffle_swim": 1,
+      "shuffle_trees": 1,
+      "shuffle_weird_egg": 1,
+      "skeleton_key": 0,
+      "skip_child_zelda": 0,
+      "skip_epona_race": 1,
+      "skip_ganons_trials": 1,
+      "skip_scarecrows_song": 1,
+      "skulls_sun_song": 1,
+      "sleeping_waterfall": 0,
+      "slingbow_break_beehives": 1,
+      "starting_age": 0,
+      "sunlight_arrows": 1,
+      "triforce_hunt": 1,
+      "triforce_hunt_pieces_required": 40,
+      "triforce_hunt_pieces_total": 50,
+      "zoras_fountain": 0
+    }
+  },
+  {
+    "player": 6,
+    "slot_data": {
+      "Doors": {
+        "BelowSpazerTopRight": "green",
+        "BigPinkBottomLeft": "red",
+        "BigPinkBottomRight": "green",
+        "BigPinkRight": "yellow",
+        "BigPinkTopRight": "red",
+        "BubbleMountainTopLeft": "green",
+        "BubbleMountainTopRight": "green",
+        "BusinessCenterBottomLeft": "red",
+        "BusinessCenterTopLeft": "green",
+        "CathedralEntranceRight": "red",
+        "CathedralRight": "green",
+        "ClimbRight": "yellow",
+        "ColosseumBottomRight": "green",
+        "ConstructionZoneRight": "blue",
+        "CrabShaftRight": "green",
+        "CrocomireSpeedwayBottom": "green",
+        "DoubleChamberRight": "red",
+        "DraygonSaveRefillStation": "red",
+        "EarlySupersRight": "red",
+        "ElectricDeathRoomTopLeft": "red",
+        "EtecoonEnergyTankLeft": "green",
+        "FishTankRight": "red",
+        "FlywayRight": "red",
+        "ForgottenHighwaySaveStation": "red",
+        "GreenBrinstarMissileRefill": "red",
+        "GreenBrinstarSaveStation": "red",
+        "GreenHillZoneTopRight": "yellow",
+        "GreenPiratesShaftBottomRight": "red",
+        "KihunterBottom": "yellow",
+        "KihunterRight": "yellow",
+        "KraidRefillStation": "green",
+        "KronicBoostBottomLeft": "yellow",
+        "LandingSiteRight": "green",
+        "LandingSiteTopRight": "yellow",
+        "LeCoudeBottom": "yellow",
+        "MainShaftBottomRight": "red",
+        "MainShaftRight": "red",
+        "MainStreetBottomRight": "red",
+        "MaridiaAqueductSaveStation": "red",
+        "MaridiaBottomSaveStation": "red",
+        "NoobBridgeRight": "green",
+        "OasisTop": "green",
+        "PlasmaSparkBottom": "green",
+        "PostCrocomireShaftRight": "red",
+        "PostCrocomireUpperLeft": "red",
+        "RedBrinstarElevatorTop": "blue",
+        "RedBrinstarEnergyRefill": "green",
+        "RedBrinstarFirefleaLeft": "red",
+        "RedKihunterShaftBottom": "yellow",
+        "RedTowerElevatorBottomLeft": "green",
+        "RedTowerElevatorLeft": "yellow",
+        "RedTowerElevatorTopLeft": "green",
+        "RedTowerLeft": "yellow",
+        "SingleChamberRight": "red",
+        "SpeedBoosterHallRight": "red",
+        "WastelandLeft": "green",
+        "WestOceanRight": "green",
+        "WreckedShipMainShaftBottom": "green"
+      },
+      "InterAreaTransitions": {
+        "Aqueduct Top Left": "Crab Shaft Right",
+        "Caterpillar Room Top Right": "Red Fish Room Left",
+        "Crab Hole Bottom Left": "East Tunnel Top Right",
+        "Crab Maze Left": "Le Coude Right",
+        "Crab Shaft Right": "Aqueduct Top Left",
+        "Crocomire Room Top": "Crocomire Speedway Bottom",
+        "Crocomire Speedway Bottom": "Crocomire Room Top",
+        "DraygonRoomIn": "DraygonRoomOut",
+        "DraygonRoomOut": "DraygonRoomIn",
+        "East Tunnel Right": "Warehouse Entrance Left",
+        "East Tunnel Top Right": "Crab Hole Bottom Left",
+        "Glass Tunnel Top": "Main Street Bottom",
+        "Golden Four": "Green Pirates Shaft Bottom Right",
+        "Green Brinstar Elevator": "Lower Mushrooms Left",
+        "Green Hill Zone Top Right": "Morph Ball Room Left",
+        "Green Pirates Shaft Bottom Right": "Golden Four",
+        "Keyhunter Room Bottom": "Red Brinstar Elevator",
+        "KraidRoomIn": "KraidRoomOut",
+        "KraidRoomOut": "KraidRoomIn",
+        "Kronic Boost Room Bottom Left": "Lava Dive Right",
+        "Lava Dive Right": "Kronic Boost Room Bottom Left",
+        "Le Coude Right": "Crab Maze Left",
+        "Lower Mushrooms Left": "Green Brinstar Elevator",
+        "Main Street Bottom": "Glass Tunnel Top",
+        "Moat Right": "West Ocean Left",
+        "Morph Ball Room Left": "Green Hill Zone Top Right",
+        "Noob Bridge Right": "Red Tower Top Left",
+        "PhantoonRoomIn": "PhantoonRoomOut",
+        "PhantoonRoomOut": "PhantoonRoomIn",
+        "Red Brinstar Elevator": "Keyhunter Room Bottom",
+        "Red Fish Room Left": "Caterpillar Room Top Right",
+        "Red Tower Top Left": "Noob Bridge Right",
+        "RidleyRoomIn": "RidleyRoomOut",
+        "RidleyRoomOut": "RidleyRoomIn",
+        "Single Chamber Top Right": "Three Muskateers Room Left",
+        "Three Muskateers Room Left": "Single Chamber Top Right",
+        "Warehouse Entrance Left": "East Tunnel Right",
+        "Warehouse Entrance Right": "Warehouse Zeela Room Left",
+        "Warehouse Zeela Room Left": "Warehouse Entrance Right",
+        "West Ocean Left": "Moat Right"
+      },
+      "Preset": {
+        "Controller": {
+          "A": "Jump",
+          "B": "Dash",
+          "L": "Angle Down",
+          "Moonwalk": false,
+          "R": "Angle Up",
+          "Select": "Item Select",
+          "X": "Shoot",
+          "Y": "Item Cancel"
+        },
+        "Knows": {
+          "AccessSpringBallWithBombJumps": [ false, 0 ],
+          "AccessSpringBallWithFlatley": [ false, 0 ],
+          "AccessSpringBallWithGravJump": [ false, 0 ],
+          "AccessSpringBallWithHiJump": [ true, 1 ],
+          "AccessSpringBallWithSpringBallBombJumps": [ true, 10 ],
+          "AccessSpringBallWithSpringBallJump": [ false, 0 ],
+          "AccessSpringBallWithXRayClimb": [ false, 0 ],
+          "AlcatrazEscape": [ true, 25 ],
+          "BillyMays": [ true, 1 ],
+          "BotwoonToDraygonWithIce": [ false, 0 ],
+          "BubbleMountainWallJump": [ true, 5 ],
+          "CeilingDBoost": [ true, 1 ],
+          "ContinuousWallJump": [ false, 0 ],
+          "CrocPBsDBoost": [ false, 0 ],
+          "CrocPBsIce": [ false, 0 ],
+          "CrouchJump": [ false, 0 ],
+          "CrystalFlashClip": [ false, 0 ],
+          "DiagonalBombJump": [ false, 0 ],
+          "DodgeLowerNorfairEnemies": [ false, 0 ],
+          "DoubleChamberWallJump": [ true, 1 ],
+          "DoubleSpringBallJump": [ false, 0 ],
+          "DraygonGrappleKill": [ true, 5 ],
+          "DraygonRoomCrystalFlash": [ false, 0 ],
+          "DraygonRoomGrappleExit": [ false, 0 ],
+          "DraygonSparkKill": [ false, 0 ],
+          "EarlyKraid": [ true, 1 ],
+          "FirefleasWalljump": [ true, 25 ],
+          "FrogSpeedwayWithoutSpeed": [ false, 0 ],
+          "GetAroundWallJump": [ true, 10 ],
+          "GravLessLevel1": [ true, 50 ],
+          "GravLessLevel2": [ false, 0 ],
+          "GravLessLevel3": [ false, 0 ],
+          "GravityJump": [ true, 10 ],
+          "GreenGateGlitch": [ true, 5 ],
+          "HiJumpGauntletAccess": [ true, 25 ],
+          "HiJumpLessGauntletAccess": [ true, 50 ],
+          "HiJumpMamaTurtle": [ false, 0 ],
+          "IceEscape": [ false, 0 ],
+          "IceMissileFromCroc": [ false, 0 ],
+          "IceZebSkip": [ false, 0 ],
+          "InfiniteBombJump": [ true, 5 ],
+          "KillPlasmaPiratesWithCharge": [ true, 5 ],
+          "KillPlasmaPiratesWithSpark": [ false, 0 ],
+          "LavaDive": [ true, 50 ],
+          "LavaDiveNoHiJump": [ false, 0 ],
+          "LowAmmoCroc": [ false, 0 ],
+          "LowGauntlet": [ false, 0 ],
+          "LowStuffBotwoon": [ false, 0 ],
+          "LowStuffGT": [ false, 0 ],
+          "MaridiaWallJumps": [ true, 5 ],
+          "MicrowaveDraygon": [ true, 1 ],
+          "MicrowavePhantoon": [ true, 5 ],
+          "MidAirMorph": [ false, 0 ],
+          "MochtroidClip": [ true, 5 ],
+          "Mockball": [ true, 1 ],
+          "MockballWs": [ false, 0 ],
+          "Moondance": [ false, 0 ],
+          "MtEverestGravJump": [ false, 0 ],
+          "NorfairReserveDBoost": [ false, 0 ],
+          "NovaBoost": [ false, 0 ],
+          "OldMBWithSpeed": [ false, 0 ],
+          "PreciousRoomGravJumpExit": [ false, 0 ],
+          "PreciousRoomXRayExit": [ false, 0 ],
+          "PuyoClip": [ false, 0 ],
+          "PuyoClipXRay": [ false, 0 ],
+          "RedTowerClimb": [ true, 25 ],
+          "ReverseGateGlitch": [ true, 5 ],
+          "ReverseGateGlitchHiJumpLess": [ false, 0 ],
+          "RonPopeilScrew": [ false, 0 ],
+          "ScrewAttackExit": [ false, 0 ],
+          "ScrewAttackExitWithoutScrew": [ false, 0 ],
+          "ShineSpark": [ false, 0 ],
+          "ShortCharge": [ false, 0 ],
+          "SimpleShortCharge": [ true, 1 ],
+          "SnailClip": [ false, 0 ],
+          "SpeedZebSkip": [ false, 0 ],
+          "SpongeBathBombJump": [ false, 0 ],
+          "SpongeBathHiJump": [ true, 1 ],
+          "SpongeBathSpeed": [ true, 5 ],
+          "SpringBallJump": [ true, 10 ],
+          "SpringBallJumpFromWall": [ false, 0 ],
+          "SuitlessCrystalFlashClip": [ false, 0 ],
+          "SuitlessPuyoClip": [ false, 0 ],
+          "TediousMountEverest": [ false, 0 ],
+          "UnequipItem": [ true, 1 ],
+          "WallJump": [ false, 0 ],
+          "WallJumpCathedralExit": [ true, 5 ],
+          "WestSandHoleSuitlessWallJumps": [ false, 0 ],
+          "WorstRoomIceCharge": [ false, 0 ],
+          "WorstRoomWallJump": [ false, 0 ],
+          "XrayDboost": [ false, 0 ],
+          "XrayIce": [ true, 10 ]
+        },
+        "Settings": {
+          "bossesDifficulty": {
+            "Draygon": {
+              "Energy": {
+                "0.5": 400,
+                "1": 100,
+                "6": 50,
+                "8": 25,
+                "11": 10,
+                "14": 5,
+                "20": 1
+              },
+              "Rate": 0.05
+            },
+            "Kraid": {
+              "Energy": {
+                "0.5": 10,
+                "1.5": 5,
+                "2.5": 1
+              },
+              "Rate": 0.015
+            },
+            "MotherBrain": {
+              "Energy": {
+                "2": 800,
+                "4": 100,
+                "8": 50,
+                "12": 25,
+                "16": 10,
+                "20": 5,
+                "24": 1
+              },
+              "Rate": 0.25
+            },
+            "Phantoon": {
+              "Energy": {
+                "0.5": 400,
+                "1": 100,
+                "2": 50,
+                "4": 25,
+                "5": 10,
+                "6": 5,
+                "10": 1
+              },
+              "Rate": 0.015
+            },
+            "Ridley": {
+              "Energy": {
+                "0.5": 400,
+                "1": 100,
+                "6": 50,
+                "8": 25,
+                "12": 10,
+                "20": 5,
+                "36": 1
+              },
+              "Rate": 0.12
+            }
+          },
+          "hardRooms": {
+            "Gauntlet": [
+              [ 1, 25 ],
+              [ 2, 10 ],
+              [ 5, 5 ],
+              [ 10, 1 ]
+            ],
+            "X-Ray": [
+              [ 8, 10 ],
+              [ 10, 5 ],
+              [ 14, 1 ]
+            ]
+          },
+          "hellRuns": {
+            "Ice": [
+              [ 4, 50 ],
+              [ 5, 25 ],
+              [ 6, 10 ],
+              [ 10, 5 ]
+            ],
+            "LowerNorfair": null,
+            "MainUpperNorfair": [
+              [ 5, 100 ],
+              [ 6, 50 ],
+              [ 8, 25 ],
+              [ 10, 10 ],
+              [ 14, 5 ]
+            ]
+          }
+        }
+      },
+      "RomPatches": [ 22, 1000, 41, 23, 20, 21, 30, 31, 10, 1001, 1002, 1008, 201, 202 ],
+      "area_randomization": 0,
+      "boss_randomization": 0,
+      "doors_colors_rando": 0,
+      "max_difficulty": 1,
+      "start_location": 1
+    }
+  }
+]
