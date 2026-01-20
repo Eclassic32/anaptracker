@@ -7,9 +7,7 @@ var ANAP_CONFIG = {
     BIG_WORLD_THRESHOLD: 300,
     APP_VERSION: '0.7.2',
     SETTINGS_VERSION: '1',
-    URL_WEBSITE: 'http://localhost:3000',
-    //URL_WEBSITE: 'http://localhost:5173',
-    //URL_WEBSITE: 'https://tomagueri.fr/anaptracker',
+    URL_WEBSITE: 'https://tomagueri.fr/anaptracker',
 };
 
 export default ANAP_CONFIG;

@@ -31,7 +31,8 @@
     var ROOM_ID = '';
     var WEBHOST_USED = 'archipelago';
 
-    
+    console.log(import.meta.env);
+    ANAP_CONFIG.URL_WEBSITE = import.meta.env.VITE_URL_WEBSITE;
 
     var EMPTY_DATAPACKAGE = {
         checksum: 'a',
