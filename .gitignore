@@ -28,4 +28,3 @@ coverage
 *.sw?
 /.vs
 /.vscode
-/public/img
