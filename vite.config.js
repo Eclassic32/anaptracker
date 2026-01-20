@@ -2,11 +2,28 @@ import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import vueDevTools from 'vite-plugin-vue-devtools'
 import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+    test: {
+        bail: 1,
+        clearMocks: true,
+        coverage: {
+            enabled: false,
+            exclude: [],
+            include: ['src/**/*'],
+            reporter: ['text'],
+            reportsDirectory: 'coverage',
+            thresholds: {
+                '50': true
+            }
+        },
+        css: false,
+        environment: 'happy-dom',
+        globals: true,
+        include: ['**/*.test.js']
+    },
   plugins: [
     vue(),
         tailwindcss(),
