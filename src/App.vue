@@ -9,7 +9,7 @@
             <div>
                 <Statistics v-if="ROOM_ID == 'statistics'"></Statistics>
                 <Settings v-else-if="ROOM_ID == 'settings'"></Settings>
-                <PlayerList v-else-if="validRoom()" v-bind:globaldata="GLOBAL_TRACKER_DATA" v-bind:gamedata="DATA_PACKAGE" ref="playerLisrt"></PlayerList>
+                <PlayerList v-else-if="validRoom()" v-bind:globaldata="GLOBAL_TRACKER_DATA" v-bind:gamedata="DATA_PACKAGE" ref="playerList"></PlayerList>
                 <Home v-else></Home>
             </div>
         </div>

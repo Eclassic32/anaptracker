@@ -6,8 +6,9 @@
             <img title="Sand Coin" src="/img/ffmq/coins/coin_sand.png" :class="{ 'opacity-25': !getNumberItemsFromName('Sand Coin')  }" />
             <img title="River Coin" src="/img/ffmq/coins/coin_river.png" :class="{ 'opacity-25': !getNumberItemsFromName('River Coin')  }" />
             <img title="Sun Coin" src="/img/ffmq/coins/coin_sun.png" :class="{ 'opacity-25': !getNumberItemsFromName('Sun Coin')  }" />
-            <span v-if="getNumberItemsFromName('Sky Fragment')" class="text-xs mr-1 font-bold"><img title="Sky Fragment" src="/img/ffmq/coins/coin_sky_shard.png" />x{{getNumberItemsFromName('Sky Fragment')}}</span>
-            <img v-else title="Sky Coin" src="/img/ffmq/coins/coin_sky.png" :class="{ 'opacity-25': !getNumberItemsFromName('Sky Coin')  }" />
+            <span v-if="skyFragmentMode() && skyFragmentCount()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Sky Fragment')  }"><img title="Sky Fragment" src="/img/ffmq/coins/coin_sky_shard.png" />x{{ getNumberItemsFromName('Sky Fragment') }} </span> / {{ skyFragmentCount() }}</span>
+            <span v-else-if="skyFragmentMode()" class="text-xs mr-1 font-bold"><img title="Sky Fragment" src="/img/ffmq/coins/coin_sky_shard.png" />x{{getNumberItemsFromName('Sky Fragment')}}</span>
+            <img v-else-if="skyCoinMode()" title="Sky Coin" src="/img/ffmq/coins/coin_sky.png" :class="{ 'opacity-25': !getNumberItemsFromName('Sky Coin')  }" />
         </div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
@@ -201,6 +202,27 @@ export default {
             getNumberItemsFromName: function (name) {
                 return this.$parent.getNumberItemsFromName(name);
             },
+            skyCoinMode: function () {
+                if (this.data.slot_data.hasOwnProperty('sky_coin_mode')) {
+                    return this.data.slot_data.sky_coin_mode == 0;
+                }
+                return !this.getNumberItemsFromName('Sky Fragment');
+                
+            },
+            skyFragmentMode: function () {
+                if (this.data.slot_data.hasOwnProperty('sky_coin_mode')) {
+                    return (this.data.slot_data.sky_coin_mode == 3);
+                }
+                return this.getNumberItemsFromName('Sky Fragment');
+
+            },
+            skyFragmentCount: function () {
+                if (this.data.slot_data.hasOwnProperty('shattered_sky_coin_quantity')) {
+                    return this.data.slot_data.shattered_sky_coin_quantity;
+                }
+                return 0;
+
+            }
             /*
             getRemainingsFromZone: function (name) {
                 var res = 0;

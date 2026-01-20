@@ -42,7 +42,7 @@ export default defineConfig({
   },
     build: {
         rollupOptions: {
-            //external: [/img\/.*/],
+            external: [/img\/.*/],
             output: {
                 assetFileNames: (assetInfo) => {
                     let extType = assetInfo.name.split('.').at(1);

@@ -95,6 +95,11 @@
                 <div v-if="$parent.DEFAULT_OPTIONS.store_datapackage">Datapackages (bundles that contains game info) will be stored.</div>
                 <div v-if="$parent.DEFAULT_OPTIONS.store_individual_rooms">Rooms settings will be saved on each room.</div>
             </div>
+            <div class="flex flex-row w-auto font-roboto justify-center">
+                <div class="p-6">
+                    <div class="p-2 cursor-pointer rounded-md bg-red-500" v-on:click="clearLocalStorage()">Clear my storage data</div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -172,6 +177,13 @@
                     this.$parent.DEFAULT_OPTIONS.sort_by = 0;
                 this.$parent.saveDefaultOptions();
             },
+            clearLocalStorage: function () {
+                if (confirm('Are you sure you want to clear your data stored in your browser ?')) {
+
+                    localStorage.clear();
+                    this.$parent.saveDefaultOptions();
+                }
+            }
         },
         components: {
         }

@@ -63,7 +63,7 @@ export default {
             },
             getGoal: function () {
                 if (this.data.slot_data.hasOwnProperty('goal')) {
-                    return this.data.slot_data.options.Goal;
+                    return this.data.slot_data.goal;
                 }
                 return 15;
             }
