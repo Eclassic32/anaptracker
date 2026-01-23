@@ -39,12 +39,16 @@
                 <div class="p-2">
                     <div class="p-2 cursor-pointer rounded-md" :class="{'bg-emerald-600': $parent.DEFAULT_OPTIONS.show_timer, ' bg-gray-700': !$parent.DEFAULT_OPTIONS.show_timer }" v-on:click="changeShowTimer()">Inactivity timers</div>
                 </div>
+                <div class="p-2">
+                    <div class="p-2 cursor-pointer rounded-md" :class="{'bg-emerald-600': $parent.DEFAULT_OPTIONS.show_speed, ' bg-gray-700': !$parent.DEFAULT_OPTIONS.show_speed }" v-on:click="changeShowSpeed()">Activity gradients</div>
+                </div>
             </div>
             <div>
                 <div v-if="$parent.DEFAULT_OPTIONS.show_done == 0">Player who goaled their game won't be shown (after 10min of goal completion).</div>
                 <div v-if="$parent.DEFAULT_OPTIONS.show_slot_number">Slot number will be shown.</div>
                 <div v-if="$parent.DEFAULT_OPTIONS.show_hints">Number of hints will be shown (red are recieved hints, blue are sent hints).</div>
                 <div v-if="$parent.DEFAULT_OPTIONS.show_timer">Inactivity timers will be shown.</div>
+                <div v-if="$parent.DEFAULT_OPTIONS.show_speed">Recent activity will be shown on a gradient color.</div>
             </div>
         </div>
         <div class="mt-6 text-center">
@@ -151,6 +155,12 @@
                 this.$parent.DEFAULT_OPTIONS.show_checks_left = this.$parent.DEFAULT_OPTIONS.show_checks_left + 1;
                 if (this.$parent.DEFAULT_OPTIONS.show_checks_left > 1)
                     this.$parent.DEFAULT_OPTIONS.show_checks_left = 0;
+                this.$parent.saveDefaultOptions();
+            },
+            changeShowSpeed: function () {
+                this.$parent.DEFAULT_OPTIONS.store_individual_rooms = this.$parent.DEFAULT_OPTIONS.show_speed + 1;
+                if (this.$parent.DEFAULT_OPTIONS.show_speed > 1)
+                    this.$parent.DEFAULT_OPTIONS.show_speed = 0;
                 this.$parent.saveDefaultOptions();
             },
             changeStorePackage: function () {

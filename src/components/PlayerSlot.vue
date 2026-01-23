@@ -1,6 +1,6 @@
 <template>
-    <div v-if="displayable()" :class=" { 'bg-emerald-200' : get_status() == 30, 'py-1' : $parent.$parent.OPTIONS.row_size == 1,  'text-sm py-1' : !$parent.$parent.OPTIONS.row_size, 'text-lg py-2' : $parent.$parent.OPTIONS.row_size == 2 }" class="relative inline-block w-full tracker-history leading-5 font-semibold font-xl h-full px-2 border-t-2 border-t-gray-900">
-        <div class="absolute left-0 top-0 bottom-0 z-1 bg-green-500" :style="{ 'width' : str_percent_completion() }"></div>
+    <div v-if="displayable()" :class=" { 'bg-cyan-200' : get_status() == 30, 'py-1' : $parent.$parent.OPTIONS.row_size == 1,  'text-sm py-1' : !$parent.$parent.OPTIONS.row_size, 'text-lg py-2' : $parent.$parent.OPTIONS.row_size == 2 }" class="relative inline-block w-full tracker-history leading-5 font-semibold font-xl h-full px-2 border-t-2 border-t-gray-900">
+        <div :class="getSpeedBarClass()" class="absolute left-0 top-0 bottom-0 z-1" :style="{ 'width' : str_percent_completion() }"></div>
 
         <div @click="toggleExpand()" class="z-2 flex flex-column justify-between">
             <div class="w-1/4 lg:w-1/5 2xl:w-1/6 z-3 text-dark " :class="{ 'opacity-50' : get_status() == 0 }"><a :href="slotURL()" target="_blank" class="mr-2 font-bold hover:text-blue-800 hover:underline"><span v-if="$parent.$parent.OPTIONS.show_slot_number" class="font-bold">{{ data.id }} - </span>{{ player_name }}</a><br v-if="$parent.$parent.OPTIONS.row_size" /><span class="font-normal text-tiny">({{ player_game }})</span></div>
@@ -36,7 +36,8 @@
                     <component :is="get_game_data_class()"
                                v-bind:data="data"
                                v-bind:index="index"
-                               v-bind:gamedata="get_game_data()" />
+                               v-bind:gamedata="get_game_data()"
+                               shallowRef="slot_tracker" />
                 </div>
             </div>
 
@@ -51,7 +52,7 @@
 <script>
 
     import GData from './gamedata/GData.vue';
-    import { markRaw } from 'vue'
+    import { shallowRef } from 'vue'
     import LIST_OF_GAMES from "../listofgames.js";
     
     
@@ -69,11 +70,39 @@ export default {
   data: function () {
       return {
           LIST_OF_GAMES,
-          compVar: markRaw(GData),
+          compVar: shallowRef(GData),
     };
   },
 
         methods: {
+            getSpeedBarClass: function () {
+                if (this.$parent.$parent.OPTIONS.show_speed && this.data.locations_hist.length > 1 && this.data.total_locations > 0) {
+                    var first = this.data.locations_hist[0];
+                    var last = this.data.locations_hist[this.data.locations_hist.length - 1];
+                    var speeeeeed = 100 * (last - first) / this.data.total_locations;
+
+                    if (speeeeeed > 10)
+                        return 'bg-linear-to-r from-rose-200 to-green-500';
+                    if (speeeeeed > 7)
+                        return 'bg-linear-to-r from-red-200 to-green-500';
+                    if (speeeeeed > 5)
+                        return 'bg-linear-to-r from-red-300 to-green-500';
+                    if (speeeeeed > 3)
+                        return 'bg-linear-to-r from-orange-300 to-green-500';
+                    if (speeeeeed > 2)
+                        return 'bg-linear-to-r from-amber-300 to-green-500';
+                    if (speeeeeed > 1.5)
+                        return 'bg-linear-to-r from-yellow-300 to-green-500';
+                    if (speeeeeed > 1)
+                        return 'bg-linear-to-r from-lime-300 to-green-500';
+                    if (speeeeeed > 0.5)
+                        return 'bg-linear-to-r from-green-300 to-green-500';
+                    if (speeeeeed > 0.1)
+                        return 'bg-linear-to-r from-green-400 to-green-500';
+                }
+
+                return 'bg-green-500';
+            },
             getImageClass: function () {
                 if (this.$parent.$parent.OPTIONS.row_size == 2) {
                     return 'iconbar-L my-1';

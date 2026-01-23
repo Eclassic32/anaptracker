@@ -6,7 +6,7 @@ var ANAP_CONFIG = {
     MEDIUM_WORLD_THRESHOLD: 100,
     BIG_WORLD_THRESHOLD: 300,
     APP_VERSION: '0.7.3',
-    SETTINGS_VERSION: '1',
+    SETTINGS_VERSION: '2',
     OFFLINE: false,
     URL_WEBSITE: 'https://tomagueri.fr/anaptracker',
 };

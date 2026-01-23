@@ -27,6 +27,7 @@
                         <div class="p-2 cursor-pointer border-t-2" :class="{'bg-gray-200': $parent.OPTIONS.show_slot_number }" v-on:click="changeShowSlotNumber()">Slot #</div>
                         <div class="p-2 cursor-pointer border-t-2" :class="{'bg-gray-200': $parent.OPTIONS.show_hints }" v-on:click="changeShowHints()">Hints</div>
                         <div class="p-2 cursor-pointer border-t-2" :class="{'bg-gray-200': $parent.OPTIONS.show_timer }" v-on:click="changeShowTimer()">Inactivity timers</div>
+                        <div class="p-2 cursor-pointer border-t-2" :class="{'bg-gray-200': $parent.OPTIONS.show_speed }" v-on:click="changeShowSpeed()">Activity gradients</div>
                     </div>
                 </div>
             </div>
@@ -172,6 +173,12 @@
                 this.$parent.OPTIONS.show_checks_left = this.$parent.OPTIONS.show_checks_left + 1;
                 if (this.$parent.OPTIONS.show_checks_left > 1)
                     this.$parent.OPTIONS.show_checks_left = 0;
+                this.$parent.saveOptions();
+            },
+            changeShowSpeed: function () {
+                this.$parent.OPTIONS.show_checks_left = this.$parent.OPTIONS.show_speed + 1;
+                if (this.$parent.OPTIONS.show_speed > 1)
+                    this.$parent.OPTIONS.show_speed = 0;
                 this.$parent.saveOptions();
             },
             changeSize: function () {

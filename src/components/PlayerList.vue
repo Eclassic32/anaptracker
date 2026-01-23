@@ -7,10 +7,11 @@
                         v-bind:player_name="element.name"
                         v-bind:player_game="element.game"
                         v-bind:gamedata="gamedata"
-                        v-bind:data="element">
+                        v-bind:data="element"
+                        shallowRef="player_slot">
             </PlayerSlot>
         </div>
-        <div :class=" { 'bg-emerald-200' : get_state() > 1, 'py-6' : $parent.OPTIONS.row_size,  'text-sm py-4' : !$parent.OPTIONS.row_size  }" class="relative inline-block w-full tracker-history text-xl leading-5 font-semibold font-xl h-full px-2 border-t-2 border-t-gray-900">
+        <div :class=" { 'bg-cyan-200' : get_state() > 1, 'py-6' : $parent.OPTIONS.row_size,  'text-sm py-4' : !$parent.OPTIONS.row_size  }" class="relative inline-block w-full tracker-history text-xl leading-5 font-semibold font-xl h-full px-2 border-t-2 border-t-gray-900">
             <div class="absolute left-0 top-0 bottom-0 z-1 bg-green-500" :style="{ 'width' : str_percent_completion() }"></div>
             <div class="z-2 flex flex-column justify-between text-lg items-center ">
                 <div class="w-1/2 z-3 text-lg">
