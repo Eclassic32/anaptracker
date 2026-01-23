@@ -176,7 +176,7 @@
                 this.$parent.saveOptions();
             },
             changeShowSpeed: function () {
-                this.$parent.OPTIONS.show_checks_left = this.$parent.OPTIONS.show_speed + 1;
+                this.$parent.OPTIONS.show_speed = this.$parent.OPTIONS.show_speed + 1;
                 if (this.$parent.OPTIONS.show_speed > 1)
                     this.$parent.OPTIONS.show_speed = 0;
                 this.$parent.saveOptions();
