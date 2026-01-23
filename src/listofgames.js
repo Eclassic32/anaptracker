@@ -10,11 +10,13 @@ import GDataHollowKnight from './components/gamedata/GDataHollowKnight.vue';
 import GDataKingdomHearts2 from './components/gamedata/GDataKingdomHearts2.vue';
 import GDataMetroidFusion from './components/gamedata/GDataMetroidFusion.vue';
 import GDataMetroidZeroMission from './components/gamedata/GDataMetroidZeroMission.vue';
+import GDataPokemonBlackWhite from './components/gamedata/GDataPokemonBlackWhite.vue';
 import GDataPokemonCrystal from './components/gamedata/GDataPokemonCrystal.vue';
 import GDataPokemonEmerald from './components/gamedata/GDataPokemonEmerald.vue';
 import GDataPokemonFRLG from './components/gamedata/GDataPokemonFRLG.vue';
-import GDataRiskOfRain2 from './components/gamedata/GDataRiskOfRain2.vue';
 import GDataPokemonRedBlue from './components/gamedata/GDataPokemonRedBlue.vue';
+import GDataPokemonPlatinum from './components/gamedata/GDataPokemonPlatinum.vue';
+import GDataRiskOfRain2 from './components/gamedata/GDataRiskOfRain2.vue';
 import GDataShipOfHarkinian from './components/gamedata/GDataShipOfHarkinian.vue';
 import GDataSonicAdventure2Battle from './components/gamedata/GDataSonicAdventure2Battle.vue';
 import GDataMario64 from './components/gamedata/GDataMario64.vue';
@@ -88,6 +90,10 @@ var LIST_OF_GAMES = [
         'class': GDataMario64
     }, 
     {
+        'name': 'Pokemon Black and White',
+        'class': GDataPokemonBlackWhite
+    }, 
+    {
         'name': 'Pokemon Crystal',
         'class': GDataPokemonCrystal
     }, 
@@ -99,6 +105,10 @@ var LIST_OF_GAMES = [
         'name': 'Pokemon FireRed and LeafGreen',
         'class': GDataPokemonFRLG
     }, 
+    {
+        'name': 'Pokemon Platinum',
+        'class': GDataPokemonPlatinum
+    },
     {
         'name': 'Pokemon Red and Blue',
         'class': GDataPokemonRedBlue
