@@ -48,7 +48,8 @@
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Key Items</div>
 
             <img v-if="itemfinderRequired()" title="Itemfinder" src="/img/pokemon_crystal/items/itemfinder.png" :class="{ 'opacity-25': !getNumberItemsFromName('Itemfinder')  }" />
-            <img v-if="!getNumberItemsFromName('EXPN Card') && !getNumberItemsFromName('Radio Card')" src="/img/pokemon_crystal/items/pokegear.png" title="Pokegear" :class="{ 'opacity-25': !getNumberItemsFromName('Pokegear')  }" />
+            <img v-if="!getNumberItemsFromName('Pokegear')" src="/img/pokemon_crystal/items/pokegear.png" title="Pokegear" class="opacity-25" />
+            <img v-else-if="!getNumberItemsFromName('Radio Card')" src="/img/pokemon_crystal/items/pokegear.png" title="Pokegear" />
             <img v-else-if="!getNumberItemsFromName('EXPN Card')" title="Radio Card" src="/img/pokemon_crystal/items/radiocard.png" />
             <img v-else title="EXPN. Card" src="/img/pokemon_crystal/items/expncard.png" />
             <img title="Bicycle" src="/img/pokemon_crystal/items/bicycle.png" :class="{ 'opacity-25': !getNumberItemsFromName('Bicycle')  }" />
@@ -57,8 +58,10 @@
             <img v-if="kantoIsOn()" title="Pass" src="/img/pokemon_crystal/items/pass.png" :class="{ 'opacity-25': !getNumberItemsFromName('Pass')  }" />
             <img title="Basement Key" src="/img/pokemon_crystal/items/basementkey.png" :class="{ 'opacity-25': !getNumberItemsFromName('Basement Key')  }" />
             <img title="Card Key" src="/img/pokemon_crystal/items/cardkey.png" :class="{ 'opacity-25': !getNumberItemsFromName('Card Key')  }" />
-            <img title="Clear Bell" src="/img/pokemon_crystal/items/clearbell.png" :class="{ 'opacity-25': !getNumberItemsFromName('Clear Bell')  }" />
-            <img v-if="kantoIsOn()" title="Tea" src="/img/pokemon_crystal/items/tea.png" :class="{ 'opacity-25': !getNumberItemsFromName('Tea')  }" />
+            <img v-if="!getNumberItemsFromName('Clear Bell')" title="Clear Bell" src="/img/pokemon_crystal/items/clearbell.png" class="opacity-25" />
+            <img v-else-if="!getNumberItemsFromName('Rainbow Wing')" title="Clear Bell" src="/img/pokemon_crystal/items/clearbell.png"/>
+            <img v-else title="Rainbow Wing" src="/img/pokemon_crystal/items/rainbowwing.png" />
+            <img v-if="kantoIsOn() && teaIsOn()" title="Tea" src="/img/pokemon_crystal/items/tea.png" :class="{ 'opacity-25': !getNumberItemsFromName('Tea')  }" />
             <img v-if="kantoIsOn()" title="Machine Part" src="/img/pokemon_crystal/items/machinepart.png" :class="{ 'opacity-25': !getNumberItemsFromName('Machine Part')  }" />
         </div>
     </div>
@@ -97,6 +100,13 @@ export default {
             }, 
             getImageClass: function () {
                 return this.$parent.getImageClass();
+            },
+            teaIsOn: function () {
+                if (this.data.slot_data.hasOwnProperty('tea_east') && this.data.slot_data.tea_east == 0 && this.data.slot_data.tea_west == 0 && this.data.slot_data.tea_north == 0 && this.data.slot_data.tea_south == 0) {
+                    return 0;
+                }
+
+                    return 1;
             },
             getNumberItemsFromName: function (name) {
                 return this.$parent.getNumberItemsFromName(name);
