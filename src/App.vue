@@ -22,6 +22,7 @@
     import Settings from './components/Settings.vue';
     import Home from './components/Home.vue';
     import Statistics from './components/Statistics.vue';
+    import StorageMaster from './utils/storagemaster.js';
     import ANAP_CONFIG from "./anapconfig.js";
     import axios from 'axios';
     import ANAP_DATA from "./anapdata.js";
@@ -69,6 +70,7 @@
         show_done: 1,
         show_timer: 1,
         show_hints: 0,
+        show_speed: 0,
         show_checks_left: 0,
         show_slot_number: 0,
         sort_by: 0,
@@ -79,11 +81,13 @@
         row_size: 0,
         show_done: 1,
         show_timer: 1,
-        show_hints: 1,
+        show_hints: 0,
+        show_speed: 0,
         show_checks_left: 0,
         show_slot_number: 0,
         sort_by: 0
     };
+    var STORAGE_MASTER = new StorageMaster('TPCE_ANAP');
     class PlayerStruct {
 
         tracker_data = {
@@ -93,6 +97,7 @@
             activity_timer: '',
             status: '',
         };
+        locations_hist = [];
         static_data = {};
         slot_data = {};
         status = 0;
@@ -132,7 +137,8 @@
                 LIST_OF_GAMES,
                 OPTIONS,
                 WEBHOST_USED,
-                DEFAULT_OPTIONS
+                DEFAULT_OPTIONS,
+                STORAGE_MASTER
             };
         },
         created() {
@@ -179,6 +185,10 @@
                                 this.GLOBAL_TRACKER_DATA.players[x].tracker_data.activity_timer = tdata.activity_timers[y].time;
                             }
                             this.GLOBAL_TRACKER_DATA.players[x].tracker_data.status = tdata.player_status[y].status;
+                            this.GLOBAL_TRACKER_DATA.players[x].locations_hist.push(tdata.player_checks_done[y].locations.length);
+                            while (this.GLOBAL_TRACKER_DATA.players[x].locations_hist.length > 30) // 5 last minutes
+                                this.GLOBAL_TRACKER_DATA.players[x].locations_hist.shift();
+
                             break;
                         }
                     }
@@ -256,7 +266,7 @@
                 else
                     this.DATA_PACKAGE[key] = EMPTY_DATAPACKAGE;
                 if (this.DEFAULT_OPTIONS.store_datapackage && store)
-                    localStorage.setItem('TPCE_ANAP_DATAPACKAGE_' + this.STATIC_TRACKER_DATA.datapackage[key].checksum, JSON.stringify(data));
+                    this.STORAGE_MASTER.saveDatapackage(key, this.STATIC_TRACKER_DATA.datapackage[key].checksum, JSON.stringify(data));
             },
             // Make the Datapackage call thread.
             getChainStaticData: function () {
@@ -266,9 +276,9 @@
                         for (var x = 0; x < this.LIST_OF_GAMES.length; x++) {
                             if (LIST_OF_GAMES[x].name == key) {
                                 // Retrieving the datapackage
-                                var vRoomData = localStorage.getItem('TPCE_ANAP_DATAPACKAGE_' + this.STATIC_TRACKER_DATA.datapackage[key].checksum);
-                                if (vRoomData != null && vRoomData != '' && this.DEFAULT_OPTIONS.store_datapackage) {
-                                    this.setDataPackageData(key, JSON.parse(vRoomData), false);
+                                var vRoomData = this.STORAGE_MASTER.loadDatapackage(this.STATIC_TRACKER_DATA.datapackage[key].checksum);
+                                if (vRoomData != null && this.DEFAULT_OPTIONS.store_datapackage) {
+                                    this.setDataPackageData(key, vRoomData, false);
                                 }
                                 else {
                                     console.log("Getting data package from " + key);
@@ -400,14 +410,22 @@
                 this.OPTIONS.show_timer = this.DEFAULT_OPTIONS.show_timer;
                 this.OPTIONS.show_hints = this.DEFAULT_OPTIONS.show_checks_left;
                 this.OPTIONS.show_checks_left = this.DEFAULT_OPTIONS.show_slot_number;
+                this.OPTIONS.show_speed = this.DEFAULT_OPTIONS.show_speed;
                 this.OPTIONS.sort_by = this.DEFAULT_OPTIONS.sort_by;
 
                 // If we got the specific Room options, we load it.
                 if (this.DEFAULT_OPTIONS.store_individual_rooms) {
-                    var roomData = localStorage.getItem('TPCE_ANAP_ROOM_' + this.ROOM_ID);
-                    var vRoomData = localStorage.getItem('TPCE_ANAP_VROOM_' + this.ROOM_ID);
-                    if (roomData != null && roomData != '' && vRoomData != null && vRoomData == ANAP_CONFIG.SETTINGS_VERSION) {
-                        this.OPTIONS = JSON.parse(roomData);
+                    var roomData = this.STORAGE_MASTER.loadRoomOptions(this.ROOM_ID);
+                    if (roomData != null) {
+                        if (this.DEFAULT_OPTIONS.row_size >= 0)
+                            this.OPTIONS.row_size = roomData.row_size;
+                        this.OPTIONS.show_done = roomData.show_done;
+                        this.OPTIONS.show_timer = roomData.show_timer;
+                        this.OPTIONS.show_hints = roomData.show_checks_left;
+                        this.OPTIONS.show_checks_left = roomData.show_slot_number;
+                        if (this.DEFAULT_OPTIONS.hasOwnProperty('row_size'))
+                            this.OPTIONS.show_speed = roomData.show_speed;
+                        this.OPTIONS.sort_by = roomData.sort_by;
                     }
                 }
             },
@@ -425,8 +443,7 @@
             },
             saveOptions: function () {
                 if (this.DEFAULT_OPTIONS.store_individual_rooms) {
-                    localStorage.setItem('TPCE_ANAP_ROOM_' + this.ROOM_ID, JSON.stringify(this.OPTIONS));
-                    localStorage.setItem('TPCE_ANAP_VROOM_' + this.ROOM_ID, ANAP_CONFIG.SETTINGS_VERSION);
+                    this.STORAGE_MASTER.saveRoomOptions(this.ROOM_ID, JSON.stringify(this.OPTIONS));
                 }
             },
             // Routing Methods

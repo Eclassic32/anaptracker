@@ -15,18 +15,21 @@ class StorageMaster {
 
         
         var masterData = localStorage.getItem(this.storage_name);
-        if (masterData != null && masterData.version == this.version) {
+        if (masterData != null) {
+            console.log('storage loaded');
             masterData = JSON.parse(masterData);
-            this.datapackages = masterData.datapackages;
-            this.rooms_stored = masterData.rooms_stored;
+            if (masterData.version == this.version) {
+                this.datapackages = masterData.datapackages;
+                this.rooms_stored = masterData.rooms_stored;
+                this.purgeOldDatas();
+            }
 
-            this.purgeOldDatas();
         }
     }
 
     purgeOldDatas() {
         var comp_date = Date.now() - (1000 * 3600 * 24 * 7);
-        for (x = 0; x < this.datapackages.length; x++) {
+        for (var x = 0; x < this.datapackages.length; x++) {
             if (this.datapackages[x].date < comp_date) {
                 localStorage.removeItem(this.storage_prefix + '_DATAPACKAGE_' + this.datapackages[x].hash);
                 
@@ -34,7 +37,7 @@ class StorageMaster {
                 x -= 1;
             }
         }
-        for (x = 0; x < this.rooms_stored.length; x++) {
+        for (var x = 0; x < this.rooms_stored.length; x++) {
             if (this.rooms_stored[x].date < comp_date) {
                 localStorage.removeItem(this.storage_prefix + '_ROOM_' + this.rooms_stored[x].hash);
                 
@@ -45,38 +48,36 @@ class StorageMaster {
     }
     
     saveMaster () {
-        masterData = JSON.stringify({ 'version': this.version, 'datapackages': this.datapackages, 'rooms_stored': this.rooms_stored });
+        var masterData = JSON.stringify({ 'version': this.version, 'datapackages': this.datapackages, 'rooms_stored': this.rooms_stored });
         localStorage.setItem(this.storage_name, masterData);
     }
     saveDatapackage (game, hash, data) {
 
         var new_package = { 'name': game, 'hash': hash, 'date': Date.now() };
         var stored = false;
-        for (x = 0; x < this.datapackages.length; x++) {
+        for (var x = 0; x < this.datapackages.length; x++) {
             if (this.datapackages[x].game == game) {
                 this.datapackages[x].hash = hash; 
                 this.datapackages[x].date = Date.now(); 
-                localStorage.setItem(this.storage_prefix + '_DATAPACKAGE_' + this.rooms_stored[x].hash, data);
+                localStorage.setItem(this.storage_prefix + '_DATAPACKAGE_' + hash, data);
                 stored = true;
                 }
             }
         if (!stored) {
             this.datapackages.push(new_package);
-            localStorage.setItem(this.storage_prefix + '_DATAPACKAGE_' + this.rooms_stored[x].hash, data);
+            localStorage.setItem(this.storage_prefix + '_DATAPACKAGE_' + hash, data);
 
         }
-        saveMaster();
+        this.saveMaster();
     }
     loadDatapackage (hash) {
-
-        
-        for (x = 0; x < this.datapackages.length; x++) {
+        for (var x = 0; x < this.datapackages.length; x++) {
             if (this.datapackages[x].hash == hash) {
                 
                 var vRoomData = localStorage.getItem(this.storage_prefix + '_DATAPACKAGE_' + this.datapackages[x].hash);
                 if (vRoomData != null) {
                     this.datapackages[x].date = Date.now();
-                    saveMaster();
+                    this.saveMaster();
                     return JSON.parse(vRoomData);
                 }
             }
@@ -86,19 +87,19 @@ class StorageMaster {
     saveRoomOptions (hash, data) {
         
         var new_room = { 'hash': hash, 'date': Date.now() };
-        localStorage.setItem(this.storage_prefix + '_ROOM_' + this.rooms_stored[x].hash, data);
+        localStorage.setItem(this.storage_prefix + '_ROOM_' + hash, data);
         this.rooms_stored.push(new_room);
-        saveMaster();
+        this.saveMaster();
     }
     loadRoomOptions (hash) {
         
-        for (x = 0; x < this.rooms_stored.length; x++) {
+        for (var x = 0; x < this.rooms_stored.length; x++) {
             if (this.rooms_stored[x].hash == hash) {
                 
                 var vRoomData = localStorage.getItem(this.storage_prefix + '_ROOM_' + this.rooms_stored[x].hash);
                 if (vRoomData != null) {
                     this.rooms_stored[x].date = Date.now();
-                    saveMaster();
+                    this.saveMaster();
                     return JSON.parse(vRoomData);
                 }
             }
