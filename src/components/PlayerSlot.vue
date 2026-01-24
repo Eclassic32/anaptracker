@@ -81,21 +81,21 @@ export default {
                     var last = this.data.locations_hist[this.data.locations_hist.length - 1];
                     var speeeeeed = 100 * (last - first) / this.data.total_locations;
 
-                    if (speeeeeed > 10)
+                    if (speeeeeed > 15)
                         return 'bg-linear-to-r from-rose-200 to-green-500';
-                    if (speeeeeed > 7)
+                    if (speeeeeed > 10)
                         return 'bg-linear-to-r from-red-200 to-green-500';
-                    if (speeeeeed > 5)
+                    if (speeeeeed > 7)
                         return 'bg-linear-to-r from-red-300 to-green-500';
-                    if (speeeeeed > 3)
+                    if (speeeeeed > 5)
                         return 'bg-linear-to-r from-orange-300 to-green-500';
-                    if (speeeeeed > 2)
-                        return 'bg-linear-to-r from-amber-300 to-green-500';
-                    if (speeeeeed > 1.5)
+                    //if (speeeeeed > 2)
+                    //    return 'bg-linear-to-r from-amber-300 to-green-500';
+                    if (speeeeeed > 3)
                         return 'bg-linear-to-r from-yellow-300 to-green-500';
-                    if (speeeeeed > 1)
+                    if (speeeeeed > 2)
                         return 'bg-linear-to-r from-lime-300 to-green-500';
-                    if (speeeeeed > 0.5)
+                    if (speeeeeed > 1)
                         return 'bg-linear-to-r from-green-300 to-green-500';
                     if (speeeeeed > 0.1)
                         return 'bg-linear-to-r from-green-400 to-green-500';
