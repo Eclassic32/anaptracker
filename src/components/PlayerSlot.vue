@@ -97,7 +97,7 @@ export default {
                         return 'bg-linear-to-r from-lime-300 to-green-500';
                     if (speeeeeed > 1)
                         return 'bg-linear-to-r from-green-300 to-green-500';
-                    if (speeeeeed > 0.1)
+                    if (speeeeeed > 0.2)
                         return 'bg-linear-to-r from-green-400 to-green-500';
                 }
 
