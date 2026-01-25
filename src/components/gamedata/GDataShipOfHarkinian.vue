@@ -79,15 +79,12 @@
         </div>
     </div>
 </template>
-    
 <script>
-
-
     /**
     * Ship of Harkinian
     *
-    * By Default, Objectives are Dungeons rewards. But it can change depnding on the Bridge/Ganon Boss Key setting 
-    * 
+    * By Default, Objectives are Dungeons rewards. But it can change depnding on the Bridge/Ganon Boss Key setting
+    *
     * Bridge setting :
     *   0 - vanilla
     *   1 - always_open
@@ -97,8 +94,8 @@
     *   5 - dungeons
     *   6 - tokens
     *   7 - greg
-    *   
-    *   
+    *
+    *
     * Ganon Boss Key setting :
     *   0 - vanilla
     *   1 - anywhere
@@ -108,7 +105,7 @@
     *   5 - lacs_dungeon_rewards
     *   6 - lacs_dungeons
     *   7 - lacs_skull_tokens
-    *   
+    *
     *   If Triforce Hunt is on, Ganon Boss Key will always be behind the Triforce Pieces goal.
     */
 export default {
@@ -126,8 +123,82 @@ export default {
     return {
     };
   },
-
         methods: {
+            getGoalDetails: function () {
+                if (!this.data.slot_data.hasOwnProperty('rainbow_bridge'))
+                    return '';
+                var res = [];
+
+                var row_bridge = { title: 'Rainbow Bridge', value : null, details : null };
+                if (this.data.slot_data.rainbow_bridge == 0) {
+                    row_bridge.value = 'Vanilla';
+                    row_bridge.details = 'Shadow & Spirit Medaillon';
+                }
+                else if (this.data.slot_data.rainbow_bridge == 1) {
+                    row_bridge.value = 'Open';
+                }
+                else if (this.data.slot_data.rainbow_bridge == 2) {
+                    row_bridge.value = 'Stones';
+                    row_bridge.details = this.data.slot_data.rainbow_bridge_stones_required;
+                }
+                else if (this.data.slot_data.rainbow_bridge == 3) {
+                    row_bridge.value = 'Medaillons';
+                    row_bridge.details = this.data.slot_data.rainbow_bridge_medallions_required;
+                }
+                else if (this.data.slot_data.rainbow_bridge == 4) {
+                    row_bridge.value = 'Rewards';
+                    row_bridge.details = this.data.slot_data.rainbow_bridge_dungeon_rewards_required;
+                }
+                else if (this.data.slot_data.rainbow_bridge == 5) {
+                    row_bridge.value = 'Dungeon completions';
+                    row_bridge.details = this.data.slot_data.rainbow_bridge_dungeons_required;
+                }
+                else if (this.data.slot_data.rainbow_bridge == 6) {
+                    row_bridge.value = 'Skultullas Tokens';
+                    row_bridge.details = this.data.slot_data.rainbow_bridge_skull_tokens_required;
+                }
+                else if (this.data.slot_data.rainbow_bridge == 7) {
+                    row_bridge.value = 'Greg';
+                }
+
+                res.push(row_bridge);
+
+                var row_bk = { title: 'Ganon Castle Boss Key', value: null, details: null };
+                if (this.data.slot_data.ganons_castle_boss_key == 0) {
+                    row_bk.value = 'Vanilla';
+                }
+                else if (this.data.slot_data.ganons_castle_boss_key == 1) {
+                    row_bk.value = 'ANywhere';
+                }
+                else if (this.data.slot_data.ganons_castle_boss_key == 2) {
+                    row_bk.value = 'LACS';
+                    row_bk.details = 'Shadow & Spirit Medaillon';
+                }
+                else if (this.data.slot_data.ganons_castle_boss_key == 3) {
+                    row_bk.value = 'LACS Stones';
+                    row_bk.details = this.data.slot_data.ganons_castle_boss_key_stones_required;
+                }
+                else if (this.data.slot_data.ganons_castle_boss_key == 4) {
+                    row_bk.value = 'LACS Medaillons';
+                    row_bk.details = this.data.slot_data.ganons_castle_boss_key_medallions_required;
+                }
+                else if (this.data.slot_data.ganons_castle_boss_key == 5) {
+                    row_bk.value = 'LACS Rewards';
+                    row_bk.details = this.data.slot_data.ganons_castle_boss_key_dungeon_rewards_required;
+                }
+                else if (this.data.slot_data.ganons_castle_boss_key == 6) {
+                    row_bk.value = 'LACS Dungeon completions';
+                    row_bk.details = this.data.slot_data.ganons_castle_boss_key_dungeons_required;
+                }
+                else if (this.data.slot_data.ganons_castle_boss_key == 7) {
+                    row_bk.value = 'LACS Skultullas Tokens';
+                    row_bk.details = this.data.slot_data.ganons_castle_boss_key_skull_tokens_required;
+                }
+
+                res.push(row_bk);
+
+                return res;
+            },
             getImageClass: function () {
                 return this.$parent.getImageClass();
             },
@@ -160,7 +231,6 @@ export default {
             },
             LACSCounts: function () {
                 if (this.data.slot_data.hasOwnProperty('rainbow_bridge')) {
-
                     if ([0, 3, 4, 5].includes(this.data.slot_data.rainbow_bridge) ||
                         !this.triforceHunt() && [0, 2, 4, 5, 6].includes(this.data.slot_data.ganons_castle_boss_key))
                         return true;

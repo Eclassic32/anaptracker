@@ -21,6 +21,9 @@ export default {
   },
 
         methods: {
+            getGoalDetails: function () {
+                return [];
+            },
             getImageClass: function () {
                 if (this.$parent.$parent.$parent.OPTIONS.row_size == 2) {
                     return 'iconbar-L my-1';

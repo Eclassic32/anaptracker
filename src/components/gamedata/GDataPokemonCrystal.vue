@@ -92,6 +92,9 @@ export default {
   },
 
         methods: {
+            getGoalDetails: function () {
+                return [];
+            },
             itemfinderRequired: function () {
                 if (this.data.slot_data.hasOwnProperty('require_itemfinder')) {
                     return this.data.slot_data.require_itemfinder;

@@ -77,6 +77,9 @@ export default {
   },
 
         methods: {
+            getGoalDetails: function () {
+                return [];
+            },
             getImageClass: function () {
                 return this.$parent.getImageClass();
             },
