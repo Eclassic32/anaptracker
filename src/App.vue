@@ -115,12 +115,6 @@
             this.game = new_game;
         }
     }
-    var STATIC_TRACKER_DATA = {
-        datapackage: [],
-        groups: [],
-        player_locations_total: []
-
-    };
     var SLOT_DATA = {};
     var DATA_PACKAGE = {};
 
