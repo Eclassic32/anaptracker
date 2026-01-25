@@ -72,7 +72,42 @@ export default {
 
         methods: {
             getGoalDetails: function () {
-                return [];
+                if (!this.$parent.hasSlotData())
+                    return [];
+                var res = [];
+                var row_goal = { title: 'Goal', value: null, details: null };
+                var row_badges = { title: 'Badges required', value: null, details: null };
+
+                if (this.data.slot_data.goal == 0) {
+                    row_goal.value = 'Elite 4';
+                    if (this.data.slot_data.elite_four_requirement == 1)
+                        row_badges.title = 'Gyms to vainquish';
+                    row_badges.value = this.data.slot_data.elite_four_count;
+                }
+                else if (this.data.slot_data.goal == 1) {
+                    row_goal.value = 'Steven';
+                    if (this.data.slot_data.elite_four_requirement == 1)
+                        row_badges.title = 'Gyms to vainquish';
+                    row_badges.value = this.data.slot_data.elite_four_count;
+                }
+                if (this.data.slot_data.goal == 2) {
+                    row_goal.value = 'Norman';
+                    if (this.data.slot_data.norman_requirement == 1)
+                        row_badges.title = 'Gyms to vainquish';
+                    row_badges.value = this.data.slot_data.norman_count;
+                }
+                if (this.data.slot_data.goal == 3) {
+                    row_goal.value = 'Legendary Hunt';
+                    row_badges = { title: 'Number to catch', value: this.data.slot_data.legendary_hunt_count, details: null };
+                }
+
+                res.push(row_goal);
+                if (row_badges.value)
+                    res.push(row_badges);
+
+
+
+                return res;
             },
             getImageClass: function () {
                 return this.$parent.getImageClass();

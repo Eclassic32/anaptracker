@@ -93,7 +93,122 @@ export default {
 
         methods: {
             getGoalDetails: function () {
-                return [];
+                if (!this.$parent.hasSlotData())
+                    return [];
+                var res = [];
+                var row_goal = { title: 'Goal', value: null, details: null };
+                var row_badges = { title: 'Badges required', value: null, details: null };
+
+                if (this.data.slot_data.goal == 0) {
+                    row_goal.value = 'Elite 4';
+                    if (this.data.slot_data.elite_four_requirement == 1)
+                        row_badges.title = 'Gyms to vainquish';
+                    row_badges.value = this.data.slot_data.elite_four_count;
+                }
+                else if (this.data.slot_data.goal == 1) {
+                    row_goal.value = 'Red';
+                    if (this.data.slot_data.red_requirement == 1)
+                        row_badges.title = 'Gyms to vainquish';
+                    row_badges.value = this.data.slot_data.red_count;
+                }
+                if (this.data.slot_data.goal == 2) {
+                    row_goal.value = 'Diploma';
+                    row_goal.details = 'Gotta catch\'em all !';
+                }
+                if (this.data.slot_data.goal == 3) {
+                    row_goal.value = 'Rival';
+                }
+                if (this.data.slot_data.goal == 4) {
+                    row_goal.value = 'Team Rocket';
+                    if (this.data.slot_data.radio_tower_requirement == 1)
+                        row_badges.title = 'Gyms to vainquish';
+                    row_badges.value = this.data.radio_tower_count;
+                }
+                if (this.data.slot_data.goal == 5) {
+                    row_goal.value = 'Unown hunt';
+                }
+
+                res.push(row_goal);
+                if (row_badges.value)
+                    res.push(row_badges);
+
+
+                // Areas Locked
+
+                // Mt Silver
+                var row_tmp = { title: 'Mt. Silver requirement', value: null, details: null };
+                if (this.data.slot_data.mt_silver_requirement) {
+                    if (this.data.slot_data.mt_silver_count > 1)
+                        row_tmp.value = this.data.slot_data.mt_silver_count + ' gyms';
+                    else if (this.data.slot_data.mt_silver_count)
+                        row_tmp.value = this.data.slot_data.mt_silver_count + ' gym';
+                }
+                else {
+                    if (this.data.slot_data.mt_silver_count > 1)
+                        row_tmp.value = this.data.slot_data.mt_silver_count + ' badges';
+                    else if (this.data.slot_data.mt_silver_count)
+                        row_tmp.value = this.data.slot_data.mt_silver_count + ' badge';
+                }
+                if (row_tmp.value)
+                    res.push(row_tmp);
+
+
+                // Team Rocket invasion
+                row_tmp = { title: 'Radio Tower requirement', value: null, details: null };
+                if (this.data.slot_data.radio_tower_requirement) {
+                    if (this.data.slot_data.radio_tower_count > 1)
+                        row_tmp.value = this.data.slot_data.radio_tower_count + ' gyms';
+                    else if (this.data.slot_data.radio_tower_count)
+                        row_tmp.value = this.data.slot_data.radio_tower_count + ' gym';
+                }
+                else {
+                    if (this.data.slot_data.radio_tower_count > 1)
+                        row_tmp.value = this.data.slot_data.radio_tower_count + ' badges';
+                    else if (this.data.slot_data.radio_tower_count)
+                        row_tmp.value = this.data.slot_data.radio_tower_count + ' badge';
+                }
+                if (row_tmp.value)
+                    res.push(row_tmp);
+
+                // Victory Road
+                row_tmp = { title: 'Victory Road requirement', value: null, details: null };
+                if (this.data.slot_data.elite_four_requirement) {
+                    if (this.data.slot_data.elite_four_count > 1)
+                        row_tmp.value = this.data.slot_data.elite_four_count + ' gyms';
+                    else if (this.data.slot_data.elite_four_count)
+                        row_tmp.value = this.data.slot_data.elite_four_count + ' gym';
+                }
+                else {
+                    if (this.data.slot_data.elite_four_count > 1)
+                        row_tmp.value = this.data.slot_data.elite_four_count + ' badges';
+                    else if (this.data.slot_data.elite_four_count)
+                        row_tmp.value = this.data.slot_data.elite_four_count + ' badge';
+                }
+                if (row_tmp.value)
+                    res.push(row_tmp);
+
+
+                // Route 44
+                row_tmp = { title: 'Route 44 requirement', value: null, details: null };
+                if (this.data.slot_data.route_44_access_requirement) {
+                    if (this.data.slot_data.route_44_access_count > 1)
+                        row_tmp.value = this.data.slot_data.route_44_access_count + ' gyms';
+                    else if (this.data.slot_data.route_44_access_count)
+                        row_tmp.value = this.data.slot_data.route_44_access_count + ' gym';
+                }
+                else {
+                    if (this.data.slot_data.route_44_access_count > 1)
+                        row_tmp.value = this.data.slot_data.route_44_access_count + ' badges';
+                    else if (this.data.slot_data.route_44_access_count)
+                        row_tmp.value = this.data.slot_data.route_44_access_count + ' badge';
+                }
+                if (row_tmp.value)
+                    res.push(row_tmp);
+
+                if (this.data.slot_data.enable_mischief)
+                    res.push({ title: '\'v\'', value: null, details: null });
+
+                return res;
             },
             itemfinderRequired: function () {
                 if (this.data.slot_data.hasOwnProperty('require_itemfinder')) {

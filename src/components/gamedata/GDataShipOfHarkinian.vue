@@ -126,7 +126,7 @@ export default {
         methods: {
             getGoalDetails: function () {
                 if (!this.data.slot_data.hasOwnProperty('rainbow_bridge'))
-                    return '';
+                    return [];
                 var res = [];
 
                 var row_bridge = { title: 'Rainbow Bridge', value : null, details : null };
@@ -172,7 +172,7 @@ export default {
                     row_bk.value = 'Vanilla';
                 }
                 else if (this.data.slot_data.ganons_castle_boss_key == 1) {
-                    row_bk.value = 'ANywhere';
+                    row_bk.value = 'Shuffled';
                 }
                 else if (this.data.slot_data.ganons_castle_boss_key == 2) {
                     row_bk.value = 'LACS';

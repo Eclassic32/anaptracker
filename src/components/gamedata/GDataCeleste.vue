@@ -54,6 +54,16 @@
     *   - Farewell (Vanilla or Golden)
     * Strawberries are usually required to beat that area.
     * 
+    * GOAL AREA :
+    * 0: "7a"
+    * 1: "7b"
+    * 2: "7c"
+    * 3: "9a"
+    * 4: "9b"
+    * 5: "9c"
+    * 6: "10a"
+    * 7: "10b"
+    * 8: "10c"
     */
 export default {
   name: "gDataCeleste",
@@ -73,7 +83,65 @@ export default {
 
         methods: {
             getGoalDetails: function () {
-                return [];
+                if (!this.$parent.hasSlotData())
+                    return [];
+                var res = [];
+                var row_goal = { title: 'Goal area', value: null, details: null };
+
+                if (this.data.slot_data.goal_area == '7a') {
+                    row_goal.value = 'The Summit A';
+                }
+                else if (this.data.slot_data.goal_area == '7b') {
+                    row_goal.value = 'The Summit B';
+                }
+                else if (this.data.slot_data.goal_area == '7c') {
+                    row_goal.value = 'The Summit C';
+                }
+                else if (this.data.slot_data.goal_area == '9a') {
+                    row_goal.value = 'Core A';
+                }
+                else if (this.data.slot_data.goal_area == '9b') {
+                    row_goal.value = 'Core B';
+                }
+                else if (this.data.slot_data.goal_area == '9c') {
+                    row_goal.value = 'Core C';
+                }
+                else if (this.data.slot_data.goal_area == '10a') {
+                    row_goal.value = 'Empty Space';
+                }
+                else if (this.data.slot_data.goal_area == '10b') {
+                    row_goal.value = 'Faerwell';
+                }
+                else if (this.data.slot_data.goal_area == '10c') {
+                    row_goal.value = 'Farewell Golden';
+                }
+                res.push(row_goal);
+
+                var dlcs = [];
+                if (this.data.slot_data.include_b_sides)
+                    dlcs.push('B Sides');
+                if (this.data.slot_data.include_c_sides)
+                    dlcs.push('C Sides');
+                if (this.data.slot_data.include_core)
+                    dlcs.push('Core');
+                if (this.data.slot_data.include_farewell)
+                    dlcs.push('Empty Space');
+                if (this.data.slot_data.include_farewell == 2)
+                    dlcs.push('Farewell');
+                if (this.data.slot_data.include_farewell)
+                    dlcs.push('Golden Strawberries');
+
+
+                var row_dlc = { title: 'Included', value: null, details: null };
+                if (dlcs.length) {
+                    row_dlc.value = dlcs.join(', ');
+                    res.push(row_dlc);
+                }
+
+
+
+
+                return res;
             },
             getImageClass: function () {
                 return this.$parent.getImageClass();

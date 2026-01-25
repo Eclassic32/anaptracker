@@ -45,8 +45,8 @@
                                v-bind:gamedata="get_game_data()"
                                shallowRef="slot_tracker" ref="slot_tracker" />
                     <div v-if="supportedGame() && data.extended" class="block relative">
-                        <div v-if="$refs.slot_tracker.getGoalDetails().length" class="inline-block w-full align-top p-[2px] pl-[4px] pb-[4px]">
-                            <div class="bg-emerald-200/60 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+                        <div v-if="$refs.slot_tracker.getGoalDetails().length" class="inline-block w-full align-top p-[2px] pl-[4px] pt-[4px]">
+                            <div class="bg-emerald-200/60 rounded-xs p-[2px] pl-[4px] pt-[4px] mx-2 bg-opacity-25">
                                 <ul>
                                     <li v-for="(element, index) in $refs.slot_tracker.getGoalDetails()">
                                         {{ element.title }} <span v-if="element.value"> : <span class="font-bold"> {{ element.value }}</span></span> <span v-if="element.details">({{ element.details }})</span>
@@ -54,8 +54,8 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="inline-block w-1/2 align-top p-[2px] pl-[4px] pb-[4px]">
-                            <div class="bg-amber-200/60 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+                        <div class="inline-block w-1/2 align-top p-[2px] pl-[4px] pt-[4px]">
+                            <div class="bg-amber-200/60 rounded-xs p-[2px] pl-[4px] pt-[4px] mx-2 bg-opacity-25">
                                 Hinted Locations :
                                 <ul>
                                     <li v-for="(element, index) in getImportantRecievedHintsList()">
@@ -65,8 +65,8 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="inline-block w-1/2 align-top p-[2px] pl-[4px] pb-[4px]">
-                            <div class="bg-cyan-200/60 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+                        <div class="inline-block w-1/2 align-top p-[2px] pl-[4px] pt-[4px]">
+                            <div class="bg-cyan-200/60 rounded-xs p-[2px] pl-[4px] pt-[4px] mx-2 bg-opacity-25">
                                 Hinted Items :
                                 <ul>
                                     <li v-for="(element, index) in getImportantSentHintsList()">

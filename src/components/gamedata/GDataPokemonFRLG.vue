@@ -89,7 +89,55 @@ export default {
   
         methods: {
             getGoalDetails: function () {
-                return [];
+                if (!this.$parent.hasSlotData())
+                    return [];
+                var res = [];
+                var row_goal = { title: 'Goal', value: null, details: null };
+                var row_badges = { title: 'Badges required', value: null, details: null };
+                var row_badges2 = { title: 'Badges required (R2)', value: null, details: null };
+
+                if (this.data.slot_data.goal == 0) {
+                    row_goal.value = 'Champion';
+                    if (this.data.slot_data.elite_four_requirement == 1)
+                        row_badges.title = 'Gyms to vainquish';
+                    row_badges.value = this.data.slot_data.elite_four_count;
+                }
+                else if (this.data.slot_data.goal == 1) {
+                    row_goal.value = 'Champion Rematch';
+                    row_badges.title = 'Badges required (R1)';
+                    if (this.data.slot_data.elite_four_requirement == 1)
+                        row_badges.title = 'Gyms to vainquish (R1)';
+                    row_badges.value = this.data.slot_data.elite_four_count;
+                    if (this.data.slot_data.elite_four_rematch_requirement == 1)
+                        row_badges2.title = 'Gyms to vainquish (R2)';
+                    row_badges2.value = this.data.slot_data.elite_four_rematch_count;
+                }
+
+                res.push(row_goal);
+                if (row_badges.value)
+                    res.push(row_badges);
+                if (row_badges2.value)
+                    res.push(row_badges2);
+
+                // Viridian Gym
+                var row_tmp = { title: 'Viridian Gym requirement', value: null, details: null };
+                if (this.data.slot_data.viridian_gym_requirement) {
+                    if (this.data.slot_data.viridian_gym_count > 1)
+                        row_tmp.value = this.data.slot_data.viridian_gym_count + ' gyms';
+                    else if (this.data.slot_data.viridian_gym_count)
+                        row_tmp.value = this.data.slot_data.viridian_gym_count + ' gym';
+                }
+                else {
+                    if (this.data.slot_data.viridian_gym_count > 1)
+                        row_tmp.value = this.data.slot_data.viridian_gym_count + ' badges';
+                    else if (this.data.slot_data.viridian_gym_count)
+                        row_tmp.value = this.data.slot_data.viridian_gym_count + ' badge';
+                }
+                if (row_tmp.value)
+                    res.push(row_tmp);
+
+
+                return res;
             },
             getImageClass: function () {
                 return this.$parent.getImageClass();
