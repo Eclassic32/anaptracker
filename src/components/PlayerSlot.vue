@@ -1,9 +1,15 @@
 <template>
-    <div v-if="displayable()" :class=" { 'bg-cyan-200' : get_status() == 30, 'py-1' : $parent.$parent.OPTIONS.row_size == 1,  'text-sm py-1' : !$parent.$parent.OPTIONS.row_size, 'text-lg py-2' : $parent.$parent.OPTIONS.row_size == 2 }" class="relative inline-block w-full tracker-history leading-5 font-semibold font-xl h-full px-2 border-t-2 border-t-gray-900">
+    <div v-if="displayable()" @mouseover="hoverOn()" @mouseleave="hoverOff()" :class=" { 'bg-cyan-200' : get_status() == 30, 'py-1' : $parent.$parent.OPTIONS.row_size == 1,  'text-sm py-1' : !$parent.$parent.OPTIONS.row_size, 'text-lg py-2' : $parent.$parent.OPTIONS.row_size == 2 }" class="relative inline-block w-full tracker-history leading-5 font-semibold font-xl h-full px-2 border-t-2 border-t-gray-900">
         <div :class="getSpeedBarClass()" class="absolute left-0 top-0 bottom-0 z-1" :style="{ 'width' : str_percent_completion() }"></div>
-
+        <div v-if="mHover" class="absolute left-0 right-0 top-0 bottom-0 z-1 bg-gray-100/30"></div>
         <div @click="toggleExpand()" class="z-2 flex flex-column justify-between">
-            <div class="w-1/4 lg:w-1/5 2xl:w-1/6 z-3 text-dark " :class="{ 'opacity-50' : get_status() == 0 }"><a :href="slotURL()" target="_blank" class="mr-2 font-bold hover:text-blue-800 hover:underline"><span v-if="$parent.$parent.OPTIONS.show_slot_number" class="font-bold">{{ data.id }} - </span>{{ player_name }}</a><br v-if="$parent.$parent.OPTIONS.row_size" /><span class="font-normal text-tiny">({{ player_game }})</span></div>
+            <div class="w-1/4 lg:w-1/5 2xl:w-1/6 z-3 text-dark " :class="{ 'opacity-50' : get_status() == 0 }">
+                <a @click="toggleExpand()" :href="slotURL()" target="_blank" class="mr-2 font-bold hover:text-blue-800 hover:underline">
+                    <span v-if="$parent.$parent.OPTIONS.show_slot_number" class="font-bold">{{ data.id }} - </span>{{ player_name }}
+                </a>
+                <br v-if="$parent.$parent.OPTIONS.row_size" />
+                <span class="font-normal text-tiny">({{ player_game }})</span>
+            </div>
             <div class="w-1/2 lg:w-3/5 2xl:w-4/6 z-3 text-sm">
                 <div class="clear-both text-center font-normal">
 
@@ -37,25 +43,38 @@
                                v-bind:data="data"
                                v-bind:index="index"
                                v-bind:gamedata="get_game_data()"
-                               shallowRef="slot_tracker" />
+                               shallowRef="slot_tracker" ref="slot_tracker" />
                     <div v-if="supportedGame() && data.extended" class="block relative">
-                        <div class="inline-block w-1/2 align-top">
-                            Hinted Locations : 
-                            <ul>
-                                <li v-for="(element, index) in getImportantRecievedHintsList()">
-                                    <span class="font-bold">{{ getLocationName(element[2]) }}</span>
-
-                                </li>
-                            </ul>
+                        <div v-if="$refs.slot_tracker.getGoalDetails().length" class="inline-block w-full align-top p-[2px] pl-[4px] pb-[4px]">
+                            <div class="bg-emerald-200/60 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+                                <ul>
+                                    <li v-for="(element, index) in $refs.slot_tracker.getGoalDetails()">
+                                        {{ element.title }} <span v-if="element.value"> : <span class="font-bold"> {{ element.value }}</span></span> <span v-if="element.details">({{ element.details }})</span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="inline-block w-1/2 align-top">
-                            Items Hinted :
-                            <ul>
-                                <li v-for="(element, index) in getImportantSentHintsList()">
-                                    <span class="font-bold">{{ getItemName(element[3]) }}</span>
+                        <div class="inline-block w-1/2 align-top p-[2px] pl-[4px] pb-[4px]">
+                            <div class="bg-amber-200/60 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+                                Hinted Locations :
+                                <ul>
+                                    <li v-for="(element, index) in getImportantRecievedHintsList()">
+                                        <span class="font-bold">{{ getLocationName(element[2]) }}</span>
 
-                                </li>
-                            </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="inline-block w-1/2 align-top p-[2px] pl-[4px] pb-[4px]">
+                            <div class="bg-cyan-200/60 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+                                Hinted Items :
+                                <ul>
+                                    <li v-for="(element, index) in getImportantSentHintsList()">
+                                        <span class="font-bold">{{ getItemName(element[3]) }}</span>
+
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -90,11 +109,24 @@ export default {
   data: function () {
       return {
           LIST_OF_GAMES,
+          mHover: 0,
           compVar: shallowRef(GData),
     };
   },
 
         methods: {
+            hoverOn: function () {
+                this.mHover = 1;
+            },
+            hoverOff: function () {
+                this.mHover = 0;
+            },
+            hasSlotData: function () {
+                if (Object.keys(this.data.slot_data).length) {
+                        return true;
+                    }
+                return false;
+            },
             supportedGame: function () {
                 for (var x = 0; x < this.LIST_OF_GAMES.length; x++) {
                     if (this.LIST_OF_GAMES[x].name == this.player_game) {
@@ -215,7 +247,7 @@ export default {
                 return false;
             },
             displayHints: function () {
-                return this.$parent.$parent.OPTIONS.show_hints;
+                return !this.data.extended && this.$parent.$parent.OPTIONS.show_hints;
             },
             get_game_data_class: function () {
                 for (var x = 0; x < this.LIST_OF_GAMES.length; x++) {
