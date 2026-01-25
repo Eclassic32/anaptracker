@@ -4,7 +4,7 @@
 
         <div @click="toggleExpand()" class="z-2 flex flex-column justify-between">
             <div class="w-1/4 lg:w-1/5 2xl:w-1/6 z-3 text-dark " :class="{ 'opacity-50' : get_status() == 0 }"><a :href="slotURL()" target="_blank" class="mr-2 font-bold hover:text-blue-800 hover:underline"><span v-if="$parent.$parent.OPTIONS.show_slot_number" class="font-bold">{{ data.id }} - </span>{{ player_name }}</a><br v-if="$parent.$parent.OPTIONS.row_size" /><span class="font-normal text-tiny">({{ player_game }})</span></div>
-            <div class="w-auto z-3 text-sm">
+            <div class="w-1/2 lg:w-3/5 2xl:w-4/6 z-3 text-sm">
                 <div class="clear-both text-center font-normal">
 
 
@@ -38,6 +38,26 @@
                                v-bind:index="index"
                                v-bind:gamedata="get_game_data()"
                                shallowRef="slot_tracker" />
+                    <div v-if="supportedGame() && data.extended" class="block relative">
+                        <div class="inline-block w-1/2 align-top">
+                            Hinted Locations : 
+                            <ul>
+                                <li v-for="(element, index) in getImportantRecievedHintsList()">
+                                    <span class="font-bold">{{ getLocationName(element[2]) }}</span>
+
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="inline-block w-1/2 align-top">
+                            Items Hinted :
+                            <ul>
+                                <li v-for="(element, index) in getImportantSentHintsList()">
+                                    <span class="font-bold">{{ getItemName(element[3]) }}</span>
+
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -75,6 +95,14 @@ export default {
   },
 
         methods: {
+            supportedGame: function () {
+                for (var x = 0; x < this.LIST_OF_GAMES.length; x++) {
+                    if (this.LIST_OF_GAMES[x].name == this.player_game) {
+                        return true;
+                    }
+                }
+                return false;
+            },
             getSpeedBarClass: function () {
                 if (this.$parent.$parent.OPTIONS.show_speed && this.data.locations_hist.length > 1 && this.data.total_locations > 0) {
                     var first = this.data.locations_hist[0];
@@ -279,7 +307,7 @@ export default {
              * 7 : Hint classification (Avoid, Non-important, Important, Found)
              * 
              */
-            getImportantSentHints: function (name) {
+            getImportantSentHints: function () {
                 var res = 0;
                 for (var x = 0; x < this.data.tracker_data.hints.length; x++) {
                     if (this.data.tracker_data.hints[x][0] == this.data.id && this.data.tracker_data.hints[x][1] != this.data.id && this.data.tracker_data.hints[x][6] == 1 && this.data.tracker_data.hints[x][4] == false)
@@ -287,13 +315,45 @@ export default {
                 }
                 return res;
             },
-            getImportantRecievedHints: function (name) {
+            getImportantRecievedHints: function () {
                 var res = 0;
                 for (var x = 0; x < this.data.tracker_data.hints.length; x++) {
                     if (this.data.tracker_data.hints[x][1] == this.data.id && this.data.tracker_data.hints[x][0] != this.data.id && this.data.tracker_data.hints[x][6] == 1 && this.data.tracker_data.hints[x][4] == false)
                         res++;
                 }
                 return res;
+            },
+            getImportantSentHintsList: function () {
+                var res = [];
+                for (var x = 0; x < this.data.tracker_data.hints.length; x++) {
+                    if (this.data.tracker_data.hints[x][0] == this.data.id && this.data.tracker_data.hints[x][1] != this.data.id && this.data.tracker_data.hints[x][6] == 1 && this.data.tracker_data.hints[x][4] == false)
+                        res.push(this.data.tracker_data.hints[x]);
+                }
+                return res;
+            },
+            getImportantRecievedHintsList: function () {
+                var res = [];
+                for (var x = 0; x < this.data.tracker_data.hints.length; x++) {
+                    if (this.data.tracker_data.hints[x][1] == this.data.id && this.data.tracker_data.hints[x][0] != this.data.id && this.data.tracker_data.hints[x][6] == 1 && this.data.tracker_data.hints[x][4] == false)
+                        res.push(this.data.tracker_data.hints[x]);
+                }
+                return res;
+            },
+            getLocationName: function (id) {
+                var game_data = this.get_game_data();
+                if (game_data && game_data.location_name_to_id) {
+                    return Object.keys(game_data.location_name_to_id).find(key => game_data.location_name_to_id[key] === id);
+                }
+                return '';
+
+            },
+            getItemName: function (id) {
+                var game_data = this.get_game_data();
+                if (game_data && game_data.item_name_to_id) {
+                    return Object.keys(game_data.item_name_to_id).find(key => game_data.item_name_to_id[key] === id);
+                }
+                return '';
+
             },
             slotURL: function () {
                 var URL = "https://archipelago.gg";
