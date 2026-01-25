@@ -5,12 +5,12 @@
 
         <img title="Post-Skeletron" src="/img/terraria/the_skeleton.png" :class="{ 'opacity-25': !getNumberItemsFromName('Post-Skeletron')  }" />
         <img title="Hardmode" src="/img/terraria/hard_mode.png" :class="{ 'opacity-25': !getNumberItemsFromName('Hardmode')  }" />
-        <span v-if="getGoal() > 1" class="mr-2"></span>
-        <img v-if="getGoal() > 1" title="Post-The Twins" src="/img/terraria/the_twins.png" :class="{ 'opacity-25': !getNumberItemsFromName('Post-The Twins')  }" />
-        <img v-if="getGoal() > 1" title="Post-The Destroyer" src="/img/terraria/the_destroyer.png" :class="{ 'opacity-25': !getNumberItemsFromName('Post-The Destroyer')  }" />
-        <img v-if="getGoal() > 1" title="Post-Skeletron Prime" src="/img/terraria/skeleton_prime.png" :class="{ 'opacity-25': !getNumberItemsFromName('Post-Skeletron Prime')  }" />
-        <img v-if="getGoal() > 2" title="Post-Plantera" src="/img/terraria/planterra.png" :class="{ 'opacity-25': !getNumberItemsFromName('Post-Plantera')  }" />
-        <img v-if="getGoal() > 3" title="Post-Golem" src="/img/terraria/golem.png" :class="{ 'opacity-25': !getNumberItemsFromName('Post-Golem')  }" />
+        <span v-if="goalLevel() > 1" class="mr-2"></span>
+        <img v-if="goalLevel() > 1" title="Post-The Twins" src="/img/terraria/the_twins.png" :class="{ 'opacity-25': !getNumberItemsFromName('Post-The Twins')  }" />
+        <img v-if="goalLevel() > 1" title="Post-The Destroyer" src="/img/terraria/the_destroyer.png" :class="{ 'opacity-25': !getNumberItemsFromName('Post-The Destroyer')  }" />
+        <img v-if="goalLevel() > 1" title="Post-Skeletron Prime" src="/img/terraria/skeleton_prime.png" :class="{ 'opacity-25': !getNumberItemsFromName('Post-Skeletron Prime')  }" />
+        <img v-if="goalLevel() > 2" title="Post-Plantera" src="/img/terraria/planterra.png" :class="{ 'opacity-25': !getNumberItemsFromName('Post-Plantera')  }" />
+        <img v-if="goalLevel() > 3" title="Post-Golem" src="/img/terraria/golem.png" :class="{ 'opacity-25': !getNumberItemsFromName('Post-Golem')  }" />
     </div>
 </template>
     
@@ -64,11 +64,22 @@ export default {
             getNumberItemsFromName: function (name) {
                 return this.$parent.getNumberItemsFromName(name);
             },
-            getGoal: function () {
-                if (this.data.slot_data.hasOwnProperty('Goal')) {
-                    return this.data.slot_data.Goal;
+            goalLevel: function () {
+                var goal = this.getGoal();
+                var goal_levels = ["Mechanical Bosses", "Calamitas Clone", "Plantera", "Golem", "Empress of Light", "Lunatic Cultist", "Astrum Deus",
+                    "Moon Lord", "Providence the Profaned Goddess", "Devouer of Gods", "Yharon Drgon of Rebirth", "Zenith", "Calamity Final Bosses", "Primordial Wyrm", "Boss Rush"];
+                for (var x = 0; x < goal_levels.length; x++) {
+                    if (goal.includes(goal_levels[x]))
+                        return x;
                 }
+                
                 return 15;
+            },
+            getGoal: function () {
+                if (this.data.slot_data.hasOwnProperty('goal')) {
+                    return this.data.slot_data.goal;
+                }
+                return [];
             }
         },
   components: {
