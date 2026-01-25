@@ -65,8 +65,8 @@ export default {
                 return this.$parent.getNumberItemsFromName(name);
             },
             getGoal: function () {
-                if (this.data.slot_data.hasOwnProperty('goal')) {
-                    return this.data.slot_data.goal;
+                if (this.data.slot_data.hasOwnProperty('Goal')) {
+                    return this.data.slot_data.Goal;
                 }
                 return 15;
             }
