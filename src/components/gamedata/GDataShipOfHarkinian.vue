@@ -164,7 +164,11 @@ export default {
                 res.push(row_bridge);
 
                 var row_bk = { title: 'Ganon Castle Boss Key', value: null, details: null };
-                if (this.data.slot_data.ganons_castle_boss_key == 0) {
+                if (this.data.slot_data.triforce_hunt) {
+                    row_bk.value = 'Triforce Hunt';
+                    row_bk.details = this.data.slot_data.triforce_hunt_pieces_required + ' out of ' + this.data.slot_data.triforce_hunt_pieces_total;
+                }
+                else if (this.data.slot_data.ganons_castle_boss_key == 0) {
                     row_bk.value = 'Vanilla';
                 }
                 else if (this.data.slot_data.ganons_castle_boss_key == 1) {
@@ -194,6 +198,7 @@ export default {
                     row_bk.value = 'LACS Skultullas Tokens';
                     row_bk.details = this.data.slot_data.ganons_castle_boss_key_skull_tokens_required;
                 }
+
 
                 res.push(row_bk);
 
