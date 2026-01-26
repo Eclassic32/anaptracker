@@ -116,7 +116,36 @@ export default {
 
         methods: {
             getGoalDetails: function () {
-                return [];
+                if (!this.$parent.hasSlotData())
+                    return [];
+                var res = [];
+                var row_goal = { title: 'Goal', value: null, details: null };
+
+                if (this.data.slot_data.options.Goal == 0) {
+                    row_goal.value = 'Any ending';
+                }
+                else if (this.data.slot_data.options.Goal == 1) {
+                    row_goal.value = 'Hollow Knight';
+                }
+                else if (this.data.slot_data.options.Goal == 2) {
+                    row_goal.value = 'Siblings';
+                }
+                else if (this.data.slot_data.options.Goal == 3) {
+                    row_goal.value = 'Radiance';
+                }
+                else if (this.data.slot_data.options.Goal == 4) {
+                    row_goal.value = 'Godhome';
+                }
+                else if (this.data.slot_data.options.Goal == 5) {
+                    row_goal.value = 'Godhome Flower';
+                }
+                else if (this.data.slot_data.options.Goal == 5) {
+                    row_goal.value = 'Grub hunt';
+                }
+
+                res.push(row_goal);
+
+                return res;
             },
             getImageClass: function () {
                 return this.$parent.getImageClass();

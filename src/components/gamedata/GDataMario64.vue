@@ -69,7 +69,25 @@ export default {
 
         methods: {
             getGoalDetails: function () {
-                return [];
+                if (!this.$parent.hasSlotData())
+                    return [];
+                var res = [];
+
+                if (this.data.slot_data.StarsToFinish > 0) {
+                    res.push({ title: 'Stars for endless stairs', value: this.data.slot_data.StarsToFinish, details: null });
+                }
+                if (this.data.slot_data.FirstBowserDoorCost > 0) {
+                    res.push({ title: 'Stars for lobby\'s door', value: this.data.slot_data.FirstBowserDoorCost, details: null });
+                }
+                if (this.data.slot_data.BasementDoorCost > 0) {
+                    res.push({ title: 'Stars for basement door', value: this.data.slot_data.BasementDoorCost, details: null });
+                }
+                if (this.data.slot_data.SecondFloorDoorCost > 0) {
+                    res.push({ title: 'Stars for 3F door', value: this.data.slot_data.SecondFloorDoorCost, details: null });
+                }
+
+
+                return res;
             },
             getImageClass: function () {
                 return this.$parent.getImageClass();

@@ -158,7 +158,7 @@
                 this.$parent.saveDefaultOptions();
             },
             changeShowSpeed: function () {
-                this.$parent.DEFAULT_OPTIONS.store_individual_rooms = this.$parent.DEFAULT_OPTIONS.show_speed + 1;
+                this.$parent.DEFAULT_OPTIONS.show_speed = this.$parent.DEFAULT_OPTIONS.show_speed + 1;
                 if (this.$parent.DEFAULT_OPTIONS.show_speed > 1)
                     this.$parent.DEFAULT_OPTIONS.show_speed = 0;
                 this.$parent.saveDefaultOptions();
