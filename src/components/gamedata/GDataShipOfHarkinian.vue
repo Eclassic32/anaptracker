@@ -199,8 +199,82 @@ export default {
                     row_bk.details = this.data.slot_data.ganons_castle_boss_key_skull_tokens_required;
                 }
 
-
                 res.push(row_bk);
+
+
+                // Dungeon Rewards
+                var row_tmp = { title: 'Dungeons Rewards are', value: 'Vanilla', details: null };
+                if (this.data.slot_data.shuffle_dungeon_rewards == 1)
+                    row_tmp.value = 'On their dungeons';
+                else if (this.data.slot_data.shuffle_dungeon_rewards == 2)
+                    row_tmp.value = 'Anywhere';
+
+                res.push(row_tmp);
+
+
+                var dlcs = [];
+                if (this.data.slot_data.shuffle_master_sword)
+                    dlcs.push('Master Sword');
+                if (this.data.slot_data.deku_nut_bag)
+                    dlcs.push('Nuts');
+                if (this.data.slot_data.deku_stick_bag)
+                    dlcs.push('Sticks');
+                if (this.data.slot_data.shuffle_child_wallet)
+                    dlcs.push('Wallet');
+                if (this.data.slot_data.shuffle_swim)
+                    dlcs.push('Swim');
+                if (this.data.slot_data.shuffle_fishing_pole)
+                    dlcs.push('Fishing Pole');
+                if (this.data.slot_data.shuffle_ocarina_buttons)
+                    dlcs.push('Ocarina Buttons');
+
+
+                var row_dlc = { title: 'Inventory Shuffle', value: null, details: null };
+                if (dlcs.length) {
+                    row_dlc.value = dlcs.join(', ');
+                    res.push(row_dlc);
+                }
+
+                dlcs = [];
+                if (this.data.slot_data.shuffle_boss_souls)
+                    dlcs.push('Boss Souls');
+                if (this.data.slot_data.shuffle_skull_tokens)
+                    dlcs.push('Skultulla Tokens');
+                if (this.data.slot_data.shuffle_scrubs > 1)
+                    dlcs.push('Scrubs');
+                if (this.data.slot_data.shuffle_cows)
+                    dlcs.push('Cows');
+                if (this.data.slot_data.shuffle_pots)
+                    dlcs.push('Pots');
+                if (this.data.slot_data.shuffle_crates)
+                    dlcs.push('Crates');
+                if (this.data.slot_data.shuffle_freestandings)
+                    dlcs.push('Freestrandings');
+                if (this.data.slot_data.shuffle_beehives)
+                    dlcs.push('Beehives');
+                if (this.data.slot_data.shuffle_freestandings)
+                    dlcs.push('Freestrandings');
+                if (this.data.slot_data.shuffle_grass)
+                    dlcs.push('Grass');
+                if (this.data.slot_data.shuffle_trees)
+                    dlcs.push('Trees');
+                if (this.data.slot_data.shuffle_fish)
+                    dlcs.push('Fishes');
+                if (this.data.slot_data.shuffle_fairies)
+                    dlcs.push('Fairies');
+                if (this.data.slot_data.shuffle_stone_fairies)
+                    dlcs.push('Stone Fairies');
+                if (this.data.slot_data.shuffle_bean_fairies)
+                    dlcs.push('Bean Fairies');
+                if (this.data.slot_data.shuffle_song_fairies)
+                    dlcs.push('Song Fairies');
+
+
+                var row_dlc = { title: 'Extra Shuffle', value: null, details: null };
+                if (dlcs.length) {
+                    row_dlc.value = dlcs.join(', ');
+                    res.push(row_dlc);
+                }
 
                 return res;
             },
