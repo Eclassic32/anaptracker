@@ -121,7 +121,44 @@
                 if (total_checks > 0 && this.get_state() < 2)
                     return (Math.floor(this.get_current_checks() * 10000 / total_checks) / 100).toString() + '%';
                 return 0;
-            }
+            },
+            getPlayerbyID: function (id) {
+                var players = this.globaldata.players;
+                for (var x = 0; x < players.length; x++) {
+                    if (players[x].id == id)
+                        return players[x];
+                }
+                return null;
+            },
+            getItemHinted: function (element) {
+                var player = this.getPlayerbyID(element[1]);
+                var datapackage = this.gamedata[player.game];
+
+                if (typeof datapackage !== 'object')
+                    return null;
+
+                for (var key in datapackage.item_name_to_id) {
+                    if (datapackage.item_name_to_id[key] == element[3])
+                        return '(' + key + ' for ' + player.name + ')';
+                }
+
+                return '(for ' + player.name + ')';
+            },
+            getLocationHinted: function (element) {
+                var player = this.getPlayerbyID(element[0]);
+                var datapackage = this.gamedata[player.game];
+
+                if (typeof datapackage !== 'object')
+                    return null;
+
+                for (var key in datapackage.location_name_to_id) {
+                    if (datapackage.location_name_to_id[key] == element[2])
+                        return '(' + key + ' from ' + player.name + ')';
+                }
+
+                return '(from ' + player.name + ')';
+
+            },
 
         },
         components: {
