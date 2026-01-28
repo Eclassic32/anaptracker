@@ -350,7 +350,7 @@ export default {
             getImportantSentHints: function () {
                 var res = 0;
                 for (var x = 0; x < this.data.tracker_data.hints.length; x++) {
-                    if (this.data.tracker_data.hints[x][0] == this.data.id && this.data.tracker_data.hints[x][1] != this.data.id && this.data.tracker_data.hints[x][6] == 1 && this.data.tracker_data.hints[x][4] == false)
+                    if (this.data.tracker_data.hints[x][0] == this.data.id && (this.data.tracker_data.hints[x][6] == 1 || this.data.tracker_data.hints[x][7] == 30) && this.data.tracker_data.hints[x][4] == false)
                         res++;
                 }
                 return res;
@@ -358,7 +358,7 @@ export default {
             getImportantRecievedHints: function () {
                 var res = 0;
                 for (var x = 0; x < this.data.tracker_data.hints.length; x++) {
-                    if (this.data.tracker_data.hints[x][1] == this.data.id && this.data.tracker_data.hints[x][0] != this.data.id && this.data.tracker_data.hints[x][6] == 1 && this.data.tracker_data.hints[x][4] == false)
+                    if (this.data.tracker_data.hints[x][1] == this.data.id && (this.data.tracker_data.hints[x][6] == 1 || this.data.tracker_data.hints[x][7] == 30) && this.data.tracker_data.hints[x][4] == false)
                         res++;
                 }
                 return res;
@@ -366,7 +366,7 @@ export default {
             getImportantSentHintsList: function () {
                 var res = [];
                 for (var x = 0; x < this.data.tracker_data.hints.length; x++) {
-                    if (this.data.tracker_data.hints[x][0] == this.data.id && this.data.tracker_data.hints[x][1] != this.data.id && this.data.tracker_data.hints[x][6] == 1 && this.data.tracker_data.hints[x][4] == false)
+                    if (this.data.tracker_data.hints[x][0] == this.data.id && (this.data.tracker_data.hints[x][6] == 1 || this.data.tracker_data.hints[x][7] == 30) && this.data.tracker_data.hints[x][4] == false)
                         res.push(this.data.tracker_data.hints[x]);
                 }
                 return res;
@@ -374,7 +374,7 @@ export default {
             getImportantRecievedHintsList: function () {
                 var res = [];
                 for (var x = 0; x < this.data.tracker_data.hints.length; x++) {
-                    if (this.data.tracker_data.hints[x][1] == this.data.id && this.data.tracker_data.hints[x][0] != this.data.id && this.data.tracker_data.hints[x][6] == 1 && this.data.tracker_data.hints[x][4] == false)
+                    if (this.data.tracker_data.hints[x][1] == this.data.id && (this.data.tracker_data.hints[x][6] == 1 || this.data.tracker_data.hints[x][7] == 30) && this.data.tracker_data.hints[x][4] == false)
                         res.push(this.data.tracker_data.hints[x]);
                 }
                 return res;
