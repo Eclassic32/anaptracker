@@ -255,12 +255,33 @@
 
             },
             setDataPackageData: function (key, data, store = true) {
+                console.log("Setting data package from " + key);
                 if (data.hasOwnProperty('checksum'))
                     this.DATA_PACKAGE[key] = data;
                 else
                     this.DATA_PACKAGE[key] = EMPTY_DATAPACKAGE;
                 if (this.DEFAULT_OPTIONS.store_datapackage && store)
                     this.STORAGE_MASTER.saveDatapackage(key, this.STATIC_TRACKER_DATA.datapackage[key].checksum, JSON.stringify(data));
+            },
+            requestDataPackage: function (name) {
+                for (var key in this.DATA_PACKAGE) {
+                    if (typeof this.DATA_PACKAGE[key] !== 'object' && key == name) {
+
+                        var found = 0;
+                        for (var x = 0; x < this.LIST_OF_GAMES.length; x++) {
+                            if (LIST_OF_GAMES[x].name == key)
+                                found = 1;
+                        }
+                        if (!found) {
+                            if (!ANAP_CONFIG.OFFLINE) {
+                                console.log("Getting data package from " + key);
+                                axios
+                                    .get(this.ANAP_DATA.archipelagogg.datapackage_url + this.WEBHOST_USED + '/' + this.STATIC_TRACKER_DATA.datapackage[key].checksum)
+                                    .then(response => (this.setDataPackageData(name, response.data, false)));
+                            }
+                        }
+                    }
+                }
             },
             // Make the Datapackage call thread.
             getChainStaticData: function () {

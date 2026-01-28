@@ -44,7 +44,7 @@
                                v-bind:index="index"
                                v-bind:gamedata="get_game_data()"
                                shallowRef="slot_tracker" ref="slot_tracker" />
-                    <div v-if="supportedGame() && data.extended" class="block relative">
+                    <div v-if="hasDatapackage() && data.extended" class="block relative">
                         <div v-if="$refs.slot_tracker.getGoalDetails().length" class="inline-block w-full align-top p-[2px] pl-[4px] pt-[4px]">
                             <div class="bg-emerald-200/60 rounded-xs p-[2px] pl-[4px] pt-[4px] mx-2 bg-opacity-25">
                                 <ul>
@@ -133,6 +133,11 @@ export default {
                         return true;
                     }
                 }
+                return false;
+            },
+            hasDatapackage: function () {
+                if (this.get_game_data())
+                    return true;
                 return false;
             },
             getSpeedBarClass: function () {
@@ -326,6 +331,9 @@ export default {
                 }
                 else {
                     this.data.extended = 1;
+                    if (!this.hasDatapackage()) {
+                        this.$parent.$parent.requestDataPackage(this.data.game);
+                    }
                 }
             },
             /**
