@@ -131,11 +131,11 @@
                 return null;
             },
             getItemHinted: function (element) {
-                var player = this.getPlayerbyID(element[1]);
+                var player = this.getPlayerbyID(element[0]);
                 var datapackage = this.gamedata[player.game];
 
                 if (typeof datapackage !== 'object')
-                    return null;
+                    return '(for ' + player.name + ')';
 
                 for (var key in datapackage.item_name_to_id) {
                     if (datapackage.item_name_to_id[key] == element[3])
@@ -145,11 +145,11 @@
                 return '(for ' + player.name + ')';
             },
             getLocationHinted: function (element) {
-                var player = this.getPlayerbyID(element[0]);
+                var player = this.getPlayerbyID(element[1]);
                 var datapackage = this.gamedata[player.game];
 
                 if (typeof datapackage !== 'object')
-                    return null;
+                    return '(from ' + player.name + ')';
 
                 for (var key in datapackage.location_name_to_id) {
                     if (datapackage.location_name_to_id[key] == element[2])
