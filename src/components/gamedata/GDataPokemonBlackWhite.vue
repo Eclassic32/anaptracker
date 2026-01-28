@@ -16,22 +16,30 @@
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">HMs</div>
 
-            <img title="HM01 - Cut" src="/img/pokemon_emerald/items/hm01.png" :class="{ 'opacity-25': !getNumberItemsFromName('HM01 Cut')  }" />
-            <img title="HM02 - Fly" src="/img/pokemon_emerald/items/hm02.png" :class="{ 'opacity-25': !getNumberItemsFromName('HM02 Fly')  }" />
-            <img title="HM03 - Surf" src="/img/pokemon_emerald/items/hm03.png" :class="{ 'opacity-25': !getNumberItemsFromName('HM03 Surf')  }" />
-            <img title="HM04 - Strength" src="/img/pokemon_emerald/items/hm04.png" :class="{ 'opacity-25': !getNumberItemsFromName('HM04 Strength')  }" />
-            <img title="HM05 - Waterfall" src="/img/pokemon_emerald/items/hm05.png" :class="{ 'opacity-25': !getNumberItemsFromName('HM05 Waterfall')  }" />
-            <img title="HM06 - Dive" src="/img/pokemon_emerald/items/hm06.png" :class="{ 'opacity-25': !getNumberItemsFromName('HM06 Dive')  }" />
+            <img title="HM01 - Cut" src="/img/pokemon_black_white/hms/hm01_cut.png" :class="{ 'opacity-25': !getNumberItemsFromName('HM01 Cut')  }" />
+            <img title="HM02 - Fly" src="/img/pokemon_black_white/hms/hm02_fly.png" :class="{ 'opacity-25': !getNumberItemsFromName('HM02 Fly')  }" />
+            <img title="HM03 - Surf" src="/img/pokemon_black_white/hms/hm03_surf.png" :class="{ 'opacity-25': !getNumberItemsFromName('HM03 Surf')  }" />
+            <img title="HM04 - Strength" src="/img/pokemon_black_white/hms/hm04_strength.png" :class="{ 'opacity-25': !getNumberItemsFromName('HM04 Strength')  }" />
+            <img title="HM05 - Waterfall" src="/img/pokemon_black_white/hms/hm05_waterfall.png" :class="{ 'opacity-25': !getNumberItemsFromName('HM05 Waterfall')  }" />
+            <img title="HM06 - Dive" src="/img/pokemon_black_white/hms/hm06_dive.png" :class="{ 'opacity-25': !getNumberItemsFromName('HM06 Dive')  }" />
+            <img title="TM70 - Flash" src="/img/pokemon_black_white/hms/tm70_flash.png" :class="{ 'opacity-25': !getNumberItemsFromName('TM70 Flash')  }" />
         </div>
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Key Items</div>
 
+            <img v-if="getNumberItemsFromName('Dark Stone')" title="Dark Stone" src="/img/pokemon_black_white/darkstone.png" />
+            <img v-else-if="getNumberItemsFromName('Light Stone')" title="Light Stone" src="/img/pokemon_black_white/lightstone.png" />
+            <img v-else title="Light/Dark Stone" src="/img/pokemon_black_white/light-dark_stone.png" class="opacity-25" />
+
+            <span class="mr-2"></span>
             <img v-if="itemfinderRequired()" title="Dowsing Machine" src="/img/pokemon_black_white/dowsingmchn.png" :class="{ 'opacity-25': !getNumberItemsFromName('Dowsing Machine')  }" />
             <img title="Bicycle" src="/img/pokemon_black_white/bicycle.png" :class="{ 'opacity-25': !getNumberItemsFromName('Bicycle')  }" />
+            <img title="Parcel" src="/img/pokemon_black_white/parcel.png" :class="{ 'opacity-25': !getNumberItemsFromName('Parcel')  }" />
+            <img title="Dragon Skull" src="/img/pokemon_black_white/dragon_skull.png" :class="{ 'opacity-25': !getNumberItemsFromName('Dragon Skull')  }" />
+            <img title="Machine Part" src="/img/pokemon_black_white/machine_part.png" :class="{ 'opacity-25': !getNumberItemsFromName('Machine Part')  }" />
+            <img title="Basement Key" src="/img/pokemon_black_white/basement_key.png" :class="{ 'opacity-25': !getNumberItemsFromName('Basement Key')  }" />
             <img title="Liberty Pass" src="/img/pokemon_black_white/libertypass.png" :class="{ 'opacity-25': !getNumberItemsFromName('Liberty Pass')  }" />
-            <img v-if="getNumberItemsFromName('Dark Stone')" title="Dark Stone" src="/img/pokemon_black_white/darkstone.png" />
-            <img v-else title="Light Stone" src="/img/pokemon_black_white/lightstone.png" :class="{ 'opacity-25': !getNumberItemsFromName('Light Stone')  }" />
-
+            <img title="Red Chain" src="/img/pokemon_black_white/red_chain.png" :class="{ 'opacity-25': !getNumberItemsFromName('Red Chain')  }" />
         </div>
     </div>
 </template>
