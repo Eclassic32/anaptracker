@@ -45,7 +45,7 @@
             <img v-if="getNumberItemsFromName('Progressive Bomb Bag') > 2" title="Bomb Bag" src="/img/oot/5_3.png" />
             <img v-else-if="getNumberItemsFromName('Progressive Bomb Bag') > 1" title="Bomb Bag" src="/img/oot/5_2.png" />
             <img v-else-if="getNumberItemsFromName('Progressive Bomb Bag')" title="Bomb Bag" src="/img/oot/5_1.png" />
-            <img v-else-if="getNumberItemsFromName('Progressive Bombchu')" title="Bombchu Bag" src="/img/oot/49_1.png" />
+            <img v-else-if="getNumberItemsFromName('Bombchu Bag')" title="Bombchu Bag" src="/img/oot/49_1.png" />
             <img v-else src="/img/oot/5_1.png" title="Bomb Bag" class="opacity-25" />
             <img title="Boomerang" src="/img/oot/2_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Boomerang')  }" />
             <img v-if="getNumberItemsFromName('Progressive Bow') > 2" title="Bow" src="/img/oot/6_3.png" />
@@ -215,11 +215,11 @@ export default {
                 var dlcs = [];
                 if (this.data.slot_data.shuffle_master_sword)
                     dlcs.push('Master Sword');
-                if (this.data.slot_data.deku_nut_bag)
+                if (this.data.slot_data.shuffle_deku_nut_bag)
                     dlcs.push('Nuts');
-                if (this.data.slot_data.deku_stick_bag)
+                if (this.data.slot_data.shuffle_deku_stick_bag)
                     dlcs.push('Sticks');
-                if (this.data.slot_data.shuffle_child_wallet)
+                if (this.data.slot_data.shuffle_childs_wallet)
                     dlcs.push('Wallet');
                 if (this.data.slot_data.shuffle_swim)
                     dlcs.push('Swim');
