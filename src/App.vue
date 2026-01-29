@@ -423,8 +423,8 @@
                     this.OPTIONS.row_size = this.DEFAULT_OPTIONS.row_size;
                 this.OPTIONS.show_done = this.DEFAULT_OPTIONS.show_done;
                 this.OPTIONS.show_timer = this.DEFAULT_OPTIONS.show_timer;
-                this.OPTIONS.show_hints = this.DEFAULT_OPTIONS.show_checks_left;
-                this.OPTIONS.show_checks_left = this.DEFAULT_OPTIONS.show_slot_number;
+                this.OPTIONS.show_hints = this.DEFAULT_OPTIONS.show_hints;
+                this.OPTIONS.show_slot_number = this.DEFAULT_OPTIONS.show_slot_number;
                 this.OPTIONS.show_speed = this.DEFAULT_OPTIONS.show_speed;
                 this.OPTIONS.sort_by = this.DEFAULT_OPTIONS.sort_by;
 
@@ -436,8 +436,8 @@
                             this.OPTIONS.row_size = roomData.row_size;
                         this.OPTIONS.show_done = roomData.show_done;
                         this.OPTIONS.show_timer = roomData.show_timer;
-                        this.OPTIONS.show_hints = roomData.show_checks_left;
-                        this.OPTIONS.show_checks_left = roomData.show_slot_number;
+                        this.OPTIONS.show_hints = roomData.show_hints;
+                        this.OPTIONS.show_slot_number = roomData.show_slot_number;
                         if (this.DEFAULT_OPTIONS.hasOwnProperty('row_size'))
                             this.OPTIONS.show_speed = roomData.show_speed;
                         this.OPTIONS.sort_by = roomData.sort_by;
