@@ -29,6 +29,7 @@
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Key Items</div>
 
             <img v-if="itemfinderRequired()" title="Itemfinder" src="/img/pokemon_frlg/items/itemfinder.png" :class="{ 'opacity-25': !getNumberItemsFromName('Itemfinder')  }" />
+            <img v-if="fameCheckerRequired()" title="Fame Checker" src="/img/pokemon_frlg/items/fame_checker.png" :class="{ 'opacity-25': !getNumberItemsFromName('Fame Checker')  }" />
             <img v-if="tmCaseShuffle()" title="TM Case" src="/img/pokemon_frlg/items/tm_case.png" :class="{ 'opacity-25': !getNumberItemsFromName('TM Case')  }" />
             <img title="Bicycle" src="/img/pokemon_frlg/other/bike.png" :class="{ 'opacity-25': !getNumberItemsFromName('Bicycle')  }" />
             <img title="S.S. Ticket" src="/img/pokemon_frlg/items/ss_ticket.png" :class="{ 'opacity-25': !getNumberItemsFromName('S.S. Ticket')  }" />
@@ -171,6 +172,12 @@ export default {
                     return this.data.slot_data.shuffle_tm_case;
                 }
                 return 0;
+            }, 
+            fameCheckerRequired: function () {
+                if (this.data.slot_data.hasOwnProperty('fame_checker_required')) {
+                    return this.data.slot_data.fame_checker_required;
+                }
+                return 1;
             },
             itemfinderRequired: function () {
                 if (this.data.slot_data.hasOwnProperty('itemfinder_required')) {
