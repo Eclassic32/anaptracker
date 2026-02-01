@@ -82,7 +82,13 @@
 
             <div class="w-1/4 lg:w-1/5 2xl:w-1/6 z-3 text-right">
                 <span v-if="$parent.$parent.OPTIONS.show_timer" class="font-bold
-                      text-tiny mr-3">{{ get_last_activity() }}</span><span v-if="!$parent.$parent.OPTIONS.row_size" class="font-normal text-tiny mr-2">({{ percent_completion() }}%)</span><span class="font-bold">{{ get_current_checks() }}</span> / {{ get_total_checks() }}<br /><span v-if="$parent.$parent.OPTIONS.row_size" class="font-normal text-tiny">({{ percent_completion() }}%)</span>
+                      text-tiny mr-3">{{ get_last_activity() }}</span>
+                <span class="font-normal" v-if="$parent.$parent.OPTIONS.sort_by == 4">
+                    <span class="font-bold">{{ get_total_checks() - get_current_checks() }}</span> left
+                </span>
+                <span v-else>
+                    <span v-if="!$parent.$parent.OPTIONS.row_size" class="font-normal text-tiny mr-2">({{ percent_completion() }}%)</span><span class="font-bold">{{ get_current_checks() }}</span> / {{ get_total_checks() }}<br /><span v-if="$parent.$parent.OPTIONS.row_size" class="font-normal text-tiny">({{ percent_completion() }}%)</span>
+                </span>
             </div>
         </div>
     </div>
