@@ -41,7 +41,7 @@
             <img v-else title="Small Electric Pole" src="/img/factorio/32px-Small_electric_pole.png" class="inline-block mr-1 w-[16px] h-[16px]" />
 
             <img v-if="getNumberItemsFromName('progressive-turret') > 1 || getNumberItemsFromName('laser-turret')" title="Laser Turret" src="/img/factorio/32px-Laser_turret.png" />
-            <img v-else title="Gun Turret" src="/img/factorio/32px-Gun_turret.png" :class="{ 'opacity-25': !getNumberItemsFromName('gun-turret')  }" />
+            <img v-else title="Gun Turret" src="/img/factorio/32px-Gun_turret.png" :class="{ 'opacity-25': !getNumberItemsFromName('gun-turret') && !getNumberItemsFromName('progressive-turret') }" />
 
         </div>
 
