@@ -31,14 +31,24 @@
             <img v-if="itemfinderRequired()" title="Itemfinder" src="/img/pokemon_frlg/items/itemfinder.png" :class="{ 'opacity-25': !getNumberItemsFromName('Itemfinder')  }" />
             <img v-if="fameCheckerRequired()" title="Fame Checker" src="/img/pokemon_frlg/items/fame_checker.png" :class="{ 'opacity-25': !getNumberItemsFromName('Fame Checker')  }" />
             <img v-if="tmCaseShuffle()" title="TM Case" src="/img/pokemon_frlg/items/tm_case.png" :class="{ 'opacity-25': !getNumberItemsFromName('TM Case')  }" />
-            <img title="Bicycle" src="/img/pokemon_frlg/other/bike.png" :class="{ 'opacity-25': !getNumberItemsFromName('Bicycle')  }" />
+            
+            <img v-if="superBicycle() && hasAccroBike()" title="Acrobatic Bicycle" src="/img/pokemon_frlg/items/acro_bike.png" />
+            <img v-else title="Bicycle" src="/img/pokemon_frlg/items/bicycle.png" :class="{ 'opacity-25': !getNumberItemsFromName('Bicycle')  }" />
+            <img v-if="jumpingShoes()" title="Jumping Shoes" src="/img/pokemon_frlg/items/jumping_shoes.png" :class="{ 'opacity-25': !getNumberItemsFromName('Jumping Shoes')  }" />
+
+
+            <img v-if="oakParcel()" title="Oak's Parcel'" src="/img/pokemon_frlg/items/oaks_parcel.png" :class="{ 'opacity-25': !getNumberItemsFromName('Oak\'s Parcel')  }" />
             <img title="S.S. Ticket" src="/img/pokemon_frlg/items/ss_ticket.png" :class="{ 'opacity-25': !getNumberItemsFromName('S.S. Ticket')  }" />
             <img title="S.S. Ticket" src="/img/pokemon_frlg/items/poke_flute.png" :class="{ 'opacity-25': !getNumberItemsFromName('Poke Flute')  }" />
+            <img v-if="extraKeyItems()" title="Hideout Key" src="/img/pokemon_frlg/items/hideout_key.png" :class="{ 'opacity-25': !getNumberItemsFromName('Hideout Key')  }" />
+            <img v-if="extraKeyItems()" title="Safari Pass" src="/img/pokemon_frlg/items/safari_pass.png" :class="{ 'opacity-25': !getNumberItemsFromName('Safari Pass')  }" />
+            <img v-if="extraKeyItems()" title="Machine Part" src="/img/pokemon_frlg/items/machine_part.png" :class="{ 'opacity-25': !getNumberItemsFromName('Machine Part')  }" />
+            <img v-if="extraKeyItems()" title="Letter" src="/img/pokemon_frlg/items/letter.png" :class="{ 'opacity-25': !getNumberItemsFromName('Letter')  }" />
             <img v-if="!splitTea()" title="Tea" src="/img/pokemon_frlg/items/tea.png" :class="{ 'opacity-25': !getNumberItemsFromName('Tea')  }" />
-            <img v-if="splitTea()" title="Green Tea" src="/img/pokemon_frlg/items/tea.png" :class="{ 'opacity-25': !getNumberItemsFromName('Green Tea')  }" />
-            <img v-if="splitTea()" title="Red Tea" src="/img/pokemon_frlg/items/red_tea.png" :class="{ 'opacity-25': !getNumberItemsFromName('Red Tea')  }" />
-            <img v-if="splitTea()" title="Blue Tea" src="/img/pokemon_frlg/items/blue_tea.png" :class="{ 'opacity-25': !getNumberItemsFromName('Blue Tea')  }" />
-            <img v-if="splitTea()" title="Purple Tea" src="/img/pokemon_frlg/items/purple_tea.png" :class="{ 'opacity-25': !getNumberItemsFromName('Purple Tea')  }" />
+            <span v-if="splitTea()" class="text-xs mr-1 font-bold" :class="{ 'opacity-25': !$parent.getNumberItemsFromGroup(['Green Tea', 'Red Tea', 'Blue Tea', 'Purple Tea'])  }">
+                <img title="Tea" src="/img/pokemon_frlg/items/tea.png" />x{{$parent.getNumberItemsFromGroup(['Green Tea', 'Red Tea', 'Blue Tea', 'Purple Tea'])}}
+            </span>
+
             <img v-if="!splitCardKey()" title="Card Key" src="/img/pokemon_frlg/other/card_key.png" :class="{ 'opacity-25': !getNumberItemsFromName('Card Key')  }" />
             <span v-else class="text-xs mr-1 font-bold" :class="{ 'opacity-25': !countCardKeys()  }"><img title="Card Key" src="/img/pokemon_frlg/items/card_key.png" />x{{countCardKeys()}}</span>
 
@@ -137,6 +147,32 @@ export default {
                 if (row_tmp.value)
                     res.push(row_tmp);
 
+                // Cerulean Cave
+                var row_tmp = { title: 'Cerulean Cave requirement', value: null, details: null };
+                if (this.data.slot_data.cerulean_cave_requirement) {
+                    if (this.data.slot_data.cerulean_cave_count > 1)
+                        row_tmp.value = this.data.slot_data.cerulean_cave_count + ' gyms';
+                    else if (this.data.slot_data.cerulean_cave_count)
+                        row_tmp.value = this.data.slot_data.cerulean_cave_count + ' gym';
+                }
+                else {
+                    if (this.data.slot_data.cerulean_cave_count > 1)
+                        row_tmp.value = this.data.slot_data.cerulean_cave_count + ' badges';
+                    else if (this.data.slot_data.cerulean_cave_count)
+                        row_tmp.value = this.data.slot_data.cerulean_cave_count + ' badge';
+                }
+                if (row_tmp.value)
+                    res.push(row_tmp);
+
+                var row_pkmn = { title: 'Caught number for Oak\'s aide', value: 0, details: null };
+                var settings = ['oaks_aide_route_2', 'oaks_aide_route_10', 'oaks_aide_route_11', 'oaks_aide_route_15', 'oaks_aide_route_16'];
+                for (var x = 0; x < settings.length; x++) {
+                    if (this.data.slot_data[settings[x]] > row_pkmn.value)
+                        row_pkmn.value = this.data.slot_data[settings[x]];
+                }
+                if (row_pkmn.value > 0) {
+                    res.push(row_pkmn);
+                }
 
                 return res;
             },
@@ -202,6 +238,38 @@ export default {
                     return this.data.slot_data.gym_keys;
                 }
                 return 0;
+            },
+            extraKeyItems: function () {
+                if (this.data.slot_data.hasOwnProperty('extra_key_items')) {
+                    return this.data.slot_data.extra_key_items;
+                }
+                return this.$parent.getNumberItemsFromGroup(['Hideout Key', 'Letter', 'Safari Pass', 'Machine Part']);
+            },
+            superBicycle: function () {
+                if (this.data.slot_data.hasOwnProperty('acrobatic_bicycle')) {
+                    return this.data.slot_data.acrobatic_bicycle;
+                }
+                return this.hasAccroBike();
+            },
+            hasAccroBike: function () {
+                if (this.getNumberItemsFromName('Bicycle')) {
+                    if (this.data.slot_data.hasOwnProperty('bicycle_requires_jumping_shoes') && this.data.slot_data.bicycle_requires_jumping_shoes && !this.getNumberItemsFromName('Jumping Shoes'))
+                        return 0;
+                    return 1;
+                }
+                return 0;
+            },
+            jumpingShoes: function () {
+                if (this.data.slot_data.hasOwnProperty('shuffle_jumping_shoes')) {
+                    return this.data.slot_data.shuffle_jumping_shoes;
+                }
+                return this.getNumberItemsFromName('Jumping Shoes');
+            },
+            oakParcel: function () {
+                if (this.data.slot_data.hasOwnProperty('viridian_city_roadblock')) {
+                    return !this.data.slot_data.viridian_city_roadblock;
+                }
+                return this.getNumberItemsFromName('Oak\'s Parcel');
             },
             splitSeviiPasses: function () {
                 if (this.data.slot_data.hasOwnProperty('island_passes')) {
