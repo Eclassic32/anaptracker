@@ -35,6 +35,9 @@
             <img title="Devon Scope" src="/img/pokemon_emerald/items/devon_scope.png" :class="{ 'opacity-25': !getNumberItemsFromName('Devon Scope')  }" />
             <img title="Magma Emblem" src="/img/pokemon_emerald/items/magma_emblem.png" :class="{ 'opacity-25': !getNumberItemsFromName('Magma Emblem')  }" />
             <img title="Meteorite" src="/img/pokemon_emerald/items/meteorite.png" :class="{ 'opacity-25': !getNumberItemsFromName('Meteorite')  }" />
+            <img title="S.S. Ticket" src="/img/pokemon_emerald/items/ss_ticket.png" :class="{ 'opacity-25': !getNumberItemsFromName('S.S. Ticket')  }" />
+            <img title="Go Goggles" src="/img/pokemon_emerald/items/go_goggles.png" :class="{ 'opacity-25': !getNumberItemsFromName('Go Goggles')  }" />
+            <img title="Storage Key" src="/img/pokemon_emerald/items/storage_key.png" :class="{ 'opacity-25': !getNumberItemsFromName('Storage Key')  }" />
 
         </div>
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
@@ -105,6 +108,25 @@ export default {
                 if (row_badges.value)
                     res.push(row_badges);
 
+
+                var row_roadblocks = { title: 'Extra roadblocks', value: null, details: null };
+                var dlcs = [];
+                if (this.data.slot_data.extra_boulders)
+                    dlcs.push('Route 115 Boulders');
+                if (this.data.slot_data.extra_bumpy_slope)
+                    dlcs.push('Route 115 Bumpy Slope');
+                if (this.data.slot_data.modify_118)
+                    dlcs.push('Route 118 Accro Bike');
+                if (dlcs.length) {
+                    row_roadblocks.value = dlcs.join(', ');
+                    res.push(row_roadblocks);
+                }
+
+                row_roadblocks = { title: 'Removed', value: null, details: null };
+                if (this.data.slot_data.remove_roadblocks.length) {
+                    row_roadblocks.value = this.data.slot_data.remove_roadblocks.join(', ');
+                    res.push(row_roadblocks);
+                }
 
 
                 return res;
