@@ -72,10 +72,12 @@ export default {
                 return this.$parent.getNumberItemsFromName(name);
             },
             proofHunt: function () {
-                if (this.data.slot_data.hasOwnProperty('Goal') && this.data.slot_data.Goal == 0) {
-                    return 1;
+                if (this.data.slot_data.hasOwnProperty('Goal')) {
+                    if (this.data.slot_data.Goal == 0) 
+                        return 1;
+                    return 0;
                 }
-                return 0;
+                return 1;
             },
             bountyHunt: function () {
                 if (this.data.slot_data.hasOwnProperty('Goal')) {
@@ -101,15 +103,9 @@ export default {
             },
             getGoalBounty: function () {
                 if (this.data.slot_data.hasOwnProperty('BountyRequired')) {
-                    return this.data.slot_data.LuckyEmblemsRequired;
+                    return this.data.slot_data.BountyRequired;
                 }
                 return 0;
-            },
-            moveShuffled: function () {
-                if (this.data.slot_data.MoveRandoVec) {
-                    return this.data.slot_data.MoveRandoVec;
-                }
-                return 1;
             }
         },
   components: {

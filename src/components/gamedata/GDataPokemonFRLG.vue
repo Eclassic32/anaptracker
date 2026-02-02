@@ -253,7 +253,7 @@ export default {
             },
             hasAccroBike: function () {
                 if (this.getNumberItemsFromName('Bicycle')) {
-                    if (this.data.slot_data.hasOwnProperty('bicycle_requires_jumping_shoes') && this.data.slot_data.bicycle_requires_jumping_shoes && !this.getNumberItemsFromName('Jumping Shoes'))
+                    if (this.data.slot_data.hasOwnProperty('bicycle_requires_jumping_shoes') && this.data.slot_data.bicycle_requires_jumping_shoes && this.data.slot_data.shuffle_jumping_shoes && !this.getNumberItemsFromName('Jumping Shoes'))
                         return 0;
                     return 1;
                 }
