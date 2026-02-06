@@ -6,7 +6,7 @@
 
     </div>
 
-    <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+    <div v-if="isSeasonIncluded('s1')" :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
         <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Hitman 1</div>
         <!-- ICA Facility, Paris, Sapienza, Marrakesh, Bangkok, Colorado, Hokkaido -->
 
@@ -19,7 +19,7 @@
         <img v-if="isLevelIncluded('s1', 'hokkaido')" title="Hokkaido" src="/img/hitman_woa/hitman_1/hokkaido.png" :class="{ 'opacity-25': !isLevelAvailable('Hokkaido')  }" />
     </div>
 
-    <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+    <div v-if="isSeasonIncluded('s2')" :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
         <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Hitman 2</div>
         <!-- Hawke's Bay, Miami, Santa Fortuna, Mumbai, Whittleton Creek, Isle of Sgàil, New York, Haven Island -->
 
@@ -33,7 +33,7 @@
         <img v-if="isLevelIncluded('s2_dlc', 'haven_island')" title="Haven Island" src="/img/hitman_woa/hitman_2/haven_island.png" :class="{ 'opacity-25': !isLevelAvailable('Haven Island')  }" />
     </div>
 
-    <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+    <div v-if="isSeasonIncluded('s3')" :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
         <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Hitman 3</div>
         <!-- Dubai, Dartmoor, Berlin, Chongqing, Mendoza, Carpathian Mountains, Ambrose Island -->
 
@@ -160,6 +160,17 @@ export default {
         isStartingLocation: function (name) {
             const code = this.levels.find(l => l.name == name)?.code;
             return this.data.slot_data.starting_location == code;
+        },
+        isSeasonIncluded: function (season) {
+            if (!this.$parent.hasSlotData())
+                return false;
+            if (season == 's2') {
+                return (this.data.slot_data[`included_s2_locations`] && 
+                        this.data.slot_data[`included_s2_locations`].length > 0) || (
+                        this.data.slot_data[`included_s2_dlc_locations`] && 
+                        this.data.slot_data[`included_s2_dlc_locations`].length > 0);
+            }
+            return this.data.slot_data[`included_${season}_locations`] && this.data.slot_data[`included_${season}_locations`].length > 0;
         },
         isLevelIncluded: function (season, level_code) {
             if (!this.$parent.hasSlotData())
