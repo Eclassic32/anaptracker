@@ -217,6 +217,10 @@ export default {
 
                     var group = game_data.item_name_groups[name];
                     var list_of_ids = [];
+
+                    if (!group) // For Old APworld compatiblity
+                        return 0;
+
                     for (var x = 0; x < group.length; x++) {
                         list_of_ids.push(game_data.item_name_to_id[group[x]]);
                     }
