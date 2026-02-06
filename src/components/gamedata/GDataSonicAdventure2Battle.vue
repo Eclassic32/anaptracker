@@ -77,7 +77,35 @@ export default {
 
         methods: {
             getGoalDetails: function () {
-                return [];
+                if (!this.$parent.hasSlotData())
+                    return [];
+                var res = [];
+                var row_goal = { title: 'Goal', value: 'Biolizard', details: null };
+                var row_requirement = { title: 'Emblems required', value: null, details: null };
+
+                if (this.data.slot_data.goal == 1)
+                    row_goal.value = 'Chaos Emerald Hunt';
+                else if (this.data.slot_data.goal == 2)
+                    row_goal.value = 'Finalhazard Chaos Emerald Hunt';
+                else if (this.data.slot_data.goal == 3)
+                    row_goal.value = 'Grand Prix';
+                else if (this.data.slot_data.goal == 4)
+                    row_goal.value = 'Boss Rush';
+                else if (this.data.slot_data.goal == 5)
+                    row_goal.value = 'Cannon\'s Core Boss Rush';
+                else if (this.data.slot_data.goal == 6)
+                    row_goal.value = 'Boss Rush Chaos Emerald Hunt';
+                else if (this.data.slot_data.goal == 7)
+                    row_goal.value = 'Chaos Chao';
+                else if (this.data.slot_data.goal == 8)
+                    row_goal.value = 'Minigame Madness';
+
+                res.push(row_goal);
+                if (row_requirement.value)
+                    res.push(row_requirement);
+
+
+                return res;
             },
             getImageClass: function () {
                 return this.$parent.getImageClass();

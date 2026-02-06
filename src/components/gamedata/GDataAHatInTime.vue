@@ -87,7 +87,55 @@ export default {
 
         methods: {
             getGoalDetails: function () {
-                return [];
+                if (!this.$parent.hasSlotData())
+                    return [];
+                var res = [];
+                var row_goal = { title: 'End Goal', value: null, details: null };
+
+                if (this.data.slot_data.EndGoal == 0)
+                    row_goal.value = 'Finale';
+                else if (this.data.slot_data.EndGoal == 1)
+                    row_goal.value = 'Rush Hour';
+                else if (this.data.slot_data.EndGoal == 2)
+                    row_goal.value = 'Seal the Deal';
+
+                res.push(row_goal);
+
+                var row_diff = { title: 'Difficulty', value: 'Normal', details: null };
+
+                if (this.data.slot_data.LogicDifficulty == 0)
+                    row_goal.value = 'Moderate';
+                else if (this.data.slot_data.LogicDifficulty == 1)
+                    row_goal.value = 'Hard';
+                else if (this.data.slot_data.LogicDifficulty == 2)
+                    row_goal.value = 'Expert';
+
+                res.push(row_diff);
+
+                var row_chapters = { title: 'Time Pieces to unlock chapters', value: "", details: null };
+                var chapters = [];
+                if (this.data.slot_data.hasOwnProperty('Chapter1Cost') && this.data.slot_data.Chapter1Cost > 0)
+                    chapters.push(this.data.slot_data.Chapter1Cost);
+                if (this.data.slot_data.hasOwnProperty('Chapter2Cost') && this.data.slot_data.Chapter2Cost > 0)
+                    chapters.push(this.data.slot_data.Chapter2Cost);
+                if (this.data.slot_data.hasOwnProperty('Chapter3Cost') && this.data.slot_data.Chapter3Cost > 0)
+                    chapters.push(this.data.slot_data.Chapter3Cost);
+                if (this.data.slot_data.hasOwnProperty('Chapter4Cost') && this.data.slot_data.Chapter4Cost > 0)
+                    chapters.push(this.data.slot_data.Chapter4Cost);
+                if (this.data.slot_data.hasOwnProperty('Chapter5Cost') && this.data.slot_data.Chapter5Cost > 0)
+                    chapters.push(this.data.slot_data.Chapter5Cost);
+                if (this.data.slot_data.hasOwnProperty('Chapter6Cost') && this.data.slot_data.Chapter6Cost > 0)
+                    chapters.push(this.data.slot_data.Chapter6Cost);
+                if (this.data.slot_data.hasOwnProperty('Chapter7Cost') && this.data.slot_data.Chapter7Cost > 0)
+                    chapters.push(this.data.slot_data.Chapter7Cost);
+                if (chapters.length) {
+                    chapters = chapters.sort((function (a, b) { return a - b; }));
+                    row_chapters.value = chapters.join(', ');
+                    res.push(row_chapters);
+                }
+
+
+                return res;
             },
             getImageClass: function () {
                 return this.$parent.getImageClass();

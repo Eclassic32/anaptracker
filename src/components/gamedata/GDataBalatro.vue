@@ -81,7 +81,56 @@ export default {
 
         methods: {
             getGoalDetails: function () {
-                return [];
+                if (!this.$parent.hasSlotData())
+                    return [];
+                var res = [];
+                var row_goal = { title: 'Goal', value: null, details: null };
+                var row_requirement = { title: 'Number of decks to beat', value: null, details: null };
+                var row_requirement2 = { title: 'Minimum Stake', value: null, details: null };
+
+                if (this.data.slot_data.goal == 0) {
+                    row_goal.value = 'Beat Decks';
+                    row_requirement.value = this.data.slot_data.decks_win_goal;
+                }
+                else if (this.data.slot_data.goal == 1) {
+                    row_goal.value = 'Unlock Jokers';
+                    row_requirement.title = 'Jokers to collect';
+                    row_requirement.value = this.data.slot_data.jokers_unlock_goal;
+                }
+                else if (this.data.slot_data.goal == 2) {
+                    row_goal.value = 'Beat Ante';
+                    row_requirement.title = 'Ante';
+                    row_requirement.value = this.data.slot_data.ante_win_goal;
+                }
+                else if (this.data.slot_data.goal == 3) {
+                    row_goal.value = 'Beat decks on stake';
+                    row_requirement.value = this.data.slot_data.decks_to_win;
+                    row_requirement2.value = this.data.slot_data.required_stake_for_goal.join(', ');
+                }
+                else if (this.data.slot_data.goal == 4) {
+                    row_goal.value = 'Win with Jokers on stake';
+                    row_requirement.title = 'Jokers to collect';
+                    row_requirement.value = this.data.slot_data.joker_goal;
+                    row_requirement2.value = this.data.slot_data.required_stake_for_goal.join(', ');
+                }
+                else if (this.data.slot_data.goal == 5) {
+                    row_goal.value = 'Beat Unique Decks';
+                    row_requirement.title = 'Number of decks/stakes combinaisons to beat';
+                    row_requirement.value = this.data.slot_data.unique_deck_win_goal;
+                }
+                else if (this.data.slot_data.goal == 6) {
+                    row_goal.value = 'Clear Challenges';
+                    row_requirement.title = 'Number of challenges to clear';
+                    row_requirement.value = this.data.slot_data.number_of_challenges_for_goal;
+                }
+
+                res.push(row_goal);
+                res.push(row_requirement);
+                if (row_requirement2.value)
+                    res.push(row_requirement2);
+
+
+                return res;
             },
             getImageClass: function () {
                 return this.$parent.getImageClass();
