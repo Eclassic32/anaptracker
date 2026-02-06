@@ -2,19 +2,10 @@
     <div v-if="this.data.slot_data.goal_mode != 'level_completion'" :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
         <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Goal</div>
 
-
-        <span v-if="this.data.slot_data.goal_mode != 'number_of_completions'" class="mr-2 text-xs">
+        <span class="mr-2 text-xs">
             <span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Contract Piece')  }">
-                <img title="Contract Pieces" src="/img/hitman_woa/goal.png" />
-                x{{ getNumberItemsFromName('Contract Piece') }} 
-            </span> 
-            / {{ this.data.slot_data.goal_amount }}
-        </span>
-
-        <!-- FIX: make it count levels -->
-        <span v-else class="mr-2 text-xs">
-            <span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Contract Piece')  }">
-                <img title="Completed Levels" src="/img/hitman_woa/target.png" />
+                <img v-if="this.data.slot_data.goal_mode == 'number_of_completions'" title="Completed Levels" src="/img/hitman_woa/target.png" />
+                <img v-else title="Contract Pieces" src="/img/hitman_woa/goal.png" />
                 x{{ getNumberItemsFromName('Contract Piece') }} 
             </span> 
             / {{ this.data.slot_data.goal_amount }}
@@ -135,34 +126,7 @@ export default {
                 row_goal_level.value = 'Unknown goal';
             }
 
-            // debug 
-            // row_goal_level.details = JSON.stringify(this.data.slot_data);
-
             res.push(row_goal_level);
-
-            var dlcs = [];
-            if (this.data.slot_data.include_b_sides)
-                dlcs.push('B Sides');
-            if (this.data.slot_data.include_c_sides)
-                dlcs.push('C Sides');
-            if (this.data.slot_data.include_core)
-                dlcs.push('Core');
-            if (this.data.slot_data.include_farewell)
-                dlcs.push('Empty Space');
-            if (this.data.slot_data.include_farewell == 2)
-                dlcs.push('Farewell');
-            if (this.data.slot_data.include_farewell)
-                dlcs.push('Golden Strawberries');
-
-
-            var row_dlc = { title: 'Included', value: null, details: null };
-            if (dlcs.length) {
-                row_dlc.value = dlcs.join(', ');
-                res.push(row_dlc);
-            }
-
-
-
 
             return res;
         },
