@@ -26,7 +26,7 @@ import GDataSuperMetroid from './components/gamedata/GDataSuperMetroid.vue';
 import GDataMajorasMask from './components/gamedata/GDataMajorasMask.vue';
 import GDataTerraria from './components/gamedata/GDataTerraria.vue';
 import GDataTheMinishCap from './components/gamedata/GDataTheMinishCap.vue';
-
+import GDataHitmanWOA from './components/gamedata/GDataHitmanWOA.vue';
 
 var LIST_OF_GAMES = [
     {
@@ -136,6 +136,10 @@ var LIST_OF_GAMES = [
     {
         'name': 'Super Metroid',
         'class': GDataSuperMetroid
+    },
+    {
+        'name': 'HITMAN World of Assassination',
+        'class': GDataHitmanWOA
     }
 ];
 
