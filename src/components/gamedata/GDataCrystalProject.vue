@@ -117,7 +117,54 @@ export default {
 
         methods: {
             getGoalDetails: function () {
-                return [];
+                if (!this.$parent.hasSlotData())
+                    return [];
+                var res = [];
+                var row_goal = { title: 'Goal', value: null, details: null };
+                var row_requirement = { title: 'Jobs required', value: null, details: null };
+                var row_regions = { title: 'Regions included', value: 'Beginner', details: null };
+
+                if (this.data.slot_data.goal == 0) {
+                    row_goal.value = 'Astley';
+                    row_requirement.value = this.data.slot_data.jobGoalAmount;
+                }
+                else if (this.data.slot_data.goal == 1) {
+                    row_goal.value = 'True Astley';
+                    row_requirement.value = this.data.slot_data.jobGoalAmount;
+                }
+                else if (this.data.slot_data.goal == 2) {
+                    row_goal.value = 'Clamshell Hunt';
+                    row_requirement.title = 'Clamshells required';
+                    row_requirement.value = this.data.slot_data.clamshellGoalQuantity;
+                }
+
+                res.push(row_goal);
+                res.push(row_requirement);
+
+                if (this.data.slot_data.includedRegionsOption == 1)
+                    row_regions.value = 'Advanced';
+                else if (this.data.slot_data.includedRegionsOption == 2)
+                    row_regions.value = 'Expert';
+                else if (this.data.slot_data.includedRegionsOption == 3)
+                    row_regions.value = 'All';
+                res.push(row_regions);
+
+                var dlcs = [];
+                if (this.data.slot_data.regionsanity)
+                    dlcs.push('Regionsanity');
+                if (this.data.slot_data.homePointHustle)
+                    dlcs.push('Home Points');
+                if (this.data.slot_data.shopsanity)
+                    dlcs.push('Shops');
+
+
+                var row_dlc = { title: 'Extra Shuffle', value: null, details: null };
+                if (dlcs.length) {
+                    row_dlc.value = dlcs.join(', ');
+                    res.push(row_dlc);
+                }
+
+                return res;
             },
             getImageClass: function () {
                 return this.$parent.getImageClass();

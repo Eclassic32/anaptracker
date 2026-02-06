@@ -238,29 +238,53 @@ export default {
                 dlcs = [];
                 if (this.data.slot_data.shuffle_boss_souls)
                     dlcs.push('Boss Souls');
-                if (this.data.slot_data.shuffle_skull_tokens)
+                if (this.data.slot_data.shuffle_skull_tokens == 1)
+                    dlcs.push('Skultulla Tokens (Dungeons)');
+                if (this.data.slot_data.shuffle_skull_tokens == 2)
+                    dlcs.push('Skultulla Tokens (OW)');
+                if (this.data.slot_data.shuffle_skull_tokens == 3)
                     dlcs.push('Skultulla Tokens');
                 if (this.data.slot_data.shuffle_scrubs > 1)
                     dlcs.push('Scrubs');
                 if (this.data.slot_data.shuffle_cows)
                     dlcs.push('Cows');
-                if (this.data.slot_data.shuffle_pots)
+                if (this.data.slot_data.shuffle_pots == 1)
+                    dlcs.push('Pots (Dungeons)');
+                if (this.data.slot_data.shuffle_pots == 2)
+                    dlcs.push('Pots (OW)');
+                if (this.data.slot_data.shuffle_pots == 3)
                     dlcs.push('Pots');
-                if (this.data.slot_data.shuffle_crates)
+                if (this.data.slot_data.shuffle_crates == 1)
+                    dlcs.push('Crates (Dungeons)');
+                if (this.data.slot_data.shuffle_crates == 2)
+                    dlcs.push('Crates (OW)');
+                if (this.data.slot_data.shuffle_crates == 3)
                     dlcs.push('Crates');
-                if (this.data.slot_data.shuffle_freestandings)
+                if (this.data.slot_data.shuffle_freestanding_items == 1)
+                    dlcs.push('Freestrandings (Dungeons)');
+                if (this.data.slot_data.shuffle_freestanding_items == 2)
+                    dlcs.push('Freestrandings (OW)');
+                if (this.data.slot_data.shuffle_freestanding_items == 3)
                     dlcs.push('Freestrandings');
                 if (this.data.slot_data.shuffle_beehives)
                     dlcs.push('Beehives');
                 if (this.data.slot_data.shuffle_freestandings)
                     dlcs.push('Freestrandings');
-                if (this.data.slot_data.shuffle_grass)
+                if (this.data.slot_data.shuffle_grass == 1)
+                    dlcs.push('Grass (Dungeons)');
+                if (this.data.slot_data.shuffle_grass == 2)
+                    dlcs.push('Grass (OW)');
+                if (this.data.slot_data.shuffle_grass == 3)
                     dlcs.push('Grass');
                 if (this.data.slot_data.shuffle_trees)
                     dlcs.push('Trees');
-                if (this.data.slot_data.shuffle_fish)
+                if (this.data.slot_data.shuffle_fish == 1)
+                    dlcs.push('Fishes (Pond)');
+                if (this.data.slot_data.shuffle_fish == 2)
+                    dlcs.push('Fishes (OW)');
+                if (this.data.slot_data.shuffle_fish == 3)
                     dlcs.push('Fishes');
-                if (this.data.slot_data.shuffle_fairies)
+                if (this.data.slot_data.shuffle_fountain_fairies)
                     dlcs.push('Fairies');
                 if (this.data.slot_data.shuffle_stone_fairies)
                     dlcs.push('Stone Fairies');
