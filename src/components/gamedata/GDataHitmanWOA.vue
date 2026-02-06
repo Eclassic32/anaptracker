@@ -2,7 +2,23 @@
     <div v-if="this.data.slot_data.goal_mode != 'level_completion'" :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
         <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Goal</div>
 
-        <img title="Contract Pieces" src="/img/hitman_woa/target.png" />
+
+        <span v-if="this.data.slot_data.goal_mode != 'number_of_completions'" class="mr-2 text-xs">
+            <span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Contract Piece')  }">
+                <img title="Contract Pieces" src="/img/hitman_woa/goal.png" />
+                x{{ getNumberItemsFromName('Contract Piece') }} 
+            </span> 
+            / {{ this.data.slot_data.goal_amount }}
+        </span>
+
+        <!-- FIX: make it count levels -->
+        <span v-else class="mr-2 text-xs">
+            <span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Contract Piece')  }">
+                <img title="Completed Levels" src="/img/hitman_woa/target.png" />
+                x{{ getNumberItemsFromName('Contract Piece') }} 
+            </span> 
+            / {{ this.data.slot_data.goal_amount }}
+        </span>
 
     </div>
 
@@ -153,6 +169,11 @@ export default {
         getImageClass: function () {
             return this.$parent.getImageClass();
         },
+        getNumberItemsFromName: function (name) {
+            return this.$parent.getNumberItemsFromName(name);
+        },
+
+        // FIX: it seems this is not correct way of getting single items
         isLevelAvailable: function (name) {
             if (this.isStartingLocation(name)) return true;
             return this.$parent.getNumberItemsFromName(`Level - ${name}`);
