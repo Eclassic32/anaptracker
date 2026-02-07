@@ -144,7 +144,8 @@ export default {
         },
         isStartingLocation: function (name) {
             const code = this.levels.find(l => l.name == name)?.code;
-            return this.data.slot_data.starting_location == code;
+            
+            return this.data.slot_data.starting_location_name == code;
         },
         isSeasonIncluded: function (season) {
             if (!this.$parent.hasSlotData())
