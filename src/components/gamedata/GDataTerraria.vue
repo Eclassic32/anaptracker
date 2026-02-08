@@ -56,7 +56,22 @@ export default {
 
         methods: {
             getGoalDetails: function () {
-                return [];
+                if (!this.$parent.hasSlotData())
+                    return [];
+                var res = [];
+                var row_goal = { title: 'Goal', value: null, details: null };
+
+                var goal_levels = ["Mechanical Bosses", "Calamitas Clone", "Plantera", "Golem", "Empress of Light", "Lunatic Cultist", "Astrum Deus",
+                    "Moon Lord", "Providence the Profaned Goddess", "Devouer of Gods", "Yharon Drgon of Rebirth", "Zenith", "Calamity Final Bosses", "Primordial Wyrm", "Boss Rush"];
+
+                if (this.data.slot_data.goal.length) {
+                    row_goal.value = this.data.slot_data.goal.join(', ');
+                    res.push(row_goal);
+                }
+
+
+
+                return res;
             },
             getImageClass: function () {
                 return this.$parent.getImageClass();

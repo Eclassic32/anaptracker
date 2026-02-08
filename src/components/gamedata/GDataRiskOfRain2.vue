@@ -58,7 +58,7 @@
     *   - 0 - Any
     *   - 1 - Mithrix (on Commencement)
     *   - 2 - Voidling (on The Planetarium)
-    *   - 3 - Limbo (on A Moment, Whole)
+    *   - 3 - Limbo (on A Moment, Whole, with Beads of Fealthy)
     *
     */
 export default {
@@ -79,7 +79,21 @@ export default {
 
         methods: {
             getGoalDetails: function () {
-                return [];
+                if (!this.$parent.hasSlotData())
+                    return [];
+                var res = [];
+                var row_goal = { title: 'Goal', value: 'Any', details: null };
+
+                if (this.data.slot_data.goal == 1)
+                    row_goal.value = 'Mithrix';
+                else if (this.data.slot_data.goal == 2)
+                    row_goal.value = 'Voidling';
+                else if (this.data.slot_data.goal == 3)
+                    row_goal.value = 'Limbo';
+
+                res.push(row_goal);
+
+                return res;
             },
             getImageClass: function () {
                 return this.$parent.getImageClass();

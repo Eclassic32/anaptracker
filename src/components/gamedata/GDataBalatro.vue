@@ -3,7 +3,7 @@
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Decks</div>
-            <span v-if="jockerGoal()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Joker')  }"><img title="Joker" src="/img/balatro/joker.png" />x{{ getNumberItemsFromName('Joker') }} </span> / {{ jockerGoal() }}</span>
+            <span v-if="jockerGoal()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getJokerCards()  }"><img title="Joker" src="/img/balatro/joker.png" />x{{ getJokerCards() }} </span> / {{ jockerGoal() }}</span>
             <span v-if="jockerGoal()" class="mr-2"></span>
 
             <img v-if="stakeExists(1, 'White Stake')" title="White Stake" src="/img/balatro/white_stake.png" :class="{ 'opacity-25': !getNumberItemsFromName('White Stake')  }" />
@@ -38,7 +38,7 @@
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Content</div>
 
 
-            <span v-if="!jockerGoal()" class="mr-2 text-xs font-bold" :class="{ 'opacity-25': !getNumberItemsFromCategory('Joker')  }"><img title="Joker Cards" src="/img/balatro/joker.png" />x{{ getNumberItemsFromCategory('Joker') }} </span>
+            <span v-if="!jockerGoal()" class="mr-2 text-xs font-bold" :class="{ 'opacity-25': !getJokerCards()  }"><img title="Joker Cards" src="/img/balatro/joker.png" />x{{ getJokerCards() }} </span>
             <span class="mr-2 text-xs font-bold" :class="{ 'opacity-25': !getPlanetCards()  }"><img title="Planet Cards" src="/img/balatro/planet.png" />x{{ getPlanetCards() }} </span>
             <span class="mr-2 text-xs font-bold" :class="{ 'opacity-25': !getSpectralCards()  }"><img title="Spectral Cards" src="/img/balatro/spectral.png" />x{{ getSpectralCards() }} </span>
             <span class="mr-2 text-xs font-bold" :class="{ 'opacity-25': !getTarotCards()  }"><img title="Tarot Cards" src="/img/balatro/tarot.png" />x{{ getTarotCards() }} </span>
@@ -140,6 +140,11 @@ export default {
             },
             getNumberItemsFromCategory: function (name) {
                 return this.$parent.getNumberItemsFromCategory(name);
+            },
+            getJokerCards: function () {
+                if (this.$parent.hasSlotData() && this.data.slot_data.jokerbundles.length > 0)
+                    return this.$parent.getNumberItemsNameStart('Joker Bundle') * this.data.slot_data.jokerbundles[0].length;
+                return this.getNumberItemsFromCategory('Joker');
             },
             getTarotCards: function () {
                 if (this.getNumberItemsFromName('Tarot Bundle'))
