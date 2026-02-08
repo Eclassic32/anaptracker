@@ -57,18 +57,28 @@ class StorageMaster {
         var stored = false;
         for (var x = 0; x < this.datapackages.length; x++) {
             if (this.datapackages[x].game == game) {
-                // If datapackage has changed version, we remove the old one.
-                if (this.datapackages[x].hash != hash)
-                    localStorage.removeItem(this.storage_prefix + '_DATAPACKAGE_' + this.datapackages[x].hash);
-                this.datapackages[x].hash = hash; 
-                this.datapackages[x].date = Date.now(); 
-                localStorage.setItem(this.storage_prefix + '_DATAPACKAGE_' + hash, data);
-                stored = true;
+                try {
+                    localStorage.setItem(this.storage_prefix + '_DATAPACKAGE_' + hash, data);
+                    // If datapackage has changed version, we remove the old one.
+                    if (this.datapackages[x].hash != hash)
+                        localStorage.removeItem(this.storage_prefix + '_DATAPACKAGE_' + this.datapackages[x].hash);
+                    this.datapackages[x].hash = hash; 
+                    this.datapackages[x].date = Date.now(); 
+                    stored = true;
+                }
+                catch {
+                    console.log('Registering failed : ' + this.storage_prefix + '_DATAPACKAGE_' + this.datapackages[x].hash);
                 }
             }
+        }
         if (!stored) {
-            this.datapackages.push(new_package);
-            localStorage.setItem(this.storage_prefix + '_DATAPACKAGE_' + hash, data);
+            try {
+                this.datapackages.push(new_package);
+                localStorage.setItem(this.storage_prefix + '_DATAPACKAGE_' + hash, data);
+            }
+            catch {
+                console.log('Registering failed : ' + this.storage_prefix + '_DATAPACKAGE_' + hash);
+            }
 
         }
         this.saveMaster();
@@ -93,14 +103,24 @@ class StorageMaster {
         var stored = false;
         for (var x = 0; x < this.rooms_stored.length; x++) {
             if (this.rooms_stored[x].hash == hash) {
-                this.rooms_stored[x].date = Date.now(); 
-                localStorage.setItem(this.storage_prefix + '_ROOM_' + hash, data);
-                stored = true;
+                try {
+                    this.rooms_stored[x].date = Date.now();
+                    localStorage.setItem(this.storage_prefix + '_ROOM_' + hash, data);
+                    stored = true;
+                }
+                catch {
+                    console.log('Registering failed : ' + this.storage_prefix + '_ROOM_' + hash);
                 }
             }
+        }
         if (!stored) {
-            this.rooms_stored.push(new_room);
-            localStorage.setItem(this.storage_prefix + '_ROOM_' + hash, data);
+            try {
+                this.rooms_stored.push(new_room);
+                localStorage.setItem(this.storage_prefix + '_ROOM_' + hash, data);
+            }
+            catch {
+                console.log('Registering failed : ' + this.storage_prefix + '_ROOM_' + hash);
+            }
 
         }
         this.rooms_stored.push(new_room);
