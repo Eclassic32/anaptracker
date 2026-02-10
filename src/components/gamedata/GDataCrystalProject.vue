@@ -183,7 +183,7 @@ export default {
             },
             logicalLevel: function (name) {
                 if (this.data.slot_data.progressiveLevelSize) {
-                    var level = (1 + this.getNumberItemsFromName('Item - Progressive Level')) * this.data.slot_data.progressiveLevelSize;
+                    var level = this.data.slot_data.startingLevel + this.getNumberItemsFromName('Item - Progressive Level') * this.data.slot_data.progressiveLevelSize;
                     if (level > this.data.slot_data.maxLevel)
                         level = this.data.slot_data.maxLevel;
                     return level;

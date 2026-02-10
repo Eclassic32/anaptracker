@@ -37,7 +37,9 @@
             <img v-else-if="shuffleSwim()" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Scale')  }" title="Bronze Scale" src="/img/oot/20_0.png" />
             <img v-else-if="getNumberItemsFromName('Progressive Scale') > 1" title="Gold Scale" src="/img/oot/20_2.png" />
             <img v-else title="Silver Scale" :class="{ 'opacity-25': !getNumberItemsFromName('Progressive Scale')  }" src="/img/oot/20_1.png" />
+            <img v-if="gerudoCard() " title="Gerudo Card" :class="{ 'opacity-25': !getNumberItemsFromName('Gerudo Membership Card')  }" src="/img/oot/52_1.png" />
 
+            <span class="mr-2"></span>
 
 
             <img v-if="getNumberItemsFromName('Progressive Ocarina') > 1" title="Ocarina of Time" src="/img/oot/46_2.png" />
@@ -307,6 +309,12 @@ export default {
             },
             getNumberItemsFromName: function (name) {
                 return this.$parent.getNumberItemsFromName(name);
+            },
+            gerudoCard: function () {
+                if (this.data.slot_data.hasOwnProperty('shuffle_gerudo_membership_card') && this.data.slot_data.shuffle_gerudo_membership_card) {
+                    return true;
+                }
+                return 0;
             },
             triforceHunt: function () {
                 if (this.data.slot_data.hasOwnProperty('triforce_hunt') && this.data.slot_data.triforce_hunt == 1) {
