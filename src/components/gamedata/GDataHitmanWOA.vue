@@ -130,13 +130,6 @@ export default {
 
             res.push(row_goal_level);
 
-            var row_debug = { title: 'Debug', value: null, details: null };
-            row_debug.value = this.data.slot_data;
-
-            res.push(row_debug);
-            console.log(this.data.slot_data);
-            
-
             return res;
         },
         getImageClass: function () {
