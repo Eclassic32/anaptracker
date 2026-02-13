@@ -1,14 +1,16 @@
 <template>
-    <div v-if="this.data.slot_data.goal_mode != 'level_completion'" :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
+    <div v-if="!isGoal('level_completion')" :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
         <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Goal</div>
 
         <span class="mr-2 text-xs">
             <span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Contract Piece')  }">
-                <img v-if="this.data.slot_data.goal_mode == 'number_of_completions'" title="Completed Levels" src="/img/hitman_woa/target.png" />
+                <img v-if="isGoal('number_of_completions')" title="Completed Levels" src="/img/hitman_woa/target.png" />
                 <img v-else title="Contract Pieces" src="/img/hitman_woa/goal.png" />
                 x{{ getNumberItemsFromName('Contract Piece') }} 
             </span> 
-            / {{ this.data.slot_data.goal_amount }}
+            <span v-if="getGoalAmount() > 0"> 
+                / {{ getGoalAmount() }}
+            </span>
         </span>
 
     </div>
@@ -128,6 +130,13 @@ export default {
 
             res.push(row_goal_level);
 
+            var row_debug = { title: 'Debug', value: null, details: null };
+            row_debug.value = this.data.slot_data;
+
+            res.push(row_debug);
+            console.log(this.data.slot_data);
+            
+
             return res;
         },
         getImageClass: function () {
@@ -137,19 +146,19 @@ export default {
             return this.$parent.getNumberItemsFromName(name);
         },
 
-        // FIX: it seems this is not correct way of getting single items
         isLevelAvailable: function (name) {
             if (this.isStartingLocation(name)) return true;
             return this.$parent.getNumberItemsFromName(`Level - ${name}`);
         },
         isStartingLocation: function (name) {
-            const code = this.levels.find(l => l.name == name)?.code;
+            if (!this.$parent.hasSlotData()) return name == 'ICA Facility'; // Default to ICA Facility if no slot data
             
+            const code = this.levels.find(l => l.name == name)?.code;
             return this.data.slot_data.starting_location_name == code;
         },
         isSeasonIncluded: function (season) {
             if (!this.$parent.hasSlotData())
-                return false;
+                return true;
             if (season == 's2') {
                 return (this.data.slot_data[`included_s2_locations`] && 
                         this.data.slot_data[`included_s2_locations`].length > 0) || (
@@ -159,10 +168,22 @@ export default {
             return this.data.slot_data[`included_${season}_locations`] && this.data.slot_data[`included_${season}_locations`].length > 0;
         },
         isLevelIncluded: function (season, level_code) {
+            console.log(this);
+            
             if (!this.$parent.hasSlotData())
-                return false;
+                return true;
             
             return this.data.slot_data[`included_${season}_locations`]?.includes(level_code);
+        },
+        isGoal(goal) {
+            if (!this.$parent.hasSlotData())
+                return goal == 'contract_collection';
+            return this.data.slot_data.goal_mode == goal;
+        },
+        getGoalAmount() {
+            if (!this.$parent.hasSlotData())
+                return 0;
+            return this.data.slot_data.goal_amount;
         }
     }
 }
