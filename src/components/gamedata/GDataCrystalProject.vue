@@ -152,6 +152,8 @@ export default {
                 var dlcs = [];
                 if (this.data.slot_data.regionsanity)
                     dlcs.push('Regionsanity');
+                if (this.data.slot_data.killBossesMode)
+                    dlcs.push('Bosses');
                 if (this.data.slot_data.homePointHustle)
                     dlcs.push('Home Points');
                 if (this.data.slot_data.shopsanity)

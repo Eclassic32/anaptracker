@@ -68,6 +68,17 @@
     * A Link to the Past
     *
     * Goal is to either beat specific dungeons or get Triforce Pieces.
+    * 
+    * 0 - Ganon : Climb GT, defeat Agahnim 2, and then kill Ganon
+    * 1 - Crystals: Only killing Ganon is required. However, items may still be placed in GT
+    * 2 - Bosses: Defeat the boss of all dungeons, including Agahnim's tower and GT (Aga 2)
+    * 3 - Pedestal: Pull the Triforce from the Master Sword pedestal
+    * 4 - Ganon Pedestal: Pull the Master Sword pedestal, then kill Ganon
+    * 5 - Triforce Hunt: Collect Triforce pieces spread throughout the worlds, then turn them in to Murahadala in front of Hyrule Castle
+    * 6 - Local Triforce Hunt: Collect Triforce pieces spread throughout your world, then turn them in to Murahadala in front of Hyrule Castle
+    * 7 - Ganon Triforce Hunt: Collect Triforce pieces spread throughout the worlds, then kill Ganon
+    * 8 - Local Ganon Triforce Hunt: Collect Triforce pieces spread throughout your world, then kill Ganon
+    * 
     */
 export default {
         name: "gDataALinkToThePast",
@@ -87,7 +98,105 @@ export default {
 
         methods: {
             getGoalDetails: function () {
-                return [];
+                if (!this.data.slot_data.hasOwnProperty('goal'))
+                    return [];
+                var res = [];
+
+                var row_goal = { title: 'Goal', value: 'Ganon (Agahnim 2)', details: null };
+                if (this.data.slot_data.goal == 1) {
+                    row_goal.value = 'Ganon (Crystals)';
+                }
+                else if (this.data.slot_data.goal == 2) {
+                    row_goal.value = 'Bosses';
+                }
+                else if (this.data.slot_data.goal == 3) {
+                    row_goal.value = 'Pedestal';
+                }
+                else if (this.data.slot_data.goal == 4) {
+                    row_goal.value = 'Pedestal and Ganon';
+                }
+                else if (this.data.slot_data.goal == 5) {
+                    row_goal.value = 'Triforce Hunt';
+                }
+                else if (this.data.slot_data.goal == 6) {
+                    row_goal.value = 'Local Triforce Hunt';
+                }
+                else if (this.data.slot_data.goal == 7) {
+                    row_goal.value = 'Triforce Hunt for Ganon';
+                }
+                else if (this.data.slot_data.goal == 8) {
+                    row_goal.value = 'Local Triforce Hunt for Ganon';
+                }
+
+                res.push(row_goal);
+
+                // Tower
+                var row_tmp = { title: 'Crystals for Tower', value: 'None', details: null };
+                if (this.data.slot_data.crystals_needed_for_gt) {
+                    row_tmp.value = this.data.slot_data.crystals_needed_for_gt;
+                }
+                res.push(row_tmp);
+
+                // Ganon
+                if (this.data.slot_data.goal == 1) {
+                    row_tmp = { title: 'Crystals for Ganon', value: 'None', details: null };
+                    if (this.data.slot_data.crystals_needed_for_ganon) {
+                        row_tmp.value = this.data.slot_data.crystals_needed_for_ganon;
+                    }
+                    res.push(row_tmp);
+                }
+
+                // Mode
+                row_tmp = { title: 'Mode', value: 'Vanilla', details: null };
+                if (this.data.slot_data.mode == 1)
+                    row_tmp.value = 'Open';
+                else if (this.data.slot_data.mode == 2)
+                    row_tmp.value = 'Inverted';
+               
+                res.push(row_tmp);
+
+                // Pyramid
+                row_tmp = { title: 'Pyramid Hole', value: 'Closed', details: null };
+                if (this.data.slot_data.open_pyramid == 1)
+                    row_tmp.value = 'Open';
+                else if (this.data.slot_data.open_pyramid == 2)
+                    row_tmp.value = 'Goal';
+                else if (this.data.slot_data.open_pyramid == 3)
+                    row_tmp.value = 'Auto';
+
+                res.push(row_tmp);
+
+
+                row_tmp = { title: 'Medaillon for Misery Mire', value: this.data.slot_data.mm_medalion, details: null };
+                res.push(row_tmp);
+                row_tmp = { title: 'Medaillon for Turtle Rock', value: this.data.slot_data.tr_medalion, details: null };
+                res.push(row_tmp);
+
+
+                var dlcs = [];
+                if ([3, 4].includes(this.data.slot_data.big_key_shuffle))
+                    dlcs.push('Big Keys');
+                if ([3,4].includes(this.data.slot_data.key_drop_shuffle))
+                    dlcs.push('Key Drops');
+                if ([3, 4].includes(this.data.slot_data.small_key_shuffle))
+                    dlcs.push('Small Keys');
+                if (this.data.slot_data.pot_shuffle)
+                    dlcs.push('Pots');
+                if (this.data.slot_data.enemy_shuffle)
+                    dlcs.push('Ennemies');
+                if (this.data.slot_data.boss_shuffle)
+                    dlcs.push('Bosses');
+                if (this.data.slot_data.entrance_shuffle)
+                    dlcs.push('Entrances');
+
+
+                var row_dlc = { title: 'Extra Shuffle', value: null, details: null };
+                if (dlcs.length) {
+                    row_dlc.value = dlcs.join(', ');
+                    res.push(row_dlc);
+                }
+
+                return res;
             },
             getImageClass: function () {
                 return this.$parent.getImageClass();

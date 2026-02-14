@@ -119,12 +119,9 @@ export default {
                 if (!this.$parent.hasSlotData())
                     return [];
                 var res = [];
-                var row_goal = { title: 'Goal', value: null, details: null };
+                var row_goal = { title: 'Goal', value: 'Any ending', details: null };
 
-                if (this.data.slot_data.options.Goal == 0) {
-                    row_goal.value = 'Any ending';
-                }
-                else if (this.data.slot_data.options.Goal == 1) {
+                if (this.data.slot_data.options.Goal == 1) {
                     row_goal.value = 'Hollow Knight';
                 }
                 else if (this.data.slot_data.options.Goal == 2) {
@@ -139,11 +136,27 @@ export default {
                 else if (this.data.slot_data.options.Goal == 5) {
                     row_goal.value = 'Godhome Flower';
                 }
-                else if (this.data.slot_data.options.Goal == 5) {
+                else if (this.data.slot_data.options.Goal == 6) {
                     row_goal.value = 'Grub hunt';
                 }
 
                 res.push(row_goal);
+
+
+                var dlcs = [];
+                if (this.data.slot_data.options.RandomizeBossEssence)
+                    dlcs.push('Boss Essence');
+                if (this.data.slot_data.options.RandomizeBossGeo)
+                    dlcs.push('Boss Geos');
+                if (this.data.slot_data.options.RandomizeGeoRocks)
+                    dlcs.push('Geo Rocks');
+
+
+                var row_dlc = { title: 'Extra Shuffle', value: null, details: null };
+                if (dlcs.length) {
+                    row_dlc.value = dlcs.join(', ');
+                    res.push(row_dlc);
+                }
 
                 return res;
             },
