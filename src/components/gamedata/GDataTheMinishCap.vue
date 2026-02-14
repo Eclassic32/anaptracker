@@ -53,15 +53,17 @@
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Moveset</div>
 
-            <img title="Spin Attack" src="/img/minish_cap/items/SpinAttack.png" :class="{ 'opacity-25': !getNumberItemsFromName('Spin Attack')  }" />
+            <img title="Spin Attack" src="/img/minish_cap/items/SpinAttack.png" :class="{ 'opacity-25': !getNumberItemsFromName('Spin Attack') && !getNumberItemsFromName('Progressive Spin Scroll') }" />
+            <img title="Fast Spin" src="/img/minish_cap/items/FastSpin.png" :class="{ 'opacity-25': !getNumberItemsFromName('Fast Spin Scroll') && getNumberItemsFromName('Progressive Spin Scroll') < 2  }" />
+            <img title="Fast Split" src="/img/minish_cap/items/FastSplit.png" :class="{ 'opacity-25': !getNumberItemsFromName('Fast Split Scroll') && getNumberItemsFromName('Progressive Spin Scroll') < 3  }" />
+            <img title="Greatspin" src="/img/minish_cap/items/GreatSpin.png" :class="{ 'opacity-25': !getNumberItemsFromName('Greatspin') && getNumberItemsFromName('Progressive Spin Scroll') < 4  }" />
+            <img title="Long Spin" src="/img/minish_cap/items/LongSpin.png" :class="{ 'opacity-25': !getNumberItemsFromName('Long Spin') && getNumberItemsFromName('Progressive Spin Scroll') < 5  }" />
+
+            <span class="mr-2"></span>
             <img title="Roll Attack" src="/img/minish_cap/items/RollAttack.png" :class="{ 'opacity-25': !getNumberItemsFromName('Roll Attack')  }" />
             <img title="Rock Breaker" src="/img/minish_cap/items/RockBreaker.png" :class="{ 'opacity-25': !getNumberItemsFromName('Rock Breaker')  }" />
             <img title="Dash Attack" src="/img/minish_cap/items/DashAttack.png" :class="{ 'opacity-25': !getNumberItemsFromName('Dash Attack')  }" />
             <img title="Down Thrust" src="/img/minish_cap/items/DownThrust.png" :class="{ 'opacity-25': !getNumberItemsFromName('DownThrust')  }" />
-            <img title="Fast Split" src="/img/minish_cap/items/FastSplit.png" :class="{ 'opacity-25': !getNumberItemsFromName('Fast Split Scroll')  }" />
-            <img title="Fast Spin" src="/img/minish_cap/items/FastSpin.png" :class="{ 'opacity-25': !getNumberItemsFromName('Fast Spin Scroll')  }" />
-            <img title="Greatspin" src="/img/minish_cap/items/GreatSpin.png" :class="{ 'opacity-25': !getNumberItemsFromName('Greatspin')  }" />
-            <img title="Long Spin" src="/img/minish_cap/items/LongSpin.png" :class="{ 'opacity-25': !getNumberItemsFromName('Long Spin')  }" />
             <img title="Sword Beam" src="/img/minish_cap/items/SwordBeam.png" :class="{ 'opacity-25': !getNumberItemsFromName('Sword Beam')  }" />
             <img title="Peril Beam" src="/img/minish_cap/items/PerilBeam.png" :class="{ 'opacity-25': !getNumberItemsFromName('Peril Beam')  }" />
         </div>
@@ -96,7 +98,66 @@ export default {
 
         methods: {
             getGoalDetails: function () {
-                return [];
+                if (!this.data.slot_data.hasOwnProperty('goal'))
+                    return [];
+                var res = [];
+
+                var row_goal = { title: 'Goal', value: 'Vaati', details: null };
+                if (this.data.slot_data.goal == 1) {
+                    row_goal.value = 'Pedestal';
+                }
+
+                res.push(row_goal);
+
+
+                // DHC
+                var row_tmp = { title: 'Dark Hyrule Castle access', value: 'Closed', details: null };
+                if (this.data.slot_data.dhc_access == 1)
+                    row_tmp.value = 'Pedestal';
+                else if (this.data.slot_data.dhc_access == 2)
+                    row_tmp.value = 'Open';
+
+                res.push(row_tmp);
+
+
+                if (this.data.slot_data.goal_dungeons) {
+                    row_tmp = { title: 'Pedestal Dungeons requirement', value: this.data.slot_data.goal_dungeons, details: null };
+                    res.push(row_tmp);
+
+                }
+                if (this.data.slot_data.goal_elements) {
+                    row_tmp = { title: 'Pedestal Elements requirement', value: this.data.slot_data.goal_elements, details: null };
+                    res.push(row_tmp);
+
+                }
+                if (this.data.slot_data.goal_figurines) {
+                    row_tmp = { title: 'Pedestal Figurines requirement', value: this.data.slot_data.goal_figurines, details: null };
+                    res.push(row_tmp);
+                }
+                if (this.data.slot_data.goal_swords) {
+                    row_tmp = { title: 'Pedestal Sword Level requirement', value: this.data.slot_data.goal_swords, details: null };
+                    var sword_level = ["Smith's Sword", "White Sword", "White Sword (Two Elements)", "White Sword (Three Elements)", "Four Sword"];
+                    row_tmp.details = sword_level[this.data.slot_data.goal_swords - 1];
+                    res.push(row_tmp);
+                }
+
+
+                var dlcs = [];
+                if (this.data.slot_data.shuffle_digging)
+                    dlcs.push('Digging');
+                if (this.data.slot_data.shuffle_pots)
+                    dlcs.push('Pots');
+                if (this.data.slot_data.shuffle_rupees)
+                    dlcs.push('Rupees');
+
+
+                var row_dlc = { title: 'Extra Shuffle', value: null, details: null };
+                if (dlcs.length) {
+                    row_dlc.value = dlcs.join(', ');
+                    res.push(row_dlc);
+                }
+
+                return res;
             },
             getImageClass: function () {
                 return this.$parent.getImageClass();
