@@ -31,15 +31,16 @@
             <img v-if="itemfinderRequired()" title="Itemfinder" src="/img/pokemon_frlg/items/itemfinder.png" :class="{ 'opacity-25': !getNumberItemsFromName('Itemfinder')  }" />
             <img v-if="fameCheckerRequired()" title="Fame Checker" src="/img/pokemon_frlg/items/fame_checker.png" :class="{ 'opacity-25': !getNumberItemsFromName('Fame Checker')  }" />
             <img v-if="tmCaseShuffle()" title="TM Case" src="/img/pokemon_frlg/items/tm_case.png" :class="{ 'opacity-25': !getNumberItemsFromName('TM Case')  }" />
-            
+
             <img v-if="superBicycle() && hasAccroBike()" title="Acrobatic Bicycle" src="/img/pokemon_frlg/items/acro_bike.png" />
             <img v-else title="Bicycle" src="/img/pokemon_frlg/items/bicycle.png" :class="{ 'opacity-25': !getNumberItemsFromName('Bicycle')  }" />
             <img v-if="jumpingShoes()" title="Jumping Shoes" src="/img/pokemon_frlg/items/jumping_shoes.png" :class="{ 'opacity-25': !getNumberItemsFromName('Jumping Shoes')  }" />
 
 
-            <img v-if="oakParcel()" title="Oak's Parcel'" src="/img/pokemon_frlg/items/oaks_parcel.png" :class="{ 'opacity-25': !getNumberItemsFromName('Oak\'s Parcel')  }" />
+            <img v-if="oakParcel()" title="Oak's Parcel" src="/img/pokemon_frlg/items/oaks_parcel.png" :class="{ 'opacity-25': !getNumberItemsFromName('Oak\'s Parcel')  }" />
             <img title="S.S. Ticket" src="/img/pokemon_frlg/items/ss_ticket.png" :class="{ 'opacity-25': !getNumberItemsFromName('S.S. Ticket')  }" />
-            <img title="S.S. Ticket" src="/img/pokemon_frlg/items/poke_flute.png" :class="{ 'opacity-25': !getNumberItemsFromName('Poke Flute')  }" />
+            <img title="Poke Flute" src="/img/pokemon_frlg/items/poke_flute.png" :class="{ 'opacity-25': !getNumberItemsFromName('Poke Flute')  }" />
+            <img v-if="scopeRequired()" title="Silph Scope" src="/img/pokemon_frlg/items/silph_scope.png" :class="{ 'opacity-25': !getNumberItemsFromName('Silph Scope')  }" />
             <img v-if="extraKeyItems()" title="Hideout Key" src="/img/pokemon_frlg/items/hideout_key.png" :class="{ 'opacity-25': !getNumberItemsFromName('Hideout Key')  }" />
             <img v-if="extraKeyItems()" title="Safari Pass" src="/img/pokemon_frlg/items/safari_pass.png" :class="{ 'opacity-25': !getNumberItemsFromName('Safari Pass')  }" />
             <img v-if="extraKeyItems()" title="Machine Part" src="/img/pokemon_frlg/items/machine_part.png" :class="{ 'opacity-25': !getNumberItemsFromName('Machine Part')  }" />
@@ -131,7 +132,7 @@ export default {
                     res.push(row_badges2);
 
                 // Viridian Gym
-                var row_tmp = { title: 'Viridian Gym requirement', value: null, details: null };
+                var row_tmp = { title: 'Viridian Gym requirment', value: null, details: null };
                 if (this.data.slot_data.viridian_gym_requirement) {
                     if (this.data.slot_data.viridian_gym_count > 1)
                         row_tmp.value = this.data.slot_data.viridian_gym_count + ' gyms';
@@ -148,7 +149,7 @@ export default {
                     res.push(row_tmp);
 
                 // Cerulean Cave
-                var row_tmp = { title: 'Cerulean Cave requirement', value: null, details: null };
+                var row_tmp = { title: 'Cerulean Cave requirment', value: null, details: null };
                 if (this.data.slot_data.cerulean_cave_requirement) {
                     if (this.data.slot_data.cerulean_cave_count > 1)
                         row_tmp.value = this.data.slot_data.cerulean_cave_count + ' gyms';
@@ -163,6 +164,17 @@ export default {
                 }
                 if (row_tmp.value)
                     res.push(row_tmp);
+
+                var row_roadblocks = { title: 'World update', value: null, details: null };
+                if (this.data.slot_data.modify_world_state.length) {
+                    row_roadblocks.value = this.data.slot_data.modify_world_state.join(', ');
+                    res.push(row_roadblocks);
+                }
+                row_roadblocks = { title: 'Remove Badge requirment', value: null, details: null };
+                if (this.data.slot_data.remove_badge_requirement.length) {
+                    row_roadblocks.value = this.data.slot_data.remove_badge_requirement.join(', ');
+                    res.push(row_roadblocks);
+                }
 
                 var row_pkmn = { title: 'Caught number for Oak\'s aide', value: 0, details: null };
                 var settings = ['oaks_aide_route_2', 'oaks_aide_route_10', 'oaks_aide_route_11', 'oaks_aide_route_15', 'oaks_aide_route_16'];
@@ -191,6 +203,12 @@ export default {
             countCardKeys: function () {
                 return this.$parent.getNumberItemsFromName('Progressive Card Key') + this.$parent.getNumberItemsNameStart('Card Key');
             }, 
+            scopeRequired: function () {
+                if (this.data.slot_data.hasOwnProperty('modify_world_state')) {
+                    return !this.data.slot_data.modify_world_state.includes('Open Silph') || this.data.slot_data.modify_world_state.includes('Block Tower');
+                }
+                return false;
+            },
             roundTwo: function () {
                 if (this.data.slot_data.hasOwnProperty('goal')) {
                     return this.data.slot_data.goal;
@@ -210,8 +228,8 @@ export default {
                 return 0;
             }, 
             fameCheckerRequired: function () {
-                if (this.data.slot_data.hasOwnProperty('fame_checker_required')) {
-                    return this.data.slot_data.fame_checker_required;
+                if (this.data.slot_data.hasOwnProperty('fame_checker_required') && this.data.slot_data.hasOwnProperty('famesanity')) {
+                    return this.data.slot_data.fame_checker_required && this.data.slot_data.famesanity;
                 }
                 return 1;
             },
@@ -267,7 +285,7 @@ export default {
             },
             oakParcel: function () {
                 if (this.data.slot_data.hasOwnProperty('viridian_city_roadblock')) {
-                    return !this.data.slot_data.viridian_city_roadblock;
+                    return this.data.slot_data.viridian_city_roadblock;
                 }
                 return this.getNumberItemsFromName('Oak\'s Parcel');
             },
