@@ -394,7 +394,7 @@ export default {
                 if (game_data && game_data.location_name_to_id) {
                     return Object.keys(game_data.location_name_to_id).find(key => game_data.location_name_to_id[key] === id);
                 }
-                return '';
+                return '???';
 
             },
             getItemName: function (id) {
@@ -402,7 +402,7 @@ export default {
                 if (game_data && game_data.item_name_to_id) {
                     return Object.keys(game_data.item_name_to_id).find(key => game_data.item_name_to_id[key] === id);
                 }
-                return '';
+                return '???';
 
             },
             slotURL: function () {
