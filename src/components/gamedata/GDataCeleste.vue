@@ -128,7 +128,7 @@ export default {
                     dlcs.push('Empty Space');
                 if (this.data.slot_data.include_farewell == 2)
                     dlcs.push('Farewell');
-                if (this.data.slot_data.include_farewell)
+                if (this.data.slot_data.include_golden)
                     dlcs.push('Golden Strawberries');
 
 
