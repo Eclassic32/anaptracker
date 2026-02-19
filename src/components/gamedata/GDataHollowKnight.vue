@@ -186,7 +186,7 @@ export default {
                 return 0;
             },
             dreamNailLevel: function () {
-                return this.$parent.getNumberItemsFromGroup(['Dream_Nail'], ['Dream_Gate'], ['Awoken_Dream_Nail']);
+                return this.$parent.getNumberItemsFromGroup(['Dream_Nail', 'Dream_Gate', 'Awoken_Dream_Nail']);
             },
             siblingsGoal: function () {
                 if (this.data.slot_data.hasOwnProperty('options') && this.data.slot_data.options.Goal != 2) {
