@@ -90,25 +90,25 @@ export default {
                 if (!this.$parent.hasSlotData())
                     return [];
                 var res = [];
-                var row_goal = { title: 'End Goal', value: null, details: null };
+                var row_goal = { title: 'End Goal', value: 'Finale', details: null };
 
-                if (this.data.slot_data.EndGoal == 0)
+                if (this.data.slot_data.EndGoal == 1)
                     row_goal.value = 'Finale';
-                else if (this.data.slot_data.EndGoal == 1)
-                    row_goal.value = 'Rush Hour';
                 else if (this.data.slot_data.EndGoal == 2)
+                    row_goal.value = 'Rush Hour';
+                else if (this.data.slot_data.EndGoal == 3)
                     row_goal.value = 'Seal the Deal';
 
                 res.push(row_goal);
 
                 var row_diff = { title: 'Difficulty', value: 'Normal', details: null };
 
-                if (this.data.slot_data.LogicDifficulty == 0)
-                    row_goal.value = 'Moderate';
-                else if (this.data.slot_data.LogicDifficulty == 1)
-                    row_goal.value = 'Hard';
+                if (this.data.slot_data.LogicDifficulty == 1)
+                    row_diff.value = 'Moderate';
                 else if (this.data.slot_data.LogicDifficulty == 2)
-                    row_goal.value = 'Expert';
+                    row_diff.value = 'Hard';
+                else if (this.data.slot_data.LogicDifficulty == 3)
+                    row_diff.value = 'Expert';
 
                 res.push(row_diff);
 
