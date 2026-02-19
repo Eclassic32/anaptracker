@@ -104,14 +104,16 @@ export default {
                 }
                 else if (this.data.slot_data.goal == 3) {
                     row_goal.value = 'Beat decks on stake';
-                    row_requirement.value = this.data.slot_data.decks_to_win;
-                    row_requirement2.value = this.data.slot_data.required_stake_for_goal.join(', ');
+                    row_requirement.value = this.data.slot_data.decks_win_goal;
+                    if (this.data.slot_data.hasOwnProperty('required_stake_for_goal'))
+                        row_requirement2.value = this.data.slot_data.required_stake_for_goal.join(', ');
                 }
                 else if (this.data.slot_data.goal == 4) {
                     row_goal.value = 'Win with Jokers on stake';
                     row_requirement.title = 'Jokers to collect';
                     row_requirement.value = this.data.slot_data.joker_goal;
-                    row_requirement2.value = this.data.slot_data.required_stake_for_goal.join(', ');
+                    if (this.data.slot_data.hasOwnProperty('required_stake_for_goal'))
+                        row_requirement2.value = this.data.slot_data.required_stake_for_goal.join(', ');
                 }
                 else if (this.data.slot_data.goal == 5) {
                     row_goal.value = 'Beat Unique Decks';
