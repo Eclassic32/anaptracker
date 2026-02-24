@@ -7,6 +7,8 @@
             <img title="Goht's Remains" src="/img/mm/equipment/goht.png" :class="{ 'opacity-25': !getNumberItemsFromName('Goht\'s Remains')  }" />
             <img title="Gyorg's Remains" src="/img/mm/equipment/gyorg.png" :class="{ 'opacity-25': !getNumberItemsFromName('Gyorg\'s Remains')  }" />
             <img title="Twinmold's Remains" src="/img/mm/equipment/twinmold.png" :class="{ 'opacity-25': !getNumberItemsFromName('Twinmold\'s Remains')  }" />
+            <span class="mr-2"></span>
+            <img title="Oath to Order" src="/img/mm/equipment/song_oath.png" :class="{ 'opacity-25': !getNumberItemsFromName('Oath to Order')  }" />
         </div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
@@ -43,8 +45,9 @@
             <img title="Fierce Deity's Mask" src="/img/mm/masks/fierce_deity.png" :class="{ 'opacity-25': !getNumberItemsFromName('Fierce Deity\'s Mask')  }" />
             <img title="Kafei's Mask" src="/img/mm/masks/kafei_mask.png" :class="{ 'opacity-25': !getNumberItemsFromName('Kafei\'s Mask')  }" />
             <img title="Great Fairy Mask" src="/img/mm/masks/fairy_mask.png" :class="{ 'opacity-25': !getNumberItemsFromName('Great Fairy Mask')  }" />
-            <img v-if="getNumberItemsFromName('Gibdo Mask') > 2" title="Ikana Pass - Gibdo Mask" src="/img/mm/masks/gibdo.png" />
-            <img v-else title="Ikana Pass - Garo Mask" src="/img/mm/masks/garo_mask.png" :class="{ 'opacity-25': !getNumberItemsFromName('Garo Mask')  }" />
+            <img title="Garo Mask" src="/img/mm/masks/garo_mask.png" :class="{ 'opacity-25': !getNumberItemsFromName('Garo Mask')  }" />
+            <img title="Gibdo Mask" src="/img/mm/masks/gibdo.png" :class="{ 'opacity-25': !getNumberItemsFromName('Gibdo Mask')  }" />
+            <img title="Don Gero Mask" src="/img/mm/masks/don_gero.png" :class="{ 'opacity-25': !getNumberItemsFromName('Don Gero Mask')  }" />
         </div>
 
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
@@ -59,7 +62,6 @@
             <img title="Goron's Lullaby" src="/img/mm/equipment/song_lullaby.png" :class="{ 'opacity-25': !getNumberItemsFromName('Goron Lullaby')  }" />
             <img title="New Wave Bossa Nova" src="/img/mm/equipment/song_bossa_nova.png" :class="{ 'opacity-25': !getNumberItemsFromName('New Wave Bossa Nova')  }" />
             <img title="Elegy of Emptiness" src="/img/mm/equipment/song_elegy.png" :class="{ 'opacity-25': !getNumberItemsFromName('Elegy of Emptiness')  }" />
-            <img title="Oath to Order" src="/img/mm/equipment/song_oath.png" :class="{ 'opacity-25': !getNumberItemsFromName('Oath to Order')  }" />
         </div>
     </div>
 </template>
@@ -90,7 +92,47 @@ export default {
 
         methods: {
             getGoalDetails: function () {
-                return [];
+                if (!this.$parent.hasSlotData())
+                    return [];
+                var res = [];
+                var row_majora = { title: 'Remains needed for Majora', value: this.data.slot_data.majora_remains_required, details: null };
+                var row_moon = { title: 'Remains needed for the moon', value: this.data.slot_data.moon_remains_required, details: null };
+
+
+                res.push(row_majora);
+                res.push(row_moon);
+
+                var row_fairies = { title: 'Fairies required for Great Rewards', value: this.data.slot_data.required_stray_fairies, details: null };
+                var row_skultullas = { title: 'Skultullas tokens required to uncurse', value: this.data.slot_data.required_skull_tokens, details: null };
+
+                res.push(row_fairies);
+                res.push(row_skultullas);
+
+                var dlcs = []; 
+                if (this.data.slot_data.keysanity)
+                    dlcs.push('Small Keys');
+                if (this.data.slot_data.bosskeysanity)
+                    dlcs.push('Boss Keys');
+                if (this.data.slot_data.fairysanity)
+                    dlcs.push('Stray Fairies');
+                if (this.data.slot_data.skullsanity)
+                    dlcs.push('Skultullas Tokens');
+                if (this.data.slot_data.scrubsanity)
+                    dlcs.push('Scrubs');
+                if (this.data.slot_data.cowsanity)
+                    dlcs.push('Cows');
+                if (this.data.slot_data.shopsanity > 1)
+                    dlcs.push('Shops');
+                if (this.data.slot_data.curiostity_shop_trades)
+                    dlcs.push('Shop Trades');
+
+
+                var row_dlc = { title: 'Extra Shuffle', value: null, details: null };
+                if (dlcs.length) {
+                    row_dlc.value = dlcs.join(', ');
+                    res.push(row_dlc);
+                }
+                return res;
             },
             getImageClass: function () {
                 return this.$parent.getImageClass();

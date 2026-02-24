@@ -263,6 +263,8 @@ export default {
                     dlcs.push('Boss Keys');
                 if (this.data.slot_data.shuffle_boss_souls)
                     dlcs.push('Boss Souls');
+                if (this.data.slot_data.shuffle_shops && this.data.slot_data.shuffle_shops_item_amount)
+                    dlcs.push('Shops (' + this.data.slot_data.shuffle_shops_item_amount + ')');
                 if (this.data.slot_data.shuffle_skull_tokens == 1)
                     dlcs.push('Skultulla Tokens (Dungeons)');
                 if (this.data.slot_data.shuffle_skull_tokens == 2)
