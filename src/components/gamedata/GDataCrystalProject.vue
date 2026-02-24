@@ -7,7 +7,7 @@
 
             <span v-if="trueAstley()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getNumberItemsFromName('Item - Deity Eye')  }"><img title="Deity Eye" src="/img/crystal_project/keys/deity eye.png" />x{{ getNumberItemsFromName('Item - Deity Eye') }} </span></span>
 
-            <img v-if="trueAstley()" title="S.T.E.M. Ward" src="/img/crystal_project/keys/STEM Ward.png" :class="{ 'opacity-25': !getNumberItemsFromName('S.T.E.M. Ward')  }" />
+            <img v-if="trueAstley()" title="STEM WARD" src="/img/crystal_project/keys/STEM Ward.png" :class="{ 'opacity-25': !getNumberItemsFromName('Item - STEM WARD')  }" />
 
             <span v-if="getJobsGoal()" class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getJobs()  }"><img title="Jobs" src="/img/crystal_project/system/crystal.png" />x{{ getJobs() }} / {{ getJobsGoal() }} </span></span>
             <span v-else class="mr-2 text-xs"><span class="font-bold" :class="{ 'opacity-25': !getJobs()  }"><img title="Jobs" src="/img/crystal_project/system/crystal.png" />x{{ getJobs() }} </span></span>
