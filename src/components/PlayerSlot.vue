@@ -354,7 +354,7 @@ export default {
              * 4 : found ?
              * 5 : Entrance Label
              * 6 : Item classification
-             * 7 : Hint classification (Avoid, Non-important, Important, Found)
+             * 7 : Hint classification (???, Non-important, Avoid, Important, Found)
              * 
              */
             getImportantSentHints: function () {
