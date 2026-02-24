@@ -21,8 +21,11 @@
         <div :class="getImageClass()" class="inline-block bg-stone-100/40 rounded-xs p-[2px] pl-[4px] pb-[4px] mx-2 bg-opacity-25">
             <div v-if="$parent.get_size()" class="text-xs font-normal text-left">Inventory</div>
 
-            <img title="Kokiri Sword" src="/img/oot/22_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Kokiri Sword')  }" />
-            <img title="Master Sword" src="/img/oot/23_2.png" :class="{ 'opacity-25': !hasMasterSword()  }" />
+            <img v-if="getNumberItemsFromName('Kokiri Sword')" title="Kokiri Sword" src="/img/oot/22_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Kokiri Sword')  }" />
+            <img v-else title="Deku Sticks" src="/img/oot/47_1.png" :class="{ 'opacity-25': hasDekuSticks()  }" />
+            <img v-if="hasMasterSword()" title="Master Sword" src="/img/oot/23_2.png" :class="{ 'opacity-25': !hasMasterSword()  }" />
+            <img v-else-if="1" title="Biggoron Sword" src="/img/oot/24_2.png" :class="{ 'opacity-25': !getNumberItemsFromName('Biggoron\'s Sword')  }" />
+            <img v-else-if="!shuffleKnife()" title="Giant's Knife" src="/img/oot/24_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Giant Knife')   }" />
             <img v-if="getNumberItemsFromName('Mirror Shield')" title="Mirror Shield" src="/img/oot/27_1.png" />
             <img v-else src="/img/oot/26_1.png" title="Hylian Shield" :class="{ 'opacity-25': !getNumberItemsFromName('Hylian Shield')  }" />
             <img title="Iron Boots" src="/img/oot/32_1.png" :class="{ 'opacity-25': !getNumberItemsFromName('Iron Boots')  }" />
@@ -213,6 +216,20 @@ export default {
 
                 res.push(row_tmp);
 
+                var row_key = { title: 'Small Key configuration', value: null, details: null };
+                var dlcs = [];
+                if (this.data.slot_data.key_rings && this.data.slot_data.key_rings_count)
+                    dlcs.push('Keyring (' + this.data.slot_data.key_rings_count + ')');
+                if (this.data.slot_data.small_key_shuffle == 2)
+                    dlcs.push('Shuffled on any dungeon');
+                if (this.data.slot_data.small_key_shuffle == 3)
+                    dlcs.push('Shuffled on overworld');
+                if (this.data.slot_data.small_key_shuffle == 4)
+                    dlcs.push('Shuffled anywhere');
+                if (dlcs.length) {
+                    row_key.value = dlcs.join(', ');
+                    res.push(row_key);
+                }
 
                 var dlcs = [];
                 if (this.data.slot_data.shuffle_master_sword)
@@ -238,6 +255,12 @@ export default {
                 }
 
                 dlcs = [];
+                if (this.data.slot_data.boss_key_shuffle == 2)
+                    dlcs.push('Boss Keys (dungeon)');
+                if (this.data.slot_data.boss_key_shuffle == 3)
+                    dlcs.push('Boss Keys (OW)');
+                if (this.data.slot_data.boss_key_shuffle == 4)
+                    dlcs.push('Boss Keys');
                 if (this.data.slot_data.shuffle_boss_souls)
                     dlcs.push('Boss Souls');
                 if (this.data.slot_data.shuffle_skull_tokens == 1)
@@ -387,20 +410,32 @@ export default {
                     }
                 }
                 return res;
+            }, 
+            hasDekuSticks: function () {
+                if (this.data.slot_data.hasOwnProperty('shuffle_deku_stick_bag')) {
+                    return this.getNumberItemsFromName('Progressive Stick Capacity');
+                }
+                return 1;
             },
-            shuffleSwim: function (name) {
+            shuffleKnife: function () {
+                if (this.data.slot_data.hasOwnProperty('shuffle_merchants') && this.data.slot_data.shuffle_merchants > 1) {
+                    return 1;
+                }
+                return 0;
+            },
+            shuffleSwim: function () {
                 if (this.data.slot_data.hasOwnProperty('shuffle_swim')) {
                     return this.data.slot_data.shuffle_swim;
                 }
                 return 0;
             },
-            hasMasterSword: function (name) {
+            hasMasterSword: function () {
                 if (this.data.slot_data.hasOwnProperty('shuffle_master_sword') && this.data.slot_data.shuffle_master_sword == 1) {
                     return this.getNumberItemsFromName('Master Sword');
                 }
                 return 1;
             },
-            hasBottle: function (name) {
+            hasBottle: function () {
                 if (this.getNumberItemsFromName('Empty Bottle') || this.getNumberItemsNameStart('Bottle with')) {
                     return true;
                 }
